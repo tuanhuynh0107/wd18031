@@ -16,6 +16,7 @@ html {
 :root {
     --primary-color--font: #181D19;
     --primary-color--font2: #ababab;
+    --primary-color--font3: #FEFEFD;
 }
 
 .root {
@@ -114,9 +115,6 @@ html {
 
 
 .header {
-    position: fixed;
-    top: 0;
-    z-index: 1000;
     margin-top: 23px;
     width: 100%;
     justify-content: space-between;
@@ -134,7 +132,7 @@ html {
     color: var(--primary-color--font2);
     font-size: 1.4rem;
     font-weight: 400;
-    margin-top: 7px;
+    margin-top: 11px;
 }
 
 /* header__atc  */
@@ -154,10 +152,6 @@ html {
     outline: none;
     border: none;
     border-radius: 999px;
-}
-
-.formSearch {
-    position: relative;
 }
 
 .icon_input {
@@ -185,5 +179,53 @@ html {
 .user__title {
     color: var(--primary-color--font);
     font-size: 1.4rem;
+    font-weight: 500;
+}
+
+
+/* total product */
+.box-total {
+    margin-top: 44px;
+}
+
+.total_product {
+    height: 129px;
+    width: 259px;
+    border-radius: 13px;
+    background: #879FFF;
+    align-items: flex-start;
+    gap: 26px;
+}
+
+.total_product__content {
+    gap: 17px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 17px;
+}
+
+.total_product__icon {
+    margin-left: 12px;
+    margin-top: 17px;
+}
+
+
+
+.total_product__content--title {
+    color: var(--primary-color--font3);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+
+.total_product__content--qty {
+    color: var(--primary-color--font3);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.total_product__content--desc {
+    color: var(--primary-color--font3);
+    font-size: 1.1rem;
     font-weight: 500;
 }

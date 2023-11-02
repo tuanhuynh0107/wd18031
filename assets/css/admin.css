@@ -36,7 +36,8 @@ html {
     background: #fff;
     padding: 21px 25px;
     width: 275px;
-    height: auto;
+    height: 100vh;
+    position: fixed;
 }
 
 
@@ -70,7 +71,7 @@ html {
 .main__menu {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .main__menu--li {
@@ -433,7 +434,7 @@ html {
 }
 
 .notify__post,
-.notify__comment {
+.notify__comment,.notify__revenue {
     width: 100%;
     height: auto;
     padding: 10px 24px;
@@ -516,4 +517,34 @@ html {
     color: var(--primary-color--font3);
     background-color: var(--primary-color--bg);
 
+}
+
+
+/* revence */
+
+
+.revenue__heading--title {
+    color: var(--primary-color--font);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.revenue__chart {
+   width: 100%;
+   justify-content: right;
+}
+
+.chart__content {
+    position: relative;
+    width: 90%;
+    margin-top: 57px;
+    background-color:#F9FAFC;
+    justify-content: left;
+}
+
+.notify__chart {
+    position: absolute;
+    margin: 33px 12px  2px 11px;
+    right: 0;
+    bottom: 0;
 }

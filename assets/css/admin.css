@@ -187,15 +187,27 @@ html {
 }
 
 
+
+
+/*  main notify */
+
+.main {
+    margin-top: 44px;
+    align-items: flex-start;
+}
+
+
 /* total product */
 .box-total {
-    margin-top: 44px;
     gap: 12px;
+    flex-grow: 1;
+    /* background-color: #fff; */
+    justify-content: space-between;
 }
 
 .total_product {
     height: 129px;
-    width: 259px;
+    width: 33%;
     border-radius: 13px;
     background: #fff;
     align-items: flex-start;
@@ -251,4 +263,10 @@ html {
     color: var(--primary-color--font);
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+.notify {
+    width: 251px;
+    background-color: #fff;
+    height: 100vh;
 }

@@ -10,6 +10,7 @@ body {
 html {
     font-size: 62.5%;
 }
+
 .row {
     display: flex;
     align-items: center;
@@ -119,7 +120,7 @@ html {
     margin-top: 23px;
     width: 100%;
     justify-content: space-between;
-  
+
 }
 
 /* header__name  */
@@ -193,7 +194,7 @@ html {
 /*  main notify */
 
 .main {
-       margin-top: 44px;
+    margin-top: 44px;
     align-items: flex-start;
 }
 
@@ -208,8 +209,8 @@ html {
 }
 
 .box-total {
-   width: 100%;
-   gap: 24px;
+    width: 100%;
+    gap: 24px;
 }
 
 .total_product {
@@ -293,7 +294,7 @@ html {
     font-weight: 500;
 }
 
-.revenue__top--hendel{
+.revenue__top--hendel {
     border: none;
     padding: 9px 13px;
     border-radius: 6px;
@@ -305,12 +306,13 @@ html {
 /* revenue__content--chart */
 
 .revenue__content {
-    position: relative; 
+    position: relative;
     margin-top: 44px;
     padding-left: 78px;
     padding-right: 42px;
     padding-bottom: 45px;
 }
+
 .revenue__content--chart {
     width: 100%;
     height: 267px;
@@ -324,7 +326,7 @@ html {
     border-bottom: 1px solid #e3e9f0;
 }
 
-.revenue__content--price {  
+.revenue__content--price {
     position: absolute;
     flex-direction: column;
     gap: 38px;
@@ -344,9 +346,9 @@ html {
     /* margin-left: 34px; */
     width: 100%;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
     bottom: 32px;
-    left: 131px;
+    left: 111px;
 }
 
 .revenue__content--column {
@@ -359,6 +361,7 @@ html {
     font-size: 1.4rem;
     font-weight: 400;
 }
+
 .notify {
     width: 30%;
     background-color: #fff;

@@ -337,6 +337,27 @@ html {
     font-size: 1.4rem;
     font-weight: 400;
 }
+
+.revenue__content--columns {
+    display: inline-flex;
+    position: absolute;
+    /* margin-left: 34px; */
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.revenue__content--column {
+    width: calc(calc(100% / 12));
+    /* background-color: #000 */
+}
+
+.revenue--column_desc {
+    width: calc(100% / 12);
+    color: var(--primary-color--font);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
 .notify {
     width: 30%;
     background-color: #fff;

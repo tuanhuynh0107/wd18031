@@ -5,11 +5,14 @@
 body {
     background-color: #EFF3F4;
     font-family: "Poppins", sans-serif;
-    max-width: 1440px;
 }
 
 html {
     font-size: 62.5%;
+}
+.row {
+    display: flex;
+    align-items: center;
 }
 
 
@@ -21,7 +24,6 @@ html {
 }
 
 .root {
-    display: flex;
     gap: 23px;
     align-items: flex-start;
 }
@@ -35,10 +37,6 @@ html {
     height: auto;
 }
 
-.row {
-    display: flex;
-    align-items: center;
-}
 
 .infor__user {
     margin-bottom: 35px;
@@ -120,6 +118,7 @@ html {
     margin-top: 23px;
     width: 100%;
     justify-content: space-between;
+  
 }
 
 /* header__name  */

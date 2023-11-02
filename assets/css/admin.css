@@ -433,7 +433,8 @@ html {
 }
 
 .notify__post,
-.notify__comment,.notify__revenue {
+.notify__comment,
+.notify__revenue {
     width: 100%;
     height: auto;
     padding: 10px 24px;
@@ -529,21 +530,21 @@ html {
 }
 
 .revenue__chart {
-   width: 100%;
-   justify-content: right;
+    width: 100%;
+    justify-content: right;
 }
 
 .chart__content {
     position: relative;
     width: 90%;
     margin-top: 57px;
-    background-color:#F9FAFC;
+    background-color: #F9FAFC;
     justify-content: left;
 }
 
 .notify__chart {
     position: absolute;
-    margin: 33px 12px  2px 11px;
+    margin: 33px 12px 2px 11px;
     right: 0;
     bottom: 0;
 }

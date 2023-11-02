@@ -414,6 +414,10 @@ html {
     padding-bottom: 9px;
 }
 
+.table__packgeNew--Yellow a{
+    color: #EDC710;
+}
+
 .hendel-update-act {
     color: #879FFF;
 }

@@ -199,15 +199,16 @@ html {
 
 /* total product */
 .box-total {
+    width: 100%;
     gap: 12px;
     flex-grow: 1;
-    /* background-color: #fff; */
     justify-content: space-between;
+    margin-right: 22px;
 }
 
 .total_product {
     height: 129px;
-    width: 33%;
+    width: calc((100% / 3));
     border-radius: 13px;
     background: #fff;
     align-items: flex-start;

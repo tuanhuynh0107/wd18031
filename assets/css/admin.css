@@ -385,11 +385,7 @@ html {
     font-weight: 400;
 }
 
-/* .table__packgeNew tbody td {
-    color: var(--primary-color--font);
-    font-size: 1.4rem;
-    font-weight: 400;
-} */
+
 .table__packgeNew td:first-child {
     padding-left: 6px;
     text-align: left;
@@ -414,7 +410,7 @@ html {
     padding-bottom: 9px;
 }
 
-.table__packgeNew--Yellow a{
+.table__packgeNew--Yellow a {
     color: #EDC710;
 }
 
@@ -430,34 +426,41 @@ html {
 
 
 .notify {
+    flex-direction: column;
     width: 30%;
     height: auto;
+    gap: 36px;
 }
 
-.notify__post {
+.notify__post,
+.notify__comment {
     width: 100%;
     height: auto;
     padding: 10px 24px;
     border-radius: 13px;
     background-color: #fff;
 }
+
 /* button them khach hang */
-.btn-ml{
-    margin-left: 24px ;
+.btn-ml {
+    margin-left: 24px;
 }
-.btn{
+
+.btn {
     border: none;
     outline: none;
     padding: 4px 17px;
     border-radius: 6px;
     background: #879FFF;
 }
-.btn a{
+
+.btn a {
     color: #fff;
     font-weight: 500;
     font-size: 1.4rem;
     text-decoration-line: underline;
 }
+
 
 .notify__post--heading {
     width: 100%;
@@ -506,4 +509,11 @@ html {
     outline: none;
     border: none;
     border-radius: 6px;
+    background-color: var(--primary-color--bg--btn);
+}
+
+.notify__btn--update:hover {
+    color: var(--primary-color--font3);
+    background-color: var(--primary-color--bg);
+
 }

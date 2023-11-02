@@ -278,7 +278,7 @@ html {
 .revenue {
     width: 100%;
     background-color: #fff;
-    height: 440px;
+    height: auto;
     border-radius: 13px;
     padding: 35px;
 }
@@ -295,11 +295,18 @@ html {
 }
 
 .revenue__top--hendel {
+    cursor: pointer;
+    outline: none;
     border: none;
     padding: 9px 13px;
     border-radius: 6px;
     background-color: var(--primary-color--bg--btn);
 }
+.revenue__top--hendel option {
+    outline: none;
+    border: none;
+}
+
 
 
 
@@ -367,7 +374,7 @@ html {
 
 .table__packgeNew {
     width: 100%;
-    /* border: 1px solid #000;/ */
+    margin-top: 12px;
 }
 
 .table__packgeNew thead td,.table__packgeNew tbody td {
@@ -411,9 +418,20 @@ color: #879FFF;
     color:#f00;
 }
 
+/* thông báo */
+
 
 .notify {
     width: 30%;
-    background-color: #fff;
-    height: 100vh;
+    height: auto;
 }
+
+.notify__post {
+    width: 100%;
+    height: 185px;
+    padding: 10px 24px;
+    border-radius: 13px;
+    background-color: #fff;
+}
+
+

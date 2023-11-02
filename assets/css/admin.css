@@ -433,5 +433,20 @@ color: #879FFF;
     border-radius: 13px;
     background-color: #fff;
 }
-
+.btn-ml{
+    margin-left: 24px ;
+}
+.btn{
+    border: none;
+    outline: none;
+    padding: 4px 17px;
+    border-radius: 6px;
+    background: #879FFF;
+}
+.btn a{
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-decoration-line: underline;
+}
 

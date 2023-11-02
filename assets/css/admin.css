@@ -21,6 +21,7 @@ html {
     --primary-color--font2: #ababab;
     --primary-color--font3: #FEFEFD;
     --primary-color--bg: #879FFF;
+    --primary-color--bg--btn: #d9d9d9;
 }
 
 .root {
@@ -192,18 +193,23 @@ html {
 /*  main notify */
 
 .main {
-    margin-top: 44px;
+       margin-top: 44px;
     align-items: flex-start;
 }
 
 
 /* total product */
-.box-total {
+.main-content {
     width: 100%;
-    gap: 12px;
     flex-grow: 1;
-    justify-content: space-between;
     margin-right: 22px;
+    flex-direction: column;
+    gap: 29px;
+}
+
+.box-total {
+   width: 100%;
+   gap: 24px;
 }
 
 .total_product {
@@ -266,6 +272,71 @@ html {
     font-weight: 500;
 }
 
+/* revenue doanh thu */
+
+.revenue {
+    width: 100%;
+    background-color: #fff;
+    height: 440px;
+    border-radius: 13px;
+    padding: 35px;
+}
+
+
+.revenue__top {
+    justify-content: space-between;
+}
+
+.revenue__top--title>h4 {
+    color: var(--primary-color--font);
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.revenue__top--hendel{
+    border: none;
+    padding: 9px 13px;
+    border-radius: 6px;
+    background-color: var(--primary-color--bg--btn);
+}
+
+
+
+/* revenue__content--chart */
+
+.revenue__content {
+    position: relative; 
+    margin-top: 44px;
+    padding-left: 78px;
+    padding-right: 42px;
+    padding-bottom: 45px;
+}
+.revenue__content--chart {
+    width: 100%;
+    height: 267px;
+    background: #F9FAFC;
+    border-radius: 18px;
+}
+
+.revenue--chart__line {
+    width: 100%;
+    height: 53px;
+    border-bottom: 1px solid #e3e9f0;
+}
+
+.revenue__content--price {  
+    position: absolute;
+    flex-direction: column;
+    gap: 38px;
+    left: 45px;
+    top: 46px;
+}
+
+.revenue__content--price .price {
+    color: var(--primary-color--font);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
 .notify {
     width: 30%;
     background-color: #fff;

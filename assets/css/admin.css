@@ -362,6 +362,56 @@ html {
     font-weight: 400;
 }
 
+
+/* table__packgeNew */
+
+.table__packgeNew {
+    width: 100%;
+    /* border: 1px solid #000;/ */
+}
+
+.table__packgeNew thead td,.table__packgeNew tbody td {
+    color: var(--primary-color--font);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+/* .table__packgeNew tbody td {
+    color: var(--primary-color--font);
+    font-size: 1.4rem;
+    font-weight: 400;
+} */
+.table__packgeNew td:first-child {
+    padding-left: 6px;
+    text-align: left;
+}
+
+.table__packgeNew td:last-child {
+    text-align: right;
+    padding-right: 6px;
+}
+
+.table__packgeNew tr {
+    border-radius: 6px;
+    border-bottom: 3px solid #EEF1F6;
+   
+}
+.table__packgeNew  td {
+    /* padding: 14px 0px ; */
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 19px;
+    padding-bottom: 9px;
+}
+
+.hendel-update-act {
+color: #879FFF;
+}
+
+.hendel-delete-act{ 
+    color:#f00;
+}
+
+
 .notify {
     width: 30%;
     background-color: #fff;

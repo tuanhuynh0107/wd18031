@@ -5,10 +5,6 @@
 body {
     background-color: #EFF3F4;
     font-family: "Poppins", sans-serif;
-    max-width: 1440px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 html {

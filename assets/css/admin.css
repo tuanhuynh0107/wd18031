@@ -30,6 +30,15 @@ html {
     align-items: flex-start;
 }
 
+.container__admin {
+    position: relative;
+}
+.fixed {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
+
+}
 
 .sidebar_menu {
     border-radius: 18px 0px 0px 18px;

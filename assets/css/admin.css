@@ -426,17 +426,21 @@ html {
 
 
 .notify {
+    flex-direction: column;
     width: 30%;
     height: auto;
+    gap: 36px;
 }
 
-.notify__post {
+.notify__post,
+.notify__comment {
     width: 100%;
     height: auto;
     padding: 10px 24px;
     border-radius: 13px;
     background-color: #fff;
 }
+
 
 .notify__post--heading {
     width: 100%;
@@ -485,4 +489,11 @@ html {
     outline: none;
     border: none;
     border-radius: 6px;
+    background-color: var(--primary-color--bg--btn);
+}
+
+.notify__btn--update:hover {
+    color: var(--primary-color--font3);
+    background-color: var(--primary-color--bg);
+
 }

@@ -496,7 +496,6 @@ input {
 
 
 .popular .course-item .line-clamp {
-    margin: 18px 0px;
     color: #000;
     text-align: center;
     font-size: 1.6rem;
@@ -508,17 +507,12 @@ input {
     overflow: hidden;
 }
 
-.popular .course-item .foot {
-    margin: 10px;
-    padding: 10px;
-}
-
 .popular .course-item .foot .price {
     color: #D62F40;
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 14px;
+    word-wrap: break-all;
 }
 
 .popular .course-item .foot .rating {
@@ -528,18 +522,27 @@ input {
 }
 
 .price-del {
-    margin-left: 10px;
     color: #171100;
     font-size: 1.2rem;
     font-weight: 400;
-    line-height: 14px;
-    /* 116.667% */
-    text-decoration-line: strikethrough;
 }
 
 .popular .course-item .foot .rating .star {
     animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 
+}
+
+.foot {
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 9px;
+}
+
+.info {
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 14px;
+    padding: 3px;
 }
 
 @keyframes lds-heart {
@@ -610,7 +613,6 @@ input {
 
 .feedback-item .info .title {
     font-family: var(--font-heading);
-    margin-top: 18px;
     font-weight: 700;
     font-size: 2.4rem;
     line-height: 1.42;

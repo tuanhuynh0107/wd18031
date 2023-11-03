@@ -3,8 +3,9 @@
 }
 
 :root {
-    --primary-color: #EDC710;
+    --primary-color: #FFEE57;
     --font-heading: Sen, sans-serif;
+    --primary-color-font: #2E9ED5;
 }
 
 html {
@@ -66,7 +67,7 @@ a {
     margin-right: auto;
 }
 
-.container { 
+.container {
     display: flex;
 }
 
@@ -147,7 +148,7 @@ input {
 
 /* Header */
 .header {
-    background: #0F4542;
+    background: var(--primary-color-font);
 }
 
 .header.fixed {
@@ -254,8 +255,8 @@ input {
 .hero__left--catalog {
     position: relative;
     width: 232px;
-    height: 60px;
-    background-color: #eee;
+    height: auto;
+    background: rgba(46, 158, 213, 0.80);
     border-radius: 8px;
 }
 
@@ -305,7 +306,7 @@ input {
     align-items: center;
     /* height: 65px; */
     border-radius: 7px;
-    background: linear-gradient(90deg, #4FC4F6 0%, rgba(0, 172, 246, 0.58) 27.44%, rgba(44, 185, 246, 0.81) 47.68%, rgba(0, 169, 241, 0.38) 68.27%, rgba(18, 136, 186, 0.66) 94.31%);
+    background: #3DBCF3;
 }
 
 .hero__right--commit {
@@ -318,9 +319,7 @@ input {
     width: 189px;
     color: #000;
     text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-
+    font-size: 1.6rem;
     font-weight: 500;
     line-height: normal;
 }
@@ -354,13 +353,11 @@ input {
     line-height: 34px;
     color: #FFF;
     text-align: center;
-    font-family: Poppins;
-    font-size: 11px;
-
+    font-size: 1.1rem;
     font-weight: 600;
     line-height: 28px;
     border-radius: 24.5px;
-    background: #105D8E;
+    background: var(--primary-color-font);
 }
 
 
@@ -499,13 +496,12 @@ input {
 
 
 .popular .course-item .line-clamp {
-    color: #171100;
     margin: 18px 0px;
+    color: #000;
     text-align: center;
     font-size: 1.6rem;
-
     font-weight: 500;
-    line-height: 1;
+    line-height: 16px;
     display: -webkit-box;
     -webkit-line-clamp: var(--line-clamp, 1);
     -webkit-box-orient: vertical;
@@ -514,22 +510,31 @@ input {
 
 .popular .course-item .foot {
     margin: 10px;
+    padding: 10px;
 }
 
 .popular .course-item .foot .price {
-    color: #105D8E;
-    font-family: Poppins;
-    font-size: 18px;
-
+    color: #D62F40;
+    font-size: 1.6rem;
+    font-style: normal;
     font-weight: 600;
-    line-height: 24px;
-    margin-left: 2px;
+    line-height: 14px;
 }
 
 .popular .course-item .foot .rating {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.price-del {
+    margin-left: 10px;
+    color: #171100;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 14px;
+    /* 116.667% */
+    text-decoration-line: strikethrough;
 }
 
 .popular .course-item .foot .rating .star {
@@ -566,15 +571,16 @@ input {
 
 .popular .course-item .book-btn {
     width: 100%;
-    border-radius: 0px 0px 25px 25px;
+    border-radius: 0px 0px 12px 12px;
     background: var(--primary-color);
     line-height: 2.5;
     border: none;
+    color: #171100;
 }
 
 
 .popular .course-item:hover .book-btn {
-    background-color: #f00;
+    color: #2E9ED5;
 }
 
 /* Feedback */
@@ -644,8 +650,8 @@ input {
 }
 
 .feedback-item blockquote {
-    margin-left: 30px;
     font-style: italic;
+    margin-left: 30px;
     font-size: 2.6rem;
     line-height: 1.54;
     color: #ffffff;
@@ -697,7 +703,7 @@ input {
     margin-top: 32px;
     min-width: 137px;
     color: #fff;
-    background: var(--primary-color);
+    background: var(--primary-color-font);
 }
 
 .features-2nd {
@@ -811,7 +817,7 @@ input {
 }
 
 .blog .item .btn:hover {
-    background: var(--primary-color);
+    background: var(--primary-color-font);
 }
 
 .blog .dots {

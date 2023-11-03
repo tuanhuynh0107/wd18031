@@ -5,24 +5,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .main-content {
+            max-width: calc(100% - 48px);
+            width: 1240px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .popular .course-list {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows: 2;
+            gap: 24px;
+            margin-top: 55px;
+        }
+
+        .popular .course-item {
+            position: relative;
+            flex: 1;
+            background: #ffffff;
+            border-radius: 12px;
+            transition: scale 500ms ease-in-out, color 200ms ease-out;
+        }
+
+        .popular .course-item:hover {
+            scale: 1.05;
+        }
+
+        .popular .course-item .thumb {
+            width: 100%;
+            /* height: 211.185px; */
+            object-fit: cover;
+            /* border: 1px solid #ccc; */
+            border-radius: 16px 16px 0px 0px;
+        }
+
+
+        .popular .course-item .line-clamp {
+            margin: 18px 0px;
+            color: #000;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: var(--line-clamp, 1);
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .popular .course-item .foot {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .popular .course-item .foot .price {
+            color: #D62F40;
+            font-size: 1.6rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 14px;
+        }
+
+        .popular .course-item .foot .rating {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .price-del {
+            margin-left: 10px;
+            color: #171100;
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 14px;
+            /* 116.667% */
+            text-decoration-line: strikethrough;
+        }
+
+        .popular .course-item .foot .rating .star {
+            animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        }
+
+        @keyframes lds-heart {
+            0% {
+                transform: scale(0.95);
+            }
+
+            5% {
+                transform: scale(1.1);
+            }
+
+            39% {
+                transform: scale(0.85);
+            }
+
+            45% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(0.95);
+            }
+
+            100% {
+                transform: scale(0.9);
+            }
+        }
+
+
+        .popular .course-item .book-btn {
+            width: 100%;
+            border-radius: 0px 0px 12px 12px;
+            background: var(--primary-color);
+            line-height: 2.5;
+            border: none;
+            color: #171100;
+        }
+
+
+        .popular .course-item:hover .book-btn {
+            color: #2E9ED5;
+        }
+    </style>
 </head>
 
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="196" viewBox="0 0 167 196" fill="none">
-        <rect x="0.000976562" y="99" width="17" height="97" fill="#D9D9D9" />
-        <rect x="25.001" y="124" width="17" height="72" fill="#D9D9D9" />
-        <rect x="50.001" y="77" width="17" height="119" fill="#D9D9D9" />
-        <rect x="75.001" y="44" width="17" height="152" fill="#D9D9D9" />
-        <rect x="100.001" y="103" width="17" height="93" fill="#D9D9D9" />
-        <rect x="125.001" width="17" height="196" fill="#879FFF" />
-        <rect x="150.001" y="25" width="17" height="171" fill="#D9D9D9" />
-        <rect x="175.001" y="103" width="17" height="93" fill="#D9D9D9" />
-        <rect x="200.001" y="103" width="17" height="93" fill="#D9D9D9" />
-        <rect x="225.001" y="103" width="17" height="93" fill="#D9D9D9" />
-        <rect x="250.001" y="124" width="17" height="72" fill="#D9D9D9" />
-        <rect x="275.001" y="103" width="30" height="93" fill="#D9D9D9" />
-        <rect x="330.001" y="77" width="30" height="119" fill="#D9D9D9" />
-    </svg>
+    <div class="popular">
+        <div class="main-content">
+            <div class="course-list">
+                <!-- Course item 1 -->
+                <div class="course-item">
+                    <a href="product.html">
+                        <img src="../assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                    </a>
+                    <div class="info">
+                        <div class="head">
+                            <h3 class="title">
+                                <a href="#!" class="line-clamp break-all">
+                                    Combo Hải Sản 1,5 Triệu
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="foot row">
+                            <span class="price">1,500,000đ</span>
+                            <span class="price">/ combo</span>
+                            <del class="price-del">1,500,000đ</del>
+                            <div class="rating">
+                                <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                <span class="value"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn book-btn">
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+                <div class="course-item">
+                    <a href="product.html">
+                        <img src="../assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                    </a>
+                    <div class="info">
+                        <div class="head">
+                            <h3 class="title">
+                                <a href="#!" class="line-clamp break-all">
+                                    Combo Hải Sản 1,5 Triệu
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="foot row">
+                            <span class="price">1,500,000đ</span>
+                            <span class="price">/ combo</span>
+                            <del class="price-del">1,500,000đ</del>
+                            <div class="rating">
+                                <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                <span class="value"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <button class="btn book-btn">
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+                <div class="course-item">
+                    <a href="product.html">
+                        <img src="../assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                    </a>
+                    <div class="info">
+                        <div class="head">
+                            <h3 class="title">
+                                <a href="#!" class="line-clamp break-all">
+                                    Combo Hải Sản 1,5 Triệu
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="foot row">
+                            <span class="price">1,500,000đ</span>
+                            <span class="price">/ combo</span>
+                            <del class="price-del">1,500,000đ</del>
+                            <div class="rating">
+                                <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                <span class="value"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <button class="btn book-btn">
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+                <div class="course-item">
+                    <a href="product.html">
+                        <img src="../assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                    </a>
+                    <div class="info">
+                        <div class="head">
+                            <h3 class="title">
+                                <a href="#!" class="line-clamp break-all">
+                                    Combo Hải Sản 1,5 Triệu
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="foot row">
+                            <span class="price">1,500,000đ</span>
+                            <span class="price">/ combo</span>
+                            <del class="price-del">1,500,000đ</del>
+                            <div class="rating">
+                                <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                <span class="value"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <button class="btn book-btn">
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+                <div class="course-item">
+                    <a href="product.html">
+                        <img src="../assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                    </a>
+                    <div class="info">
+                        <div class="head">
+                            <h3 class="title">
+                                <a href="#!" class="line-clamp break-all">
+                                    Combo Hải Sản 1,5 Triệu
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="foot row">
+                            <span class="price">1,500,000đ</span>
+                            <span class="price">/ combo</span>
+                            <del class="price-del">1,500,000đ</del>
+                            <div class="rating">
+                                <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                <span class="value"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <button class="btn book-btn">
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <!-- day la nhanh main -->
 </body>

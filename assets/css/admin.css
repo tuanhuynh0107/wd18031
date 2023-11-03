@@ -33,6 +33,7 @@ html {
 .container__admin {
     position: relative;
 }
+
 .fixed {
     position: sticky;
     top: 10px;
@@ -210,11 +211,10 @@ html {
 
 /* total product */
 .main-content {
-    width: 100%;
-    flex-grow: 1;
-    margin-right: 22px;
-    flex-direction: column;
-    gap: 29px;
+    width: 1240px;
+    max-width: calc(100% - 48px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .box-total {

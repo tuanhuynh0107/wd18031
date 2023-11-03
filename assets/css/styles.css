@@ -20,7 +20,12 @@ body {
 }
 
 /* Common */
-
+.main-content {
+    max-width: calc(100% - 48px);
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 a {
     text-decoration: none;
@@ -61,12 +66,7 @@ a {
     line-height: 1.26;
 }
 
-.main-content {
-    max-width: calc(100% - 48px);
-    width: 1240px;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 .container {
     display: flex;

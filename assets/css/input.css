@@ -54,3 +54,28 @@
 .form-group {
     gap: 20px;
 }
+
+/* form add loại hàng */
+
+.form_group__input{
+    padding: 10px 210px 10px 17px;
+    border-radius: 6px;
+    border: 0.5px solid #ABABAB;
+    margin-top: 6px;
+    outline: none;
+}
+
+.form_group__loaihang--Cancle{
+    padding: 8px 33px;
+    background: #fff;
+    border-radius: 6px;
+    border: 3px solid #ABABAB;
+    margin-right: 25px;
+    margin-top: 18px;
+}
+.form_group__loaihang--them{
+    padding: 8px 33px;
+    border-radius: 6px;
+    border: 3px solid #ABABAB;
+    background: #D9D9D9;
+}

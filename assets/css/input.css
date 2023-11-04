@@ -81,26 +81,9 @@
     padding: 8px 33px;
     border-radius: 6px;
     border: 3px solid #ABABAB;
-    margin-top: 20px;
+    margin-top: 20px; 
 }
-/* select sản phẩm */
-.form_group__item-select{
-    padding: 12px 33px;
-    border-radius: 6px;
-    border: 1px solid #ABABAB;
-    color: #ABABAB;
-    font-size: 1rem;
-    font-weight: 400;
-    margin-top: 6px;
-    margin-right: 10px;
-}
-.form_group__submit--Cancle{
-    background: #fff;
-    margin-right: 25px;
-}
-.form_group__submit--them{
-    background: #D9D9D9;
-}
+
 /* input file */
 .form_group__box-input{
     width: 100%;
@@ -124,13 +107,71 @@
 .form_group__input-file{
     position:absolute;
     top: 75%;  
-    left: 53%;
+    left: 48%;
     transform: translate(-50%, -50%);
 }
 
-.form_group__input-file::-webkit-file-upload-button{
-    visibility: hidden;
+
+
+
+/* input sản phẩm */
+.form_group__box--add_product{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23.5px;
 }
-.form_group__input-file::before{
-    content: 'Drag and Drop file here or choose file';
+.form_group__item_input--text{
+    color: #181D19;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.form_group__item_input--input{
+    padding: 10px 217px 10px 17px;
+    border-radius: 6px;
+    border: 0.5px solid #ABABAB;
+    margin-top: 6px;
+}
+/* select sản phẩm */
+
+.form_group__submit--Cancle{
+    background: #fff;
+    margin-right: 25px;
+}
+.form_group__submit--them{
+    background: #D9D9D9;
+}
+.form_group__item_select--option{
+    padding: 10px 25.5px;
+    border-radius: 6px;
+    border: 0.5px solid #ABABAB;
+    color: #ABABAB;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 6.8px;
+}
+.form_group__add_product--item_submit{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 25px;
+}
+.form_group__item_input--cancle{
+    padding: 8px 33px;
+    color: #181D19;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 3px solid #ABABAB;
+    background: #fff;
+  
+}
+.form_group__item_input--them{
+    padding: 8px 33px;
+    color: #181D19;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 3px solid #ABABAB;
+    background: #D9D9D9;
 }

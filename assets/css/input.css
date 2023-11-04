@@ -83,10 +83,54 @@
     border: 3px solid #ABABAB;
     margin-top: 20px;
 }
+/* select sản phẩm */
+.form_group__item-select{
+    padding: 12px 33px;
+    border-radius: 6px;
+    border: 1px solid #ABABAB;
+    color: #ABABAB;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 6px;
+    margin-right: 10px;
+}
 .form_group__submit--Cancle{
     background: #fff;
     margin-right: 25px;
 }
 .form_group__submit--them{
     background: #D9D9D9;
+}
+/* input file */
+.form_group__box-input{
+    width: 100%;
+    height: 40vh;
+    border-radius: 13px;
+    border: 1px dashed #ABABAB;
+     position: relative;
+}
+.form_group__product-svg--PNG{
+    position:absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form_group__product-svg--logout{
+    position:absolute;
+    top: 63%;  
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+.form_group__input-file{
+    position:absolute;
+    top: 75%;  
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.form_group__input-file::-webkit-file-upload-button{
+    visibility: hidden;
+}
+.form_group__input-file::before{
+    content: 'Drag and Drop file here or choose file';
 }

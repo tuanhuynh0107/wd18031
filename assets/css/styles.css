@@ -7,6 +7,7 @@
     --font-heading: Sen, sans-serif;
     --primary-color-font: #078ACA;
     --primary-color-btn: #FFE736;
+    --primary-color-bgc: #50C5F7;
 }
 
 html {
@@ -310,6 +311,73 @@ input {
     font-size: 16px;
     font-weight: 500;
     white-space: nowrap;
+}
+
+/* main-hero */
+
+
+.main-hero {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* navbar */
+
+.navbar {
+    flex: 1;
+    display: inline-block;
+    background-color: #fff;
+}
+
+.navber__menu {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.menu__catalog {
+    width: 100%;
+    padding: 8px 16px;
+    box-sizing: border-box;
+}
+
+.menu__catalog:hover {
+    background-color: var(--primary-color-bgc);
+}
+
+.menu__catalog:hover>.menu__catalog--act .catalog__act--title {
+    color: #fff;
+}
+
+
+.menu__catalog--act {
+    gap: 16px;
+}
+
+.catalog__act--title {
+    color: #15101D;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/* baner */
+
+.main-banner {
+    flex: 1;
+    max-width: 100%;
+}
+
+.banner-rigth {
+    margin-top: 10px;
+    margin-left: 10px;
+    flex: 1;
+    flex-direction: column;
+}
+
+.banner__bottom {
+    margin-top: 28px;
 }
 
 /* Popular */

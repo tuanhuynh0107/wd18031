@@ -167,7 +167,7 @@ input {
 }
 
 .header__head {
-    background:#50C5F7 ;
+    background: #50C5F7;
 }
 
 .head__discover {
@@ -191,9 +191,11 @@ input {
 .nav__menu {
     gap: 26px;
 }
+
 .nav__li {
     padding: 9x;
 }
+
 .nav__li a {
     display: block;
     color: #FFF;
@@ -284,7 +286,31 @@ input {
 
 /* Hero */
 
+.hero {
+    background: #50C5F7;
+    height: auto;
+    padding: 9px 0px;
+}
 
+/* catalog hero */
+
+.catalog {
+    gap: 40px;
+    justify-content: space-between;
+}
+
+
+.log__atc {
+    gap: 9px;
+}
+
+.log__atc--title {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+}
 
 /* Popular */
 .popular {

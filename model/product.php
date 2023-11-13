@@ -54,7 +54,7 @@
             <button class="btn book-btn">
                 Thêm vào giỏ hàng
             </button>
-        </div>
+            </div>
             ';
         }
 

@@ -167,7 +167,7 @@ input {
 }
 
 .header__head {
-    background: linear-gradient(90deg, rgba(8, 148, 209, 0.75) 0%, rgba(7, 143, 202, 0.68) 44.69%, rgba(7, 143, 202, 0.69) 79.58%, rgba(7, 143, 202, 0.77) 98.33%);
+    background:#50C5F7 ;
 }
 
 .head__discover {
@@ -191,8 +191,11 @@ input {
 .nav__menu {
     gap: 26px;
 }
-
+.nav__li {
+    padding: 9x;
+}
 .nav__li a {
+    display: block;
     color: #FFF;
     text-align: center;
     font-size: 1.8rem;
@@ -210,7 +213,7 @@ input {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 18px 0 8px;
+    padding: 12px 0 10px;
     gap: 18px;
     justify-content: space-between;
 }

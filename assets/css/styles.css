@@ -3,8 +3,10 @@
 }
 
 :root {
-    --primary-color: #EDC710;
+    --primary-color: #FFEE57;
     --font-heading: Sen, sans-serif;
+    --primary-color-font: #2E9ED5;
+    --primary-color-btn: #FFE736;
 }
 
 html {
@@ -18,7 +20,12 @@ body {
 }
 
 /* Common */
-
+.main-content {
+    max-width: calc(100% - 48px);
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 a {
     text-decoration: none;
@@ -59,12 +66,7 @@ a {
     line-height: 1.26;
 }
 
-.main-content {
-    width: 1240px;
-    max-width: calc(100% - 48px);
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 .container {
     display: flex;
@@ -147,7 +149,7 @@ input {
 
 /* Header */
 .header {
-    background: #0F4542;
+    background: var(--primary-color-font);
 }
 
 .header.fixed {
@@ -254,8 +256,8 @@ input {
 .hero__left--catalog {
     position: relative;
     width: 232px;
-    height: 60px;
-    background-color: #eee;
+    height: auto;
+    background: rgba(46, 158, 213, 0.80);
     border-radius: 8px;
 }
 
@@ -305,7 +307,7 @@ input {
     align-items: center;
     /* height: 65px; */
     border-radius: 7px;
-    background: linear-gradient(90deg, #4FC4F6 0%, rgba(0, 172, 246, 0.58) 27.44%, rgba(44, 185, 246, 0.81) 47.68%, rgba(0, 169, 241, 0.38) 68.27%, rgba(18, 136, 186, 0.66) 94.31%);
+    background: #3DBCF3;
 }
 
 .hero__right--commit {
@@ -318,9 +320,7 @@ input {
     width: 189px;
     color: #000;
     text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-
+    font-size: 1.6rem;
     font-weight: 500;
     line-height: normal;
 }
@@ -354,13 +354,11 @@ input {
     line-height: 34px;
     color: #FFF;
     text-align: center;
-    font-family: Poppins;
-    font-size: 11px;
-
+    font-size: 1.1rem;
     font-weight: 600;
     line-height: 28px;
     border-radius: 24.5px;
-    background: #105D8E;
+    background: var(--primary-color-font);
 }
 
 
@@ -472,7 +470,7 @@ input {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: 2;
-    gap: 24px;
+    gap: 22px;
     margin-top: 55px;
 }
 
@@ -480,7 +478,6 @@ input {
     position: relative;
     flex: 1;
     background: #ffffff;
-    /* border: 1px solid #e2dfda; */
     border-radius: 12px;
     transition: scale 500ms ease-in-out, color 200ms ease-out;
 }
@@ -499,31 +496,23 @@ input {
 
 
 .popular .course-item .line-clamp {
-    color: #171100;
-    margin: 18px 0px;
+    color: #000;
     text-align: center;
     font-size: 1.6rem;
-
     font-weight: 500;
-    line-height: 1;
+    line-height: 16px;
     display: -webkit-box;
     -webkit-line-clamp: var(--line-clamp, 1);
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.popular .course-item .foot {
-    margin: 10px;
-}
-
 .popular .course-item .foot .price {
-    color: #105D8E;
-    font-family: Poppins;
-    font-size: 18px;
-
+    color: #D62F40;
+    font-size: 1.6rem;
+    font-style: normal;
     font-weight: 600;
-    line-height: 24px;
-    margin-left: 2px;
+    word-wrap: break-all;
 }
 
 .popular .course-item .foot .rating {
@@ -532,9 +521,28 @@ input {
     left: 0;
 }
 
+.price-del {
+    color: #171100;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
 .popular .course-item .foot .rating .star {
     animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 
+}
+
+.foot {
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 9px;
+}
+
+.info {
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 14px;
+    padding: 3px;
 }
 
 @keyframes lds-heart {
@@ -566,15 +574,16 @@ input {
 
 .popular .course-item .book-btn {
     width: 100%;
-    border-radius: 0px 0px 25px 25px;
+    border-radius: 0px 0px 12px 12px;
     background: var(--primary-color);
     line-height: 2.5;
     border: none;
+    color: #171100;
 }
 
 
 .popular .course-item:hover .book-btn {
-    background-color: #f00;
+    color: #2E9ED5;
 }
 
 /* Feedback */
@@ -604,7 +613,6 @@ input {
 
 .feedback-item .info .title {
     font-family: var(--font-heading);
-    margin-top: 18px;
     font-weight: 700;
     font-size: 2.4rem;
     line-height: 1.42;
@@ -644,8 +652,8 @@ input {
 }
 
 .feedback-item blockquote {
-    margin-left: 30px;
     font-style: italic;
+    margin-left: 30px;
     font-size: 2.6rem;
     line-height: 1.54;
     color: #ffffff;
@@ -697,7 +705,7 @@ input {
     margin-top: 32px;
     min-width: 137px;
     color: #fff;
-    background: var(--primary-color);
+    background: var(--primary-color-font);
 }
 
 .features-2nd {
@@ -761,10 +769,6 @@ input {
     border-radius: 16px 16px 0px 0px;
 }
 
-.blog .item .info {
-    padding: 20px 20px 28px;
-}
-
 .blog .item .date {
     position: relative;
     display: inline-flex;
@@ -811,7 +815,7 @@ input {
 }
 
 .blog .item .btn:hover {
-    background: var(--primary-color);
+    background: var(--primary-color-font);
 }
 
 .blog .dots {
@@ -834,10 +838,17 @@ input {
     background: var(--primary-color);
 }
 
+
+.btn__blog {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
 /* Footer */
 .footer {
-    padding: 96px 135px 0;
-    background: #2e2100;
+    padding: 34px 104px 0px 96px;
+    background: #E3E3E3;
 }
 
 .footer .row {
@@ -859,7 +870,7 @@ input {
     max-width: 267px;
     font-size: 1.4rem;
     line-height: 1.86;
-    color: #bfbcb2;
+    color: #105D8E;
 }
 
 .footer .socials {
@@ -876,7 +887,7 @@ input {
     font-weight: 600;
     font-size: 1.6rem;
     line-height: 1.75;
-    color: #ffffff;
+    color: #105D8E;
 }
 
 .footer .list {
@@ -888,7 +899,7 @@ input {
     margin-bottom: 12px;
     font-size: 1.4rem;
     line-height: 1.86;
-    color: #bfbcb2;
+    color: #105D8E;
 }
 
 .footer .list li:last-child a {
@@ -897,7 +908,7 @@ input {
 
 .footer .list strong {
     font-weight: 600;
-    color: #ffffff;
+    color: #105D8E;
 }
 
 .footer .copyright {
@@ -908,7 +919,7 @@ input {
     font-size: 1.4rem;
     line-height: 1.86;
     text-align: center;
-    color: #807d74;
+    color: #105D8E;
 }
 
 /* product */
@@ -964,7 +975,6 @@ p {
 .main-product__content>.row {
     display: flex;
     align-items: center;
-    gap: 20px;
     margin-bottom: 22px;
 }
 
@@ -984,19 +994,29 @@ p {
 
 .main-product__content {
     width: 40%;
+    flex-direction: column;
 }
 
-.content--classLy {
-    padding: 13px 5px;
+.main-product__content--desc {
+    gap: 10px;
+}
+
+.main-product__content--type {
+    gap: 20px;
+}
+
+.main-product__content--pice {
+    gap: 25px;
+}
+
+.content--type {
+    padding: 12px 6px;
     border: 1px solid #555;
     color: #555;
-    font-family: Poppins;
     font-size: 1.4rem;
-
     font-weight: 400;
     line-height: 12px;
     cursor: pointer;
-
 }
 
 .main-product__content--pice__cost {
@@ -1031,17 +1051,15 @@ p {
 }
 
 .main-product__content--btn {
-    text-align: center;
+    justify-content: center;
+}
+
+.btn__act--Product {
     width: 100%;
-    height: 56px;
-    padding: 10px 0px;
-    color: #FFE736;
-    font-size: 3.6rem;
-    font-weight: 700;
-    line-height: 1;
+    padding: 10px;
     border-radius: 12px;
-    background: #3085C3;
-    cursor: pointer;
+    background-color: var(--primary-color-font);
+    color: var(--primary-color-btn);
 }
 
 .main-product__content--btn a {
@@ -1053,12 +1071,13 @@ p {
 
 .main-product__content--btn-2 {
     justify-content: space-between;
+    gap: 27px;
 }
 
 .main-product__content--btn-2>.btn {
-    color: #000;
-    width: 216px;
-    background-color: #7FD4F9;
+    color: #fff;
+    width: 50%;
+    background-color: var(--primary-color-font);
     border-radius: 12px;
 }
 
@@ -1091,18 +1110,19 @@ p {
 .main-product__together--btn {
     margin-left: auto;
     width: 212px;
-    justify-content: center;
-    background-color: #105D8E;
+    justify-content: right;
 }
 
 
-.main-product__together--btn>a {
-    padding: 8px;
+.main-product__together--btn>.btn {
+    width: 100%;
     color: #FFF;
     font-size: 1.4rem;
     font-weight: 600;
     line-height: 1;
-    /* 100% */
+    background-color: var(--primary-color-font);
+    padding: 8px 0px;
+    border-radius: 6px;
 }
 
 /* feedback */
@@ -1156,7 +1176,7 @@ p {
     text-align: right;
     font-size: 1.2rem;
 
-    font-weight: 600;
+    font-weight: 400;
     line-height: 20px;
 }
 
@@ -1182,6 +1202,7 @@ p {
 }
 
 .description__content--desc__list {
+    margin-left: 20px;
     list-style: circle;
 }
 
@@ -1204,8 +1225,7 @@ p {
     color: #000;
     text-align: center;
     font-size: 40px;
-    font-style: italic;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 50px;
 }
 
@@ -1224,8 +1244,7 @@ p {
     color: #000;
     text-align: center;
     font-size: 1.4rem;
-    font-style: italic;
-    font-weight: 800;
+    font-weight: 500;
     line-height: 20px;
 }
 

@@ -110,8 +110,9 @@
                     </div>
                 </div>
                 <div class="course-list">
+                    <?= showProduct($listProduct)?>
                     <!-- Course item 1 -->
-                    <div class="course-item">
+                    <!-- <div class="course-item">
                         <a href="product.html">
                             <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
@@ -326,7 +327,7 @@
                             </div>
                         </div>
                         <input type="submit" value="Mua ngay" class="btn book-btn">
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

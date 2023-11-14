@@ -14,12 +14,14 @@
                 require_once "view/register.php";
                 break;
             default:
-                $listCatalog= getCatalog(); 
+                $listCatalog= getCatalog();
+                $listProduct= getAlbum();
                 require_once "view/home.php";
                 break;
         };
     }else{
-        $listCatalog= getCatalog(); 
+        $listCatalog= getCatalog();
+        $listProduct= getAlbum();
         require_once "view/home.php";
     }
     require_once "view/footer.php";

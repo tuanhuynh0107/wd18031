@@ -34,7 +34,7 @@ function checkDuplicates($id) {
         dp.type AS product_type,
         dp.production AS product_image,
         dp.sale AS product_sale,
-        a.img3 AS album_image
+        a.img_main AS album_image
       FROM
         product p
       JOIN
@@ -42,9 +42,7 @@ function checkDuplicates($id) {
       JOIN
         detail_product dp ON p.id = dp.id_prd
       LEFT JOIN
-        album a ON p.id = a.id_prd 
-        ORDER BY RAND()
-        LIMIT 5";
+        album a ON p.id = a.id_prd";
         return get_All($sql);
     }
 
@@ -53,13 +51,12 @@ function checkDuplicates($id) {
         foreach ($listItems as $Item) {
             
             extract($Item);
-            $sale = "";
-            if ($product_sale > 0) {
-                $priceSale = $product_price - ($product_price * $product_sale / 100);
-                $sale .= '<del class="price-del">' . number_format($priceSale, 0, ",", ".") . '</del>';
-            } else {
-                $sale .= '';
-            }
+            // if($product_sale != ""){
+            //     $priceSale = $product_price * ($product_sale /100);
+            //     $sale .='<del class="price-del">'.number_format($priceSale,0,",",".").'</del>';
+            // }else{
+            //     $sale .='';
+            // }
             $linkAddCart='index.php?page=addCart&idProduct='.$product_id;
             $linkProduct = 'index.php?page=product&idProduct='.$product_id;
             $proQty=1;
@@ -100,7 +97,7 @@ function checkDuplicates($id) {
                     </div>
                 </div>
                 <div class="foot row">
-                    <span class="price">'.number_format($product_price,0,",",".").' VND</span><span class="type">/'.$product_type.'</span>'.$sale.'
+                    <span class="price">'.number_format($product_price,0,",",".").' VND</span><span class="type">/ '.$product_type.'</span>
                    
                     <div class="rating">
                         <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"

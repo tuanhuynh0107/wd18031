@@ -139,7 +139,7 @@
         return get_One($sql);
     }
     function getOneAlbum($idProduct){
-        $sql = "SELECT *  FROM album where id_prd=".$idProduct;
+        $sql = "SELECT *  FROM album where id=".$idProduct;
         return get_One($sql);
     }
     // sản phẩm cùng loại

@@ -24,6 +24,10 @@
                 }
                 require_once "view/product.php";
                 break;
+
+            case "cart":
+                require_once "view/cart.php";
+                break;
             default:
                 $listCatalog= getCatalog();
                 $listProduct= getDetailProduct();

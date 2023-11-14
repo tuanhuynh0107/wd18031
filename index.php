@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    ob_start();
     require_once "model/db.php";
     require_once "model/product.php";
     require_once "view/header.php";
@@ -28,6 +30,42 @@
             case "cart":
                 require_once "view/cart.php";
                 break;
+            case "addCart":
+                if(isset($_POST['addCart']) &&($_POST['addCart'])){
+                    $idProduct=$_POST['idPro'];
+                    $imgPro=$_POST['imgPro'];
+                    $namePro=$_POST['namePro'];
+                    $pricePro=$_POST['pricePro'];
+                    $nameCata=$_POST['nameCata'];
+                    $typePro=$_POST['typePro'];
+
+                    if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
+                        $qty=$_POST['qtyPro'];
+                    }else{
+                        $qty = 1;
+                    }
+                    
+                   
+                    // check_trung_sanpham
+                    if(checkDuplicates( $idProduct)>=0){
+                        $vitritrung = checkDuplicates( $idProduct);
+                        upDataQty($vitritrung);
+                    }else{
+                        $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata];
+                        $_SESSION['cart'][] = $item;
+                    }    
+                }
+                header("location: index.php?page=cart");
+                break;    
+            case 'delCart':
+               if(isset($_GET['id'])){
+                     array_splice($_SESSION['cart'],$_GET['id'],1);
+               }else{
+                    $_SESSION['cart']=[];
+                    
+               }
+               header('location: index.php?page=cart');
+                break;                    
             default:
                 $listCatalog= getCatalog();
                 $listProduct= getDetailProduct();

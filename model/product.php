@@ -1,21 +1,19 @@
 <?php 
-    function upDataQty($ind) {
-        for ($i=0; $i < sizeof($_SESSION['cart']) ; $i++) { 
-            if($i==$ind){
-                $_SESSION['cart'][$i]["qty"]+=1;
-            }
-        }
+  function upDataQty($index) {
+    if (isset($_SESSION['cart'][$index])) {
+        $_SESSION['cart'][$index]["qtyPro"] += 1;
     }
-    function checkDuplicates($id) {
-        $ind = -1;
-        for ($i=0; $i < sizeof($_SESSION['cart']) ; $i++) { 
-            if($_SESSION['cart'][$i]["id"]==$id){
-                return $ind = $i;
-            }
-        }
-        return $ind;
+}
 
+function checkDuplicates($id) {
+    foreach ($_SESSION['cart'] as $index => $item) {
+        if ($item["idProduct"] == $id) {
+            return $index;
+        }
     }
+    return -1;
+}
+
 
     function getAlbum() {
         $sql = "SELECT product.*, album.img_main as img_main, album.id_prd as id_prd 
@@ -59,7 +57,9 @@
             // }else{
             //     $sale .='';
             // }
+            $linkAddCart='index.php?page=addCart&idProduct='.$product_id;
             $linkProduct = 'index.php?page=product&idProduct='.$product_id;
+            $proQty=1;
             $kq .= '<div class="course-item">
             <a href="'.$linkProduct.'">
                 <img src="./assets/img/img_main/'.$album_image.'.png" alt="Basic web design" class="thumb" />
@@ -74,8 +74,8 @@
                     </h3>
 
                     <div class="add__to-Cart">
-                        <form action="#!" method="post">
-                            <label for="add__Cart" class="icon__addCart">
+                        <form action="'.$linkAddCart.'" method="post">
+                            <label for="add__Cart" class="icon__addCart none">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
                                     viewBox="0 0 19 19" fill="none">
                                     <path
@@ -83,7 +83,16 @@
                                         fill="black" />
                                 </svg>
                             </label>
-                            <input type="submit" value="" class="none" id="add__Cart">
+                            <input type="hidden" name="idPro" value="'.$product_id.'">
+                            <input type="hidden" name="imgPro" value="'.$album_image.'">
+                            <input type="hidden" name="namePro" value="'.$product_name.'">
+                            <input type="hidden" name="pricePro" value="'.$product_price.'">
+                            <input type="hidden" name="typePro" value="'.$product_type.'">
+                            <input type="hidden" name="qtyPro" value="'.$proQty.'">
+                            <input type="hidden" name="nameCata" value="'.$category_name.'">
+                            
+
+                            <input type="submit" name="addCart" value="Thêm" id="add__Cart">
                         </form>
                     </div>
                 </div>
@@ -139,7 +148,7 @@
         return get_One($sql);
     }
     function getOneAlbum($idProduct){
-        $sql = "SELECT *  FROM album where id_prd=".$idProduct;
+        $sql = "SELECT *  FROM album where id=".$idProduct;
         return get_One($sql);
     }
     // sản phẩm cùng loại
@@ -324,4 +333,93 @@
         $sql = "SELECT *  FROM khachhang where idKH=".$id;
         return get_One($sql);
     }
+
+    // add cart
+    function showCart($listCart){
+        $listCart=$_SESSION['cart'];  
+            if(isset($listCart)&&is_array($listCart))  {
+                $cart="";
+                $idCart= 1;
+                $total_qty=0;
+                foreach ($listCart as $item) {
+                    extract($item);
+                    $total = $pricePro * $qty;
+                    $linkDeleCart = "index.php?page=delCart&ind=".$idCart;
+                    $cart.= '
+                    <div class="cart__content--item">
+                            <div class="cart--item__nav row">
+                                <ul class="cart__nav row">
+                                    <li class="row">Danh mục: <span class="cart__nav--li__catalog">'.$nameCata.'</span>
+                                    </li>
+                                    <li class="cart__nav--li row">
+                                        <p>ngày thêm: 04-10/2026</p>
+                                        <p>trạng thái: <span>còn hàng</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cart--item__box  row">
+                                <input type="checkbox" name="" id="">
+                                <img src="../assets/img/combo1.png" alt="" class="cart--item__box--img">
+                                <div class="cart--item__desc">
+                                    <div class="cart--desc__title">'.$namePro.'</div>
+                                    <div class="cart--desc__classly">
+                                        Phân loại: '.$typePro.'
+                                    </div>
+                                    <div class="cart--desc__pice">Giá:'.number_format($pricePro,0,",",".").' VNĐ</div>
+                                    <div class="cart--desc-trash">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
+                                            viewBox="0 0 31 31" fill="none">
+                                            <path
+                                                d="M7.02856 7.0625L8.13134 20.6989C8.18372 21.4868 8.92534 22.0625 9.89579 22.0625H20.0413C21.0156 22.0625 21.7435 21.4868 21.8058 20.6989L22.9086 7.0625"
+                                                stroke="#333333" stroke-width="1.875" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M5.15356 7.0625H25.1536H5.15356Z" fill="#CCCCCC" />
+                                            <path d="M5.15356 7.0625H25.1536" stroke="#333333" stroke-width="1.875"
+                                                stroke-miterlimit="10" stroke-linecap="round" />
+                                            <path
+                                                d="M11.7161 6.03978V4.33523C11.7155 4.20081 11.7515 4.06765 11.822 3.94339C11.8925 3.81912 11.996 3.70622 12.1267 3.61118C12.2574 3.51613 12.4127 3.44081 12.5835 3.38955C12.7544 3.3383 12.9375 3.31211 13.1223 3.3125H17.8098C17.9946 3.31211 18.1777 3.3383 18.3486 3.38955C18.5195 3.44081 18.6747 3.51613 18.8054 3.61118C18.9361 3.70622 19.0396 3.81912 19.1101 3.94339C19.1806 4.06765 19.2166 4.20081 19.2161 4.33523V6.03978M15.4661 8.76705V18.3125M11.2473 8.76705L11.7161 18.3125M19.6848 8.76705L19.2161 18.3125"
+                                                stroke="#333333" stroke-width="1.875" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="cart--hendel row">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                        fill="none">
+                                        <path d="M11.8856 5.25L7.96606 11.4093L4.04648 5.25L11.8856 5.25Z"
+                                            fill="#C0C0C0" stroke="black" stroke-width="0.5" />
+                                    </svg>
+                                    <input type="text" value="01" name="" id="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                        fill="none">
+                                        <path d="M4.04648 9.75L7.96606 3.59066L11.8856 9.75H4.04648Z" fill="#C0C0C0"
+                                            stroke="black" stroke-width="0.5" />
+                                    </svg>
+                                </div>
+                                <div class="cart-total">
+                                   '.$total.'
+                                </div>
+                                <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div>
+                            </div>
+                        </div>
+                    ';
+                    $idCart++;
+                    $total_qty += $total;
+                    
+                }
+                 return $cart;
+            }
+           
+    }
+    // function removeFromCart($product_id) {
+    //     if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+    //         foreach($_SESSION['cart'] as $key => $item) {
+    //             if($item['idProduct'] == $product_id) {
+    //                 // Xóa sản phẩm khỏi giỏ hàng
+    //                 unset($_SESSION['cart'][$key]);
+    //                 break; // Dừng khi tìm thấy sản phẩm cần xóa
+    //             }
+    //         }
+    //     }
+    // }
 ?>

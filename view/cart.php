@@ -1,3 +1,6 @@
+<?php
+    // session_start();
+?>
 <main>
         <!-- heading-cart -->
         <article class="heading-cart">
@@ -43,7 +46,82 @@
                             </div>
                         </div>
                         <!-- cart-items -->
-                        <div class="cart__content--item">
+                        <?php
+                            $listCarts=$_SESSION['cart'];  
+                            if(isset($listCarts)&&is_array($listCarts))  {
+                                $idCart= 0;
+                                $total_qty=0;
+                                // $qty=1;
+                                foreach ($listCarts as $item) {
+                                  
+                                    extract($item);
+                                    $total = $pricePro * $qtyPro;
+                                    $linkDeleCart = "index.php?page=delCart&id=".$idCart;
+                                    echo '
+                                    <div class="cart__content--item">
+                                    <div class="cart--item__nav row">
+                                        <ul class="cart__nav row">
+                                            <li class="row">Danh mục: <span class="cart__nav--li__catalog">'.$nameCata.'</span>
+                                            </li>
+                                            <li class="cart__nav--li row">
+                                                <p>ngày thêm: 04-10/2026</p>
+                                                <p>trạng thái: <span>còn hàng</span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="cart--item__box  row">
+                                        <input type="checkbox" name="" id="">
+                                        <img src="./assets/img/img_main/'.$imgPro.'.png" alt="" class="cart--item__box--img">
+                                        <div class="cart--item__desc">
+                                            <div class="cart--desc__title">'.$namePro.'</div>
+                                            <div class="cart--desc__classly">
+                                                Phân loại: 
+                                            </div>
+                                            <div class="cart--desc__pice">Giá:'.number_format($pricePro,0,",",".").' VNĐ</div>
+                                            <div class="cart--desc-trash">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
+                                                    viewBox="0 0 31 31" fill="none">
+                                                    <path
+                                                        d="M7.02856 7.0625L8.13134 20.6989C8.18372 21.4868 8.92534 22.0625 9.89579 22.0625H20.0413C21.0156 22.0625 21.7435 21.4868 21.8058 20.6989L22.9086 7.0625"
+                                                        stroke="#333333" stroke-width="1.875" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path d="M5.15356 7.0625H25.1536H5.15356Z" fill="#CCCCCC" />
+                                                    <path d="M5.15356 7.0625H25.1536" stroke="#333333" stroke-width="1.875"
+                                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                                    <path
+                                                        d="M11.7161 6.03978V4.33523C11.7155 4.20081 11.7515 4.06765 11.822 3.94339C11.8925 3.81912 11.996 3.70622 12.1267 3.61118C12.2574 3.51613 12.4127 3.44081 12.5835 3.38955C12.7544 3.3383 12.9375 3.31211 13.1223 3.3125H17.8098C17.9946 3.31211 18.1777 3.3383 18.3486 3.38955C18.5195 3.44081 18.6747 3.51613 18.8054 3.61118C18.9361 3.70622 19.0396 3.81912 19.1101 3.94339C19.1806 4.06765 19.2166 4.20081 19.2161 4.33523V6.03978M15.4661 8.76705V18.3125M11.2473 8.76705L11.7161 18.3125M19.6848 8.76705L19.2161 18.3125"
+                                                        stroke="#333333" stroke-width="1.875" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="cart--hendel row">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                                fill="none">
+                                                <path d="M11.8856 5.25L7.96606 11.4093L4.04648 5.25L11.8856 5.25Z"
+                                                    fill="#C0C0C0" stroke="black" stroke-width="0.5" />
+                                            </svg>
+                                            <input type="text" value="01" name="" id="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                                fill="none">
+                                                <path d="M4.04648 9.75L7.96606 3.59066L11.8856 9.75H4.04648Z" fill="#C0C0C0"
+                                                    stroke="black" stroke-width="0.5" />
+                                            </svg>
+                                        </div>
+                                        <div class="cart-total">
+                                           '.$total.'
+                                        </div>
+                                        <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div>
+                                    </div>
+                                </div>
+                                    ';
+                                    $idCart++;
+                                    $total_qty += $total;
+                                }
+                            }
+
+                        ?>
+                        <!-- <div class="cart__content--item">
                             <div class="cart--item__nav row">
                                 <ul class="cart__nav row">
                                     <li class="row">Danh mục: <span class="cart__nav--li__catalog">Cua</span>
@@ -210,7 +288,7 @@
                                 </div>
                                 <div class="cart-operation"><a href="">xóa</a></div>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="cart--qty">

@@ -35,7 +35,7 @@
             $linkProduct = 'index.php?page=product&idProduct='.$id;
             $kq .= '<div class="course-item">
             <a href="'.$linkProduct.'">
-                <img src="./assets/img/'.$img_main.'.png" alt="Basic web design" class="thumb" />
+                <img src="./assets/img/img_main/'.$img_main.'.png" alt="Basic web design" class="thumb" />
             </a>
             <div class="info row">
 

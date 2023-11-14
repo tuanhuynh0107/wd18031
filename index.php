@@ -20,6 +20,7 @@
                     $idDetailProduct=$_GET['idProduct'];
                     $itemDetailProduct= getProductDetail($idDetailProduct);
                     $itemAlbum=getOneAlbum($idDetailProduct);
+                    
                     $itemProduct= getProduct($idDetailProduct);
                     extract($itemProduct);
                    

@@ -15,16 +15,16 @@ function checkDuplicates($id) {
 }
 
 
-    function getAlbum() {
-        $sql = "SELECT product.*, album.img_main as img_main, album.id_prd as id_prd 
-                FROM product
-                LEFT JOIN album ON album.id_prd = product.id limit 5";
-        return get_All($sql);
-    }
-    function getProduct($id_pro){
-        $sql= "SELECT * FROM product WHERE id=".$id_pro;
-        return get_One($sql);
-    }
+function getAlbum() {
+    $sql = "SELECT product.*, album.img_main as img_main, album.id_prd as id_prd 
+            FROM product
+            LEFT JOIN album ON album.id_prd = product.id limit 5";
+    return get_All($sql);
+}
+function getProduct($id_pro){
+    $sql= "SELECT * FROM product WHERE id=".$id_pro;
+    return get_One($sql);
+}
     function getDetailProduct() {
         $sql = "SELECT
         p.id AS product_id,
@@ -144,11 +144,11 @@ function checkDuplicates($id) {
     }
 
     function getProductDetail($idProduct) {
-        $sql = "SELECT *  FROM detail_product where id_DP=".$idProduct;
+        $sql = "SELECT *  FROM detail_product where id_prd=".$idProduct;
         return get_One($sql);
     }
     function getOneAlbum($idProduct){
-        $sql = "SELECT *  FROM album where id=".$idProduct;
+        $sql = "SELECT *  FROM album where id_prd=".$idProduct;
         return get_One($sql);
     }
     // sản phẩm cùng loại

@@ -20,7 +20,7 @@
     function getAlbum() {
         $sql = "SELECT product.*, album.img_main as img_main, album.id_prd as id_prd 
                 FROM product
-                LEFT JOIN album ON album.id_prd = product.id";
+                LEFT JOIN album ON album.id_prd = product.id limit 5";
         return get_All($sql);
     }
 

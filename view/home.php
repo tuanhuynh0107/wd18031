@@ -3,7 +3,8 @@
             <div class="main-hero">
                 <nav class="navbar">
                     <ul class="navber__menu">
-                        <li class="menu__catalog">
+                        <?= showCatalog($listCatalog)?>
+                        <!-- <li class="menu__catalog">
                             <a href="" class="menu__catalog--act row">
                                 <img src="./assets/icons/light.png" alt="" class="catalog__act--icon">
                                 <span class="catalog__act--title">Sản phẩm bán chạy</span>
@@ -56,7 +57,7 @@
                                 <img src="./assets/icons/sosol.png" alt="" class="catalog__act--icon">
                                 <span class="catalog__act--title">Gia vị, Sốt</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <img src="./assets/icons/main-banner.png" alt="" class="main-banner">

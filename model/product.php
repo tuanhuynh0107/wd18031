@@ -86,7 +86,7 @@
         return $kq;
 
     }
-    
+
     function getProductDetail($idProduct) {
         $conn = db();
         $sql = "SELECT *  FROM product where id=".$idProduct;
@@ -198,6 +198,22 @@
     function getCatalog() {
         $sql = "SELECT *  FROM catalog ";
         return get_All($sql);
+    }
+
+    function showCatalog($listItems){
+        $show = "";
+        foreach($listItems as $Item){
+            extract($Item);
+            $linkItems = "index.php?page=catalog&id=".$id_catalog;
+            $show .= '<li class="menu__catalog">
+                        <a href="'.$linkItems.'" class="menu__catalog--act row">
+                            <img src="./assets/icons/'.$img_catalog.'.png" alt="" class="catalog__act--icon">
+                            <span class="catalog__act--title">'.$name_catalog.'</span>
+                        </a>
+                    </li>';
+        }
+        return $show;
+
     }
 
     function getUserShow() {

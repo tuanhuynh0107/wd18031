@@ -143,27 +143,28 @@
         return get_One($sql);
     }
     // sản phẩm cùng loại
-    function sameTypeProducts($idCatalog){
-        $sql= "SELECT
-        p.id AS product_id,
-        p.name AS product_name,
-        c.name_catalog AS category_name,
-        p.price AS product_price,
-        dp.type AS product_type,
-        dp.production AS product_image,
-        a.img1 AS album_image
-      FROM
-        product p
-      JOIN
-        catalog c ON p.id_catalog = c.id_catalog
-      JOIN
-        detail_product dp ON p.id = dp.id_prd
-      LEFT JOIN
-        album a ON p.id = a.id_prd
-      WHERE
-        c.name_catalog =".$idCatalog;
+    function sameTypeProducts($id_catalog){
+        $sql = "SELECT
+            p.id AS product_id,
+            p.name AS product_name,
+            c.name_catalog AS category_name,
+            p.price AS product_price,
+            dp.type AS product_type,
+            dp.production AS product_image,
+            a.img1 AS album_image
+        FROM
+            product p
+        JOIN
+            catalog c ON p.id_catalog = c.id_catalog
+        JOIN
+            detail_product dp ON p.id = dp.id_prd
+        LEFT JOIN
+            album a ON p.id = a.id_prd
+        WHERE
+            c.name_catalog = '$id_catalog'";
         return get_All($sql);
     }
+    
 
     function get_idCatalog($idProduct) {
         $conn = db();

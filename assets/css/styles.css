@@ -1242,6 +1242,7 @@ p {
 }
 
 .feedback-content {
+    justify-content: space-around;
     padding-top: 78px;
 }
 
@@ -1340,10 +1341,9 @@ p {
 .cart__favourite--title {
     color: #F24E1E;
     font-size: 1.4rem;
-
     font-weight: 400;
     line-height: 14px;
-
+    white-space: nowrap;
 }
 
 .cart--heading__select .check-all .heading--content {
@@ -1510,6 +1510,7 @@ p {
 }
 
 .temporary {
+    display: flex;
     padding: 24px 19px;
     flex-direction: column;
     gap: 27px;

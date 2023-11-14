@@ -18,12 +18,15 @@
                     $idDetailProduct=$_GET['idProduct'];
                     $itemDetailProduct= getProductDetail($idDetailProduct);
                     $itemAlbum=getOneAlbum($idDetailProduct);
-
                     $itemProduct= getProduct($idDetailProduct);
                     extract($itemProduct);
-                    $sameType=sameTypeProducts($id_catalog);
+                   
                 }
                 require_once "view/product.php";
+                break;
+
+            case "cart":
+                require_once "view/cart.php";
                 break;
             default:
                 $listCatalog= getCatalog();

@@ -496,10 +496,9 @@ input {
 
 .price-del {
     color: #171100;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: 400;
     line-height: 14px;
-    /* 116.667% */
     text-decoration-line: strikethrough;
 }
 
@@ -1431,6 +1430,7 @@ p {
 
 
 .cart--item__box {
+    justify-content: space-between;
     margin-top: 31px;
     padding: 10px 20px 10px 20px;
     gap: 38px;

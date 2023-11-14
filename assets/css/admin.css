@@ -30,16 +30,6 @@ html {
     align-items: flex-start;
 }
 
-.container__admin {
-    position: relative;
-}
-
-.fixed {
-    position: sticky;
-    top: 10px;
-    z-index: 1;
-
-}
 
 .sidebar_menu {
     border-radius: 18px 0px 0px 18px;
@@ -211,10 +201,11 @@ html {
 
 /* total product */
 .main-content {
-    width: 1240px;
-    max-width: calc(100% - 48px);
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    flex-grow: 1;
+    margin-right: 22px;
+    flex-direction: column;
+    gap: 29px;
 }
 
 .box-total {
@@ -431,6 +422,7 @@ html {
     color: #f00;
 }
 
+
 /* thông báo */
 
 
@@ -442,8 +434,7 @@ html {
 }
 
 .notify__post,
-.notify__comment,
-.notify__revenue {
+.notify__comment {
     width: 100%;
     height: auto;
     padding: 10px 24px;
@@ -526,34 +517,4 @@ html {
     color: var(--primary-color--font3);
     background-color: var(--primary-color--bg);
 
-}
-
-
-/* revence */
-
-
-.revenue__heading--title {
-    color: var(--primary-color--font);
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-.revenue__chart {
-    width: 100%;
-    justify-content: right;
-}
-
-.chart__content {
-    position: relative;
-    width: 90%;
-    margin-top: 57px;
-    background-color: #F9FAFC;
-    justify-content: left;
-}
-
-.notify__chart {
-    position: absolute;
-    margin: 33px 12px 2px 11px;
-    right: 0;
-    bottom: 0;
 }

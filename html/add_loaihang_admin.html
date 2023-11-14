@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loại hàng</title>
+    <title> Thêm Loại hàng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/input.css">
     <link rel="stylesheet" href="../assets/css/admin_quanli.css">
 </head>
 
@@ -319,7 +320,6 @@
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
                                 <h4>Loại hàng mới</h4>
-                                <button class="btn btn-ml"><a href="add_loaihang_admin.html">Thêm </a></button>
                             </div>
     
                             <select class="revenue__top--hendel">
@@ -328,6 +328,36 @@
                                 <option value="3">Giảm dần</option>
                             </select>
                         </div>
+                        <!-- form  -->
+                        <form action="" method="post">
+                            <div class="form_group ">
+                                <div class="form_group__loaihang">
+                                    <label for="name_product" class="form_group__title">
+                                        Tên loại hàng <br>
+                                    </label>
+                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                </div>
+                                <div class="form_group__loaihang">
+                                    <label for="name_product" class="form_group__title">
+                                        Số lượng <br>
+                                    </label>
+                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                </div>
+                                <div class="form_group__loaihang">
+                                    <label for="name_product" class="form_group__title">
+                                        Mã loại <br>
+                                    </label>
+                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                </div>
+                                <div class="form_group__submit">
+                                    <input type="submit" class="form_group__submit--Cancle input-submit__loaihang" value="Cancle">
+                                    <input type="submit" class="form_group__submit--them input-submit__loaihang" value="Thêm">
+                                </div>
+                                <span class="form-mes">
+                                    
+                                </span>
+                            </div>
+                        </form>
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>

@@ -6,14 +6,11 @@
 
                     <form action="#!" method="post" class="form__login row">
                         <div class="form__group">
-                            <h2 class="form__group--title">Đăng nhập</h2>
+                            <h2 class="form__group--title">Đăng ký</h2>
                             <div class="form__group--desc">
+                                Chào mừng đến với 
                                 <span class="form__desc--one">Hải sản</span><span class="form__desc--tow"> Miền
-                                    Tây</span> xin chào,
-                                để phục vụ bạn tốt hơn cùng với
-                                những
-                                ưu đãi riêng, hãy
-                                đăng nhập trước khi mua hàng nhé.
+                                    Tây</span>
                             </div>
                         </div>
                         <div class="form__group">
@@ -24,17 +21,21 @@
 
                         </div>
                         <div class="form__group">
-                            <input type="submit" value="Đăng nhập" class="btn push__login">
+                            <input type="password" placeholder="Nhập lại mật khẩu" class="pass">
+
+                        </div>
+                        <div class="form__group">
+                            <input type="submit" value="Đăng ký" class="btn push__login">
                         </div>
 
                         <div class="form__group">
-                            <div class="form__group--desc">Bạn chưa có tài khoản?
-                                <a href="index.php?page=register" class="form__group--register">Đăng ký</a> tại đây
+                            <div class="form__group--desc">Bạn đã có tài khoản?
+                                <a href="index.php?page=login" class="form__group--register">Đăng nhập</a> tại đây
                                 <a href="" class="forgot__Pass">Quên mật khẩu</a>
                             </div>
                             <div class="line" style="width: 80%; margin-left: auto; margin-right: auto; border-bottom: 1px solid;
                             height: 1px; margin-top: 22px;margin-bottom: 28px;"></div>
-                            <div class="form__group--desc">Hoặc đăng nhập bằng</div>
+                            <div class="form__group--desc">Hoặc đăng ký bằng</div>
 
                             <div class="with__login row">
                                 <a href="#!" class="icon__with">

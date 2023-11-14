@@ -56,7 +56,7 @@
                             </div>
                             <div class="cart--item__box  row">
                                 <input type="checkbox" name="" id="">
-                                <img src="../assets/img/combo1.png" alt="" class="cart--item__box--img">
+                                <img src="./assets/img/combo1.png" alt="" class="cart--item__box--img">
                                 <div class="cart--item__desc">
                                     <div class="cart--desc__title">Combo Miệt Vườn(Siêu hot)</div>
                                     <div class="cart--desc__classly">
@@ -112,7 +112,7 @@
                             </div>
                             <div class="cart--item__box  row">
                                 <input type="checkbox" name="" id="">
-                                <img src="../assets/img/combo1.png" alt="" class="cart--item__box--img">
+                                <img src="./assets/img/combo1.png" alt="" class="cart--item__box--img">
                                 <div class="cart--item__desc">
                                     <div class="cart--desc__title">Combo Miệt Vườn(Siêu hot)</div>
                                     <div class="cart--desc__classly">
@@ -168,7 +168,7 @@
                             </div>
                             <div class="cart--item__box  row">
                                 <input type="checkbox" name="" id="">
-                                <img src="../assets/img/combo1.png" alt="" class="cart--item__box--img">
+                                <img src="./assets/img/combo1.png" alt="" class="cart--item__box--img">
                                 <div class="cart--item__desc">
                                     <div class="cart--desc__title">Combo Miệt Vườn(Siêu hot)</div>
                                     <div class="cart--desc__classly">
@@ -276,7 +276,7 @@
 
                     <div class="course-item">
                         <a href="#!">
-                            <img src="../assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
                         <div class="info">
                             <div class="head">
@@ -290,7 +290,7 @@
                                 <span class="price">1,500,000đ</span>
                                 <span class="price">/ combo</span>
                                 <div class="rating">
-                                    <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
                                     <span class="value"></span>
                                 </div>
                             </div>
@@ -303,7 +303,7 @@
                     </div>
                     <div class="course-item">
                         <a href="#!">
-                            <img src="../assets/img/course-2.jpg" alt="Basic web design" class=" thumb" />
+                            <img src="./assets/img/course-2.jpg" alt="Basic web design" class=" thumb" />
                         </a>
                         <div class="info">
                             <div class="head">
@@ -317,7 +317,7 @@
                                 <span class="price">1,500,000đ</span>
                                 <span class="price">/ combo</span>
                                 <div class="rating">
-                                    <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
                                     <span class="value"> </span>
                                 </div>
                             </div>
@@ -328,7 +328,7 @@
                     </div>
                     <div class="course-item">
                         <a href="#!">
-                            <img src="../assets/img/course-3.jpg" alt="Basic web design" class="thumb" />
+                            <img src="./assets/img/course-3.jpg" alt="Basic web design" class="thumb" />
                         </a>
                         <div class="info">
                             <div class="head">
@@ -342,7 +342,7 @@
                                 <span class="price">1,500,000đ</span>
                                 <span class="price">/ combo</span>
                                 <div class="rating">
-                                    <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
                                     <span class="value"> </span>
                                 </div>
                             </div>
@@ -353,7 +353,7 @@
                     </div>
                     <div class="course-item">
                         <a href="#!">
-                            <img src="../assets/img/course-5.png" alt="Basic web design" class="thumb" />
+                            <img src="./assets/img/course-5.png" alt="Basic web design" class="thumb" />
                         </a>
                         <div class="info">
                             <div class="head">
@@ -367,7 +367,7 @@
                                 <span class="price">1,500,000đ</span>
                                 <span class="price">/ combo</span>
                                 <div class="rating">
-                                    <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
                                     <span class="value"></span>
                                 </div>
                             </div>
@@ -378,7 +378,7 @@
                     </div>
                     <div class="course-item">
                         <a href="#!">
-                            <img src="../assets/img/course-4.png" alt="Basic web design" class="thumb" />
+                            <img src="./assets/img/course-4.png" alt="Basic web design" class="thumb" />
                         </a>
                         <div class="info">
                             <div class="head">
@@ -392,7 +392,7 @@
                                 <span class="price">1,500,000đ</span>
                                 <span class="price">/ combo</span>
                                 <div class="rating">
-                                    <img src="../assets/icons/hot.svg" alt="Star" class="star" />
+                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
                                     <span class="value"> </span>
                                 </div>
                             </div>

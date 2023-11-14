@@ -1355,7 +1355,7 @@ p {
 }
 
 .heading-cart__content {
-    background-color: #0F4542;
+    background-color: #2e9ed5;
     height: 62px;
     gap: 12px;
     padding-left: 12px;
@@ -1570,8 +1570,10 @@ p {
 
 
 .btn-pay {
+    width: 100%;
     margin-top: 20px;
     justify-content: center;
+    align-items: center;
     border-radius: var(--primary-boder);
     background: rgba(48, 133, 195, 0.84);
 }

@@ -40,9 +40,9 @@
                     $typePro=$_POST['typePro'];
 
                     if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
-                        $qty=$_POST['qtyPro'];
+                        $qtyPro=$_POST['qtyPro'];
                     }else{
-                        $qty = 1;
+                        $qtyPro = 1;
                     }
                     
                    

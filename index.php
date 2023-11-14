@@ -18,6 +18,10 @@
                     $idDetailProduct=$_GET['idProduct'];
                     $itemDetailProduct= getProductDetail($idDetailProduct);
                     $itemAlbum=getOneAlbum($idDetailProduct);
+
+                    $itemProduct= getProduct($idDetailProduct);
+                    extract($itemProduct);
+                    $sameType=sameTypeProducts($id_catalog);
                 }
                 require_once "view/product.php";
                 break;

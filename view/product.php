@@ -385,8 +385,8 @@
 
               <div class="course-list">
                   <!-- Course item 1 -->
-
-                  <div class="course-item">
+                <?=showProduct($sameType)?>
+                  <!-- <div class="course-item">
                       <a href="product.html">
                           <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                       </a>
@@ -525,7 +525,7 @@
                       <button class="btn book-btn">
                           Thêm vào giỏ hàng
                       </button>
-                  </div>
+                  </div> -->
               </div>
           </div>
       </div>

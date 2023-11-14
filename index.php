@@ -11,7 +11,7 @@
                 require_once "view/login.php";
                 break;
             case 'register':
-                require_once "view/sign.php";
+                require_once "view/register.php";
                 break;
             default:
                 require_once "view/home.php";

@@ -13,15 +13,27 @@
             case 'register':
                 require_once "view/register.php";
                 break;
+            case 'product':
+                if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){
+                    $idDetailProduct=$_GET['idProduct'];
+                    $itemDetailProduct= getProductDetail($idDetailProduct);
+                    $itemAlbum=getOneAlbum($idDetailProduct);
+
+                    $itemProduct= getProduct($idDetailProduct);
+                    extract($itemProduct);
+                    $sameType=sameTypeProducts($id_catalog);
+                }
+                require_once "view/product.php";
+                break;
             default:
                 $listCatalog= getCatalog();
-                $listProduct= getAlbum();
+                $listProduct= getDetailProduct();
                 require_once "view/home.php";
                 break;
         };
     }else{
         $listCatalog= getCatalog();
-        $listProduct= getAlbum();
+        $listProduct= getDetailProduct();
         require_once "view/home.php";
     }
     require_once "view/footer.php";

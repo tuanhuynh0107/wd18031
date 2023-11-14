@@ -20,29 +20,56 @@
     function getAlbum() {
         $sql = "SELECT product.*, album.img_main as img_main, album.id_prd as id_prd 
                 FROM product
-                LEFT JOIN album ON album.id_prd = product.id";
+                LEFT JOIN album ON album.id_prd = product.id limit 5";
+        return get_All($sql);
+    }
+    function getProduct($id_pro){
+        $sql= "SELECT * FROM product WHERE id=".$id_pro;
+        return get_One($sql);
+    }
+    function getDetailProduct() {
+        $sql = "SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        c.name_catalog AS category_name,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        a.img_main AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd";
         return get_All($sql);
     }
 
-    function getProduct() {
-        $sql = "SELECT *  FROM product";
-        return get_All($sql);
-    }
     function showProduct($listItems){
         $kq = "";
         foreach ($listItems as $Item) {
+            
             extract($Item);
-            $linkProduct = 'index.php?page=product&idProduct='.$id;
+            // if($product_sale != ""){
+            //     $priceSale = $product_price * ($product_sale /100);
+            //     $sale .='<del class="price-del">'.number_format($priceSale,0,",",".").'</del>';
+            // }else{
+            //     $sale .='';
+            // }
+            $linkProduct = 'index.php?page=product&idProduct='.$product_id;
             $kq .= '<div class="course-item">
             <a href="'.$linkProduct.'">
-                <img src="./assets/img/img_main/'.$img_main.'.png" alt="Basic web design" class="thumb" />
+                <img src="./assets/img/img_main/'.$album_image.'.png" alt="Basic web design" class="thumb" />
             </a>
             <div class="info row">
 
                 <div class="body row">
                     <h3 class="title">
                         <a href="#!" class="line-clamp break-all">
-                            '.$name.'
+                            '.$product_name.'
                         </a>
                     </h3>
 
@@ -61,8 +88,8 @@
                     </div>
                 </div>
                 <div class="foot row">
-                    <span class="price">'.number_format($price,0,",",".").'</span><span class="type">/ combo</span>
-                    <del class="price-del">1,500,000đ</del>
+                    <span class="price">'.number_format($product_price,0,",",".").' VND</span><span class="type">/ '.$product_type.'</span>
+                   
                     <div class="rating">
                         <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
                             fill="none" class="star">
@@ -80,45 +107,6 @@
         return $kq;
     }
     
-    // function showProduct($listItems) {
-    //     $kq = "";
-
-    //     foreach ($listItems as $item) {
-    //         extract($item);
-    //         $linkProduct = 'index.php?page=product&idProduct='.$id;
-    //         $kq .= '
-    //         <div class="course-item">
-    //         <a href="'.$linkProduct .'">
-    //             <img src="./assets/img/'.$img.'.png" alt="Basic web design" class="thumb" />
-    //         </a>
-    //         <div class="info">
-    //             <div class="head">
-    //                 <h3 class="title">
-    //                     <a href="'.$linkProduct .'" class="line-clamp break-all">
-    //                         '.$name.'
-    //                     </a>
-    //                 </h3>
-    //             </div>
-    //             <div class="foot">
-    //                 <span class="price">'.number_format($pice,0,",",".").'</span>
-    //                 <span class="price">/ combo</span>
-    //                 <div class="rating">
-    //                     <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-    //                     <span class="value"></span>
-    //                 </div>
-    //             </div>
-
-
-    //         </div>
-    //         <button class="btn book-btn">
-    //             Thêm vào giỏ hàng
-    //         </button>
-    //         </div>
-    //         ';
-    //     }
-
-    //     return $kq;
-    // }
 
 // admin
     function showProductAdmin($listItems) {
@@ -147,15 +135,36 @@
     }
 
     function getProductDetail($idProduct) {
-        $conn = db();
-        $sql = "SELECT *  FROM product where id=".$idProduct;
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $listItems = $stmt->fetch();
-        $conn = null;
-        return $listItems;
+        $sql = "SELECT *  FROM detail_product where id_DP=".$idProduct;
+        return get_One($sql);
     }
+    function getOneAlbum($idProduct){
+        $sql = "SELECT *  FROM album where id_prd=".$idProduct;
+        return get_One($sql);
+    }
+    // sản phẩm cùng loại
+    function sameTypeProducts($idCatalog){
+        $sql= "SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        c.name_catalog AS category_name,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        a.img1 AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd
+      WHERE
+        c.name_catalog =".$idCatalog;
+        return get_All($sql);
+    }
+
     function get_idCatalog($idProduct) {
         $conn = db();
         $sql = "SELECT loaiHang FROM sanpham where idSP=".$idProduct;

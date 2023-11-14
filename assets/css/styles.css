@@ -97,9 +97,13 @@ a {
     --line-clamp: 2;
 }
 
-.break-all {
-    word-break: break-all;
+.none {
+    display: none;
 }
+
+/* .break-all {
+    word-break: break-all;
+} */
 
 /* input */
 
@@ -445,9 +449,7 @@ input {
 
 .popular .course-item .thumb {
     width: 100%;
-    /* height: 211.185px; */
     object-fit: cover;
-    /* border: 1px solid #ccc; */
     border-radius: 16px 16px 0px 0px;
 }
 
@@ -456,7 +458,7 @@ input {
     color: #000;
     text-align: center;
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 16px;
     display: -webkit-box;
     -webkit-line-clamp: var(--line-clamp, 1);
@@ -465,10 +467,10 @@ input {
 }
 
 .popular .course-item .foot .price {
-    color: #D62F40;
+    color: var(--primary-color-font);
     font-size: 1.6rem;
-    font-style: normal;
     font-weight: 600;
+    line-height: 16px;
     word-wrap: break-all;
 }
 
@@ -478,10 +480,25 @@ input {
     left: 0;
 }
 
+.popular .value {
+    position: absolute;
+    top: 22px;
+    left: 15px;
+    rotate: -45deg;
+    color: #F00;
+    text-shadow: 0px 2px 9px #FCE75F;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.27px;
+}
+
 .price-del {
     color: #171100;
-    font-size: 1.2rem;
+    font-size: 12px;
     font-weight: 400;
+    line-height: 14px;
+    /* 116.667% */
+    text-decoration-line: strikethrough;
 }
 
 .popular .course-item .foot .rating .star {
@@ -490,9 +507,19 @@ input {
 }
 
 .foot {
-    justify-content: space-around;
+    padding: 0px 5px;
+    width: 100%;
+    justify-content: space-between;
     gap: 10px;
     margin-bottom: 9px;
+}
+
+.foot .type {
+    white-space: nowrap;
+    color: var(--primary-color-font);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 9px;
 }
 
 .info {
@@ -500,6 +527,24 @@ input {
     flex-direction: column;
     gap: 14px;
     padding: 3px;
+}
+
+
+.popular .course-item .body {
+    width: 100%;
+    padding: 0px 5px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.icon__addCart {
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 500ms ease-in-out;
+}
+
+.popular .course-item:hover .icon__addCart {
+    opacity: 1;
 }
 
 @keyframes lds-heart {
@@ -530,17 +575,25 @@ input {
 
 
 .popular .course-item .book-btn {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: absolute;
+    top: 173px;
+    left: 0;
     width: 100%;
-    border-radius: 0px 0px 12px 12px;
+    border-radius: 0px;
     background: var(--primary-color);
     line-height: 2.5;
     border: none;
     color: #171100;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
 }
 
 
 .popular .course-item:hover .book-btn {
-    color: #2E9ED5;
+    opacity: 1;
 }
 
 /* Feedback */

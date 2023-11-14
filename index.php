@@ -15,13 +15,13 @@
                 break;
             default:
                 $listCatalog= getCatalog();
-                $listProduct= getAlbum();
+                $listProduct= getDetailProduct();
                 require_once "view/home.php";
                 break;
         };
     }else{
         $listCatalog= getCatalog();
-        $listProduct= getAlbum();
+        $listProduct= getDetailProduct();
         require_once "view/home.php";
     }
     require_once "view/footer.php";

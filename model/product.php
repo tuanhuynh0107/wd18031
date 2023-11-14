@@ -17,32 +17,57 @@
 
     }
 
-    function getAlbum() {
-        $sql = "SELECT product.*, album.img_main as img_main, album.id_prd as id_prd 
-                FROM product
-                LEFT JOIN album ON album.id_prd = product.id";
+    function getProduct() {
+        $sql = "SELECT * FROM product order by RAND() LIMIT 5";
+        return get_All($sql);
+    }
+    function getDetailProduct() {
+        $sql = "SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        c.name_catalog AS category_name,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        a.img_main AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd";
         return get_All($sql);
     }
 
-    function getProduct() {
-        $sql = "SELECT *  FROM product";
-        return get_All($sql);
-    }
+    // function getProduct() {
+    //     $sql = "SELECT *  FROM product";
+    //     return get_All($sql);
+    // }
     function showProduct($listItems){
         $kq = "";
         foreach ($listItems as $Item) {
+            
             extract($Item);
-            $linkProduct = 'index.php?page=product&idProduct='.$id;
+            // if($product_sale != ""){
+            //     $priceSale = $product_price * ($product_sale /100);
+            //     $sale .='<del class="price-del">'.number_format($priceSale,0,",",".").'</del>';
+            // }else{
+            //     $sale .='';
+            // }
+            $linkProduct = 'index.php?page=product&idProduct='.$product_id;
             $kq .= '<div class="course-item">
             <a href="'.$linkProduct.'">
-                <img src="./assets/img/img_main/'.$img_main.'.png" alt="Basic web design" class="thumb" />
+                <img src="./assets/img/img_main/'.$album_image.'.png" alt="Basic web design" class="thumb" />
             </a>
             <div class="info row">
 
                 <div class="body row">
                     <h3 class="title">
                         <a href="#!" class="line-clamp break-all">
-                            '.$name.'
+                            '.$product_name.'
                         </a>
                     </h3>
 
@@ -61,8 +86,8 @@
                     </div>
                 </div>
                 <div class="foot row">
-                    <span class="price">'.number_format($price,0,",",".").'</span><span class="type">/ combo</span>
-                    <del class="price-del">1,500,000đ</del>
+                    <span class="price">'.number_format($product_price,0,",",".").' VND</span><span class="type">/ '.$product_type.'</span>
+                   
                     <div class="rating">
                         <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
                             fill="none" class="star">

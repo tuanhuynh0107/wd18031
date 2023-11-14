@@ -449,9 +449,10 @@ input {
 }
 
 .popular .course-item .thumb {
-    width: 100%;
+    width: 230px;
+    height: 212px;
     object-fit: cover;
-    border-radius: 16px 16px 0px 0px;
+    /* border-radius: 16px 16px 0px 0px; */
 }
 
 

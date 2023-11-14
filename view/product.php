@@ -1,6 +1,7 @@
 <?php
     extract($itemDetailProduct);
     extract($itemAlbum);
+    $sameType=sameTypeProducts($id_catalog);
 ?>  
 <main>
       
@@ -384,148 +385,13 @@
               </div>
 
               <div class="course-list">
-                  <!-- Course item 1 -->
-                <?=showProduct($sameType)?>
-                  <!-- <div class="course-item">
-                      <a href="product.html">
-                          <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                      </a>
-                      <div class="info">
-                          <div class="head">
-                              <h3 class="title">
-                                  <a href="#!" class="line-clamp break-all">
-                                      Combo Hải Sản 1,5 Triệu
-                                  </a>
-                              </h3>
-                          </div>
-                          <div class="foot row">
-                              <span class="price">1,500,000đ</span>
-                              <span class="price">/ combo</span>
-                              <del class="price-del">1,500,000đ</del>
-                              <div class="rating">
-                                  <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                  <span class="value"></span>
-                              </div>
-                          </div>
-
-
-                      </div>
-                      <button class="btn book-btn">
-                          Thêm vào giỏ hàng
-                      </button>
-                  </div>
-                  <div class="course-item">
-                      <a href="product.html">
-                          <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                      </a>
-                      <div class="info">
-                          <div class="head">
-                              <h3 class="title">
-                                  <a href="#!" class="line-clamp break-all">
-                                      Combo Hải Sản 1,5 Triệu
-                                  </a>
-                              </h3>
-                          </div>
-                          <div class="foot row">
-                              <span class="price">1,500,000đ</span>
-                              <span class="price">/ combo</span>
-                              <del class="price-del">1,500,000đ</del>
-                              <div class="rating">
-                                  <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                  <span class="value"></span>
-                              </div>
-                          </div>
-
-
-                      </div>
-                      <button class="btn book-btn">
-                          Thêm vào giỏ hàng
-                      </button>
-                  </div>
-                  <div class="course-item">
-                      <a href="product.html">
-                          <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                      </a>
-                      <div class="info">
-                          <div class="head">
-                              <h3 class="title">
-                                  <a href="#!" class="line-clamp break-all">
-                                      Combo Hải Sản 1,5 Triệu
-                                  </a>
-                              </h3>
-                          </div>
-                          <div class="foot row">
-                              <span class="price">1,500,000đ</span>
-                              <span class="price">/ combo</span>
-                              <del class="price-del">1,500,000đ</del>
-                              <div class="rating">
-                                  <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                  <span class="value"></span>
-                              </div>
-                          </div>
-
-
-                      </div>
-                      <button class="btn book-btn">
-                          Thêm vào giỏ hàng
-                      </button>
-                  </div>
-                  <div class="course-item">
-                      <a href="product.html">
-                          <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                      </a>
-                      <div class="info">
-                          <div class="head">
-                              <h3 class="title">
-                                  <a href="#!" class="line-clamp break-all">
-                                      Combo Hải Sản 1,5 Triệu
-                                  </a>
-                              </h3>
-                          </div>
-                          <div class="foot row">
-                              <span class="price">1,500,000đ</span>
-                              <span class="price">/ combo</span>
-                              <del class="price-del">1,500,000đ</del>
-                              <div class="rating">
-                                  <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                  <span class="value"></span>
-                              </div>
-                          </div>
-
-
-                      </div>
-                      <button class="btn book-btn">
-                          Thêm vào giỏ hàng
-                      </button>
-                  </div>
-                  <div class="course-item">
-                      <a href="product.html">
-                          <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                      </a>
-                      <div class="info">
-                          <div class="head">
-                              <h3 class="title">
-                                  <a href="#!" class="line-clamp break-all">
-                                      Combo Hải Sản 1,5 Triệu
-                                  </a>
-                              </h3>
-                          </div>
-                          <div class="foot row">
-                              <span class="price">1,500,000đ</span>
-                              <span class="price">/ combo</span>
-                              <del class="price-del">1,500,000đ</del>
-                              <div class="rating">
-                                  <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                  <span class="value"></span>
-                              </div>
-                          </div>
-
-
-                      </div>
-                      <button class="btn book-btn">
-                          Thêm vào giỏ hàng
-                      </button>
-                  </div> -->
+                <?php
+                if($sameType  === []) {
+                    echo "khong rong";
+                }else {
+                    echo "rong";
+                }
+                ?>
               </div>
           </div>
       </div>

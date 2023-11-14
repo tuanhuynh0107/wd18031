@@ -44,10 +44,6 @@
         return get_All($sql);
     }
 
-    // function getProduct() {
-    //     $sql = "SELECT *  FROM product";
-    //     return get_All($sql);
-    // }
     function showProduct($listItems){
         $kq = "";
         foreach ($listItems as $Item) {
@@ -107,45 +103,6 @@
         return $kq;
     }
     
-    // function showProduct($listItems) {
-    //     $kq = "";
-
-    //     foreach ($listItems as $item) {
-    //         extract($item);
-    //         $linkProduct = 'index.php?page=product&idProduct='.$id;
-    //         $kq .= '
-    //         <div class="course-item">
-    //         <a href="'.$linkProduct .'">
-    //             <img src="./assets/img/'.$img.'.png" alt="Basic web design" class="thumb" />
-    //         </a>
-    //         <div class="info">
-    //             <div class="head">
-    //                 <h3 class="title">
-    //                     <a href="'.$linkProduct .'" class="line-clamp break-all">
-    //                         '.$name.'
-    //                     </a>
-    //                 </h3>
-    //             </div>
-    //             <div class="foot">
-    //                 <span class="price">'.number_format($pice,0,",",".").'</span>
-    //                 <span class="price">/ combo</span>
-    //                 <div class="rating">
-    //                     <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-    //                     <span class="value"></span>
-    //                 </div>
-    //             </div>
-
-
-    //         </div>
-    //         <button class="btn book-btn">
-    //             Thêm vào giỏ hàng
-    //         </button>
-    //         </div>
-    //         ';
-    //     }
-
-    //     return $kq;
-    // }
 
 // admin
     function showProductAdmin($listItems) {
@@ -174,15 +131,14 @@
     }
 
     function getProductDetail($idProduct) {
-        $conn = db();
-        $sql = "SELECT *  FROM product where id=".$idProduct;
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $listItems = $stmt->fetch();
-        $conn = null;
-        return $listItems;
+        $sql = "SELECT *  FROM detail_product where id_DP=".$idProduct;
+        return get_One($sql);
     }
+    function getOneAlbum($idProduct){
+        $sql = "SELECT *  FROM album where id_prd=".$idProduct;
+        return get_One($sql);
+    }
+
     function get_idCatalog($idProduct) {
         $conn = db();
         $sql = "SELECT loaiHang FROM sanpham where idSP=".$idProduct;

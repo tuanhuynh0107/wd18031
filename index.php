@@ -13,6 +13,14 @@
             case 'register':
                 require_once "view/register.php";
                 break;
+            case 'product':
+                if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){
+                    $idDetailProduct=$_GET['idProduct'];
+                    $itemDetailProduct= getProductDetail($idDetailProduct);
+                    $itemAlbum=getOneAlbum($idDetailProduct);
+                }
+                require_once "view/product.php";
+                break;
             default:
                 $listCatalog= getCatalog();
                 $listProduct= getDetailProduct();

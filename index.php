@@ -63,27 +63,6 @@
                         }
                        
                     }
-                    
-                //     if(empty($phone) || empty($pass)) {
-                //         $thongBaoLogin="Không được để trống";
-                //     }else{
-                //         if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
-                //             $thongBaoLogin="Không được để trống";
-                //         } else { 
-                //             if(!preg_match("/^[a-zA-Z0-9]{6,12}$/", $pass)){
-                //                 $thongBaoLogin= "Sai mật khẩu";
-                //             }else{
-                //                 extract($getUser);
-                //                 if($role_user==1){
-                //                     $_SESSION['user'] =$role_user;
-                                  
-                //                 }else{
-                //                     $_SESSION['user'] =$role_user;
-                //                     header('location: index.php');
-                //                 }
-                //             }
-                //         } 
-                //     }
                 }
 
                 break;
@@ -92,10 +71,8 @@
                     $idDetailProduct=$_GET['idProduct'];
                     $itemDetailProduct= getProductDetail($idDetailProduct);
                     $itemAlbum=getOneAlbum($idDetailProduct);
-                    
                     $itemProduct= getProduct($idDetailProduct);
                     extract($itemProduct);
-                   
                 }
                 require_once "view/product.php";
                 break;
@@ -143,8 +120,10 @@
                 require_once('view/payMent.php');
                 break;
             default:
-                $listCatalog= getCatalog();
-                $listProduct= getDetailProduct();
+            $listItemLimitRanDom = getDetailProductLimitRanDom();
+            $listItemLimit = getDetailProductLimit();
+            $listCatalog= getCatalog();
+            $listProduct= getDetailProduct();
                 require_once "view/home.php";
                 break;
         };

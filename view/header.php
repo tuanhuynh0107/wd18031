@@ -1,6 +1,8 @@
 <?php  
     $qtyInCart = 00;
-    $qtyInCart =  count($_SESSION["cart"]);
+    if(isset($_SESSION["cart"])){
+        $qtyInCart =  count($_SESSION["cart"]);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

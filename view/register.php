@@ -20,10 +20,11 @@
                             <input type="password" placeholder="Nhập mật khẩu" class="pass" name="pass">
                         </div>
                         <div class="form__group">
-                            <input type="password" placeholder="Nhập lại mật khẩu" class="pass">
+                            <input type="password" placeholder="Nhập lại mật khẩu" class="pass" name="interPass">
                         </div>
                         <div class="form__group">
                             <input type="submit" value="Đăng ký" class="btn push__login" name="registerNew">
+                            <?=$thongbao?>
                         </div>
 
                         <div class="form__group">

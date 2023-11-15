@@ -44,8 +44,28 @@
                 
                 require_once "view/register.php";
                 break;
-            case '':
-
+            case 'loginUser':
+                if (isset($_POST['dangNhap']) && ($_POST['dangNhap'])) {
+                    $phone = $_POST['phone'];
+                    $pass = $_POST['pass'];
+                    $getUser=getUser($phone,$pass);
+                    
+                    if (empty($phone) || empty($pass)) {
+                        $thongbao = "Vui lòng điền đầy đủ thông tin.";
+                    } else {
+                        if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
+                            $thongbao = "Tài khoản hoặc mật khẩu không đúng";
+                        } else {
+                            // Kiểm tra tên đăng nhập phải có ít nhất 6 ký tự (chữ và số)
+                            if (!preg_match("/^[a-zA-Z0-9]{6,12}$/", $pass)) {
+                                $thongbao = "Tài khoản hoặc mật khẩu không đúng";
+                            } else {
+                                
+                            }
+                        }
+                    }
+                }
+                
                 break;
             case 'product':
                 if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){

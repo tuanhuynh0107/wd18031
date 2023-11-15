@@ -239,9 +239,9 @@ function getProduct($id_pro){
     }
 
 
-    function getUser($user,$pass) {
+    function getUser($phone,$pass) {
         $conn = db();
-        $sql = "SELECT * FROM khachhang where nameKH='".$user."' AND pass='".$pass."' " ;
+        $sql = "SELECT * FROM user where phone='".$phone."' AND pass='".$pass."'" ;
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);

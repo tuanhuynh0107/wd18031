@@ -1,3 +1,10 @@
+    <?php
+        echo '<pre>';
+        var_dump($_SESSION["cart"]);
+        echo '<pre>';
+    ?>
+
+
 <main>
         <!-- heading-cart -->
         <article class="heading-cart">
@@ -17,7 +24,7 @@
 
         <section class="pay">
             <div class="main-content">
-                <div class="pay__address row">
+                <div class="pay__address">
                     <div class="pay__address--top row">
                         <div class="pay__address--icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30"
@@ -60,7 +67,7 @@
                     <tbody class="pay-ment__body">
                         <tr>
                             <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                    src="assets/img/combo1.png" alt="">
+                                    src="../assets/img/combo1.png" alt="">
                             </td>
                             <td class="pay-ment__bod--title">Combo Miệt Vườn</td>
                             <td class="pay-ment__bod--title">Loại: Combo</td>
@@ -70,7 +77,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                    src="assets/img/combo1.png" alt="">
+                                    src="../assets/img/combo1.png" alt="">
                             </td>
                             <td class="pay-ment__bod--title">Combo Miệt Vườn</td>
                             <td class="pay-ment__bod--title">Loại: Combo</td>
@@ -131,14 +138,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
-
-
-
         </section>
 
     </main>

@@ -1,5 +1,4 @@
 <?php
-    $thongbao="";
 ?>
 <main>
         <article class="login">
@@ -27,8 +26,8 @@
 
                         </div>
                         <div class="form__group">
-                            <input type="submit" name="dangNhap" value="Đăng nhập" class="btn push__login">
-                            <?=$thongbao?>                        
+                            <input type="submit" name="loginUser" value="Đăng nhập" class="btn push__login">
+                                          
                         </div>
 
                         <div class="form__group">

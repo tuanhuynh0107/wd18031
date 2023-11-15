@@ -1857,7 +1857,7 @@ p {
 /* login */
 
 .login {
-    margin: 20px 0px;
+    margin: 0px;
     height: 900px;
     background-image: url(../img/img_bg_sign_re.png);
     background-size: cover;

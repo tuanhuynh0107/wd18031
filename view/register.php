@@ -24,7 +24,20 @@
                         </div>
                         <div class="form__group">
                             <input type="submit" value="Đăng ký" class="btn push__login" name="registerNew">
-                            <?=$thongbao?>
+                            
+
+                               <?php
+                                
+                                    if(isset($thongbao) && $thongbao == "") {
+                                        echo $thongbao= "rong ne";
+                                    }else {
+                                        echo $thongbao;
+                                    }
+
+
+
+                               ?>
+
                         </div>
 
                         <div class="form__group">

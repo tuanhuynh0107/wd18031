@@ -239,19 +239,18 @@ function getProduct($id_pro){
     }
 
 
-    function getUser($phone,$pass) {
+    function getUser($phone, $pass) {
         $conn = db();
-        $sql = "SELECT * FROM user where phone='".$phone."' AND pass='".$pass."'" ;
+        $sql = "SELECT * FROM user WHERE phone=:phone AND pass=:pass";
         $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':pass', $pass);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $listItems = $stmt->fetchAll();
+        $user = $stmt->fetch();
         $conn = null;
-        if(count($listItems)>0){ 
-            return $listItems[0]['role'];
-        }else{
-            return 0;
-        }
+    
+        return $user; // Return the entire user row
     }
 
 

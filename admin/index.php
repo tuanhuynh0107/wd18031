@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+    ob_start()  ;
     require_once "../model/db.php";
     require_once "../model/product.php";
     

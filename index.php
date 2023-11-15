@@ -45,27 +45,47 @@
                 require_once "view/register.php";
                 break;
             case 'loginUser':
-                if (isset($_POST['dangNhap']) && ($_POST['dangNhap'])) {
-                    $phone = $_POST['phone'];
-                    $pass = $_POST['pass'];
-                    $getUser=getUser($phone,$pass);
-                    
-                    if (empty($phone) || empty($pass)) {
-                        $thongbao = "Vui lòng điền đầy đủ thông tin.";
-                    } else {
-                        if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
-                            $thongbao = "Tài khoản hoặc mật khẩu không đúng";
-                        } else {
-                            // Kiểm tra tên đăng nhập phải có ít nhất 6 ký tự (chữ và số)
-                            if (!preg_match("/^[a-zA-Z0-9]{6,12}$/", $pass)) {
-                                $thongbao = "Tài khoản hoặc mật khẩu không đúng";
-                            } else {
-                                
-                            }
+                if (isset($_POST['loginUser']) && ($_POST['loginUser'])) {
+                    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+                    $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
+
+                    $getUser = getUser($phone, $pass);
+
+                  if (is_array($getUser)) {
+                        extract($getUser);
+                       
+                        if($role_user==1){
+                            $_SESSION['user']=$getUser;
+                            header("location: admin/index.php");
+                        }else{
+                            $_SESSION['user']=$getUser;
+                            header('location: index.php');
                         }
+                       
                     }
+                    
+                //     if(empty($phone) || empty($pass)) {
+                //         $thongBaoLogin="Không được để trống";
+                //     }else{
+                //         if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
+                //             $thongBaoLogin="Không được để trống";
+                //         } else { 
+                //             if(!preg_match("/^[a-zA-Z0-9]{6,12}$/", $pass)){
+                //                 $thongBaoLogin= "Sai mật khẩu";
+                //             }else{
+                //                 extract($getUser);
+                //                 if($role_user==1){
+                //                     $_SESSION['user'] =$role_user;
+                                  
+                //                 }else{
+                //                     $_SESSION['user'] =$role_user;
+                //                     header('location: index.php');
+                //                 }
+                //             }
+                //         } 
+                //     }
                 }
-                
+
                 break;
             case 'product':
                 if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){

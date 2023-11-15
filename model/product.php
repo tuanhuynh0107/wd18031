@@ -301,6 +301,7 @@ function getProduct($id_pro){
     // }
 
     function  insetUser($phone,$pass) {
+        
         $sql = "INSERT INTO user (phone, pass) VALUES ('".$phone."', '".$pass."')";
         inset($sql);
     }

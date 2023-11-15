@@ -16,13 +16,36 @@
                 require_once "view/register.php";
                 break;
             case 'registerNew':
-                if(isset($_POST['registerNew']) &&($_POST['registerNew'])) {
+                if (isset($_POST['registerNew']) && ($_POST['registerNew'])) {
                     $phone = $_POST['phone'];
                     $pass = $_POST['pass'];
-                    insetUser( $phone,$pass);
-                    $item = ['phone'=> $phone, 'pass'=> $pass];
-                    $_SESSION['user'][] = $item;
+                    $interPass = $_POST['interPass'];
+                
+                    if (empty($phone) || empty($pass) || empty($interPass)) {
+                        $thongbao = "Vui lòng điền đầy đủ thông tin.";
+                    } else {
+                        if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
+                            $thongbao = "Số điện thoại của bạn không hợp lệ.";
+                        } else {
+                            // Kiểm tra tên đăng nhập phải có ít nhất 6 ký tự (chữ và số)
+                            if (!preg_match("/^[a-zA-Z0-9]{6,12}$/", $pass) || !preg_match("/^[a-zA-Z0-9]{6,12}$/", $interPass)) {
+                                $thongbao = "Mật khẩu phải có ít nhất 6 ký tự (chữ và số) nhiều nhất là 12 kí tự.";
+                            } else {
+                                if ($pass == $interPass) {
+                                    insetUser($phone,$pass);
+                                    $thongbao = "Đăng ký thành công";
+                                } else {
+                                    $thongbao = "Mật khẩu không trùng nhau";
+                                }
+                            }
+                        }
+                    }
                 }
+                
+                require_once "view/register.php";
+                break;
+            case '':
+
                 break;
             case 'product':
                 if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){

@@ -103,14 +103,14 @@
                                                 <path d="M11.8856 5.25L7.96606 11.4093L4.04648 5.25L11.8856 5.25Z"
                                                     fill="#C0C0C0" stroke="black" stroke-width="0.5" />
                                             </svg>
-                                            <input type="text" value="01" name="" id="">
+                                            <input type="text" value="'.$qtyPro.'" name="" id="">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
                                                 fill="none">
                                                 <path d="M4.04648 9.75L7.96606 3.59066L11.8856 9.75H4.04648Z" fill="#C0C0C0"
                                                     stroke="black" stroke-width="0.5" />
                                             </svg>
                                         </div>
-                                        <div class="cart-total">'.number_format($total,0,",",".").'</div>
+                                        <div class="cart-total">'.number_format($total,0,",",".").'đ</div>
                                         <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div>
                                     </div>
                                 </div>
@@ -143,8 +143,7 @@
                                 <div class="total__order--pice"><?=number_format($total_qty + $ship,0,",",".")?>đ</div>
                             </div>
                         </div>
-
-                        <a href="pay-ment.html" class="cart__pay btn">Thanh toán</a>
+                        <a href="index.php?page=payMent" class="cart__pay btn">Thanh toán</a>
                     </div>
                 </div>
 

@@ -15,6 +15,15 @@
             case 'register':
                 require_once "view/register.php";
                 break;
+            case 'registerNew':
+                if(isset($_POST['registerNew']) &&($_POST['registerNew'])) {
+                    $phone = $_POST['phone'];
+                    $pass = $_POST['pass'];
+                    insetUser( $phone,$pass);
+                    $item = ['phone'=> $phone, 'pass'=> $pass];
+                    $_SESSION['user'][] = $item;
+                }
+                break;
             case 'product':
                 if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){
                     $idDetailProduct=$_GET['idProduct'];
@@ -63,10 +72,13 @@
                      array_splice($_SESSION['cart'],$_GET['id'],1);
                }else{
                     $_SESSION['cart']=[];
-                    
                }
                header('location: index.php?page=cart');
-                break;                    
+                break;    
+                
+            case 'payMent':
+                require_once('view/payMent.php');
+                break;
             default:
                 $listCatalog= getCatalog();
                 $listProduct= getDetailProduct();

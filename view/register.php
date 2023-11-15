@@ -4,7 +4,7 @@
                 <div class="main-login row">
                     <img src="../assets/img/logo_sign.png" alt="">
 
-                    <form action="#!" method="post" class="form__login row">
+                    <form action="index.php?page=registerNew" method="post" class="form__login row">
                         <div class="form__group">
                             <h2 class="form__group--title">Đăng ký</h2>
                             <div class="form__group--desc">
@@ -14,18 +14,16 @@
                             </div>
                         </div>
                         <div class="form__group">
-                            <input type="text" placeholder="Nhập email hoặc số điện thoại" class="full-name">
+                            <input type="text" placeholder="Nhập số điện thoại" class="full-name" name="phone">
                         </div>
                         <div class="form__group">
-                            <input type="password" placeholder="Nhập mật khẩu" class="pass">
-
+                            <input type="password" placeholder="Nhập mật khẩu" class="pass" name="pass">
                         </div>
                         <div class="form__group">
                             <input type="password" placeholder="Nhập lại mật khẩu" class="pass">
-
                         </div>
                         <div class="form__group">
-                            <input type="submit" value="Đăng ký" class="btn push__login">
+                            <input type="submit" value="Đăng ký" class="btn push__login" name="registerNew">
                         </div>
 
                         <div class="form__group">

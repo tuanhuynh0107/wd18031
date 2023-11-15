@@ -68,7 +68,7 @@
 
                 <div class="body row">
                     <h3 class="title">
-                        <a href="#!" class="line-clamp break-all">
+                        <a href="'.$linkProduct.'" class="line-clamp break-all">
                             '.$product_name.'
                         </a>
                     </h3>

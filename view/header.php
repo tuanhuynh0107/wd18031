@@ -1,4 +1,7 @@
-
+<?php  
+    $qtyInCart = 00;
+    $qtyInCart =  count($_SESSION["cart"]);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -320,7 +323,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                        <p class="total-cart">00</p>
+                        <p class="total-cart"><?=$qtyInCart?></p>
                     </a>
                 </div>
             </div>

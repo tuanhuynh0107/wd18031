@@ -25,7 +25,7 @@
                         <div class="cart__content--heading row">
                             <div class="cart--heading__left row">
                                 <div class="cart--heading__select row">
-                                    <input type="checkbox" name="check-all" id="">
+                                    <input type="checkbox" name="check-all" id="selecctall">
                                     <label for="check-all">Chọn tất cả</label>
                                 </div>
                                 <div class="cart--heading__favourite row">
@@ -61,7 +61,7 @@
                                     $linkDeleCart = "index.php?page=delCart&id=".$idCart;
                                     echo '
                                     <div class="cart__content--item">
-                                    <div class="cart--item__nav row">
+                                    <div class="cart--item__nav">
                                         <ul class="cart__nav row">
                                             <li class="row">Danh mục: <span class="cart__nav--li__catalog">'.$nameCata.'</span>
                                             </li>
@@ -72,14 +72,14 @@
                                         </ul>
                                     </div>
                                     <div class="cart--item__box row">
-                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="check-all" id="" class="checkbox1">
                                         <img src="./assets/img/img_main/'.$imgPro.'.png" alt="" class="cart--item__box--img">
                                         <div class="cart--item__desc">
                                             <div class="cart--desc__title">'.$namePro.'</div>
                                             <div class="cart--desc__classly">
-                                                Phân loại: 
+                                                Phân loại: '.$typePro.'
                                             </div>
-                                            <div class="cart--desc__pice">Giá:'.number_format($pricePro,0,",",".").' VNĐ</div>
+                                            <div class="cart--desc__pice">Giá: '.number_format($pricePro,0,",",".").' VNĐ</div>
                                             <div class="cart--desc-trash">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
                                                     viewBox="0 0 31 31" fill="none">
@@ -110,9 +110,7 @@
                                                     stroke="black" stroke-width="0.5" />
                                             </svg>
                                         </div>
-                                        <div class="cart-total">
-                                           '.$total.'
-                                        </div>
+                                        <div class="cart-total">'.number_format($total,0,",",".").'</div>
                                         <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div>
                                     </div>
                                 </div>
@@ -132,7 +130,7 @@
                                 <strong><?=number_format($total_qty,0,",",".")?></strong>
                             </div>
                             <div class="temporary-content  row">
-                                <span><?=$quantyty?></span>
+                                <span>Phí vận chuyển tạm tính</span>
                                 <strong><?=$ship?></strong>
                             </div>
                             <div class="temporary-content  row">
@@ -142,13 +140,11 @@
                             </div>
                             <div class="total__order row">
                                 <div class="total__order--title">Tổng tiền</div>
-                                <div class="total__order--pice"><?=number_format($total_qty + $ship,0,",",".")?></div>
+                                <div class="total__order--pice"><?=number_format($total_qty + $ship,0,",",".")?>đ</div>
                             </div>
                         </div>
 
-                        <div class="btn btn-pay row">
-                            <a href="pay-ment.html">Thanh toán</a>
-                        </div>
+                        <a href="pay-ment.html" class="cart__pay btn">Thanh toán</a>
                     </div>
                 </div>
 

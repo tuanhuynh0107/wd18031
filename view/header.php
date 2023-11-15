@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -306,7 +307,7 @@
                     <a href="index.php?page=login" class="btn sign-up-btn">Đăng nhập</a>
                 </div>
                 <div class="action action__cart">
-                    <a href="cart.html">
+                    <a href="index.php?page=cart">
                         <svg xmlns="http://www.w3.org/2000/svg" width="53" height="49" viewBox="0 0 53 49" fill="none">
                             <g clip-path="url(#clip0_14_30)">
                                 <path

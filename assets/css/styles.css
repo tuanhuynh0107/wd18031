@@ -496,10 +496,9 @@ input {
 
 .price-del {
     color: #171100;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: 400;
     line-height: 14px;
-    /* 116.667% */
     text-decoration-line: strikethrough;
 }
 
@@ -1242,6 +1241,7 @@ p {
 }
 
 .feedback-content {
+    justify-content: space-around;
     padding-top: 78px;
 }
 
@@ -1340,10 +1340,9 @@ p {
 .cart__favourite--title {
     color: #F24E1E;
     font-size: 1.4rem;
-
     font-weight: 400;
     line-height: 14px;
-
+    white-space: nowrap;
 }
 
 .cart--heading__select .check-all .heading--content {
@@ -1355,7 +1354,7 @@ p {
 }
 
 .heading-cart__content {
-    background-color: #0F4542;
+    background-color: #2e9ed5;
     height: 62px;
     gap: 12px;
     padding-left: 12px;
@@ -1431,6 +1430,7 @@ p {
 
 
 .cart--item__box {
+    justify-content: space-between;
     margin-top: 31px;
     padding: 10px 20px 10px 20px;
     gap: 38px;
@@ -1510,6 +1510,7 @@ p {
 }
 
 .temporary {
+    display: flex;
     padding: 24px 19px;
     flex-direction: column;
     gap: 27px;
@@ -1569,8 +1570,10 @@ p {
 
 
 .btn-pay {
+    width: 100%;
     margin-top: 20px;
     justify-content: center;
+    align-items: center;
     border-radius: var(--primary-boder);
     background: rgba(48, 133, 195, 0.84);
 }

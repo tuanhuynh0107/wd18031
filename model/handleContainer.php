@@ -78,8 +78,8 @@
                 $qtyPro = 1;
             }
             
-        
-          
+           
+            // check_trung_sanpham
             if(checkDuplicates( $idProduct)>=0){
                 $vitritrung = checkDuplicates( $idProduct);
                 upDataQty($vitritrung);
@@ -89,24 +89,22 @@
             }    
         }
         header("location: index.php?page=cart");
-        require_once "view/login.php";
     };
 
 
     function handleUserDelCart() {
         if(isset($_GET['id'])){
             array_splice($_SESSION['cart'],$_GET['id'],1);
-    }else{
-        $_SESSION['cart']=[];
+      }else{
+           $_SESSION['cart']=[];
+      }
+      header('location: index.php?page=cart');
     }
-    header('location: index.php?page=cart');
-    };
+    ;
 
     function handleDefault() {
-     
         $listItemLimitRanDom = getDetailProductLimitRanDom();
         $listItemLimit = getDetailProductLimit();
-       
         $listProduct = getDetailProduct();
         require_once "view/home.php";
     };

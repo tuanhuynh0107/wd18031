@@ -1,8 +1,6 @@
 
             <figure class="main-content">
-              <a href="">
-                <img src="" alt=""> 
-              </a>
+            <?=showBannerCatalog($banner)?>
               <!-- banner ở đây
              -->
             </figure>

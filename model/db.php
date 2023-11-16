@@ -63,9 +63,9 @@
         $conn = null;
     }   
     // Truy vấn ví dụ để hiển thị danh mục (Duy)
-    function show($sql){
-        $sql = "SELECT * FROM catalog";
-        $result = $conn->query($sql);
-    } 
+    // function show($sql){
+    //     $sql = "SELECT * FROM catalog";
+    //     $result = $conn->query($sql);
+    // } 
 
  ?>

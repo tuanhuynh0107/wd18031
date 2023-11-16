@@ -159,6 +159,18 @@ function getProduct($id_pro){
         return $kq;
     }
     // Show sản phẩm theo catalog
+    function getBannerCatalog($id_Cata){
+        $sql = "SELECT * FROM catalog Where id_catalog=".$id_Cata;
+        return get_All($sql);
+    }
+    function showBannerCatalog($banner_catalog){
+        foreach($banner_catalog as $itemBaner){
+            extract($itemBaner);
+            echo '<a href="">
+                    <img src="./assets/img/banner_product/'.$banner_catalog.'.png" alt="">
+                </a>';
+        }
+    }
     function getItemCatalog($id_Cata) {
         $sql = "SELECT
         p.id AS product_id,

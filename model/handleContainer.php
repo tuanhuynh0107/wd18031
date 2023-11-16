@@ -115,6 +115,15 @@
         require_once('view/catalog/'.$name_catalog.'.php');
     }
 
+    function handleShowCatalog() {
+        if(isset($_GET['id_Cata'])&& ($_GET['id_Cata']>0)){
+            $id_Cata=$_GET['id_Cata'];
+            $listCatalog = getItemCatalog($id_Cata);
+            $banner = getBannerCatalog($id_Cata);
+        }         
+        require_once('view/catalog/itemcatalog.php');
+    }
+
     function handleDefault() {
         $listItemLimitRanDom = getDetailProductLimitRanDom();
         $listItemLimit = getDetailProductLimit();

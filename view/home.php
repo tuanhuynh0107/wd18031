@@ -1,125 +1,33 @@
-<main>
-        <!-- Hero -->
-        <div class="hero">
-            <div class="main-content">
-                <header class="hero-header">
+<section class="main-hero">
+        <div class="main-content">
+            <div class="main-hero">
+                <nav class="navbar">
+                    <ul class="navber__menu">
+                        <?= showCatalog($listCatalog)?>
+                    </ul>
+                </nav>
+                <img src="./assets/icons/main-banner.png" alt="" class="main-banner">
 
-                    <div class="hero__left">
-                        <nav class="hero__left--catalog">
-                            <ul>
-                                <li>
-                                    <span><img src="assets/icons/menu.png" alt=""></span>
-                                    <a href="">Danh mục sản phẩm</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/line.png" alt=""></span>
-                                    <a href="">Bán chạy nhất</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/cold.png" alt=""></span>
-                                    <a href="">Hải sản đông lạnh</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/airplane.png" alt=""></span>
-                                    <a href="">Hải sản nhập khẩu</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/fish.png" alt=""></span>
-                                    <a href="">Cá</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/clam.png" alt=""></span>
-                                    <a href="">Ngao, Sồ, Ốc</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/crab.png" alt=""></span>
-                                    <a href="">Cua - Ghẹ</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/squid.png" alt=""></span>
-                                    <a href="">Mực</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/tom.png" alt=""></span>
-                                    <a href="">Tôm các loại</a>
-                                </li>
-                                <li>
-                                    <span><img src="assets/icons/soslo.png" alt=""></span>
-                                    <a href="">Gia vị - Sốt</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="hero__right">
-                        <div class="hero__right--top row">
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/change.png" alt="">
-                                </div>
-                                <div class="commit__desc">Đổi trả miễn phí tận nhà</div>
-                            </div>
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/shipping-fast.png" alt="">
-                                </div>
-                                <div class="commit__desc">Miễn phí vận chuyển cho đơn hàng từ 150k</div>
-                            </div>
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/homeassistant.png" alt="">
-                                </div>
-                                <div class="commit__desc">Hệ thống cửa hàng</div>
-                            </div>
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/present.png" alt="">
-                                </div>
-                                <div class="commit__desc">Kiểm tra ưu đãi</div>
-                            </div>
-                        </div>
-                        <div class="hero__right--center row">
-                            <div class="right--center__left">
-                                <figure class="right--center__left--img">
-                                    <a href="#!">
-                                        <img src="assets/icons/main-banner.png" alt="">
-                                    </a>
-                                </figure>
-
-                                <figure class="right--center__right--img">
-                                    <a href="#!">
-                                        <img src="assets/icons/banner-right1.png" alt="">
-                                    </a>
-
-                                    <div class="buy-now">
-                                        <a href="#!" class="btn buy-now-btn">Mua ngay</a>
-                                    </div>
-                                    <a href="#!">
-                                        <img src="assets/icons/banner-right2.png" alt="">
-                                    </a>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="hero__right--bottom row">
-                            <figure>
-                                <a href="#!">
-                                    <img src="assets/icons/banner-bottom1.png" alt=""
-                                        class="img1">
-                                </a>
-                                <a href="#!">
-                                    <img src="assets/icons/banner-bottom2.png" alt=""
-                                        class="img2">
-                                </a>
-                                <div class="buy-now">
-                                    <a href="#!" class="btn buy-now-btn">Mua ngay</a>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
-                </header>
+                <figure class="banner-rigth row">
+                    <img src="./assets/icons/banner-right1.png" alt="">
+                    <img src="./assets/icons/banner-right2.png" alt="">
+                </figure>
             </div>
         </div>
-        <!-- line -->
-        
+    </section>
+
+    <section class="banner__bottom">
+        <figure class="main-content">
+            <a href="">
+                <img src="./assets/icons/banner-bottom1.png" alt="">
+            </a>
+            <a href="">
+                <img src="./assets/icons/banner-bottom2.png" alt="">
+            </a>
+        </figure>
+    </section>
+
+    <main>
         <!-- popular / hải sản tươi sống mỗi ngày -->
         <div class="popular">
             <div class="main-content">
@@ -147,139 +55,8 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="course-list">
-                    <!-- Course item 1 -->
-
-                    <!-- <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-2.jpg" alt="Basic web design" class=" thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-3.jpg" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-5.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-4.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div> -->
-
-                    <?=showProduct($product)?>
+                    <?= showProduct($listItemLimit)?>
                 </div>
             </div>
         </div>
@@ -296,7 +73,7 @@
                         <h2 class="heading lv2">
                             Combo hot nhất tháng 10 được nhiều khách hàng săn đón nhất. </h2>
                         <p class="desc">
-                            Cùng săn các combo hot nhất tháng 10 trong hôm nay nhanh tay kẻo lỡ với các voucher giảm giá
+                            Cùng săn các cb hot nhất tháng 10 trong hôm nay nhanh tay kẻo lỡ với các voucher giảm giá
                             cực khủng </p>
                         <p class="desc">Combo siêu hot (2023)</p>
                         <a href="#!" class="btn cta-btn">Săn ngay</a>
@@ -306,7 +83,7 @@
         </div>
 
         <!-- line -->
-        
+
         <!-- Popular / Gợi ý cho bạn -->
         <div class="popular">
             <div class="main-content">
@@ -337,140 +114,12 @@
 
                 <div class="course-list">
                     <!-- Course item 1 -->
-
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-2.jpg" alt="Basic web design" class=" thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-3.jpg" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-5.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-4.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
+                    <?= showProduct($listItemLimitRanDom)?>
                 </div>
             </div>
         </div>
         </div>
         <!-- line -->
-        
-
-
         <!-- Feedback -->
         <div class="feedback">
             <div class="main-content">
@@ -580,144 +229,234 @@
 
                 <div class="course-list">
                     <!-- Course item 1 -->
-
                     <div class="course-item">
-                        <a href="#!">
+                        <a href="product.html">
                             <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
+                    </div>
+
+                    <div class="course-item">
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                        </a>
+                        <div class="info row">
+
+                            <div class="body row">
+                                <h3 class="title">
+                                    <a href="#!" class="line-clamp break-all">
+                                        Combo Miệt Vườn
+                                    </a>
+                                </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
+                                <div class="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                     <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-2.jpg" alt="Basic web design" class=" thumb" />
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                     <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-3.jpg" alt="Basic web design" class="thumb" />
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                     <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-5.png" alt="Basic web design" class="thumb" />
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span> <span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-4.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                 </div>
             </div>
         </div>
         <!-- line -->
-        
+
 
         <!-- Features 2 -->
         <div class="features features-2nd">
             <div class="main-content">
                 <div class="body">
                     <div class="images">
-                        <img src="./assets/img/feature-3.png"
+                        <img src="././assets/img/feature-3.png"
                             alt="Take the next step toward your personal and professional goals with Lesson." />
                     </div>
                     <div class="content">
@@ -733,7 +472,7 @@
             </div>
         </div>
         <!-- line -->
-        
+
 
         <!-- popular / Đặc sản Miền Tây -->
         <div class="popular">
@@ -765,131 +504,221 @@
 
                 <div class="course-list">
                     <!-- Course item 1 -->
-
                     <div class="course-item">
-                        <a href="#!">
+                        <a href="product.html">
                             <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
+                    </div>
+
+                    <div class="course-item">
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
+                        </a>
+                        <div class="info row">
+
+                            <div class="body row">
+                                <h3 class="title">
+                                    <a href="#!" class="line-clamp break-all">
+                                        Combo Miệt Vườn
+                                    </a>
+                                </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
+                                <div class="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                     <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-2.jpg" alt="Basic web design" class=" thumb" />
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                     <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-3.jpg" alt="Basic web design" class="thumb" />
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span><span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                     <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-5.png" alt="Basic web design" class="thumb" />
+                        <a href="product.html">
+                            <img src="./assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
                         </a>
-                        <div class="info">
-                            <div class="head">
+                        <div class="info row">
+
+                            <div class="body row">
                                 <h3 class="title">
                                     <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
+                                        Combo Miệt Vườn
                                     </a>
                                 </h3>
+
+                                <div class="add__to-Cart">
+                                    <form action="#!" method="post">
+                                        <label for="add__Cart" class="icon__addCart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                                viewBox="0 0 19 19" fill="none">
+                                                <path
+                                                    d="M5 2.5C5 1.25 5.9375 0 7.5 0H11.25C12.8125 0 13.75 1.25 13.75 2.5V5.625H17.5C17.8315 5.625 18.1495 5.7567 18.3839 5.99112C18.6183 6.22554 18.75 6.54348 18.75 6.875V8.75C18.7501 9.07076 18.6269 9.37927 18.4058 9.6117C18.1848 9.84414 17.8829 9.98271 17.5625 9.99875L15.6844 16.335C15.5313 16.8519 15.2152 17.3055 14.7832 17.6281C14.3513 17.9506 13.8266 18.125 13.2875 18.125H5.4475C4.91285 18.125 4.39228 17.9535 3.96224 17.6359C3.53219 17.3182 3.21531 16.871 3.05813 16.36L1.09813 9.99125C0.79508 9.95415 0.516089 9.80743 0.31379 9.57877C0.111492 9.3501 -0.000124631 9.05531 1.04435e-07 8.75V6.875C1.04435e-07 6.54348 0.131696 6.22554 0.366117 5.99112C0.600537 5.7567 0.91848 5.625 1.25 5.625H5V2.5ZM6.25 5.625H12.5V2.5C12.5 0.9375 11.5625 0.625 10.625 0.625H8.125C7.1875 0.625 6.25 0.9375 6.25 2.5V5.625ZM12.5 6.875H1.25V8.75H17.5V6.875H13.75V7.5C13.75 7.66576 13.6842 7.82473 13.5669 7.94194C13.4497 8.05915 13.2908 8.125 13.125 8.125C12.9592 8.125 12.8003 8.05915 12.6831 7.94194C12.5658 7.82473 12.5 7.66576 12.5 7.5V6.875ZM15.1962 10L15.765 10.5688L16.2262 10.1075L16.2575 10H15.1962ZM13.1131 10.5688L13.6819 10H12.5444L13.1131 10.5688ZM9.89375 10L10.4625 10.5688L11.0312 10H9.89375ZM7.81063 10.5688L8.37937 10H7.24187L7.81063 10.5688ZM5.15875 10.5688L5.7275 10H4.59L5.15875 10.5688ZM2.40875 10L2.565 10.51L3.075 10H2.40875ZM3.01062 11.9569L3.18938 12.5375L3.39062 12.3363L3.01062 11.9569ZM15.8131 11.5006L15.765 11.4525L14.8812 12.3363L15.4094 12.8644L15.8131 11.5006ZM15.1094 13.8756L15.2069 13.5462L14.4387 12.7781L13.555 13.6625L14.4387 14.5463L15.1094 13.8756ZM14.6012 15.5919L14.4387 15.43L13.555 16.3137L13.935 16.6937C14.195 16.5369 14.395 16.2863 14.4862 15.98L14.6012 15.5919ZM13.2325 16.875L13.1138 16.7563L12.9944 16.875H13.2319H13.2325ZM12.11 16.875L12.6713 16.3137L11.7875 15.43L10.9037 16.3137L11.4644 16.875H12.11ZM10.3425 16.875H10.5806L10.4619 16.7563L10.3425 16.875ZM9.45875 16.875L10.0194 16.3137L9.13562 15.43L8.25187 16.3137L8.81312 16.875H9.45875ZM7.69063 16.875H7.92875L7.81 16.7563L7.69063 16.875ZM6.80687 16.875L7.36812 16.3137L6.48375 15.43L5.6 16.3137L6.16125 16.875H6.80687ZM5.26375 16.8612L5.15812 16.7556L5.09063 16.8231C5.14688 16.84 5.205 16.8525 5.26375 16.8612ZM4.5425 16.4875L4.71625 16.3137L4.18937 15.7869L4.2525 15.9931C4.31125 16.1825 4.41187 16.3506 4.5425 16.4875ZM3.79625 14.5106L3.8325 14.5463L4.71625 13.6625L3.8325 12.7781L3.3975 13.2131L3.79625 14.5106ZM3.8325 10.1269L2.94875 11.0106L3.8325 11.8944L4.71625 11.0106L3.8325 10.1269ZM5.15812 11.4525L4.275 12.3363L5.15875 13.2206L6.0425 12.3363L5.15812 11.4525ZM6.48375 12.7781L5.6 13.6625L6.48375 14.5463L7.36812 13.6625L6.48375 12.7781ZM6.92625 12.3363L7.81 13.2206L8.69375 12.3363L7.81 11.4525L6.92625 12.3363ZM7.81 14.1044L6.92625 14.9881L7.81 15.8719L8.69375 14.9881L7.81 14.1044ZM9.13562 14.5463L10.0194 13.6625L9.13562 12.7781L8.25187 13.6625L9.13562 14.5463ZM6.48375 11.8944L7.36812 11.0106L6.48375 10.1269L5.6 11.0106L6.48375 11.8944ZM12.2294 14.9881L13.1131 15.8719L13.9969 14.9881L13.1131 14.1044L12.2294 14.9881ZM13.9969 12.3363L13.1131 11.4525L12.2294 12.3363L13.1131 13.2206L13.9969 12.3363ZM10.4613 15.8719L11.3456 14.9881L10.4613 14.1044L9.5775 14.9881L10.4613 15.8719ZM10.9037 11.0106L11.7875 11.8944L12.6713 11.0106L11.7875 10.1269L10.9037 11.0106ZM10.0194 11.0106L9.13562 10.1269L8.25187 11.0106L9.13562 11.8944L10.0194 11.0106ZM14.4394 11.8944L15.3231 11.0106L14.4387 10.1269L13.555 11.0106L14.4394 11.8944ZM9.5775 12.3363L10.4613 13.2206L11.3456 12.3363L10.4613 11.4525L9.5775 12.3363ZM5.15875 15.8719L6.04187 14.9881L5.15812 14.1044L4.275 14.9875L5.15875 15.8712V15.8719ZM10.9037 13.6625L11.7875 14.5463L12.6713 13.6625L11.7875 12.7781L10.9037 13.6625Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </label>
+                                        <input type="submit" value="" class="none" id="add__Cart">
+                                    </form>
+                                </div>
                             </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
+                            <div class="foot row">
+                                <span class="price">1,500,000đ</span> <span class="type">/ combo</span>
+                                <del class="price-del">1,500,000đ</del>
                                 <div class="rating">
-                                    <img src="./assets/icons/hot.png" alt="Star" class="star" />
-                                    <span class="value"></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
+                                        fill="none" class="star">
+                                        <path
+                                            d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
+                                            fill="#FCE75F" />
+                                    </svg>
+                                    <span class="value">Hot</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="./assets/img/course-4.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="./assets/icons/hot.png" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
+                        <input type="submit" value="Mua ngay" class="btn book-btn">
                     </div>
                 </div>
             </div>
@@ -900,8 +729,7 @@
                 <div class="blog-top">
                     <h2 class="heading lv2">Bí kiếp nội trợ</h2>
                     <p class="desc">
-                        Read our regular travel blog and know the latest
-                        update of tour and travel
+                        Cùng xem qua những công thức chế biến hải sản của các chuyên gia ẩm thực
                     </p>
                 </div>
                 <div class="blog-list">
@@ -1022,7 +850,7 @@
                                     and get remot job?
                                 </a>
                             </h3>
-                            <a href="#!" class="btn">Read More</a>
+                            <a href="#!" class="btn btn__blog">Read More</a>
                         </div>
                     </div>
 
@@ -1040,7 +868,7 @@
                                     and get remot job?
                                 </a>
                             </h3>
-                            <a href="#!" class="btn">Read More</a>
+                            <a href="#!" class="btn btn__blog">Read More</a>
                         </div>
                     </div>
 
@@ -1058,7 +886,7 @@
                                     and get remot job?
                                 </a>
                             </h3>
-                            <a href="#!" class="btn">Read More</a>
+                            <a href="#!" class="btn btn__blog">Read More</a>
                         </div>
                     </div>
                 </div>

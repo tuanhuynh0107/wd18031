@@ -1,295 +1,211 @@
+<?php
+    extract($itemDetailProduct);
+    extract($itemAlbum);
+    $sameType=sameTypeProducts($id_catalog);
+?>  
 <main>
-        <!-- Hero -->
-        <div class="hero">
-            <div class="main-content">
-                <header class="hero-header">
+      
+      
+      <section class="main-product">
+          <div class="main-content">
+              <div class="main-product--row">
+                  <div class="main-product__img">
+                      <div class="main-product__img--top">
+                          <figure>
+                              <img src="./assets/img/img_main/<?=$img_main?>.png"
+                                  alt="" class="main-product__img--top-img">
+                          </figure>
+                      </div>
+                      <div class="main-product__img--bottom">
+                          <figure>
+                              <img src="./assets/img/img_main/<?=$img1?>.png"
+                                  alt="">
+                              <img src="./assets/img/img_main/<?=$img2?>.png"
+                                  alt="">
+                              <img src="./assets/img/img_main/<?=$img3?>.png"
+                                  alt="">
+                              <img src="./assets/img/img_main/<?=$img4?>.png"
+                                  alt="">
+                              <img src="./assets/img/img_main/<?=$img5?>.png"
+                                  alt="">
+                          </figure>
+                      </div>
+                  </div>
+                  <div class="main-product__content">
+                      <div class="main-product__content--type row">
+                          <div class="content--type"><?= $type?></div>
+                      </div>
+                      <div class="main-product__content--desc  row">
+                          <strong class="content__strong">Xuất xứ:</strong>
+                          <p class="content__desc line-clamp"><?=$production?></p>
+                      </div>
+                      <div class="main-product__content--desc row ">
+                          <strong class="content__strong">Tình trạng:</strong>
+                          <p class="content__desc line-clamp">Giao sống oxi hoặc đóng thùng kèm đá</p>
+                      </div>
+                      <div class="main-product__content--desc row ">
+                          <strongc class="content__strong"> Cam kết:</strongc>
+                          <p class="content__desc line-clamp">1 đổi 1 nếu sản phẩm kém chất lương</p>
+                      </div>
+                      <div class="main-product__content--desc row ">
+                          <strong class="content__strong">Món ngon:</strong>
+                          <p class="content__desc line-clamp">sốt me, sốt bơ tỏi, sốt trứng muối hoặc nấu bánh canh
+                          </p>
+                      </div>
 
-                    <div class="hero__left">
-                        <nav class="hero__left--catalog">
-                            <ul>
+                      <div class="main-product__content--pice row">
+                          <div class="main-product__content--pice__cost">225,000đ</div>
+                          <div class="main-product__content--pice__del-cost">255,000đ</div>
+                          <div class="main-product__content--pice__sale"><?=$sale?>%</div>
 
-                                <label for="open" class="menu-oppen"><span><img src="assets/icons/menu.png"
-                                            alt=""></span>Danh mục sản phẩm</label>
-                                <input type="checkbox" name="" id="open">
-                                <ul class="menu">
-                                    <li>
-                                        <span><img src="assets/icons/line.png" alt=""></span>
-                                        <a href="">Bán chạy nhất</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/cold.png" alt=""></span>
-                                        <a href="">Hải sản đông lạnh</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/airplane.png" alt=""></span>
-                                        <a href="">Hải sản nhập khẩu</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/fish.png" alt=""></span>
-                                        <a href="">Cá</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/clam.png" alt=""></span>
-                                        <a href="">Ngao, Sồ, Ốc</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/crab.png" alt=""></span>
-                                        <a href="">Cua - Ghẹ</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/squid.png" alt=""></span>
-                                        <a href="">Mực</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/tom.png" alt=""></span>
-                                        <a href="">Tôm các loại</a>
-                                    </li>
-                                    <li>
-                                        <span><img src="assets/icons/soslo.png" alt=""></span>
-                                        <a href="">Gia vị - Sốt</a>
-                                    </li>
-                                </ul>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="hero__right">
-                        <div class="hero__right--top row">
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/change.png" alt="">
-                                </div>
-                                <div class="commit__desc">Đổi trả miễn phí tận nhà</div>
-                            </div>
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/shipping-fast.png" alt="">
-                                </div>
-                                <div class="commit__desc">Miễn phí vận chuyển cho đơn hàng từ 150k</div>
-                            </div>
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/homeassistant.png" alt="">
-                                </div>
-                                <div class="commit__desc">Hệ thống cửa hàng</div>
-                            </div>
-                            <div class="hero__right--commit">
-                                <div class="commit__icon">
-                                    <img src="assets/icons/present.png" alt="">
-                                </div>
-                                <div class="commit__desc">Kiểm tra ưu đãi</div>
-                            </div>
-                        </div>
+                      </div>
 
-                    </div>
-                </header>
-            </div>
-        </div>
-        <section class="main-product">
-            <div class="main-content">
-                <div class="main-product--row">
-                    <div class="main-product__img">
-                        <div class="main-product__img--top">
-                            <figure>
-                                <img src="https://images.unsplash.com/photo-1682695797873-aa4cb6edd613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60"
-                                    alt="" class="main-product__img--top-img">
-                            </figure>
-                        </div>
-                        <div class="main-product__img--bottom">
-                            <figure>
-                                <img src="https://images.unsplash.com/file-1682622567683-99f3024cf76bimage?dpr=2&auto=format&fit=crop&w=416&q=60"
-                                    alt="">
-                                <img src="https://images.unsplash.com/file-1682622567683-99f3024cf76bimage?dpr=2&auto=format&fit=crop&w=416&q=60"
-                                    alt="">
-                                <img src="https://images.unsplash.com/file-1682622567683-99f3024cf76bimage?dpr=2&auto=format&fit=crop&w=416&q=60"
-                                    alt="">
-                                <img src="https://images.unsplash.com/file-1682622567683-99f3024cf76bimage?dpr=2&auto=format&fit=crop&w=416&q=60"
-                                    alt="">
-                                <img src="https://images.unsplash.com/file-1682622567683-99f3024cf76bimage?dpr=2&auto=format&fit=crop&w=416&q=60"
-                                    alt="">
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="main-product__content">
-                        <div class="main-product__content--classLy row">
-                            <strong class="content__strong">Chọn:</strong>
-                            <div class="content--classLy">500g/3con</div>
-                            <div class="content--classLy">500g/3con</div>
-                            <div class="content--classLy">500g/3con</div>
-                        </div>
-                        <div class="main-product__content--madein  row">
-                            <strong class="content__strong">Xuất xứ:</strong>
-                            <p class="content__desc line-clamp">Miệt Thứ Kiên Giang Việt Nam</p>
-                        </div>
-                        <div class="main-product__content--display row ">
-                            <strong class="content__strong">Tình trạng:</strong>
-                            <p class="content__desc line-clamp">Giao sống oxi hoặc đóng thùng kèm đá</p>
-                        </div>
-                        <div class="main-product__content--committed row ">
-                            <strongc class="content__strong"> Cam kết:</strongc>
-                            <p class="content__desc line-clamp">1 đổi 1 nếu sản phẩm kém chất lương</p>
-                        </div>
-                        <div class="main-product__content--processing row ">
-                            <strong class="content__strong">Món ngon:</strong>
-                            <p class="content__desc line-clamp">sốt me, sốt bơ tỏi, sốt trứng muối hoặc nấu bánh canh
-                            </p>
-                        </div>
+                      <div class="main-product__content--title row"><?=$name_prd?></div>
+                      <div class="main-product__content--btn row ">
+                          <a href="#!" class="btn btn__act--Product">Mua ngay</a>
+                      </div>
+                      <div class="main-product__content--btn-2 row">
+                          <a href="#!" class="btn btn__add--Cart">Thêm vào sọt</a>
+                          <a href="#!" class="btn btn__advisory">Nhận tư vấn</a>
+                      </div>
 
-                        <div class="main-product__content--pice row">
-                            <div class="main-product__content--pice__cost">225,000đ</div>
-                            <div class="main-product__content--pice__del-cost">255,000đ</div>
-                            <div class="main-product__content--pice__sale">18%</div>
+                      <div class="main-product__together">
+                          <div class="main-product__together--heading">
+                              Thường được mua cùng:
+                          </div>
+                          <div class="main-product__together--content">
+                              <div class="together--content__box row">
+                                  <div class="content__box--1 row">
+                                      <div class="together--content__box--checked">
+                                          <input type="checkbox" name="" id="check">
+                                      </div>
+                                      <div class="together--content__box--img">
+                                          <img src="./assets/img/muoi-ot-do.png" alt="">
+                                      </div>
+                                      <div class="together--content__box--title">Muối ớt đỏ (DH-food)</div>
+                                  </div>
+                                  <div class="content__box--2 row">
+                                      <div class="together--content__box--checked">
+                                          <input type="checkbox" name="" id="check">
+                                      </div>
+                                      <div class="together--content__box--img">
+                                          <img src="./assets/img/muoi-ot-xanh.png" alt="">
+                                      </div>
+                                      <div class="together--content__box--title">Muối ớt xanh (DH-food)</div>
+                                  </div>
+                              </div>
+                              <div class="together--content__box row">
+                                  <div class="content__box--1 row">
+                                      <div class="together--content__box--checked">
+                                          <input type="checkbox" name="" id="check">
+                                      </div>
+                                      <div class="together--content__box--img">
+                                          <img src="./assets/img/nuoc-tuong0hq.png" alt="">
+                                      </div>
+                                      <div class="together--content__box--title">Nước tương HQ</div>
+                                  </div>
+                                  <div class="content__box--2 row">
+                                      <div class="together--content__box--checked">
+                                          <input type="checkbox" name="" id="check">
+                                      </div>
+                                      <div class="together--content__box--img">
+                                          <img src="./assets/img/wasabi.png" alt="">
+                                      </div>
+                                      <div class="together--content__box--title">Wasabi Nhật Bản</div>
+                                  </div>
+                              </div>
+                              <div class="together--content__box row">
+                                  <div class="content__box--1 row">
+                                      <div class="together--content__box--checked">
+                                          <input type="checkbox" name="" id="check">
+                                      </div>
+                                      <div class="together--content__box--img">
+                                          <img src="./assets/img/bo-dung-cu-an-HS.png" alt="">
+                                      </div>
+                                      <div class="together--content__box--title">Bộ dụng cụ ăn HS</div>
+                                  </div>
+                                  <div class="content__box--2 row">
+                                      <div class="together--content__box--checked">
+                                          <input type="checkbox" name="" id="check">
+                                      </div>
+                                      <div class="together--content__box--img">
+                                          <img src="./assets/img/bo-kep-cua.png" alt="">
+                                      </div>
+                                      <div class="together--content__box--title">Bộ Kẹp Cua</div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="main-product__together--btn  row">
+                              <a href="" class="btn">
+                                  Thêm N vào sọt
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- popular / hải sản tươi sống mỗi ngày -->
 
-                        </div>
-
-                        <div class="main-product__content--title row">Ghẹ xanh sống</div>
-                        <div class="main-product__content--btn row ">
-                            <a href="#!" class="main-product__content--btn">Mua ngay</a>
-                        </div>
-                        <div class="main-product__content--btn-2 row">
-                            <a href="#!" class="btn">Thêm vào sọt</a>
-                            <a href="#!" class="btn">Nhận tư vấn</a>
-                        </div>
-
-                        <div class="main-product__together">
-                            <div class="main-product__together--heading">
-                                Thường được mua cùng:
-                            </div>
-                            <div class="main-product__together--content">
-                                <div class="together--content__box row">
-                                    <div class="content__box--1 row">
-                                        <div class="together--content__box--checked">
-                                            <input type="checkbox" name="" id="check">
-                                        </div>
-                                        <div class="together--content__box--img">
-                                            <img src="assets/img/muoi-ot-do.png" alt="">
-                                        </div>
-                                        <div class="together--content__box--title">Muối ớt đỏ (DH-food)</div>
-                                    </div>
-                                    <div class="content__box--2 row">
-                                        <div class="together--content__box--checked">
-                                            <input type="checkbox" name="" id="check">
-                                        </div>
-                                        <div class="together--content__box--img">
-                                            <img src="assets/img/muoi-ot-xanh.png" alt="">
-                                        </div>
-                                        <div class="together--content__box--title">Muối ớt xanh (DH-food)</div>
-                                    </div>
-                                </div>
-                                <div class="together--content__box row">
-                                    <div class="content__box--1 row">
-                                        <div class="together--content__box--checked">
-                                            <input type="checkbox" name="" id="check">
-                                        </div>
-                                        <div class="together--content__box--img">
-                                            <img src="assets/img/nuoc-tuong0hq.png" alt="">
-                                        </div>
-                                        <div class="together--content__box--title">Nước tương HQ</div>
-                                    </div>
-                                    <div class="content__box--2 row">
-                                        <div class="together--content__box--checked">
-                                            <input type="checkbox" name="" id="check">
-                                        </div>
-                                        <div class="together--content__box--img">
-                                            <img src="assets/img/wasabi.png" alt="">
-                                        </div>
-                                        <div class="together--content__box--title">Wasabi Nhật Bản</div>
-                                    </div>
-                                </div>
-                                <div class="together--content__box row">
-                                    <div class="content__box--1 row">
-                                        <div class="together--content__box--checked">
-                                            <input type="checkbox" name="" id="check">
-                                        </div>
-                                        <div class="together--content__box--img">
-                                            <img src="assets/img/bo-dung-cu-an-HS.png" alt="">
-                                        </div>
-                                        <div class="together--content__box--title">Bộ dụng cụ ăn HS</div>
-                                    </div>
-                                    <div class="content__box--2 row">
-                                        <div class="together--content__box--checked">
-                                            <input type="checkbox" name="" id="check">
-                                        </div>
-                                        <div class="together--content__box--img">
-                                            <img src="assets/img/bo-kep-cua.png" alt="">
-                                        </div>
-                                        <div class="together--content__box--title">Bộ Kẹp Cua</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main-product__together--btn btn row">
-                                <a href="">
-                                    Thêm N vào sọt
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- popular / hải sản tươi sống mỗi ngày -->
-
-        <!-- detailed description  && phản hồi -->
-        <section class="description">
-            <div class="main-content">
-                <div class="description__btn row">
-                    <div class="description__btn--btn btn">
-                        <a href="" class="description__btn--act">Mô tả chi tiết</a>
-                    </div>
-                    <div class="description__btn--btn btn">
-                        <a href="" class="description__btn--act">
-                            Hỏi đáp về sản phẩm
-                        </a>
-                    </div>
-                </div>
+      <!-- detailed description  && phản hồi -->
+      <section class="description">
+          <div class="main-content">
+              <div class="description__btn row">
+                  <div class="description__btn--btn btn">
+                      <a href="" class="description__btn--act">Mô tả chi tiết</a>
+                  </div>
+                  <div class="description__btn--btn btn">
+                      <a href="" class="description__btn--act">
+                          Hỏi đáp về sản phẩm
+                      </a>
+                  </div>
+              </div>
 
 
 
-                <div class="description__content main-content">
-                    <figure class="description__content--item row">
-                        <img src="assets/img/combo1.png" alt="" class="description__content-img">
-                        <figcaption class="description__content--desc">
-                            <h4 class="description__content--hd">Combo Hải Sản 1.5 tr</h4>
-                            Được nhiều khách hàng lựa chọn vì sự tiện lợi, tiết kiệm được lên đến 25% so với giá
-                            gốc. Thành phần của combo kết hợp đa dạng giữa hải sản nhập khẩu: 2 con tôm Alaska size
-                            nhỏ ~500g/con, các loại hải sản nội địa hấp dẫn như: 500g ốc hương, 1 con cua thịt
-                            ~350g, 10 con hàu sữa giống Pháp, đặc biệt còn được tặng thêm 1 chai muối ớt xanh công
-                            thức độc quyền nhà Đảo Hải Sản giúp bữa tiệc hải sản thêm trọn vẹn. Tất cả các loại hải
-                            sản sẽ được giao sống đến tận tay của khách hàng.
-                        </figcaption>
-                    </figure>
-                    <figure class="description__content--item row">
-                        <img src="assets/img/combo1.png" alt="" class="description__content-img">
-                        <figcaption class="description__content--desc">
+              <div class="description__content main-content">
+                  <figure class="description__content--item row">
+                      <img src="./assets/img/combo1.png" alt="" class="description__content-img">
+                      <figcaption class="description__content--desc">
+                          <h4 class="description__content--hd">Combo Hải Sản 1.5 tr</h4>
+                          Được nhiều khách hàng lựa chọn vì sự tiện lợi, tiết kiệm được lên đến 25% so với giá
+                          gốc. Thành phần của combo kết hợp đa dạng giữa hải sản nhập khẩu: 2 con tôm Alaska size
+                          nhỏ ~500g/con, các loại hải sản nội địa hấp dẫn như: 500g ốc hương, 1 con cua thịt
+                          ~350g, 10 con hàu sữa giống Pháp, đặc biệt còn được tặng thêm 1 chai muối ớt xanh công
+                          thức độc quyền nhà Đảo Hải Sản giúp bữa tiệc hải sản thêm trọn vẹn. Tất cả các loại hải
+                          sản sẽ được giao sống đến tận tay của khách hàng.
+                      </figcaption>
+                  </figure>
+                  <figure class="description__content--item row">
+                      <img src="./assets/img/combo1.png" alt="" class="description__content-img">
+                      <figcaption class="description__content--desc">
 
-                            <ul class="description__content--desc__list">
-                                <li>Quy cách : 450 - 550g/con</li>
-                                <li>Tình trạng : Giao sống</li>
-                                <li>Xuất xứ : Nhập khẩu từ Mỹ/Canada</li>
-                                <li> Món ngon : Hấp, nướng, nấu cháo, sashimi, ....</li>
-                            </ul>
-
-
-
-                            Đặc biệt, trong Combo Hải Sản 1,5 Triệu còn có sự xuất hiện 02 sản phẩm đặc sản vùng Cà Mau
-                            đất mũi và Cam Ranh, nơi nổi tiếng với các loại hải sản nội địa: 01 con cua Cà Mau ~350g +
-                            500g Ốc Hương
-                        </figcaption>
-                    </figure>
-                    <figure class="description__content--item row">
-                        <img src="assets/img/combo1.png" alt="" class="description__content-img" s>
-                        <figcaption class="description__content--desc">
-                            Tình trạng : Giao sống
-                            Xuất xứ : Cua thịt - Cà Mau; Ốc hương - Cam Ranh
-                            Món ngon : Hấp, nướng, sốt trứng muối, sốt bơ tỏi, ...
-                            10 con hàu sữa giống Pháp, đầy thịt. Giúp khách hàng có thể chiến biến đa dạng món trong
-                            combo như sashimi; nấu cháo, nướng, ...
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-        <!-- feedback-product -->
-        <section class="feedback-product">
+                          <ul class="description__content--desc__list">
+                              <li>Quy cách : 450 - 550g/con</li>
+                              <li>Tình trạng : Giao sống</li>
+                              <li>Xuất xứ : Nhập khẩu từ Mỹ/Canada</li>
+                              <li> Món ngon : Hấp, nướng, nấu cháo, sashimi, ....</li>
+                          </ul>
+                          Đặc biệt, trong Combo Hải Sản 1,5 Triệu còn có sự xuất hiện 02 sản phẩm đặc sản vùng Cà Mau
+                          đất mũi và Cam Ranh, nơi nổi tiếng với các loại hải sản nội địa: 01 con cua Cà Mau ~350g +
+                          500g Ốc Hương
+                      </figcaption>
+                  </figure>
+                  <figure class="description__content--item row">
+                      <img src="./assets/img/combo1.png" alt="" class="description__content-img" s>
+                      <figcaption class="description__content--desc">
+                          Tình trạng : Giao sống
+                          Xuất xứ : Cua thịt - Cà Mau; Ốc hương - Cam Ranh
+                          Món ngon : Hấp, nướng, sốt trứng muối, sốt bơ tỏi, ...
+                          10 con hàu sữa giống Pháp, đầy thịt. Giúp khách hàng có thể chiến biến đa dạng món trong
+                          combo như sashimi; nấu cháo, nướng, ...
+                      </figcaption>
+                  </figure>
+              </div>
+          </div>
+      </section>
+      <!-- feedback-product -->
+      <section class="feedback-product">
             <div class="main-content">
                 <div class="feedback__heading row">
                     <h2 class="feedback__heading--title">
@@ -422,183 +338,61 @@
                     </div>
                 </div>
             </div>
-        </section>
+      </section>
 
-        <section class="partner">
-            <div class="main-content">
-                <div class="partner__heading row">
-                    <h2 class="partner__heading--title">
-                        Đối tác vận chuyển
-                    </h2>
-                </div>
-                <figure class="partner__list-img row">
+      <section class="partner">
+          <div class="main-content">
+              <div class="partner__heading row">
+                  <h2 class="partner__heading--title">
+                      Đối tác vận chuyển
+                  </h2>
+              </div>
+              <figure class="partner__list-img row">
 
-                    <img src="assets/icons/xanhSV.png" alt="">
-                    <img src="assets/icons/bee.png" alt="">
-                    <img src="assets/icons/grab.png" alt="">
-                    <img src="assets/icons/ahamov.png" alt="">
-                    <img src="assets/icons/gojeck.png" alt="">
-                </figure>
-            </div>
-        </section>
-        <div class=" popular">
-            <div class="main-content">
-                <div class="popular-top">
-                    <div class="info">
-                        <h2 class="heading lv2">Sản phẩm cùng loại</h2>
-                        <p class="desc">
-                            Cùng mua Hải sản với giá sốc nào.
-                        </p>
-                    </div>
-                    <div class="controls">
-                        <button class="control-btn">
-                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                        <button class="control-btn">
-                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                  <img src="./assets/icons/xanhSV.png" alt="">
+                  <img src="./assets/icons/bee.png" alt="">
+                  <img src="./assets/icons/grab.png" alt="">
+                  <img src="./assets/icons/ahamov.png" alt="">
+                  <img src="./assets/icons/gojeck.png" alt="">
+              </figure>
+          </div>
+      </section>
+      <div class=" popular">
+          <div class="main-content">
+              <div class="popular-top">
+                  <div class="info">
+                      <h2 class="heading lv2">Sản phẩm cùng loại</h2>
+                      <p class="desc">
+                          Cùng mua Hải sản với giá sốc nào.
+                      </p>
+                  </div>
+                  <div class="controls">
+                      <button class="control-btn">
+                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                          </svg>
+                      </button>
+                      <button class="control-btn">
+                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                          </svg>
+                      </button>
+                  </div>
+              </div>
 
-                <div class="course-list">
-                    <!-- Course item 1 -->
-
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="assets/img/course-1.jpg" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="assets/img/course-2.jpg" alt="Basic web design" class=" thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="assets/img/course-3.jpg" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="assets/img/course-5.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                    <div class="course-item">
-                        <a href="#!">
-                            <img src="assets/img/course-4.png" alt="Basic web design" class="thumb" />
-                        </a>
-                        <div class="info">
-                            <div class="head">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp break-all">
-                                        Combo Hải Sản 1,5 Triệu
-                                    </a>
-                                </h3>
-                            </div>
-                            <div class="foot">
-                                <span class="price">1,500,000đ</span>
-                                <span class="price">/ combo</span>
-                                <div class="rating">
-                                    <img src="assets/icons/hot.svg" alt="Star" class="star" />
-                                    <span class="value"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn book-btn">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+              <div class="course-list">
+                <?php
+                if($sameType  === []) {
+                    echo "khong rong";
+                }else {
+                    echo "rong";
+                }
+                ?>
+              </div>
+          </div>
+      </div>
+  </main>

@@ -106,7 +106,7 @@
      
         $listItemLimitRanDom = getDetailProductLimitRanDom();
         $listItemLimit = getDetailProductLimit();
-        $listCatalog = getCatalog();
+       
         $listProduct = getDetailProduct();
         require_once "view/home.php";
     };

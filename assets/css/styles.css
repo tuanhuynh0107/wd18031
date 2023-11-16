@@ -326,7 +326,7 @@ input {
 
 
 .main-hero {
-
+    padding-left: 235px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -335,9 +335,11 @@ input {
 /* navbar */
 
 .navbar {
+    position: absolute;
+    width: 235px;
     flex: 1;
-    /* display: inline-block; */
-    background-color: #fff;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.80);
 }
 
 .navber__menu {
@@ -374,6 +376,7 @@ input {
 /* baner */
 
 .main-banner {
+    margin-top: 10px;
     flex: 1;
     max-width: 100%;
 }

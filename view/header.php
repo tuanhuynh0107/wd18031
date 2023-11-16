@@ -25,6 +25,7 @@
         rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="app.js"></script>
 </head>
 
 <body>
@@ -336,7 +337,7 @@
         <div class="main-content">
             <ul class="catalog row">
                 <li class="catalog__log">
-                    <a href="" class="log__atc row">
+                    <a href="#!" class="log__atc row" id="toggleCatalog">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
                             class="log__atc--icon">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -344,7 +345,7 @@
                                 fill="white" />
                         </svg>
                         <span class="log__atc--title">
-                            Danh mục sản phẩm
+                           Danh mục sản phẩm
                         </span>
                     </a>
 
@@ -411,3 +412,24 @@
             </ul>
         </div>
     </section>
+    <div class="main-content">
+        <nav class="navbar">
+            <ul class="navber__menu" id="catalogList">
+                <?= showCatalog($listCatalog)?>
+            </ul>
+        </nav>
+    </div>
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var toggleButton = document.getElementById('toggleCatalog');
+            var catalogList = document.getElementById('catalogList');
+            console.log("Before: " + catalogList.style.display);
+            toggleButton.addEventListener('click', function () {
+                if (catalogList.style.display === 'none' || catalogList.style.display === '') {
+                    catalogList.style.display = 'block';
+                } else {
+                    catalogList.style.display = 'none';
+                }
+            });
+            });
+    </script>

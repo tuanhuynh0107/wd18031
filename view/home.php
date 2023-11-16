@@ -1,20 +1,15 @@
-<section class="main-hero">
+    
         <div class="main-content">
             <div class="main-hero">
-                <nav class="navbar">
-                    <ul class="navber__menu">
-                        <?= showCatalog($listCatalog)?>
-                    </ul>
-                </nav>
                 <img src="./assets/icons/main-banner.png" alt="" class="main-banner">
 
-                <figure class="banner-rigth row">
+                <figure class="banner-rigth">
                     <img src="./assets/icons/banner-right1.png" alt="">
                     <img src="./assets/icons/banner-right2.png" alt="">
                 </figure>
             </div>
         </div>
-    </section>
+
 
     <section class="banner__bottom">
         <figure class="main-content">

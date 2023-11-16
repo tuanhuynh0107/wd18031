@@ -1,8 +1,10 @@
 <?php
     session_start();
     ob_start();
+    
     require_once "model/db.php";
     require_once "model/product.php";
+    $listCatalog= getCatalog();
     require_once "view/header.php";
 
     if(isset($_GET['page'])&&($_GET['page'])!="") {
@@ -125,6 +127,8 @@
             default:
                 $listCatalog= getCatalog();
                 $listProduct= getDetailProduct();
+                $listItemLimitRanDom = getDetailProductLimitRanDom();
+                $listItemLimit = getDetailProductLimit();
                 require_once "view/home.php";
                 break;
         };

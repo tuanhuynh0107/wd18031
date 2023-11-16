@@ -415,7 +415,7 @@
     <div class="main-content">
         <nav class="navbar">
             <ul class="navber__menu" id="catalogList">
-                <?= showCatalog($listCatalog)?>
+                <?= showCatalog( $listCatalog)?>
             </ul>
         </nav>
     </div>

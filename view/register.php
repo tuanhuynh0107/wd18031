@@ -29,7 +29,7 @@
                                <?php
                                 
                                     if(isset($thongbao) && $thongbao == "") {
-                                        echo $thongbao= "rong ne";
+                                        echo $thongbao= "Chào mừng bạn đến với Hải sản Miền Tây";
                                     }else {
                                         echo $thongbao;
                                     }

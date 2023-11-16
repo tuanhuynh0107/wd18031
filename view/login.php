@@ -1,4 +1,6 @@
 <?php
+
+$thongbao = "";
 ?>
 <main>
         <article class="login">
@@ -27,7 +29,14 @@
                         </div>
                         <div class="form__group">
                             <input type="submit" name="loginUser" value="Đăng nhập" class="btn push__login">
-                                          
+                            <?php
+                                
+                                    if(isset($thongbao) && $thongbao == "") {
+                                        echo $thongbao= "Tài khoản và mật khẩu không đúng";
+                                    }else {
+                                        echo $thongbao;
+                                    }
+                               ?>          
                         </div>
 
                         <div class="form__group">

@@ -4,7 +4,7 @@
     $username = "root";
     $password = "";
     try {
-    $conn = new PDO("mysql:host=$servername;dbname=duanmau", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=duan1_hsmt", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // echo "Connected successfully
@@ -62,4 +62,10 @@
         $conn -> exec($sql);
         $conn = null;
     }   
-?>
+    // Truy vấn ví dụ để hiển thị danh mục (Duy)
+    function show($sql){
+        $sql = "SELECT * FROM catalog";
+        $result = $conn->query($sql);
+    } 
+
+ ?>

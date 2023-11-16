@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="196" viewBox="0 0 167 196" fill="none">
         <rect x="0.000976562" y="99" width="17" height="97" fill="#D9D9D9" />
         <rect x="25.001" y="124" width="17" height="72" fill="#D9D9D9" />
@@ -24,7 +25,41 @@
         <rect x="330.001" y="77" width="30" height="119" fill="#D9D9D9" />
     </svg>
     <!-- Tâm đã đến đây -->
-</body>
+=======
+    <ul class="catalog row">
+        <li class="catalog__log">
+            <a href="#" class="log__atc row" id="toggleCatalog">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                    class="log__atc--icon">
+                    <!-- Your SVG path here -->
+                </svg>
+                <span class="log__atc--title">
+                    Danh mục sản phẩm
+                </span>
+            </a>
+        </li>
+    </ul>
 
+    <ul class="navber__menu" id="catalogList">
+        ẩn hiện
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggleButton = document.getElementById('toggleCatalog');
+            var catalogList = document.getElementById('catalogList');
+
+            toggleButton.addEventListener('click', function () {
+                // Toggle giữa ẩn và hiện của danh sách catalog
+                if (catalogList.style.display === 'none' || catalogList.style.display === '') {
+                    catalogList.style.display = 'block';
+                } else {
+                    catalogList.style.display = 'none';
+                }
+            });
+        });
+    </script>
+>>>>>>> main
+</body>
 
 </html>

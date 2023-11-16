@@ -158,8 +158,29 @@ function getProduct($id_pro){
         }
         return $kq;
     }
-    
-
+    // Show sản phẩm theo catalog
+    function getItemCatalog($id_Cata) {
+        $sql = "SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        c.name_catalog AS category_name,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        a.img1 AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd
+      WHERE 
+        c.id_catalog=".$id_Cata ;
+        return get_All($sql);
+    }
 // admin
     function showProductAdmin($listItems) {
         $kq = ""; 
@@ -326,7 +347,7 @@ function getProduct($id_pro){
         $show = "";
         foreach($listItems as $Item){
             extract($Item);
-            $linkItems = "index.php?page=catalog&id=".$id_catalog;
+            $linkItems = "index.php?page=showCatalog&id_Cata=".$id_catalog;
             $show .= '<li class="menu__catalog">
                         <a href="'.$linkItems.'" class="menu__catalog--act row">
                             <img src="./assets/icons/'.$img_catalog.'.png" alt="" class="catalog__act--icon">

@@ -41,9 +41,12 @@
                 require_once('view/payMent.php');
                 break;
             case 'showCatalog';
-            $listCatalog = getItemCatalog();
-            extract($listCatalog);
-            require_once('view/catalog/'.$name_catalog.'.php');
+            if(isset($_GET['id_Cata'])&& ($_GET['id_Cata']>0)){
+                $id_Cata=$_GET['id_Cata'];
+                $listCatalog = getItemCatalog($id_Cata);
+            }
+           
+            require_once('view/catalog/itemcatalog.php');
                 break;
             default:
             handleDefault();

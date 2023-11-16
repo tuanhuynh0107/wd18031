@@ -42,9 +42,11 @@ function getProduct($id_pro){
       JOIN
         detail_product dp ON p.id = dp.id_prd
       LEFT JOIN
-        album a ON p.id = a.id_prd";
+        album a ON p.id = a.id_prd" ;
         return get_All($sql);
     }
+
+    
 
     function getDetailProductLimitRanDom() {
         $sql = "SELECT

@@ -40,6 +40,11 @@
             case 'payMent':
                 require_once('view/payMent.php');
                 break;
+            case 'showCatalog';
+            $listCatalog = getItemCatalog();
+            extract($listCatalog);
+            require_once('view/catalog/'.$name_catalog.'.php');
+                break;
             default:
             handleDefault();
                 break;

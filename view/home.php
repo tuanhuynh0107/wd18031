@@ -1,14 +1,14 @@
     
-        <div class="main-content">
-            <div class="main-hero">
-                <img src="./assets/icons/main-banner.png" alt="" class="main-banner">
+    <div class="main-content">
+        <div class="main-hero">
+            <img src="./assets/icons/main-banner.png" alt="" class="main-banner">
 
-                <figure class="banner-rigth">
-                    <img src="./assets/icons/banner-right1.png" alt="">
-                    <img src="./assets/icons/banner-right2.png" alt="">
-                </figure>
-            </div>
+            <figure class="banner-rigth">
+                <img src="./assets/icons/banner-right1.png" alt="">
+                <img src="./assets/icons/banner-right2.png" alt="">
+            </figure>
         </div>
+    </div>
 
 
     <section class="banner__bottom">
@@ -21,9 +21,18 @@
             </a>
         </figure>
     </section>
-
+    
+    <section class="banner__bottom">
+        <figure class="main-content">
+            <a href="">
+                <img src="./assets/icons/banner-bottom1.png" alt="">
+            </a>
+            <a href="">
+                <img src="./assets/icons/banner-bottom2.png" alt="">
+            </a>
+        </figure>
+    </section>
     <main>
-        <!-- popular / hải sản tươi sống mỗi ngày -->
         <div class="popular">
             <div class="main-content">
                 <div class="popular-top">

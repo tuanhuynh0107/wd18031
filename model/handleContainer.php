@@ -27,7 +27,7 @@
         }
         require_once "view/register.php";
 
-    };
+    }
     function handleUserLogin() {
         if (isset($_POST['loginUser']) && !empty($_POST['loginUser'])) {
             $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
@@ -61,7 +61,7 @@
             exit();
         }
        
-    };
+    }
 
     function handleUserAddCart() {
         if(isset($_POST['addCart']) &&($_POST['addCart'])){
@@ -88,10 +88,8 @@
                 $_SESSION['cart'][] = $item;
             }    
         }
-        header("location: index.php?page=cart");
-    };
-
-
+        header("location: index.php");
+    }
     function handleUserDelCart() {
         if(isset($_GET['id'])){
             array_splice($_SESSION['cart'],$_GET['id'],1);
@@ -100,14 +98,7 @@
       }
       header('location: index.php?page=cart');
     }
-    ;
-
-    function handleDefault() {
-        $listItemLimitRanDom = getDetailProductLimitRanDom();
-        $listItemLimit = getDetailProductLimit();
-        $listProduct = getDetailProduct();
-        require_once "view/home.php";
-    };
+    
     function handleProduct() {
         if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){
             $idDetailProduct=$_GET['idProduct'];
@@ -118,7 +109,16 @@
         }
         require_once "view/product.php";
     }
+    function handleCatalog() {
+        $listCatalog = getItemCatalog();
+        extract($listCatalog);
+        require_once('view/catalog/'.$name_catalog.'.php');
+    }
 
-
-
+    function handleDefault() {
+        $listItemLimitRanDom = getDetailProductLimitRanDom();
+        $listItemLimit = getDetailProductLimit();
+        $listProduct = getDetailProduct();
+        require_once "view/home.php";
+    };
 ?>

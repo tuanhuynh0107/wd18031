@@ -32,15 +32,15 @@
         $conn = null;
         return $listItems;
     }
-    function get_del($sql) {
-        $conn = db();
-        $stmt = $conn->exec($sql);
-        $stmt->execute();
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $listItems=$stmt->fetchAll();
-        $conn = null;
-        return $listItems;
-    }
+    // function get_del($sql) {
+    //     $conn = db();
+    //     $stmt = $conn->exec($sql);
+    //     $stmt->execute();
+    //     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    //     $listItems=$stmt->fetchAll();
+    //     $conn = null;
+    //     return $listItems;
+    // }
 
     function update($sql) {
         $conn = db();
@@ -63,9 +63,9 @@
         $conn = null;
     }   
     // Truy vấn ví dụ để hiển thị danh mục (Duy)
-    function show($sql){
-        $sql = "SELECT * FROM catalog";
-        $result = $conn->query($sql);
-    } 
+    // function show($sql){
+    //     $sql = "SELECT * FROM catalog";
+    //     $result = $conn->query($sql);
+    // } 
 
  ?>

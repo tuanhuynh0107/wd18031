@@ -22,16 +22,7 @@
         </figure>
     </section>
     
-    <section class="banner__bottom">
-        <figure class="main-content">
-            <a href="">
-                <img src="./assets/icons/banner-bottom1.png" alt="">
-            </a>
-            <a href="">
-                <img src="./assets/icons/banner-bottom2.png" alt="">
-            </a>
-        </figure>
-    </section>
+  
     <main>
         <div class="popular">
             <div class="main-content">

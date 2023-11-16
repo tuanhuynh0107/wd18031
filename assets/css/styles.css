@@ -309,10 +309,12 @@ input {
 
 
 .log__atc {
+    flex-direction: row;
     gap: 9px;
 }
 
 .log__atc--title {
+    display: inline-block;
     color: #FFF;
     text-align: center;
     font-size: 16px;
@@ -334,7 +336,7 @@ input {
 
 .navbar {
     flex: 1;
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #fff;
 }
 

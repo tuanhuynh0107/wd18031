@@ -8,9 +8,39 @@
 </head>
 
 <body>
-    <input type="submit" name="addCart" value="Thêm" id="add__Cart">
+    <ul class="catalog row">
+        <li class="catalog__log">
+            <a href="#" class="log__atc row" id="toggleCatalog">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                    class="log__atc--icon">
+                    <!-- Your SVG path here -->
+                </svg>
+                <span class="log__atc--title">
+                    Danh mục sản phẩm
+                </span>
+            </a>
+        </li>
+    </ul>
 
-    <label for="add__Cart">ADD</label>
+    <ul class="navber__menu" id="catalogList">
+        ẩn hiện
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggleButton = document.getElementById('toggleCatalog');
+            var catalogList = document.getElementById('catalogList');
+
+            toggleButton.addEventListener('click', function () {
+                // Toggle giữa ẩn và hiện của danh sách catalog
+                if (catalogList.style.display === 'none' || catalogList.style.display === '') {
+                    catalogList.style.display = 'block';
+                } else {
+                    catalogList.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

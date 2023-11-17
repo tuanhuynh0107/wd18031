@@ -44,6 +44,7 @@
                     exit();
                 } else if ($role_user == 0) {
                     $_SESSION['user_id'] = $userId;
+                    $_SESSION['user_info']= $getUser;
                     header('location: index.php');
                     exit();
                 } else {

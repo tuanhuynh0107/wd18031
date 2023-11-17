@@ -1,4 +1,7 @@
-
+<?php
+    // print_r($_SESSION['user_info']);
+    extract($_SESSION['user_info']);
+?>
 
 
 <main>
@@ -39,8 +42,8 @@
                         </div>
                     </div>
                     <div class="pay__address--bottom row">
-                        <h4 class="pay__address--bottom__heading">Anh Tuấn (0907578881)</h4>
-                        <div class="pay__address--desc">E15/2b ấp 5 xã Vĩnh Lộc B Huyện Bình Chánh Tp-Hồ Chí Minh
+                        <h4 class="pay__address--bottom__heading"><?=$username?> (<?=$phone?>)</h4>
+                        <div class="pay__address--desc"><?=$address?>
                             <span>(mặc định)</span>
                         </div>
                         <div class="pay__address--btn"><a href="#!">Thay đổi</a></div>

@@ -46,7 +46,8 @@
                         <div class="pay__address--desc"><?=$address?>
                             <span>(mặc định)</span>
                         </div>
-                        <div class="pay__address--btn"><a href="#!">Thay đổi</a></div>
+                        
+                        <div class="pay__address--btn"><a href="index.php?page=changeAdress&idUser=<?=$id_user?>">Thay đổi</a></div>
                     </div>
                 </div>
 

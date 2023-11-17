@@ -12,7 +12,7 @@
                 if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
                     $thongbao = "Số điện thoại của bạn không hợp lệ.";
                 } else {
-                    if (!preg_match("/^[a-zA-Z0-9]{6,12}$/", $pass) || !preg_match("/^[a-zA-Z0-9]{6,12}$/", $interPass)) {
+                    if (!preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $pass) && !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $interPass)) {
                         $thongbao = "Mật khẩu phải có ít nhất 6 ký tự (chữ và số) nhiều nhất là 12 kí tự.";
                     } else {
                         if ($pass == $interPass) {

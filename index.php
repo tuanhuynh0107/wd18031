@@ -40,6 +40,16 @@
             case 'payMent':
                 require_once('view/payMent.php');
                 break;
+            case 'bill':
+                extract($_SESSION['user_info']);
+
+                if(isset($username)&& isset($phone)&& isset($address)&& ($username!="")&&($phone!="")&&($address!="")){
+                   $thongbao= 'Mua hàng thành công';
+                }else{
+                    $thongbao='Bạn chưa điền thông tin.';
+                }
+                require_once "view/payMent.php";
+                break;    
             case 'showCatalog';
                 handleShowCatalog();
                 break;

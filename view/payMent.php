@@ -140,7 +140,13 @@
                         <div class="delivery__pay--title">Phương thức thanh toán</div>
                         <div class="delivery__pay--desc">
                             <div class="delivery__pay--desc__title">Thanh toán khi nhận hàng</div>
-                            <div class="pay__address--btn ">thay đổi</div>
+                            
+                            <select class="pay__address--btn ">
+                                <option value="">Thay đổi</option>
+                                <option value="1" name="ttknh">Thanh toán khi nhận hàng</option>
+                                <option value="2" name="ck">Chuyển Khoản</option>
+                                <option value="3" name="cmm" >Chuyển Momo</option>
+                            </select>
                         </div>
                     </div>
 
@@ -161,9 +167,13 @@
                                 <span style="font-size: 20px; font-weight: 600;">Thành tiền</span>
                                 <span style="font-weight: 600;"><?=number_format($total_All,0,",",".")?>đ</span>
                             </div>
-                            <div class="main-product__content--btn btn" style="width: 326px; border: 0px;"> <a
-                                    href="">Đặt hàng</a>
+                            <div class="main-product__content--btn btn" style="width: 326px; border: 0px;"> 
+                                <a href="index.php?page=bill">
+                                    Đặt hàng
+                                </a>
+                               
                             </div>
+                             <?=$thongbao?>
                         </div>
                     </div>
                 </div>

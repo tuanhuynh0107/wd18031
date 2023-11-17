@@ -42,8 +42,8 @@
                         </div>
                     </div>
                     <div class="pay__address--bottom row">
-                        <h4 class="pay__address--bottom__heading"><?=$username?> (<?=$phone?>)</h4>
-                        <div class="pay__address--desc"><?=$address?>
+                        <h4 class="pay__address--bottom__heading"><?php if(isset($username)&&($username!="")) {echo $username;}else{echo 'bạn chưa có Tên';}?> (<?php if(isset($phone)&&($phone)!="") {echo $phone;}else{echo 'Bạn chưa có số điện thoại';}?>)</h4>
+                        <div class="pay__address--desc"><?php if(isset($address)&&($address!="")) {echo $address;}else{echo 'bạn chưa có Địa chỉ';}?>
                             <span>(mặc định)</span>
                         </div>
                         

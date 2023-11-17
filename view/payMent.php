@@ -59,7 +59,38 @@
                     </thead>
 
                     <tbody class="pay-ment__body">
-                        <tr>
+                        <?php
+                              $listCarts=$_SESSION['cart'];  
+                              if(isset($listCarts)&&is_array($listCarts))  {
+                                  $ship=25000;
+                                  $idCart= 0;
+                                  $total_qty=0;
+                                  $quantyty = 0;
+                                  $total_Pro=0;
+                                  $total_All=0;
+                                  // $qty=1;
+                                  foreach ($listCarts as $item) {
+                                    extract($item);
+                                    $total = $pricePro * $qtyPro;
+                                    $total_Pro+=$total;
+                                    $total_All=$total_Pro+$ship;
+                                    echo 
+                                    '
+                                    <tr>
+                                        <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
+                                                src="./assets/img/img_main/'.$imgPro.'.png" alt="">
+                                        </td>
+                                        <td class="pay-ment__bod--title">'.$namePro.'</td>
+                                        <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>
+                                        <td class="pay-ment__bod--pice">'.number_format($pricePro,0,",",".").'</td>
+                                        <td class="pay-ment__bod--qty"><input type="text" value="'.$qtyPro.'" name="" id=""></td>
+                                        <td class="pay-ment__bod--total">'.number_format($total,0,",",".").'đ</td>
+                                    </tr>
+                                    ';
+                                  }
+                                }
+                        ?>
+                        <!-- <tr>
                             <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
                                     src="../assets/img/combo1.png" alt="">
                             </td>
@@ -78,7 +109,7 @@
                             <td class="pay-ment__bod--pice">500,000</td>
                             <td class="pay-ment__bod--qty">02</td>
                             <td class="pay-ment__bod--total">1,000,000</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <div class="note row">
@@ -97,7 +128,7 @@
                             Được phép đồng điểm
                         </div>
                     </div>
-                    <div class="note__pice-Ship">25,000</div>
+                    <div class="note__pice-Ship"><?=number_format($ship,0,",",".")?>đ</div>
                 </div>
 
                 <div class="delivery ">
@@ -116,15 +147,15 @@
                         <div class="delivery__total-qty--main">
                             <div class="delivery__total-qty--main__row row">
                                 <span>Tổng tiền sản phẩm</span>
-                                <span>2,000,000</span>
+                                <span><?=number_format($total_Pro,0,",",".")?>đ</span>
                             </div>
                             <div class="delivery__total-qty--main__row row">
                                 <span>Vận chuyển</span>
-                                <span>25,000</span>
+                                <span><?=number_format($ship,0,",",".")?>đ</span>
                             </div>
                             <div class="delivery__total-qty--main__row row">
                                 <span style="font-size: 20px; font-weight: 600;">Thành tiền</span>
-                                <span style="font-weight: 600;">2,025,000</span>
+                                <span style="font-weight: 600;"><?=number_format($total_All,0,",",".")?>đ</span>
                             </div>
                             <div class="main-product__content--btn btn" style="width: 326px; border: 0px;"> <a
                                     href="">Đặt hàng</a>

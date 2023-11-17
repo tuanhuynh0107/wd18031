@@ -1872,7 +1872,18 @@ p {
     justify-content: space-between;
     align-items: center;
 }
+.action__name-user{
+    opacity: 0; /* Ẩn ban đầu */
+    position: absolute;
+    transform: translate(-13%, 10%);
+    color: #fff;
+    transition: opacity 0.2s ease-in-out;
 
+}
+.action__incons:hover + .action__name-user{
+    color: #fff;
+    opacity: 1;
+}
 /* ******************************form__login  *******************************/
 
 

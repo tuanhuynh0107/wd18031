@@ -32,15 +32,16 @@
         $conn = null;
         return $listItems;
     }
-    function get_del($sql) {
-        $conn = db();
-        $stmt = $conn->exec($sql);
-        $stmt->execute();
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $listItems=$stmt->fetchAll();
-        $conn = null;
-        return $listItems;
-    }
+    
+    // function get_del($sql) {
+    //     $conn = db();
+    //     $stmt = $conn->exec($sql);
+    //     $stmt->execute();
+    //     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    //     $listItems=$stmt->fetchAll();
+    //     $conn = null;
+    //     return $listItems;
+    // }
 
     function update($sql) {
         $conn = db();
@@ -67,5 +68,19 @@
     //     $sql = "SELECT * FROM catalog";
     //     $result = $conn->query($sql);
     // } 
-
+    function pdo_execute_return_lastInsertId($sql){
+        $sql_args = array_slice(func_get_args(), 1);
+        try{
+            $conn = db();
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($sql_args);
+            return $conn->lastInsertId();
+        }
+        catch(PDOException $e){
+            throw $e;
+        }
+        finally{
+            unset($conn);
+        }
+    }
  ?>

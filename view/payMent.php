@@ -21,165 +21,158 @@
                 </div>
             </div>
         </article>
-        <section class="pay">
-            <div class="main-content">
-                <div class="pay__address">
-                    <div class="pay__address--top row">
-                        <div class="pay__address--icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30"
-                                fill="none">
-                                <path
-                                    d="M15.7816 22.5L10.1316 14.4375C9.2068 13.3341 8.61124 11.988 8.41429 10.5558C8.21734 9.12359 8.4271 7.66433 9.01914 6.34796C9.61118 5.03158 10.5611 3.91227 11.7584 3.12037C12.9556 2.32847 14.3508 1.89658 15.7816 1.875C17.7649 1.8948 19.6596 2.70806 21.0507 4.13664C22.4418 5.56522 23.216 7.49268 23.2036 9.49688C23.2044 11.2453 22.6153 12.9417 21.5336 14.3063L15.7816 22.5ZM15.7816 3.75C14.2896 3.76731 12.8655 4.38223 11.8218 5.45972C10.7781 6.53722 10.2002 7.98921 10.2151 9.49688C10.2213 10.873 10.7112 12.202 11.5974 13.2469L15.7816 19.2375L20.0771 13.125C20.8936 12.0951 21.3415 10.8165 21.3481 9.49688C21.3629 7.98921 20.7851 6.53722 19.7414 5.45972C18.6977 4.38223 17.2736 3.76731 15.7816 3.75Z"
-                                    fill="#F24E1E" />
-                                <path
-                                    d="M15.7816 10.3125C16.8064 10.3125 17.6371 9.47303 17.6371 8.4375C17.6371 7.40197 16.8064 6.5625 15.7816 6.5625C14.7569 6.5625 13.9261 7.40197 13.9261 8.4375C13.9261 9.47303 14.7569 10.3125 15.7816 10.3125Z"
-                                    fill="#F24E1E" />
-                                <path
-                                    d="M26.9147 11.25H25.0592V13.125H26.9147V26.25H4.64865V13.125H6.50415V11.25H4.64865C4.15654 11.25 3.68459 11.4475 3.33662 11.7992C2.98864 12.1508 2.79315 12.6277 2.79315 13.125V26.25C2.79315 26.7473 2.98864 27.2242 3.33662 27.5758C3.68459 27.9275 4.15654 28.125 4.64865 28.125H26.9147C27.4068 28.125 27.8787 27.9275 28.2267 27.5758C28.5747 27.2242 28.7702 26.7473 28.7702 26.25V13.125C28.7702 12.6277 28.5747 12.1508 28.2267 11.7992C27.8787 11.4475 27.4068 11.25 26.9147 11.25Z"
-                                    fill="#F24E1E" />
-                            </svg>
+        <form action="index.php?page=bill" method="post">
+            <section class="pay">
+                <div class="main-content">
+                    <div class="pay__address">
+                        <div class="pay__address--top row">
+                            <div class="pay__address--icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30"
+                                    fill="none">
+                                    <path
+                                        d="M15.7816 22.5L10.1316 14.4375C9.2068 13.3341 8.61124 11.988 8.41429 10.5558C8.21734 9.12359 8.4271 7.66433 9.01914 6.34796C9.61118 5.03158 10.5611 3.91227 11.7584 3.12037C12.9556 2.32847 14.3508 1.89658 15.7816 1.875C17.7649 1.8948 19.6596 2.70806 21.0507 4.13664C22.4418 5.56522 23.216 7.49268 23.2036 9.49688C23.2044 11.2453 22.6153 12.9417 21.5336 14.3063L15.7816 22.5ZM15.7816 3.75C14.2896 3.76731 12.8655 4.38223 11.8218 5.45972C10.7781 6.53722 10.2002 7.98921 10.2151 9.49688C10.2213 10.873 10.7112 12.202 11.5974 13.2469L15.7816 19.2375L20.0771 13.125C20.8936 12.0951 21.3415 10.8165 21.3481 9.49688C21.3629 7.98921 20.7851 6.53722 19.7414 5.45972C18.6977 4.38223 17.2736 3.76731 15.7816 3.75Z"
+                                        fill="#F24E1E" />
+                                    <path
+                                        d="M15.7816 10.3125C16.8064 10.3125 17.6371 9.47303 17.6371 8.4375C17.6371 7.40197 16.8064 6.5625 15.7816 6.5625C14.7569 6.5625 13.9261 7.40197 13.9261 8.4375C13.9261 9.47303 14.7569 10.3125 15.7816 10.3125Z"
+                                        fill="#F24E1E" />
+                                    <path
+                                        d="M26.9147 11.25H25.0592V13.125H26.9147V26.25H4.64865V13.125H6.50415V11.25H4.64865C4.15654 11.25 3.68459 11.4475 3.33662 11.7992C2.98864 12.1508 2.79315 12.6277 2.79315 13.125V26.25C2.79315 26.7473 2.98864 27.2242 3.33662 27.5758C3.68459 27.9275 4.15654 28.125 4.64865 28.125H26.9147C27.4068 28.125 27.8787 27.9275 28.2267 27.5758C28.5747 27.2242 28.7702 26.7473 28.7702 26.25V13.125C28.7702 12.6277 28.5747 12.1508 28.2267 11.7992C27.8787 11.4475 27.4068 11.25 26.9147 11.25Z"
+                                        fill="#F24E1E" />
+                                </svg>
+                            </div>
+                            <div class="pay__address--title">
+                                <h4>Địa chỉ nhận hàng</h4>
+                            </div>
                         </div>
-                        <div class="pay__address--title">
-                            <h4>Địa chỉ nhận hàng</h4>
-                        </div>
-                    </div>
-                    <div class="pay__address--bottom row">
-                        <h4 class="pay__address--bottom__heading"><?php if(isset($username)&&($username!="")) {echo $username;}else{echo 'bạn chưa có Tên';}?> (<?php if(isset($phone)&&($phone)!="") {echo $phone;}else{echo 'Bạn chưa có số điện thoại';}?>)</h4>
-                        <div class="pay__address--desc"><?php if(isset($address)&&($address!="")) {echo $address;}else{echo 'bạn chưa có Địa chỉ';}?>
-                            <span>(mặc định)</span>
-                        </div>
-                        
-                        <div class="pay__address--btn"><a href="index.php?page=changeAdress&idUser=<?=$id_user?>">Thay đổi</a></div>
-                    </div>
-                </div>
-
-                <table class="pay-ment" style="text-align: center; height: auto;">
-                    <thead class="pay-ment__head">
-                        <tr>
-                            <th colspan="2" class="pay-ment__heading">Sản phẩm</th>
-                            <th colspan="2"></th>
-                            <th>Đơn giá</th>
-                            <th>Số lượng</th>
-                            <th>Thành tiền</th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="pay-ment__body">
-                        <?php
-                              $listCarts=$_SESSION['cart'];  
-                              if(isset($listCarts)&&is_array($listCarts))  {
-                                  $ship=25000;
-                                  $idCart= 0;
-                                  $total_qty=0;
-                                  $quantyty = 0;
-                                  $total_Pro=0;
-                                  $total_All=0;
-                                  // $qty=1;
-                                  foreach ($listCarts as $item) {
-                                    extract($item);
-                                    $total = $pricePro * $qtyPro;
-                                    $total_Pro+=$total;
-                                    $total_All=$total_Pro+$ship;
-                                    echo 
-                                    '
-                                    <tr>
-                                        <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                                src="./assets/img/img_main/'.$imgPro.'.png" alt="">
-                                        </td>
-                                        <td class="pay-ment__bod--title">'.$namePro.'</td>
-                                        <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>
-                                        <td class="pay-ment__bod--pice">'.number_format($pricePro,0,",",".").'</td>
-                                        <td class="pay-ment__bod--qty"><input type="text" value="'.$qtyPro.'" name="" id=""></td>
-                                        <td class="pay-ment__bod--total">'.number_format($total,0,",",".").'đ</td>
-                                    </tr>
-                                    ';
-                                  }
-                                }
-                        ?>
-                        <!-- <tr>
-                            <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                    src="../assets/img/combo1.png" alt="">
-                            </td>
-                            <td class="pay-ment__bod--title">Combo Miệt Vườn</td>
-                            <td class="pay-ment__bod--title">Loại: Combo</td>
-                            <td class="pay-ment__bod--pice">500,000</td>
-                            <td class="pay-ment__bod--qty">02</td>
-                            <td class="pay-ment__bod--total">1,000,000</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                    src="../assets/img/combo1.png" alt="">
-                            </td>
-                            <td class="pay-ment__bod--title">Combo Miệt Vườn</td>
-                            <td class="pay-ment__bod--title">Loại: Combo</td>
-                            <td class="pay-ment__bod--pice">500,000</td>
-                            <td class="pay-ment__bod--qty">02</td>
-                            <td class="pay-ment__bod--total">1,000,000</td>
-                        </tr> -->
-                    </tbody>
-                </table>
-                <div class="note row">
-                    <div class="note__sms-Shop row">
-                        <label for="note">Lời nhắn:</label>
-                        <input type="text" name="" id="note" placeholder="gửi lời nhắn cho Hải sản miền tây">
-                    </div>
-                    <div class="note__express row">
-                        <div class="note__express--top row">Đơn vị vận chuyển: JHN Exxpress
-                            <div class="pay__address--btn"><a href="#!">Thay đổi</a></div>
-
-                            <p class="note__express--time-Ship">Nhanh dự kiến giao trong vòng 24h</p>
-                        </div>
-
-                        <div class="note__express--bottom row">
-                            Được phép đồng điểm
-                        </div>
-                    </div>
-                    <div class="note__pice-Ship"><?=number_format($ship,0,",",".")?>đ</div>
-                </div>
-
-                <div class="delivery ">
-                    <div class="delivery__pay row">
-                        <div class="delivery__pay--title">Phương thức thanh toán</div>
-                        <div class="delivery__pay--desc">
-                            <div class="delivery__pay--desc__title">Thanh toán khi nhận hàng</div>
+                        <div class="pay__address--bottom row">
+                            <h4 class="pay__address--bottom__heading"><?php if(isset($username)&&($username!="")) {echo $username;}else{echo 'bạn chưa có Tên';}?> (<?php if(isset($phone)&&($phone)!="") {echo $phone;}else{echo 'Bạn chưa có số điện thoại';}?>)</h4>
+                            <div class="pay__address--desc"><?php if(isset($address)&&($address!="")) {echo $address;}else{echo 'bạn chưa có Địa chỉ';}?>
+                                <span>(mặc định)</span>
+                            </div>
                             
-                            <select class="pay__address--btn ">
-                                <option value="">Thay đổi</option>
-                                <option value="1" name="ttknh">Thanh toán khi nhận hàng</option>
-                                <option value="2" name="ck">Chuyển Khoản</option>
-                                <option value="3" name="cmm" >Chuyển Momo</option>
-                            </select>
+                            <div class="pay__address--btn"><a href="index.php?page=changeAdress&idUser=<?=$id_user?>">Thay đổi</a></div>
                         </div>
                     </div>
 
-                    <div class="delivery__total-qty row">
-                        <p class="delivery__total-qty--desc">Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo
-                            <a href="#!" class="delivery__total-qty--desc__action">Điều khoản</a> của Hải Sản Miền Tây
-                        </p>
-                        <div class="delivery__total-qty--main">
-                            <div class="delivery__total-qty--main__row row">
-                                <span>Tổng tiền sản phẩm</span>
-                                <span><?=number_format($total_Pro,0,",",".")?>đ</span>
+                    <table class="pay-ment" style="text-align: center; height: auto;">
+                        <thead class="pay-ment__head">
+                            <tr>
+                                <th colspan="2" class="pay-ment__heading">Sản phẩm</th>
+                                <th colspan="2"></th>
+                                <th>Đơn giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="pay-ment__body">
+                            <?php
+                                $listCarts=$_SESSION['cart'];  
+                                if(isset($listCarts)&&is_array($listCarts))  {
+                                    $ship=25000;
+                                    $idCart= 0;
+                                    $total_qty=0;
+                                    $quantyty = 0;
+                                    $total_Pro=0;
+                                    $total_All=0;
+                                    // $qty=1;
+                                    foreach ($listCarts as $item) {
+                                        extract($item);
+                                        $total = $pricePro * $qtyPro;
+                                        $total_Pro+=$total;
+                                        $total_All=$total_Pro+$ship;
+                                        echo 
+                                        '
+                                        <tr>
+                                            <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
+                                                    src="./assets/img/img_main/'.$imgPro.'.png" alt="">
+                                            </td>
+                                            <td class="pay-ment__bod--title">'.$namePro.'</td>
+                                            <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>
+                                            <td class="pay-ment__bod--pice">'.number_format($pricePro,0,",",".").'</td>
+                                            <td class="pay-ment__bod--qty"><input type="text" value="'.$qtyPro.'" name="" id=""></td>
+                                            <td class="pay-ment__bod--total">'.number_format($total,0,",",".").'đ</td>
+                                        </tr>
+                                        ';
+                                    }
+                                    }
+                            ?>
+                        </tbody>
+                    </table>
+                    <div class="note row">
+                        <div class="note__sms-Shop row">
+                            <label for="note">Lời nhắn:</label>
+                            <input type="text" name="" id="note" placeholder="gửi lời nhắn cho Hải sản miền tây">
+                        </div>
+                        <div class="note__express row">
+                            <div class="note__express--top row">Đơn vị vận chuyển: JHN Exxpress
+                                <div class="pay__address--btn">
+                                    <select name="Exxpress" id="">
+                                        <option value="">Thay đổi</option>
+                                        <option value="1" name="dvvc">Grab</option>
+                                        <option value="2" name="dvvc">Bee</option>
+                                        <option value="3" name="dvvc">Ahamove</option>
+                                        <option value="4" name="dvvc">Sv xanh</option>
+                                    </select>
+                                </div>
+
+                                <p class="note__express--time-Ship">Nhanh dự kiến giao trong vòng 24h</p>
                             </div>
-                            <div class="delivery__total-qty--main__row row">
-                                <span>Vận chuyển</span>
-                                <span><?=number_format($ship,0,",",".")?>đ</span>
+
+                            <div class="note__express--bottom row">
+                                Được phép đồng điểm
                             </div>
-                            <div class="delivery__total-qty--main__row row">
-                                <span style="font-size: 20px; font-weight: 600;">Thành tiền</span>
-                                <span style="font-weight: 600;"><?=number_format($total_All,0,",",".")?>đ</span>
+                        </div>
+                        <div class="note__pice-Ship"><?=number_format($ship,0,",",".")?>đ</div>
+                    </div>
+
+                    <div class="delivery ">
+                        <div class="delivery__pay row">
+                            <div class="delivery__pay--title">Phương thức thanh toán</div>
+                            <div class="delivery__pay--desc">
+                                <div class="delivery__pay--desc__title">Thanh toán khi nhận hàng</div>
+                                
+                                <select class="pay__address--btn ">
+                                    <option value="">Thay đổi</option>
+                                    <option value="1" name="pttt">Thanh toán khi nhận hàng</option>
+                                    <option value="2" name="pttt">Chuyển Khoản</option>
+                                    <option value="3" name="pttt" >Chuyển Momo</option>
+                                </select>
                             </div>
-                            <div class="main-product__content--btn btn" style="width: 326px; border: 0px;"> 
-                                <a href="index.php?page=bill">
-                                    Đặt hàng
-                                </a>
-                               
+                        </div>
+
+                        <div class="delivery__total-qty row">
+                            <p class="delivery__total-qty--desc">Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo
+                                <a href="#!" class="delivery__total-qty--desc__action">Điều khoản</a> của Hải Sản Miền Tây
+                            </p>
+                            <div class="delivery__total-qty--main">
+                                <div class="delivery__total-qty--main__row row">
+                                    <span>Tổng tiền sản phẩm</span>
+                                    <span><?=number_format($total_Pro,0,",",".")?>đ</span>
+                                </div>
+                                <div class="delivery__total-qty--main__row row">
+                                    <span>Vận chuyển</span>
+                                    <span><?=number_format($ship,0,",",".")?>đ</span>
+                                </div>
+                                <div class="delivery__total-qty--main__row row">
+                                    <span style="font-size: 20px; font-weight: 600;">Thành tiền</span>
+                                    <span style="font-weight: 600;"><?=number_format($total_All,0,",",".")?>đ</span>
+                                </div>
+                                <div class="main-product__content--btn btn" style="width: 326px; border: 0px;"> 
+                                    <input type="hidden" name="name" value="<?=$username?>">
+                                    <input type="hidden" name="address" value="<?=$address?>">
+                                    <input type="hidden" name="phone" value="<?=$phone?>">
+                                    <input type="hidden" name="total_All" value="<?=$total_All?>">
+                                    <input type="hidden" name="total" value="<?=$total?>">
+                                    <input type="hidden" name="idUser" value="<?=$id_user?>">
+
+                                    <input type="submit" name="order" value="Đặt hàng">
+                                </div>
+                                <?=$thongbao?>
                             </div>
-                             <?=$thongbao?>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        </form>
     </main>

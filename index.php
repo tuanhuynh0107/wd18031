@@ -41,15 +41,37 @@
                 require_once('view/payMent.php');
                 break;
             case 'bill':
-                if(isset($_SESSION['user_info'])){
-                    extract($_SESSION['user_info']);
-                }
+                if(isset($_POST['order'])&&($_POST['order'])){ 
+                    // insert bill
+                    $name=$_POST['name'];              
+                    $phone=$_POST['phone'];
+                    $address=$_POST['address'];
+                    $total_All=$_POST['total_All'];
+                    $idUser=$_POST['idUser'];
+                    $pay_ms=$_POST['pttt'];
+                    $status=1;
+                    $time=date('h:i:sa d/m/y');
+                    $note=$_POST['note'];
+                    // insert cart
+                    $total=$_POST['total'];
+                    
 
-                if(isset($username)&& isset($phone)&& isset($address)&& ($username!="")&&($phone!="")&&($address!="")){
-                   $thongbao= 'Mua hàng thành công';
-                }else{
-                    $thongbao='Bạn chưa điền thông tin.';
+                    $id_package=insert_Package($name, $address, $phone, $pay_ms, $total_All, $status, $time, $note, $id_user);
+                    
+                    foreach ($_SESSION['cart'] as $cart){
+                        insert_Detail_Package($cart[4],$cart[6],$cart[3], $total,$id_package,$id_trans);
+                    }
+                    $_SESSION['cart']=[];
                 }
+                // if(isset($_SESSION['user_info'])){
+                //     extract($_SESSION['user_info']);
+                // }
+
+                // if(isset($username)&& isset($phone)&& isset($address)&& ($username!="")&&($phone!="")&&($address!="")){
+                //    $thongbao= 'Mua hàng thành công';
+                // }else{
+                //     $thongbao='Bạn chưa điền thông tin.';
+                // }
                 require_once "view/payMent.php";
                 break;    
             case 'showCatalog';

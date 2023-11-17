@@ -487,6 +487,16 @@ function getProduct($id_pro){
             }
            
     }
+    function insert_Package($name, $address, $phone, $pay_ms, $total_All, $status, $time, $note, $id_user) {
+        $sql="INSERT INTO package (name, address, phone, pay_ms, total, status, time, note, id_user) 
+             VALUES ('$name', '$address', '$phone', '$pay_ms', '$total_All', '$status', '$time', '$note', '$id_user')";
+             return pdo_execute_return_lastInsertId($sql);
+    }
+    function insert_Detail_Package($name_prd,$qty,$price, $total,$id_package,$id_trans) {
+        $sql="INSERT INTO package (name_prd, qty, price, total, id_package, id_trans) 
+             VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans')";
+             return pdo_execute_return_lastInsertId($sql);
+    }
     // function removeFromCart($product_id) {
     //     if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
     //         foreach($_SESSION['cart'] as $key => $item) {

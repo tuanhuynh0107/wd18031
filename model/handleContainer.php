@@ -109,11 +109,11 @@
         }
         require_once "view/product.php";
     }
-    function handleCatalog() {
-        $listCatalog = getItemCatalog();
-        extract($listCatalog);
-        require_once('view/catalog/'.$name_catalog.'.php');
-    }
+    // function handleCatalog() {
+    //     $listCatalog = getItemCatalog();
+    //     extract($listCatalog);
+    //     require_once('view/catalog/'.$name_catalog.'.php');
+    // }
 
     function handleShowCatalog() {
         if(isset($_GET['id_Cata'])&& ($_GET['id_Cata']>0)){

@@ -1,6 +1,8 @@
 <?php
     // print_r($_SESSION['user_info']);
-    extract($_SESSION['user_info']);
+    if(isset($_SESSION['user_info'])){
+        extract($_SESSION['user_info']);
+    }
 ?>
 
 

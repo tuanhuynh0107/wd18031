@@ -1,6 +1,4 @@
 <?php
-
-$thongbao = "";
 ?>
 <main>
         <article class="login">
@@ -32,7 +30,7 @@ $thongbao = "";
                             <?php
                                 
                                     if(isset($thongbao) && $thongbao == "") {
-                                        echo $thongbao= "Tài khoản và mật khẩu không đúng";
+                                        echo $thongbao= "Vui lòng nhập tài khoản mật khẩu";
                                     }else {
                                         echo $thongbao;
                                     }

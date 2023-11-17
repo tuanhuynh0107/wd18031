@@ -1,8 +1,4 @@
-    <?php
-        echo '<pre>';
-        var_dump($_SESSION["cart"]);
-        echo '<pre>';
-    ?>
+
 
 
 <main>
@@ -20,8 +16,6 @@
                 </div>
             </div>
         </article>
-
-
         <section class="pay">
             <div class="main-content">
                 <div class="pay__address">

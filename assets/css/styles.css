@@ -18,7 +18,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: "Poppins", sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background-color: #f8f8f8;
 }
 
@@ -184,7 +184,7 @@ input {
     text-align: center;
     text-shadow: 2px 5px 6px #FFF;
     font-size: 1.8rem;
-    font-style: italic;
+
     font-weight: 600;
     line-height: 28px;
     letter-spacing: 1.44px;
@@ -263,7 +263,7 @@ input {
     color: var(--primary-color);
     text-align: center;
     font-size: 14px;
-    font-style: italic;
+
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.14px;
@@ -318,7 +318,7 @@ input {
     color: #FFF;
     text-align: center;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     white-space: nowrap;
 }
 
@@ -672,7 +672,7 @@ input {
 }
 
 .feedback-item blockquote {
-    font-style: italic;
+
     margin-left: 30px;
     font-size: 2.6rem;
     line-height: 1.54;
@@ -1293,7 +1293,7 @@ p {
 .partner__heading--title {
     color: #000;
     font-size: 40px;
-    font-style: italic;
+
     font-weight: 800;
     line-height: 40px;
 }
@@ -1432,7 +1432,7 @@ p {
 .cart__nav--li__catalog {
     color: #F00;
     font-size: 1.4rem;
-    font-style: italic;
+
     font-weight: 400;
     line-height: 14px;
     text-decoration-line: underline;
@@ -1466,7 +1466,7 @@ p {
 .cart--desc__title {
     white-space: nowrap;
     font-size: 18px;
-    font-style: italic;
+
     font-weight: 500;
     line-height: 18px;
 }
@@ -1503,7 +1503,7 @@ p {
 .cart-operation>a {
     color: #F00;
     font-size: 1.4rem;
-    font-style: italic;
+
     font-weight: 300;
     line-height: 14px;
     text-decoration-line: underline;
@@ -1568,7 +1568,7 @@ p {
 
 .total__order--title {
     font-size: 20px;
-    font-style: italic;
+
     font-weight: 800;
     line-height: 20px;
 }
@@ -1623,7 +1623,7 @@ p {
 
 .pay__address--title {
     font-size: 1.4rem;
-    font-style: italic;
+
     font-weight: 600;
     line-height: 2;
 }
@@ -1635,7 +1635,6 @@ p {
 
 .pay__address--bottom__heading {
     font-size: 1.4rem;
-    font-style: italic;
     font-weight: 500;
     line-height: 1;
     /* 100% */
@@ -1643,8 +1642,7 @@ p {
 
 .pay__address--desc {
     font-size: 1.4rem;
-    font-style: italic;
-    font-weight: 275;
+    font-weight: 400;
     line-height: 1;
     /* 100% */
 }
@@ -1660,7 +1658,7 @@ p {
 .pay__address--btn a {
     color: #000;
     font-size: 1.4rem;
-    font-style: italic;
+
     font-weight: 275;
     line-height: 1;
 }
@@ -1713,7 +1711,7 @@ p {
 
 .pay-ment__bod--title {
     font-size: 1.8rem;
-    font-style: italic;
+
     font-weight: 500;
     line-height: 18px;
     /* 100% */
@@ -1730,7 +1728,7 @@ p {
 .pay-ment__bod--total {
 
     font-size: 1.;
-    font-style: italic;
+
     font-weight: 800;
     line-height: 14px;
     /* 77.778% */

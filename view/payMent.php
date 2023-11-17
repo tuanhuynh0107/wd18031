@@ -109,10 +109,10 @@
                                 <div class="pay__address--btn">
                                     <select name="Exxpress" id="">
                                         <option value="">Thay đổi</option>
-                                        <option value="1" name="dvvc">Grab</option>
-                                        <option value="2" name="dvvc">Bee</option>
-                                        <option value="3" name="dvvc">Ahamove</option>
-                                        <option value="4" name="dvvc">Sv xanh</option>
+                                        <option value="1" name="">Grab</option>
+                                        <option value="2" name="">Bee</option>
+                                        <option value="3" name="">Ahamove</option>
+                                        <option value="4" name="">Sv xanh</option>
                                     </select>
                                 </div>
 

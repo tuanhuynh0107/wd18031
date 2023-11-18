@@ -493,7 +493,7 @@ function getProduct($id_pro){
              return pdo_execute_return_lastInsertId($sql);
     }
     function insert_Detail_Package($name_prd,$qty,$price, $total,$id_package,$id_trans) {
-        $sql="INSERT INTO package (name_prd, qty, price, total, id_package, id_trans) 
+        $sql="INSERT INTO detail_package (name_prd, qty, price, total, id_package, id_trans) 
              VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans')";
              return pdo_execute_return_lastInsertId($sql);
     }

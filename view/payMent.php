@@ -102,17 +102,17 @@
                     <div class="note row">
                         <div class="note__sms-Shop row">
                             <label for="note">Lời nhắn:</label>
-                            <input type="text" name="" id="note" placeholder="gửi lời nhắn cho Hải sản miền tây">
+                            <input type="text" name="note" id="note" placeholder="gửi lời nhắn cho Hải sản miền tây">
                         </div>
                         <div class="note__express row">
                             <div class="note__express--top row">Đơn vị vận chuyển: JHN Exxpress
                                 <div class="pay__address--btn">
                                     <select name="Exxpress" id="">
                                         <option value="">Thay đổi</option>
-                                        <option value="1" name="">Grab</option>
-                                        <option value="2" name="">Bee</option>
-                                        <option value="3" name="">Ahamove</option>
-                                        <option value="4" name="">Sv xanh</option>
+                                        <option value="1">Grab</option>
+                                        <option value="2">Bee</option>
+                                        <option value="3">Ahamove</option>
+                                        <option value="4">Sv xanh</option>
                                     </select>
                                 </div>
 
@@ -132,11 +132,11 @@
                             <div class="delivery__pay--desc">
                                 <div class="delivery__pay--desc__title">Thanh toán khi nhận hàng</div>
                                 
-                                <select class="pay__address--btn ">
+                                <select class="pay__address--btn " name="pttt">
                                     <option value="">Thay đổi</option>
-                                    <option value="1" name="pttt">Thanh toán khi nhận hàng</option>
-                                    <option value="2" name="pttt">Chuyển Khoản</option>
-                                    <option value="3" name="pttt" >Chuyển Momo</option>
+                                    <option value="1" >Thanh toán khi nhận hàng</option>
+                                    <option value="2" >Chuyển Khoản</option>
+                                    <option value="3"  >Chuyển Momo</option>
                                 </select>
                             </div>
                         </div>

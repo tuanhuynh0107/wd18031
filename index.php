@@ -55,8 +55,8 @@
                         $total_All=$_POST['total_All'];
                         $id_user=$_POST['idUser'];
                         $pay_ms=$_POST['pttt'];                    
-                        $status=1   ;
-                        $time = date('h:i:sa d/m/y');
+                        $status=1 ;
+                        $time = date('Y-m-d H:i:s');
                         $note=$_POST['note'];
                         // insert cart
                         $total=$_POST['total'];

@@ -497,6 +497,10 @@ function getProduct($id_pro){
              VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans')";
              return pdo_execute_return_lastInsertId($sql);
     }
+    function   update_changeAdress($id_user, $phone, $name, $pass, $address){
+        $sql = "UPDATE user SET username='".$name."',pass='".$pass."',address='".$address."',phone='".$phone."' WHERE id_user=".$id_user;
+        return update($sql);
+    }
     // function removeFromCart($product_id) {
     //     if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
     //         foreach($_SESSION['cart'] as $key => $item) {

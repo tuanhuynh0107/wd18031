@@ -23,6 +23,20 @@
             case 'loginUser':
                 handleUserLogin();
                 break;
+            case 'changeAdress':
+                if(isset($_POST['change'])&&($_POST['change']>0)){
+                    $phone=$_POST['phone'];
+                    $name=$_POST['name'];
+                    $pass=$_POST['pass'];
+                    $address=$_POST['address'];
+                    $id_user=$_POST['id_user'];
+
+                    update_changeAdress($id_user, $phone, $name, $pass, $address);
+                    $_SESSION['user_info']= getUser($phone, $pass);
+                    header('Location: index.php?page=changeAdress');
+                }
+                require_once "view/changeAdress.php";
+                break;    
             case 'product':
                 handleProduct();
                 break;

@@ -67,8 +67,8 @@
 
                         <tbody class="pay-ment__body">
                             <?php
-                                $listCarts=$_SESSION['cart'];  
-                                if(isset($listCarts)&&is_array($listCarts))  {
+                                // $listCarts=$_SESSION['cart'];  
+                                if(isset($_SESSION['cart'])&&is_array($_SESSION['cart']))  {
                                     $ship=25000;
                                     $idCart= 0;
                                     $total_qty=0;
@@ -76,7 +76,7 @@
                                     $total_Pro=0;
                                     $total_All=0;
                                     // $qty=1;
-                                    foreach ($listCarts as $item) {
+                                    foreach ($_SESSION['cart'] as $item) {
                                         extract($item);
                                         $total = $pricePro * $qtyPro;
                                         $total_Pro+=$total;
@@ -123,7 +123,7 @@
                                 Được phép đồng điểm
                             </div>
                         </div>
-                        <div class="note__pice-Ship"><?=number_format($ship,0,",",".")?>đ</div>
+                        <div class="note__pice-Ship"><?php if(isset($total)){echo number_format($ship,0,",",".");}else{echo $ship=0;} ?>đ</div>
                     </div>
 
                     <div class="delivery ">
@@ -148,15 +148,15 @@
                             <div class="delivery__total-qty--main">
                                 <div class="delivery__total-qty--main__row row">
                                     <span>Tổng tiền sản phẩm</span>
-                                    <span><?=number_format($total_Pro,0,",",".")?>đ</span>
+                                    <span><?php if(isset($total_Pro)){echo number_format($total_Pro,0,",",".");}else{echo $total_Pro=0;} ?>đ</span>
                                 </div>
                                 <div class="delivery__total-qty--main__row row">
                                     <span>Vận chuyển</span>
-                                    <span><?=number_format($ship,0,",",".")?>đ</span>
+                                    <span><?php if(isset($total)){echo number_format($ship,0,",",".");}else{echo $ship=0;} ?>đ</span>
                                 </div>
                                 <div class="delivery__total-qty--main__row row">
                                     <span style="font-size: 20px; font-weight: 600;">Thành tiền</span>
-                                    <span style="font-weight: 600;"><?=number_format($total_All,0,",",".")?>đ</span>
+                                    <span style="font-weight: 600;"><?php if($total_Pro>0 && $ship>0){ echo number_format($total_All,0,",",".");}else{ echo $total_All=0;} ?>đ</span>
                                 </div>
                                 <div class="main-product__content--btn btn" style="width: 326px; border: 0px;"> 
                                     <input type="hidden" name="name" value="<?=$username?>">

@@ -47,14 +47,14 @@
                         </div>
                         <!-- cart-items -->
                         <?php
-                            $listCarts=$_SESSION['cart'];  
-                            if(isset($listCarts)&&is_array($listCarts))  {
+                            // $listCarts=$_SESSION['cart'];  
+                            if(isset($_SESSION['cart'])&&is_array($_SESSION['cart']))  {
                                 $ship=25000;
                                 $idCart= 0;
                                 $total_qty=0;
                                 $quantyty = 0;
                                 // $qty=1;
-                                foreach ($listCarts as $item) {
+                                foreach ($_SESSION['cart'] as $item) {
                                   
                                     extract($item);
                                     $total = $pricePro * $qtyPro;
@@ -127,11 +127,11 @@
                         <div class="temporary">
                             <div class="temporary-content  row">
                                 <span>Tạm tính</span>
-                                <strong><?=number_format($total_qty,0,",",".")?></strong>
+                                <strong><?php if(isset($total_qty)){ echo number_format($total_qty,0,",",".");}else{ echo $total_qty=0;}?></strong>
                             </div>
                             <div class="temporary-content  row">
                                 <span>Phí vận chuyển tạm tính</span>
-                                <strong><?=$ship?></strong>
+                                <strong><?php if($total_qty==0){ echo $ship=0;}else{echo $ship;}?></strong>
                             </div>
                             <div class="temporary-content  row">
                                 <span>Voucher</span>
@@ -140,7 +140,7 @@
                             </div>
                             <div class="total__order row">
                                 <div class="total__order--title">Tổng tiền</div>
-                                <div class="total__order--pice"><?=number_format($total_qty + $ship,0,",",".")?>đ</div>
+                                <div class="total__order--pice"><?php if(isset($total_qty)&&isset($ship)){ echo number_format($total_qty + $ship,0,",",".");}else{echo 0;}?>đ</div>
                             </div>
                         </div>
                         <a href="index.php?page=payMent" class="cart__pay btn">Thanh toán</a>

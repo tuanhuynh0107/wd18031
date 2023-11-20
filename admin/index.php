@@ -19,7 +19,7 @@
                   
                 break;
             case 'catalog':
-                
+                $listCatalog=getAdminCatalog();
                 require_once "view/catalog.php";
                 break;    
             // case "addProduct" :

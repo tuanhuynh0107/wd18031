@@ -12,8 +12,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Tổng đơn hàng</p>
-                                <div class="total_product__content--qty">1.000</div>
+                                <p class="total_product__content--title">Số loại hàng</p>
+                                <div class="total_product__content--qty">100</div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -28,8 +28,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Đơn hàng đang vận chuyển</p>
-                                <div class="total_product__content--qty">700</div>
+                                <p class="total_product__content--title">Hoạt động</p>
+                                <div class="total_product__content--qty">98</div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
@@ -44,17 +44,18 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Đơn hàng mới</p>
-                                <div class="total_product__content--qty">200</div>
+                                <p class="total_product__content--title">Cần xuất nhanh</p>
+                                <div class="total_product__content--qty">3</div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>
                     </article>
-                    <!-- code table don hang o day -->
+                    <!-- code table loai hang o day -->
                     <article class="revenue">
                         <div class="revenue__top row">
-                            <div class="revenue__top--title">
-                                <h4>Đơn hàng mới</h4>
+                            <div class="revenue__top--title row">
+                                <h4>Loại hàng mới</h4>
+                                <button class="btn btn-ml"><a href="add_loaihang_admin.html">Thêm </a></button>
                             </div>
     
                             <select class="revenue__top--hendel">
@@ -66,76 +67,84 @@
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <td>Mã đơn hàng</td>
-                                    <td>Thời gian</td>
-                                    <td>Trạng thái</td>
+                                    <td>Mã loại</td>
+                                    <td>Tên loại</td>
+                                    <td>Số lượng</td>
                                     <td>Thao tác</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Đã thanh toán</td>
+                                <?php
+                                    foreach($listCatalog as $cata){
+                                        extract($cata);
+                                        echo 
+                                        '
+                                        <tr>
+                                            <td><a href="">#'.$id_catalog.'</a></td>
+                                            <td>'.$name_catalog.'</td>
+                                            <td>'.$qty_catalog.'</td>
+                                            <td>
+                                                <a href="" class="hendel-update-act">Sửa</a>|
+                                                <a href="" class="hendel-delete-act">Xóa</a>
+                                            </td>
+                                        </tr>
+                                        ';
+                                    }
+                                ?>
+                                <!-- <tr>
+                                    <td><a href="">#MT01</a></td>
+                                    <td>Cua</td>
+                                    <td>100</td>
                                     <td>
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
+                                    <td><a href="">#MT01</a></td>
+                                    <td>Cua</td>
+                                    <td>100</td>
                                     <td>
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
+                                    <td><a href="">#MT01</a></td>
+                                    <td>Cua</td>
+                                    <td>100</td>
                                     <td>
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
+                                    <td><a href="">#MT01</a></td>
+                                    <td>Cua</td>
+                                    <td>100</td>
                                     <td>
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
+                                    <td><a href="">#MT01</a></td>
+                                    <td>Cua</td>
+                                    <td>100</td>
                                     <td>
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
+                                    <td><a href="">#MT01</a></td>
+                                    <td>Cua</td>
+                                    <td>100</td>
                                     <td>
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </article>

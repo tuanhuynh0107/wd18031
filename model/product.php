@@ -512,4 +512,12 @@ function getProduct($id_pro){
     //         }
     //     }
     // }
+
+
+    // funtion admin viết ở đây
+
+    function getAdminCatalog(){
+        $sql="SELECT * FROM catalog ";
+        return get_All($sql);
+    }
 ?>

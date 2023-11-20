@@ -12,12 +12,16 @@
                
                 break;
             case 'showUpdate':
-              
+                
                 require_once "view/Update.php";
                 break;
             case 'form_addProduct':
                   
-                    break;
+                break;
+            case 'catalog':
+                
+                require_once "view/catalog.php";
+                break;    
             // case "addProduct" :
             //         if(isset($_POST['addProduct'])&&($_POST['addProduct'])){
             //                 // $id = $_POST['idDM'];

@@ -58,7 +58,7 @@
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
                                 <h4>Sản phẩm</h4>
-                                <button class="btn btn-ml"><a href="add_sanpham_admin.html">Thêm </a></button>
+                                <button class="btn btn-ml"><a href="index.php?page=addProduct">Thêm </a></button>
                             </div>
                             
                             <select class="revenue__top--hendel">
@@ -80,30 +80,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    foreach($listProduct as $item){
-                                        extract($item);
-                                        $linkDeleteProduct="index.php?page=delProduct&id_Prd=".$product_id;
-                                        $linkUpdateProduct="index.php?page=updateProduct&id_Prd=".$product_id;
-                                        echo 
-                                        '
-                                        <tr>
-                                            <td class="table__packgeNew--Yellow"><a href="">#'.$product_id.'</a></td>
-                                            <td>'.$product_name.'</td>
-                                            <td>'.$detail_product_type.'</td>
-                                            <td>'.number_format($product_price,0,",",".").'đ</td>
-                                            <td>'.$detail_product_sale.'%</td>
-                                            <td>'.$product_qty.'</td>
-                                            <td>
-                                                <a href="'.$linkDeleteProduct.'" class="hendel-update-act">Sửa</a>|
-                                                <a href="'.$linkUpdateProduct.'" class="hendel-delete-act">Xóa</a>
-                                            </td>
-                                        </tr>
-                                        
-                                        ';
-                                    }
-
-                                ?>
+                                <?=showAdminProduct($listProduct)?>
                                 <!-- <tr>
                                     <td class="table__packgeNew--Yellow"><a href="">#CUA001</a></td>
                                     <td>Cua Cà Mau</td>

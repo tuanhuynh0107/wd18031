@@ -16,13 +16,28 @@
                 if (isset($_GET['id_Prd'])&&($_GET['id_Prd']) >0) {
                     deleteProduct($_GET['id_Prd']);
                     
-                }
+                }   
                 $listProduct=getAdminProduct();
                 require_once "view/product.php";
                 break;  
             case "addProduct":
-            
-                require_once "view/product.php";
+                if(isset($_POST['btnAddPro'])&&($_POST['btnAddPro'])){
+                    $name_product=$_POST['nameProduct'];
+                    $price_product=$_POST['priceProduct'];
+                    $id_catalog=$_POST['selectCatalog'];
+                    $select_type=$_POST['selectType'];
+                    // $describe_product=$_POST['describeProduct'];
+                    $qty_product=$_POST['qtyProduct'];
+
+                    // $img_product=$_FILES['imgProduct']['name'];
+                    // $target_dir = "../uploads/";
+                    // $target_file = $target_dir . basename($_FILES["imgProduct"]["name"]);
+                    insert_product($id_catalog,$name_product,$price_product, $qty_product);
+                }
+                $listCatalog=getAdminCatalog();
+                $listProduct=getAdminProduct();
+                require_once "view/addProduct.php";
+                break;
             case 'updateProduct':
                 
                 require_once "view/product.php";

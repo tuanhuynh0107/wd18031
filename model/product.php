@@ -609,4 +609,33 @@ function showImgAdmin(){
         $sql= "DELETE FROM product where id=".$id;
         delete($sql);
     }
+    function insert_product($id_catalog,$name_product,$price_product, $qty_product) {
+        $sql = "INSERT INTO product(id_catalog, name, price, qty) 
+        VALUES ('$id_catalog','$name_product','$price_product', '$qty_product')";
+        inset($sql);
+    }
+    function showAdminProduct($listProduct){
+        foreach($listProduct as $item){
+            extract($item);
+            $linkDeleteProduct="index.php?page=delProduct&id_Prd=".$product_id;
+            $linkUpdateProduct="index.php?page=updateProduct&id_Prd=".$product_id;
+            echo 
+            '
+            <tr>
+                <td class="table__packgeNew--Yellow"><a href="">#'.$product_id.'</a></td>
+                <td>'.$product_name.'</td>
+                <td>'.$detail_product_type.'</td>
+                <td>'.number_format($product_price,0,",",".").'đ</td>
+                <td>'.$detail_product_sale.'%</td>
+                <td>'.$product_qty.'</td>
+                <td>
+                    <a href="'.$linkDeleteProduct.'" class="hendel-update-act">Sửa</a>|
+                    <a href="'.$linkUpdateProduct.'" class="hendel-delete-act">Xóa</a>
+                </td>
+            </tr>
+            
+            ';
+        }
+
+    }
 ?>

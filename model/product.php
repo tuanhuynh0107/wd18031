@@ -553,15 +553,7 @@ function showImgAdmin(){
         $sql="SELECT * FROM catalog ";
         return get_All($sql);
     }
-    function getAdminCountCatalog(){
-        $sql="SELECT count(DISTINCT id_catalog) as count_catalog FROM catalog";
-        return get_All($sql);
-    }
-    function getAdminWorkCatalog(){
-        $sql="SELECT COUNT(DISTINCT id_catalog) AS total_catalogs
-        FROM product;";
-        return get_All($sql);
-    }
+    
     // Xoa catalog
     function deleteCatalog($id){
         $sql= "DELETE FROM catalog where id_catalog=".$id;
@@ -599,6 +591,17 @@ function showImgAdmin(){
             ';
         }
     }
+    // thống kê catalog
+    function getAdminCountCatalog(){
+        $sql="SELECT count(DISTINCT id_catalog) as count_catalog FROM catalog";
+        return get_All($sql);
+    }
+    function getAdminWorkCatalog(){
+        $sql="SELECT COUNT(DISTINCT id_catalog) AS total_catalogs
+        FROM product;";
+        return get_All($sql);
+    }
+
     // product
     function getAdminProduct(){
         $sql="SELECT 
@@ -623,6 +626,19 @@ function showImgAdmin(){
         $sql = "INSERT INTO product(id_catalog, name, price, qty) 
         VALUES ('$id_catalog','$name_product','$price_product', '$qty_product')";
         inset($sql);
+    }
+    // Thống kê product
+    function getAdminAll_TotalProduct(){
+        $sql="SELECT COUNT(DISTINCT id) AS total_product FROM product;";
+        return get_All($sql);
+    }
+    function getAdminAll_SoldProduct(){
+        $sql="SELECT COUNT(DISTINCT id_Detail_Package) AS sold_product FROM detail_package;";
+        return get_All($sql);
+    }
+    function getAdmin_inventoryProduct(){
+        $sql= "SELECT SUM(qty) AS total_qty FROM product";
+        return get_All($sql);
     }
     function showAdminProduct($listProduct){
         foreach($listProduct as $item){
@@ -652,6 +668,24 @@ function showImgAdmin(){
     // cart 
     function getAdminCart(){
         $sql="SELECT * FROM package";
+        return get_All($sql);
+    }
+    // thống kế đơn hàng 
+    function getAdmin_AllCart(){
+        $sql="SELECT COUNT(DISTINCT id_package) AS total_package FROM package;";
+        return get_All($sql);
+    }
+    function getAdmin_ShippCart(){
+        $sql="SELECT COUNT(*) as shipCart FROM package WHERE status = 2;";
+        return get_All($sql);
+    }
+    // DAYOFWEEK(CURDATE()) trả về số ngày trong tuần cho ngày hiện tại.
+    // CURDATE() - INTERVAL DAYOFWEEK(CURDATE()) - 1 DAY sẽ là ngày đầu tiên của tuần.
+    // CURDATE() + INTERVAL 7 - DAYOFWEEK(CURDATE()) DAY sẽ là ngày cuối cùng của tuần.
+    function getAdmin_NewCart(){
+        $sql="SELECT COUNT(*) AS new_orders
+        FROM package
+        WHERE DATE(time) = CURDATE();";
         return get_All($sql);
     }
 ?>

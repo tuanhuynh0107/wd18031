@@ -11,6 +11,9 @@
         switch ($page) {
             case 'product':
                 $listProduct=getAdminProduct();
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
                require_once "view/product.php";
                 break;
              case "delProduct" :
@@ -19,6 +22,9 @@
                     
                 }   
                 $listProduct=getAdminProduct();
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
                 require_once "view/product.php";
                 break;  
             case "addProduct":
@@ -117,6 +123,9 @@
             //                 break;
             
            case 'loadCart':
+            $countAllCart=getAdmin_AllCart();
+            $shipCart=getAdmin_ShippCart();
+            $newOrder=getAdmin_NewCart();
             $listCart= getAdminCart();
             require_once "view/cartAdmin.php";
             break;

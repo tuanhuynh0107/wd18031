@@ -1,3 +1,7 @@
+<?php
+    print_r($newOrder);
+
+?>
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
@@ -13,7 +17,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Tổng đơn hàng</p>
-                                <div class="total_product__content--qty">1.000</div>
+                                <div class="total_product__content--qty"><?=$countAllCart[0]['total_package']?></div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -29,7 +33,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Đơn hàng đang vận chuyển</p>
-                                <div class="total_product__content--qty">700</div>
+                                <div class="total_product__content--qty"><?=$shipCart[0]['shipCart']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>

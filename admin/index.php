@@ -13,7 +13,7 @@
                require_once "view/product.php";
                 break;
              case "delProduct" :
-                if (isset($_GET['id_Prd'])&&($_GET['id_Prd']) >0) {
+                if (isset($_GET['id_Prd'])&&( $_GET['id_Prd']) >0) {
                     deleteProduct($_GET['id_Prd']);
                     
                 }   
@@ -105,7 +105,10 @@
             //                 require_once  "view/product.php";
             //                 break;
             
-           
+           case 'loadCart':
+            $listCart= getAdminCart();
+            require_once "view/cartAdmin.php";
+            break;
 
             default:
                 require_once "view/home.php";

@@ -638,4 +638,10 @@ function showImgAdmin(){
         }
 
     }
+
+    // cart 
+    function getAdminCart(){
+        $sql="SELECT * FROM package";
+        return get_All($sql);
+    }
 ?>

@@ -23,11 +23,11 @@
         <nav class="sidebar_menu">
             <div class="infor__user row">
                 <div class="infor__user--img">
-                    <img src="../assets/user/<?=$_SESSION['user_info']['img']?>.png" alt="">
+                    <img src="../assets/user/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>.png" alt="">
                 </div>
                 <div class="infor__user--title">
                     <h2 class="infor--title__name">
-                       <?=$_SESSION['user_info']['username']?>
+                       <?php if(isset($_SESSION['user_info'])){echo $_SESSION['user_info']['username'];}?>
                     </h2>
                     <p class="infor--title__desc">
                         CEO Admin
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="main__menu--li row">
-                        <a href="donhang_admin.html" class="row main__menu--li__action">
+                        <a href="index.php?page=loadCart" class="row main__menu--li__action">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                 fill="none">
                                 <path opacity="0.2"

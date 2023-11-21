@@ -250,30 +250,7 @@ function showImgAdmin(){
     }
 }
 // admin
-    function showProductAdmin($listItems) {
-        $kq = ""; 
-        $stt = 1;
 
-        foreach ($listItems as $item) {
-            extract($item);
-            $kq .= '
-                <tr>
-                    <td>'.$stt.'</td>
-                    <td>'.$name.'</td>
-                    <td><img src="../uploads/'.$img.'" style="" alt="" class="card-image" /> </td>
-                    <td>'.number_format($pice,0,",",".").' đ</td>
-                    <td>122</td>
-                    <td>'.$id_catalog.'</td>
-                    <td><a href="index.php?page=showUpdate&idSP='.$id.'">Sửa</a> 
-                    | <a href="index.php?page=delProduct&idSP='.$id.'">Xóa</a>|
-                    </td>
-                </tr>
-            ';
-            $stt++;
-        }
-        return $kq;
-
-    }
 
     function getProductDetail($idProduct) {
         $sql = "SELECT *  FROM detail_product where id_prd=".$idProduct;
@@ -358,7 +335,7 @@ function showImgAdmin(){
     }
 
     // admin
-
+    
     function delProduct($id) {
         $sql = "DELETE FROM product WHERE id = ".$id;
         delete($sql);
@@ -612,5 +589,20 @@ function showImgAdmin(){
             </tr>
             ';
         }
+    }
+    // product
+    function getAdminProduct(){
+        $sql="SELECT 
+        p.id AS product_id,
+        p.name AS product_name,
+        p.price AS product_price,
+        p.qty AS product_qty,
+        dp.sale AS detail_product_sale,
+        dp.type AS detail_product_type
+    FROM 
+        product p
+    JOIN 
+        detail_product dp ON p.id = dp.id_prd";
+        return get_All($sql);
     }
 ?>

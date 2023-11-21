@@ -9,7 +9,8 @@
 
         switch ($page) {
             case 'product':
-               
+                $listProduct=getAdminProduct();
+               require_once "view/product.php";
                 break;
             case 'showUpdate':
                 
@@ -73,7 +74,6 @@
             //                 $product = getProduct();
             //                 require_once  "view/product.php";
             //                 break;
-
             case "addProduct":
                
                 require_once "view/product.php";

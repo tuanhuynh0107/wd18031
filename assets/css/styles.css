@@ -1766,8 +1766,8 @@ p {
 }
 
 .note__express {
+    align-items: flex-start;
     flex-direction: column;
-    margin-left: -125px;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1;

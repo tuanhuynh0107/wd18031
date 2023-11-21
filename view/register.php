@@ -1,4 +1,4 @@
-<main>
+<main class="main--login" >
         <article class="login">
             <div class="main-content">
                 <div class="main-login row">
@@ -29,9 +29,9 @@
                                <?php
                                 
                                     if(isset($thongbao) && $thongbao == "") {
-                                        echo $thongbao= "Chào mừng bạn đến với Hải sản Miền Tây";
+                                        echo '<p class="notification" style="color:#15101d;">Chào mừng bạn đến với Hải Sản Mièn tây</p>';
                                     }else {
-                                        echo $thongbao;
+                                        echo '<p class="notification">'.$thongbao.'</p>';
                                     }
 
 
@@ -43,7 +43,6 @@
                         <div class="form__group">
                             <div class="form__group--desc">Bạn đã có tài khoản?
                                 <a href="index.php?page=login" class="form__group--register">Đăng nhập</a> tại đây
-                                <a href="" class="forgot__Pass">Quên mật khẩu</a>
                             </div>
                             <div class="line" style="width: 80%; margin-left: auto; margin-right: auto; border-bottom: 1px solid;
                             height: 1px; margin-top: 22px;margin-bottom: 28px;"></div>
@@ -124,5 +123,5 @@
                 </div>
             </div>
         </article>
-
+        <img src="./assets/icons/logo_main--login.png" alt="" class="logo-main--login" >    
     </main>

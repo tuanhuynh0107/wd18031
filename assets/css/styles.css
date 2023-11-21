@@ -23,6 +23,21 @@ body {
 }
 
 /* Common */
+.main--login {
+    position: relative;
+}
+
+.logo-main--login {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+
+.notification {
+    padding-top: 10px;
+    padding-left: 8px;
+    color: #f00;
+}
 
 .row {
     display: flex;
@@ -1872,18 +1887,22 @@ p {
     justify-content: space-between;
     align-items: center;
 }
-.action__name-user{
-    opacity: 0; /* Ẩn ban đầu */
+
+.action__name-user {
+    opacity: 0;
+    /* Ẩn ban đầu */
     position: absolute;
     transform: translate(-13%, 10%);
     color: #fff;
     transition: opacity 0.2s ease-in-out;
 
 }
-.action__incons:hover + .action__name-user{
+
+.action__incons:hover+.action__name-user {
     color: #fff;
     opacity: 1;
 }
+
 /* ******************************form__login  *******************************/
 
 
@@ -1969,6 +1988,29 @@ p {
     margin-top: 32px;
     justify-content: center;
     gap: 82px;
+}
+
+.form__group--1 {
+    list-style: disc;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form__desc {
+    color: #15101D;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.form__desc--hosline {
+    color: var(--primary-color-font);
+    font-size: 1.4re;
+    font-weight: 400;
+    line-height: 28px;
+    text-decoration-line: underline;
 }
 
 /* proFile */

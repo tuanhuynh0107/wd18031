@@ -6,7 +6,7 @@
     require_once "model/handleContainer.php";
     $listCatalog= getCatalog();
     require_once "view/header.php";
-   $thongbao = "";
+    $thongbao = "";
     if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
 
@@ -22,6 +22,12 @@
                 break;
             case 'loginUser':
                 handleUserLogin();
+                break;
+            case 'forgotPassword':
+                require_once "view/forgotPassword.php";
+                break;
+            case 'resetPassword':
+                require_once "view/resetPassword.php";
                 break;
             case 'changeAdress':
                 if(isset($_POST['change'])&&($_POST['change']>0)){

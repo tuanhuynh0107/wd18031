@@ -21,7 +21,15 @@
             case 'catalog':
                 $listCatalog=getAdminCatalog();
                 require_once "view/catalog.php";
-                break;    
+                break; 
+            case 'DeleteCatalog':
+                if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
+                    deleteCatalog($_GET['id_catalog']);
+                    
+                }
+                $listCatalog=getAdminCatalog();
+                require_once "view/catalog.php";
+                break;   
             // case "addProduct" :
             //         if(isset($_POST['addProduct'])&&($_POST['addProduct'])){
             //                 // $id = $_POST['idDM'];
@@ -49,6 +57,7 @@
                  
                         require_once "view/product.php";
                         break;
+
             default:
                 require_once "view/home.php";
                 break;

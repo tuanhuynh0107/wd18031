@@ -520,4 +520,9 @@ function getProduct($id_pro){
         $sql="SELECT * FROM catalog ";
         return get_All($sql);
     }
+    // Xoa catalog
+    function deleteCatalog($id){
+        $sql= "DELETE FROM catalog where id_catalog=".$id;
+         delete($sql);
+    }
 ?>

@@ -77,6 +77,8 @@
                                 <?php
                                     foreach($listCatalog as $cata){
                                         extract($cata);
+                                        $linkUpdateCatalog='index.php?page=updateCatalog&id_catalog='.$id_catalog;
+                                        $linkDeleteCatalog='index.php?page=DeleteCatalog&id_catalog='.$id_catalog;
                                         echo 
                                         '
                                         <tr>
@@ -84,8 +86,8 @@
                                             <td>'.$name_catalog.'</td>
                                             <td>'.$qty_catalog.'</td>
                                             <td>
-                                                <a href="" class="hendel-update-act">Sửa</a>|
-                                                <a href="" class="hendel-delete-act">Xóa</a>
+                                                <a href="'.$linkUpdateCatalog.'" class="hendel-update-act">Sửa</a>|
+                                                <a href="'.$linkDeleteCatalog.'" class="hendel-delete-act">Xóa</a>
                                             </td>
                                         </tr>
                                         ';

@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/input.css">
 </head>
 
 <body>

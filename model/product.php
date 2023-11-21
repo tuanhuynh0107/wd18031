@@ -549,4 +549,8 @@ function showImgUser(){
         $sql= "DELETE FROM catalog where id_catalog=".$id;
          delete($sql);
     }
+    function get_One_Admin_Catalog($id){
+        $sql = "SELECT * FROM catalog WHERE id_catalog=".$id;
+        return get_One($sql);
+    }
 ?>

@@ -553,4 +553,27 @@ function showImgUser(){
         $sql = "SELECT * FROM catalog WHERE id_catalog=".$id;
         return get_One($sql);
     }
+    function  updateCatalog($idCatalog, $nameCatalog, $quantityCatalog ) {
+        $sql= "UPDATE catalog SET name_catalog='".$nameCatalog."', qty_catalog='".$quantityCatalog."' WHERE id_catalog='".$idCatalog."'";
+        update($sql);
+    }
+    function get_List_Catalog($listCatalog){
+        foreach($listCatalog as $cata){
+            extract($cata);
+            $linkUpdateCatalog='index.php?page=updateCatalog&id_catalog='.$id_catalog;
+            $linkDeleteCatalog='index.php?page=DeleteCatalog&id_catalog='.$id_catalog;
+            echo 
+            '
+            <tr>
+                <td><a href="">#'.$id_catalog.'</a></td>
+                <td>'.$name_catalog.'</td>
+                <td>'.$qty_catalog.'</td>
+                <td>
+                    <a href="'.$linkUpdateCatalog.'" class="hendel-update-act">Sửa</a>|
+                    <a href="'.$linkDeleteCatalog.'" class="hendel-delete-act">Xóa</a>
+                </td>
+            </tr>
+            ';
+        }
+    }
 ?>

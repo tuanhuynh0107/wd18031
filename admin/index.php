@@ -33,10 +33,22 @@
             case 'updateCatalog':
                 if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
                     $catalog = get_One_Admin_Catalog($_GET['id_catalog']);
+                    $listItem=getAdminCatalog();
 
                 }
                 require_once "view/updateCatalog.php";
                 break; 
+            case 'updateCata':
+                if (isset($_POST['updateCatalog'])&&($_POST['updateCatalog']) ) {
+                    $nameCatalog=$_POST['nameCatalog'];
+                    $quantityCatalog=$_POST['quantityCatalog'];
+                    $idCatalog=$_POST['idCatalog'];
+                    updateCatalog($idCatalog, $nameCatalog, $quantityCatalog );
+                    echo  $idCatalog;
+                }
+                $listCatalog=getAdminCatalog();
+                require_once "view/catalog.php";
+                break;
             // case "addProduct" :
             //         if(isset($_POST['addProduct'])&&($_POST['addProduct'])){
             //                 // $id = $_POST['idDM'];

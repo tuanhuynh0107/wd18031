@@ -1,3 +1,8 @@
+<?php 
+    if(is_array($catalog) ){
+        extract($catalog);
+    }
+?>
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
@@ -64,29 +69,29 @@
                             </select>
                         </div>
                         <!-- form  -->
-                        <form action="" method="post">
+                        <form action="index.php?page=updateCata" method="post">
                             <div class="form_group ">
                                 <div class="form_group__loaihang">
                                     <label for="name_product" class="form_group__title">
                                         Tên loại hàng <br>
                                     </label>
-                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                    <input type="text" class="form_group__input" id="name_product" name="nameCatalog" value="<?=$name_catalog?>">
                                 </div>
                                 <div class="form_group__loaihang">
                                     <label for="name_product" class="form_group__title">
                                         Số lượng <br>
                                     </label>
-                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                    <input type="text" class="form_group__input" id="name_product" name="quantityCatalog" value="<?=$qty_catalog?>">
                                 </div>
                                 <div class="form_group__loaihang">
                                     <label for="name_product" class="form_group__title">
                                         Mã loại <br>
                                     </label>
-                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                    <input type="text" class="form_group__input" id="name_product"  name="idCatalog" value="<?=$id_catalog?>" disabled>
                                 </div>
                                 <div class="form_group__submit">
-                                    <input type="submit" class="form_group__submit--Cancle input-submit__loaihang" value="Cancle">
-                                    <input type="submit" class="form_group__submit--them input-submit__loaihang" value="Thêm">
+                                    <input type="submit" class="form_group__submit--Cancle input-submit__loaihang" value="Cancel">
+                                    <input type="submit" class="form_group__submit--them input-submit__loaihang" name="updateCatalog" value="Sửa">
                                 </div>
                                 <span class="form-mes">
                                     
@@ -103,60 +108,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
+                                <?=get_List_Catalog($listItem)?>
                             </tbody>
                         </table>
                     </article>

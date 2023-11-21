@@ -12,6 +12,21 @@
                 $listProduct=getAdminProduct();
                require_once "view/product.php";
                 break;
+             case "delProduct" :
+                if (isset($_GET['id_Prd'])&&($_GET['id_Prd']) >0) {
+                    deleteProduct($_GET['id_Prd']);
+                    
+                }
+                $listProduct=getAdminProduct();
+                require_once "view/product.php";
+                break;  
+            case "addProduct":
+            
+                require_once "view/product.php";
+            case 'updateProduct':
+                
+                require_once "view/product.php";
+                break;  
             case 'showUpdate':
                 
                 require_once "view/Update.php";
@@ -74,17 +89,8 @@
             //                 $product = getProduct();
             //                 require_once  "view/product.php";
             //                 break;
-            case "addProduct":
-               
-                require_once "view/product.php";
-            case 'updataProduct':
-               
-                require_once "view/product.php";
-                break;
-            case "delProduct" :
-                 
-                        require_once "view/product.php";
-                        break;
+            
+           
 
             default:
                 require_once "view/home.php";

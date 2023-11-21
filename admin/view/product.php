@@ -83,6 +83,8 @@
                                 <?php
                                     foreach($listProduct as $item){
                                         extract($item);
+                                        $linkDeleteProduct="index.php?page=delProduct&id_Prd=".$product_id;
+                                        $linkUpdateProduct="index.php?page=updateProduct&id_Prd=".$product_id;
                                         echo 
                                         '
                                         <tr>
@@ -93,8 +95,8 @@
                                             <td>'.$detail_product_sale.'%</td>
                                             <td>'.$product_qty.'</td>
                                             <td>
-                                                <a href="" class="hendel-update-act">Sửa</a>|
-                                                <a href="" class="hendel-delete-act">Xóa</a>
+                                                <a href="'.$linkDeleteProduct.'" class="hendel-update-act">Sửa</a>|
+                                                <a href="'.$linkUpdateProduct.'" class="hendel-delete-act">Xóa</a>
                                             </td>
                                         </tr>
                                         

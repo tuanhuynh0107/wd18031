@@ -605,4 +605,8 @@ function showImgAdmin(){
         detail_product dp ON p.id = dp.id_prd";
         return get_All($sql);
     }
+    function  deleteProduct($id){
+        $sql= "DELETE FROM product where id=".$id;
+        delete($sql);
+    }
 ?>

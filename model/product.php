@@ -553,6 +553,15 @@ function showImgAdmin(){
         $sql="SELECT * FROM catalog ";
         return get_All($sql);
     }
+    function getAdminCountCatalog(){
+        $sql="SELECT count(DISTINCT id_catalog) as count_catalog FROM catalog";
+        return get_All($sql);
+    }
+    function getAdminWorkCatalog(){
+        $sql="SELECT COUNT(DISTINCT id_catalog) AS total_catalogs
+        FROM product;";
+        return get_All($sql);
+    }
     // Xoa catalog
     function deleteCatalog($id){
         $sql= "DELETE FROM catalog where id_catalog=".$id;
@@ -602,7 +611,8 @@ function showImgAdmin(){
     FROM 
         product p
     JOIN 
-        detail_product dp ON p.id = dp.id_prd";
+        detail_product dp ON p.id = dp.id_prd 
+    ORDER BY p.id ASC";
         return get_All($sql);
     }
     function  deleteProduct($id){

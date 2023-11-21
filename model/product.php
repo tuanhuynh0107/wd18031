@@ -585,8 +585,8 @@ function showImgAdmin(){
         $sql = "SELECT * FROM catalog WHERE id_catalog=".$id;
         return get_One($sql);
     }
-    function  updateCatalog($idCatalog, $nameCatalog, $quantityCatalog ) {
-        $sql= "UPDATE catalog SET name_catalog='".$nameCatalog."', qty_catalog='".$quantityCatalog."' WHERE id_catalog='".$idCatalog."'";
+    function updateCatalog($id, $nameCatalog, $quantityCatalog) {
+        $sql = "UPDATE catalog SET name_catalog='".$nameCatalog."', qty_catalog='".$quantityCatalog."' WHERE id_catalog=".$id;
         update($sql);
     }
     function get_List_Catalog($listCatalog){

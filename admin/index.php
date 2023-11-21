@@ -39,15 +39,15 @@
                 require_once "view/updateCatalog.php";
                 break; 
             case 'updateCata':
-                if (isset($_POST['updateCatalog'])&&($_POST['updateCatalog']) ) {
-                    $nameCatalog=$_POST['nameCatalog'];
-                    $quantityCatalog=$_POST['quantityCatalog'];
-                    $idCatalog=$_POST['idCatalog'];
-                    updateCatalog($idCatalog, $nameCatalog, $quantityCatalog );
-                    echo  $idCatalog;
-                }
-                $listCatalog=getAdminCatalog();
-                require_once "view/catalog.php";
+              if(null !== $_POST['updateCatalog'] ){
+                $nameCatalog=$_POST['nameCatalog'];
+                $quantityCatalog=$_POST['quantityCatalog'];
+                $id=$_POST['idCatalog'];
+                updateCatalog($id, $nameCatalog, $quantityCatalog);
+                
+              }
+              $listCatalog=getAdminCatalog();
+              require_once "view/catalog.php";
                 break;
             // case "addProduct" :
             //         if(isset($_POST['addProduct'])&&($_POST['addProduct'])){

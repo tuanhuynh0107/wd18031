@@ -1,7 +1,4 @@
-<div class="container" style="flex-grow: 1; width: 100%;">
-
-            </header>
-            <main class="main row">
+<main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
                         <section class="total_product row">
@@ -16,7 +13,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Tổng sản phẩm</p>
-                                <div class="total_product__content--qty">500.000</div>
+                                <div class="total_product__content--qty"><?=$totalAllProducts[0]['total_product']?></div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -32,7 +29,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Sản phẩm đã bán</p>
-                                <div class="total_product__content--qty">200.000</div>
+                                <div class="total_product__content--qty"><?=$soldProduct[0]['sold_product']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
@@ -48,7 +45,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Hàng tồn kho</p>
-                                <div class="total_product__content--qty">200</div>
+                                <div class="total_product__content--qty"><?= $inventoryProduct[0]['total_qty']?></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>
@@ -58,7 +55,7 @@
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
                                 <h4>Sản phẩm</h4>
-                                <button class="btn btn-ml"><a href="index.php?page=addProduct">Thêm </a></button>
+                                <button class="btn btn-ml"><a href="add_sanpham_admin.html">Thêm </a></button>
                             </div>
                             
                             <select class="revenue__top--hendel">
@@ -81,80 +78,6 @@
                             </thead>
                             <tbody>
                                 <?=showAdminProduct($listProduct)?>
-                                <!-- <tr>
-                                    <td class="table__packgeNew--Yellow"><a href="">#CUA001</a></td>
-                                    <td>Cua Cà Mau</td>
-                                    <td>Kg</td>
-                                    <td>425.000đ</td>
-                                    <td>9%</td>
-                                    <td>500</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table__packgeNew--Yellow"><a href="">#CUA001</a></td>
-                                    <td>Cua Cà Mau</td>
-                                    <td>Kg</td>
-                                    <td>425.000đ</td>
-                                    <td>9%</td>
-                                    <td>500</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table__packgeNew--Yellow"><a href="">#CUA001</a></td>
-                                    <td>Cua Cà Mau</td>
-                                    <td>Kg</td>
-                                    <td>425.000đ</td>
-                                    <td>9%</td>
-                                    <td>500</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table__packgeNew--Yellow"><a href="">#CUA001</a></td>
-                                    <td>Cua Cà Mau</td>
-                                    <td>Kg</td>
-                                    <td>425.000đ</td>
-                                    <td>9%</td>
-                                    <td>500</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table__packgeNew--Yellow"><a href="">#CUA001</a></td>
-                                    <td>Cua Cà Mau</td>
-                                    <td>Kg</td>
-                                    <td>425.000đ</td>
-                                    <td>9%</td>
-                                    <td>500</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table__packgeNew--Yellow"><a href="">#CUA001</a></td>
-                                    <td>Cua Cà Mau</td>
-                                    <td>Kg</td>
-                                    <td>425.000đ</td>
-                                    <td>9%</td>
-                                    <td>500</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                 -->
-                               
                             </tbody>
                         </table>
                     </article>
@@ -164,4 +87,3 @@
                 </article>
 
             </main>
-        </div>

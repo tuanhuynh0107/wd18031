@@ -158,7 +158,6 @@
                                     <span style="font-size: 20px; font-weight: 600;">Thành tiền</span>
                                     <span style="font-weight: 600;"><?php if($total_Pro>0 && $ship>0){ echo number_format($total_All,0,",",".");}else{ echo $total_All=0;} ?>đ</span>
                                 </div>
-                                <div class="main-product__content--btn btn" style="width: 326px; border: 0px;"> 
                                     <input type="hidden" name="name" value="<?=$username?>">
                                     <input type="hidden" name="address" value="<?=$address?>">
                                     <input type="hidden" name="phone" value="<?=$phone?>">
@@ -166,8 +165,8 @@
                                     <input type="hidden" name="total" value="<?=$total?>">
                                     <input type="hidden" name="idUser" value="<?=$id_user?>">
 
-                                    <input type="submit" name="order" value="Đặt hàng">
-                                </div>
+                                    <input type="submit" name="order" value="Đặt hàng" class="main-product__content--btn btn" style="width: 326px; border: 0px;">
+                                
                                 <?=$thongbao?>
                             </div>
                         </div>

@@ -23,11 +23,11 @@
         <nav class="sidebar_menu">
             <div class="infor__user row">
                 <div class="infor__user--img">
-                    <img src="../assets/user/user_admin.png" alt="">
+                    <img src="../assets/user/<?=$_SESSION['user_info']['img']?>.png" alt="">
                 </div>
                 <div class="infor__user--title">
                     <h2 class="infor--title__name">
-                        Nguyễn Minh Châu
+                       <?=$_SESSION['user_info']['username']?>
                     </h2>
                     <p class="infor--title__desc">
                         CEO Admin
@@ -256,11 +256,12 @@
                     </div>
 
                     <div class="user__admin row">
-                        <img src="../assets/user/img__admin.png" alt="" class="user__clon"
+                        <?=showImgAdmin() ?>
+                        <!-- <img src="../assets/user/img__admin.png" alt="" class="user__clon"
                             style="height: 30px; width: 30px; object-fit: cover;">
                         <p class="user__title">
                             Nguyễn Anh
-                        </p>
+                        </p> -->
                     </div>
                 </div>
             </header>

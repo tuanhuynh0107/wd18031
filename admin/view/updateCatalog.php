@@ -55,7 +55,6 @@
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
                                 <h4>Loại hàng mới</h4>
-                                <button class="btn btn-ml"><a href="add_loaihang_admin.html">Thêm </a></button>
                             </div>
     
                             <select class="revenue__top--hendel">
@@ -64,6 +63,36 @@
                                 <option value="3">Giảm dần</option>
                             </select>
                         </div>
+                        <!-- form  -->
+                        <form action="" method="post">
+                            <div class="form_group ">
+                                <div class="form_group__loaihang">
+                                    <label for="name_product" class="form_group__title">
+                                        Tên loại hàng <br>
+                                    </label>
+                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                </div>
+                                <div class="form_group__loaihang">
+                                    <label for="name_product" class="form_group__title">
+                                        Số lượng <br>
+                                    </label>
+                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                </div>
+                                <div class="form_group__loaihang">
+                                    <label for="name_product" class="form_group__title">
+                                        Mã loại <br>
+                                    </label>
+                                    <input type="text" class="form_group__input" id="name_product" name="" placeholder="Nhập vào đây loại hàng">
+                                </div>
+                                <div class="form_group__submit">
+                                    <input type="submit" class="form_group__submit--Cancle input-submit__loaihang" value="Cancle">
+                                    <input type="submit" class="form_group__submit--them input-submit__loaihang" value="Thêm">
+                                </div>
+                                <span class="form-mes">
+                                    
+                                </span>
+                            </div>
+                        </form>
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
@@ -74,26 +103,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    foreach($listCatalog as $cata){
-                                        extract($cata);
-                                        $linkUpdateCatalog='index.php?page=updateCatalog&id_catalog='.$id_catalog;
-                                        $linkDeleteCatalog='index.php?page=DeleteCatalog&id_catalog='.$id_catalog;
-                                        echo 
-                                        '
-                                        <tr>
-                                            <td><a href="">#'.$id_catalog.'</a></td>
-                                            <td>'.$name_catalog.'</td>
-                                            <td>'.$qty_catalog.'</td>
-                                            <td>
-                                                <a href="'.$linkUpdateCatalog.'" class="hendel-update-act">Sửa</a>|
-                                                <a href="'.$linkDeleteCatalog.'" class="hendel-delete-act">Xóa</a>
-                                            </td>
-                                        </tr>
-                                        ';
-                                    }
-                                ?>
-                                <!-- <tr>
+                                <tr>
                                     <td><a href="">#MT01</a></td>
                                     <td>Cua</td>
                                     <td>100</td>
@@ -146,7 +156,7 @@
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
-                                </tr> -->
+                                </tr>
                             </tbody>
                         </table>
                     </article>

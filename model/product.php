@@ -544,4 +544,13 @@ function showImgUser(){
         $sql="SELECT * FROM catalog ";
         return get_All($sql);
     }
+    // Xoa catalog
+    function deleteCatalog($id){
+        $sql= "DELETE FROM catalog where id_catalog=".$id;
+         delete($sql);
+    }
+    function get_One_Admin_Catalog($id){
+        $sql = "SELECT * FROM catalog WHERE id_catalog=".$id;
+        return get_One($sql);
+    }
 ?>

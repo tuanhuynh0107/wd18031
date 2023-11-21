@@ -3,6 +3,7 @@
     ob_start()  ;
     require_once "../model/db.php";
     require_once "../model/product.php";
+    require_once "../model/handleContainer.php";
     require_once 'view/header.php';
      if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
@@ -51,6 +52,8 @@
                 break;
             case 'catalog':
                 $listCatalog=getAdminCatalog();
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
                 require_once "view/catalog.php";
                 break; 
             case 'DeleteCatalog':
@@ -58,6 +61,8 @@
                     deleteCatalog($_GET['id_catalog']);
                     
                 }
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
                 $listCatalog=getAdminCatalog();
                 require_once "view/catalog.php";
                 break;
@@ -68,6 +73,8 @@
                     insertCatalog($nameCatalog, $qtyCatalog );
                 }
                 $listItem=getAdminCatalog();
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
                 require_once "view/addCatalog.php";
                 break;      
             case 'updateCatalog':
@@ -76,6 +83,8 @@
                     $listItem=getAdminCatalog();
 
                 }
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
                 require_once "view/updateCatalog.php";
                 break; 
             case 'updateCata':
@@ -86,6 +95,8 @@
                 updateCatalog($id, $nameCatalog, $quantityCatalog);
                 
               }
+              $countAllCatalog= getAdminCountCatalog();
+              $workCatalog=getAdminWorkCatalog();
               $listCatalog=getAdminCatalog();
               require_once "view/catalog.php";
                 break;

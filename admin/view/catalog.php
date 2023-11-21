@@ -13,7 +13,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Số loại hàng</p>
-                                <div class="total_product__content--qty">100</div>
+                                <div class="total_product__content--qty"><?=$countAllCatalog[0]['count_catalog'];?></div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Hoạt động</p>
-                                <div class="total_product__content--qty">98</div>
+                                <div class="total_product__content--qty"><?=$workCatalog[0]['total_catalogs']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>

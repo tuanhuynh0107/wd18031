@@ -29,7 +29,16 @@
                 }
                 $listCatalog=getAdminCatalog();
                 require_once "view/catalog.php";
-                break;  
+                break;
+            case 'addCatalog':
+                if(isset($_POST['addCatalog'])&&($_POST['addCatalog'])){
+                    $nameCatalog=$_POST['nameCatalog'];
+                    $qtyCatalog=$_POST['quantityCatalog'];
+                    insertCatalog($nameCatalog, $qtyCatalog );
+                }
+                $listItem=getAdminCatalog();
+                require_once "view/addCatalog.php";
+                break;      
             case 'updateCatalog':
                 if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
                     $catalog = get_One_Admin_Catalog($_GET['id_catalog']);

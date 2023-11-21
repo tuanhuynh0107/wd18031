@@ -90,7 +90,7 @@
                                     <label for="name_product" class="form_group__title">
                                         Mã loại <br>
                                     </label>
-                                    <input type="text" class="form_group__input" id="name_product"  name="idCatalog" value="<?php if(isset($id_catalog)&&($id_catalog)!=""){ echo $id_catalog;}?>">
+                                    <input type="text" class="form_group__input" id="name_product"  name="idCatalog" value="<?php if(isset($id_catalog)&&($id_catalog)!=""){ echo $id_catalog;}?>"  disabled>
                                 </div>
                                 <div class="form_group__submit">
                                     <input type="submit" class="form_group__submit--Cancle input-submit__loaihang" value="Cancel">

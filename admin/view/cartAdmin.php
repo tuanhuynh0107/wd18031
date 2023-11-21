@@ -49,7 +49,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Đơn hàng mới</p>
-                                <div class="total_product__content--qty">200</div>
+                                <div class="total_product__content--qty"><?=$newOrder[0]['new_orders']?></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>

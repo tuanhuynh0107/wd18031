@@ -264,6 +264,10 @@ function showImgAdmin(){
 }
 
 // user
+function loadAllUser($id_user){
+    $sql = "SELECT * FROM user WHERE id_user = ".$id_user;
+    return get_One($sql);
+}
  function updateImgUser($id_user,$hinh){
     $sql="UPDATE `user`
     SET 
@@ -273,18 +277,17 @@ function showImgAdmin(){
       update($sql);
  }
  function updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user) {
-           $sql = "UPDATE user
-            SET 
-                phone='$phone_user', 
-                username='$name_user', 
-                address='$adress_user', 
-                email='$email_user', 
-                gender='$gender_user', 
-                dob='$dob_user' 
-            WHERE id_user=".$id_user;
-
-
-    update($sql);
+           $sql = "UPDATE `user` 
+           SET 
+             `dob` = '$dob_user',
+             `phone` = '$phone_user',
+             `username` = '$name_user',
+             `address` = '$adress_user',
+             `gender` = '$gender_user',
+             `email` = '$email_user'
+           WHERE 
+             `id_user` = ".$id_user;
+            update($sql);
 }
 
 // admin

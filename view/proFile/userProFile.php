@@ -1,5 +1,9 @@
 <?php
-echo print_r($_SESSION['user_info']);
+//  echo print_r($loadUser);
+ if(isset($loadUser)){
+    extract($loadUser);
+ }
+ 
 ?>
 <main>
     <article class="heading-cart">
@@ -18,16 +22,16 @@ echo print_r($_SESSION['user_info']);
             <div class="proFile__sidebar">
                 <div class="sidebar--top row">
                     <figure class="sidebar--top__left row ">
-                        <img src="./assets/user/<?=$_SESSION['user_info']['img']?>.png"
+                        <img src="./assets/user/<?=$img?>.png"
                             alt="user" class="sidebar--top__left--img">
-                        <figcaption class="sidebar--top__left--id">ID:<?=$_SESSION['user_info']['id_user']?></figcaption>
+                        <figcaption class="sidebar--top__left--id">ID:<?=$id_user?></figcaption>
                         <div class="sidebar--edit__proFile">
                             <a href="#!"> thay đổi</a>
                         </div>
                     </figure>
                     <div class="sidebar--top__right row">
-                        <div class="sidebar--top__right--content"><?=$_SESSION['user_info']['username']?></div>
-                        <div class="sidebar--top__right--content"><?=$_SESSION['user_info']['dob']?></div>
+                        <div class="sidebar--top__right--content"><?=$username?></div>
+                        <div class="sidebar--top__right--content"><?=$dob?></div>
                         <div class="sidebar--top__right--content">
                             <?php
                                 if($gender==1){
@@ -41,7 +45,7 @@ echo print_r($_SESSION['user_info']);
                                 }
                             ?>
                         </div>
-                        <div class="sidebar--top__right--content"><?=$_SESSION['user_info']['address']?></div>
+                        <div class="sidebar--top__right--content"><?=$address?></div>
                     </div>
                 </div>
 
@@ -97,9 +101,9 @@ echo print_r($_SESSION['user_info']);
                     <form action="index.php?page=changeImgUser" method="post" enctype="multipart/form-data">
                         <div class="form__group change__group">
                            
-                            <img  src="./assets/user/<?=$_SESSION['user_info']['img']?>.png">
+                            <img  src="./assets/user/<?=$img?>.png">
                             <input type="file" name="imgUser">
-                            <input type="hidden" name="idImgUser" value="<?=$_SESSION['user_info']['id_user']?>">
+                            <input type="hidden" name="idImgUser" value="<?=$id_user?>">
                             <input type="submit" name="change" value="Thay đổi" class="change__btn--img">
                         </div>
                     </form>
@@ -112,7 +116,7 @@ echo print_r($_SESSION['user_info']);
                                             <path d="M14.6668 4.8266C14.6673 4.73886 14.6505 4.65188 14.6174 4.57066C14.5842 4.48943 14.5353 4.41556 14.4735 4.35326L11.6468 1.5266C11.5845 1.46481 11.5107 1.41593 11.4294 1.38275C11.3482 1.34957 11.2612 1.33276 11.1735 1.33326C11.0858 1.33276 10.9988 1.34957 10.9176 1.38275C10.8363 1.41593 10.7625 1.46481 10.7002 1.5266L8.81351 3.41326L1.52684 10.6999C1.46505 10.7622 1.41617 10.8361 1.38299 10.9173C1.34982 10.9985 1.333 11.0855 1.33351 11.1733V13.9999C1.33351 14.1767 1.40375 14.3463 1.52877 14.4713C1.65379 14.5964 1.82336 14.6666 2.00017 14.6666H4.82684C4.92013 14.6717 5.01344 14.6571 5.10072 14.6238C5.188 14.5905 5.26731 14.5392 5.33351 14.4733L12.5802 7.1866L14.4735 5.33326C14.5344 5.26865 14.5839 5.19428 14.6202 5.11326C14.6266 5.06012 14.6266 5.0064 14.6202 4.95326C14.6233 4.92223 14.6233 4.89096 14.6202 4.85993L14.6668 4.8266ZM4.55351 13.3333H2.66684V11.4466L9.28684 4.8266L11.1735 6.71326L4.55351 13.3333ZM12.1135 5.77326L10.2268 3.8866L11.1735 2.9466L13.0535 4.8266L12.1135 5.77326Z" fill="#999999" fill-opacity="0.5"/>
                                         </svg>
                                     </label>
-                                    <input type="text" id="fistName" value="<?=$_SESSION['user_info']['username']?>" class="change__fullName">
+                                    <input type="text" id="fistName" name="name_user" value="<?=$username?>" class="change__fullName">
                                 </div>
                                 <div class="form__group">
                                     <label for="lastName" class="label__icon" data-animal-type="Email">
@@ -120,7 +124,7 @@ echo print_r($_SESSION['user_info']);
                                             <path d="M14.6668 4.8266C14.6673 4.73886 14.6505 4.65188 14.6174 4.57066C14.5842 4.48943 14.5353 4.41556 14.4735 4.35326L11.6468 1.5266C11.5845 1.46481 11.5107 1.41593 11.4294 1.38275C11.3482 1.34957 11.2612 1.33276 11.1735 1.33326C11.0858 1.33276 10.9988 1.34957 10.9176 1.38275C10.8363 1.41593 10.7625 1.46481 10.7002 1.5266L8.81351 3.41326L1.52684 10.6999C1.46505 10.7622 1.41617 10.8361 1.38299 10.9173C1.34982 10.9985 1.333 11.0855 1.33351 11.1733V13.9999C1.33351 14.1767 1.40375 14.3463 1.52877 14.4713C1.65379 14.5964 1.82336 14.6666 2.00017 14.6666H4.82684C4.92013 14.6717 5.01344 14.6571 5.10072 14.6238C5.188 14.5905 5.26731 14.5392 5.33351 14.4733L12.5802 7.1866L14.4735 5.33326C14.5344 5.26865 14.5839 5.19428 14.6202 5.11326C14.6266 5.06012 14.6266 5.0064 14.6202 4.95326C14.6233 4.92223 14.6233 4.89096 14.6202 4.85993L14.6668 4.8266ZM4.55351 13.3333H2.66684V11.4466L9.28684 4.8266L11.1735 6.71326L4.55351 13.3333ZM12.1135 5.77326L10.2268 3.8866L11.1735 2.9466L13.0535 4.8266L12.1135 5.77326Z" fill="#999999" fill-opacity="0.5"/>
                                         </svg>
                                     </label>
-                                    <input type="text" id="lastName" value="<?=$_SESSION['user_info']['email']?>" class="change__fullName">
+                                    <input type="text" id="lastName" name="email_user" value="<?=$email?>" class="change__fullName">
                                 </div>
                                 <div class="form__group">
                                     <label for="fullName" class="label__icon" data-animal-type="Giới tính ">
@@ -128,7 +132,7 @@ echo print_r($_SESSION['user_info']);
                                                 <path d="M14.6668 4.8266C14.6673 4.73886 14.6505 4.65188 14.6174 4.57066C14.5842 4.48943 14.5353 4.41556 14.4735 4.35326L11.6468 1.5266C11.5845 1.46481 11.5107 1.41593 11.4294 1.38275C11.3482 1.34957 11.2612 1.33276 11.1735 1.33326C11.0858 1.33276 10.9988 1.34957 10.9176 1.38275C10.8363 1.41593 10.7625 1.46481 10.7002 1.5266L8.81351 3.41326L1.52684 10.6999C1.46505 10.7622 1.41617 10.8361 1.38299 10.9173C1.34982 10.9985 1.333 11.0855 1.33351 11.1733V13.9999C1.33351 14.1767 1.40375 14.3463 1.52877 14.4713C1.65379 14.5964 1.82336 14.6666 2.00017 14.6666H4.82684C4.92013 14.6717 5.01344 14.6571 5.10072 14.6238C5.188 14.5905 5.26731 14.5392 5.33351 14.4733L12.5802 7.1866L14.4735 5.33326C14.5344 5.26865 14.5839 5.19428 14.6202 5.11326C14.6266 5.06012 14.6266 5.0064 14.6202 4.95326C14.6233 4.92223 14.6233 4.89096 14.6202 4.85993L14.6668 4.8266ZM4.55351 13.3333H2.66684V11.4466L9.28684 4.8266L11.1735 6.71326L4.55351 13.3333ZM12.1135 5.77326L10.2268 3.8866L11.1735 2.9466L13.0535 4.8266L12.1135 5.77326Z" fill="#999999" fill-opacity="0.5"/>
                                         </svg>
                                     </label>
-                                    <select name="sex" id="" class="change__fullName">
+                                    <select name="gender_user" id="" class="change__fullName">
                                         <?php
                                             if($gender==1){
                                                     echo '<option value="1">Nam</option>
@@ -154,7 +158,7 @@ echo print_r($_SESSION['user_info']);
                                             <path d="M14.6668 4.8266C14.6673 4.73886 14.6505 4.65188 14.6174 4.57066C14.5842 4.48943 14.5353 4.41556 14.4735 4.35326L11.6468 1.5266C11.5845 1.46481 11.5107 1.41593 11.4294 1.38275C11.3482 1.34957 11.2612 1.33276 11.1735 1.33326C11.0858 1.33276 10.9988 1.34957 10.9176 1.38275C10.8363 1.41593 10.7625 1.46481 10.7002 1.5266L8.81351 3.41326L1.52684 10.6999C1.46505 10.7622 1.41617 10.8361 1.38299 10.9173C1.34982 10.9985 1.333 11.0855 1.33351 11.1733V13.9999C1.33351 14.1767 1.40375 14.3463 1.52877 14.4713C1.65379 14.5964 1.82336 14.6666 2.00017 14.6666H4.82684C4.92013 14.6717 5.01344 14.6571 5.10072 14.6238C5.188 14.5905 5.26731 14.5392 5.33351 14.4733L12.5802 7.1866L14.4735 5.33326C14.5344 5.26865 14.5839 5.19428 14.6202 5.11326C14.6266 5.06012 14.6266 5.0064 14.6202 4.95326C14.6233 4.92223 14.6233 4.89096 14.6202 4.85993L14.6668 4.8266ZM4.55351 13.3333H2.66684V11.4466L9.28684 4.8266L11.1735 6.71326L4.55351 13.3333ZM12.1135 5.77326L10.2268 3.8866L11.1735 2.9466L13.0535 4.8266L12.1135 5.77326Z" fill="#999999" fill-opacity="0.5"/>
                                         </svg>
                                     </label>
-                                    <input type="date" id="fullName" value="<?=$_SESSION['user_info']['dob']?>" class="change__fullName">
+                                    <input type="date" id="fullName" name="dob_user" value="<?=$dob?>" class="change__fullName">
                                 </div>
                                 <div class="form__group">
                                     <label for="fullName" class="label__icon" data-animal-type="Số điện thoại ">
@@ -162,7 +166,7 @@ echo print_r($_SESSION['user_info']);
                                             <path d="M14.6668 4.8266C14.6673 4.73886 14.6505 4.65188 14.6174 4.57066C14.5842 4.48943 14.5353 4.41556 14.4735 4.35326L11.6468 1.5266C11.5845 1.46481 11.5107 1.41593 11.4294 1.38275C11.3482 1.34957 11.2612 1.33276 11.1735 1.33326C11.0858 1.33276 10.9988 1.34957 10.9176 1.38275C10.8363 1.41593 10.7625 1.46481 10.7002 1.5266L8.81351 3.41326L1.52684 10.6999C1.46505 10.7622 1.41617 10.8361 1.38299 10.9173C1.34982 10.9985 1.333 11.0855 1.33351 11.1733V13.9999C1.33351 14.1767 1.40375 14.3463 1.52877 14.4713C1.65379 14.5964 1.82336 14.6666 2.00017 14.6666H4.82684C4.92013 14.6717 5.01344 14.6571 5.10072 14.6238C5.188 14.5905 5.26731 14.5392 5.33351 14.4733L12.5802 7.1866L14.4735 5.33326C14.5344 5.26865 14.5839 5.19428 14.6202 5.11326C14.6266 5.06012 14.6266 5.0064 14.6202 4.95326C14.6233 4.92223 14.6233 4.89096 14.6202 4.85993L14.6668 4.8266ZM4.55351 13.3333H2.66684V11.4466L9.28684 4.8266L11.1735 6.71326L4.55351 13.3333ZM12.1135 5.77326L10.2268 3.8866L11.1735 2.9466L13.0535 4.8266L12.1135 5.77326Z" fill="#999999" fill-opacity="0.5"/>
                                         </svg>
                                     </label>
-                                    <input type="text" id="fullName" value="<?=$_SESSION['user_info']['phone']?>" class="change__fullName">
+                                    <input type="text" id="fullName" name="phone_user" value="<?=$phone?>" class="change__fullName">
                                 </div>
                                 <div class="form__group">
                                     <label for="fullName" class="label__icon" data-animal-type="Địa chỉ">
@@ -170,18 +174,13 @@ echo print_r($_SESSION['user_info']);
                                             <path d="M14.6668 4.8266C14.6673 4.73886 14.6505 4.65188 14.6174 4.57066C14.5842 4.48943 14.5353 4.41556 14.4735 4.35326L11.6468 1.5266C11.5845 1.46481 11.5107 1.41593 11.4294 1.38275C11.3482 1.34957 11.2612 1.33276 11.1735 1.33326C11.0858 1.33276 10.9988 1.34957 10.9176 1.38275C10.8363 1.41593 10.7625 1.46481 10.7002 1.5266L8.81351 3.41326L1.52684 10.6999C1.46505 10.7622 1.41617 10.8361 1.38299 10.9173C1.34982 10.9985 1.333 11.0855 1.33351 11.1733V13.9999C1.33351 14.1767 1.40375 14.3463 1.52877 14.4713C1.65379 14.5964 1.82336 14.6666 2.00017 14.6666H4.82684C4.92013 14.6717 5.01344 14.6571 5.10072 14.6238C5.188 14.5905 5.26731 14.5392 5.33351 14.4733L12.5802 7.1866L14.4735 5.33326C14.5344 5.26865 14.5839 5.19428 14.6202 5.11326C14.6266 5.06012 14.6266 5.0064 14.6202 4.95326C14.6233 4.92223 14.6233 4.89096 14.6202 4.85993L14.6668 4.8266ZM4.55351 13.3333H2.66684V11.4466L9.28684 4.8266L11.1735 6.71326L4.55351 13.3333ZM12.1135 5.77326L10.2268 3.8866L11.1735 2.9466L13.0535 4.8266L12.1135 5.77326Z" fill="#999999" fill-opacity="0.5"/>
                                         </svg>
                                     </label>
-                                    <input type="text" id="fullName" value="<?=$_SESSION['user_info']['address']?>" class="change__fullName">
+                                    <input type="text" id="fullName" name="adress_user" value="<?=$address?>" class="change__fullName">
                                 </div>
                             </div>
-                                <input type="hidden" name="name_user" value="<?=$_SESSION['user_info']['username']?>">
-                                <input type="hidden" name="email_user" value="<?=$_SESSION['user_info']['email']?>">
-                                <input type="hidden" name="gender_user" value="<?=$_SESSION['user_info']['gender']?>">
-                                <input type="hidden" name="dob_user" value="<?=$_SESSION['user_info']['dob']?>">
-                                <input type="hidden" name="phone_user" value="<?=$_SESSION['user_info']['phone']?>">
-                                <input type="hidden" name="adress_user" value="<?=$_SESSION['user_info']['address']?>">
-                                <input type="hidden" name="id_user" value="<?=$_SESSION['user_info']['id_user']?>">
-
+                                <input type="hidden" name="id_user" value="<?=$id_user?>">
                                 <input type="submit" name="saveUser" value="Lưu" class="change__btn--full">
+                                <!-- biến thông báo khi bấm thay đổi thành công -->
+                                <?=$thongbao?>
                         </form>
 
                         <div class="line_change">

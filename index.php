@@ -27,6 +27,7 @@
                   }
                 
                 updateImgUser($id_user,$hinh);
+                $loadUser=loadAllUser($id_user);
                 header('location: index.php?page=proFile');
                 break;
             case 'changeProfile':
@@ -51,13 +52,17 @@
                 require_once "view/proFile/userProFile.php";
                 break;
             case 'yourCard':
-                // if(){
-
-                // }
-                $listCart= getAdminCart();
+                if (isset($_GET['id_user'])&&($_GET['id_user']>0)) {
+                    $listCart= getYourCart($_GET['id_user']);
+                }
+                
                 $loadUser=loadAllUser($id_user);
                 require_once "view/proFile/yourCard.php";
                 break;
+            case 'logOut':
+                session_unset();
+                header('Location: index.php');
+                break;    
             case 'login':
                 require_once "view/login.php";
                 break;

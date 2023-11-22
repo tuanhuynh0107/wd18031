@@ -52,7 +52,7 @@
                     <div class="sidebar--bottom row">
                         <ul class="nav_sidebar row">
                             <li class="nav_sidebar--li">
-                                <a href="index.php?page=yourCard" class="nav_sidebar--li__a">Đơn hàng của bạn</a>
+                                <a href="index.php?page=yourCard&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Đơn hàng của bạn</a>
                             </li>
                             <li class="nav_sidebar--li">
                                 <a href="#!" class="nav_sidebar--li__a">Sản phẩm yêu thích</a>
@@ -64,7 +64,7 @@
                                 <a href="#!" class="nav_sidebar--li__a">Chính sách hỗ trợ</a>
                             </li>
                             <li class="nav_sidebar--li" >
-                                <a href="#!" class="nav_sidebar--li__a">Đăng xuất</a>
+                                <a href="index.php?page=logOut" class="nav_sidebar--li__a">Đăng xuất</a>
                             </li>
                         </ul>
                     </div>

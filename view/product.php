@@ -1,6 +1,8 @@
 <?php
     extract($itemDetailProduct);
     extract($itemAlbum);
+    extract($itemProduct);
+    $linkByNow='index.php?page=byNow&idProduct='.$product_id;
     $sameType=sameTypeProducts($id_catalog);
 ?>  
 <main>
@@ -62,7 +64,16 @@
 
                       <div class="main-product__content--title row"><?=$name_prd?></div>
                       <div class="main-product__content--btn row ">
-                          <a href="#!" class="btn btn__act--Product">Mua ngay</a>
+                        <form action="<?=$linkByNow?>" method="post">
+                                <input type="hidden" name="idPro" value="<?=$product_id?>">
+                                <input type="hidden" name="imgPro" value="'<?=$product_image?>">
+                                <input type="hidden" name="namePro" value="<?=$product_name?>">
+                                <input type="hidden" name="pricePro" value="<?=$product_price?>">
+                                <input type="hidden" name="typePro" value="'<?=$product_type?>">
+                                <input type="hidden" name="qtyPro" value="1">
+                                <input type="hidden" name="nameCata" value="<?=$category_name?>">
+                                <input type="submit" value="Mua ngay" class="btn btn__act--Product" name="byNow">
+                        </form>
                       </div>
                       <div class="main-product__content--btn-2 row">
                           <a href="#!" class="btn btn__add--Cart">Thêm vào giỏ hàng </a>

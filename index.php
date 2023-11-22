@@ -11,6 +11,10 @@
         $page = $_GET['page'];
 
         switch ($page) {
+            
+            case 'proFile':
+                require_once "view/proFile/userProFile.php";
+                break;
             case 'login':
                 require_once "view/login.php";
                 break;

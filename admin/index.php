@@ -135,7 +135,6 @@
                 break;
         };
     }else{
-       
         require_once "view/home.php";
     }
 

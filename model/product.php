@@ -655,8 +655,8 @@ function showImgAdmin(){
                 <td>'.$detail_product_sale.'%</td>
                 <td>'.$product_qty.'</td>
                 <td>
-                    <a href="'.$linkDeleteProduct.'" class="hendel-update-act">Sửa</a>|
-                    <a href="'.$linkUpdateProduct.'" class="hendel-delete-act">Xóa</a>
+                    <a href="'. $linkUpdateProduct.'" class="hendel-update-act">Sửa</a>|
+                    <a href="'.$linkDeleteProduct.'" class="hendel-delete-act">Xóa</a>
                 </td>
             </tr>
             

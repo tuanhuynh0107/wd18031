@@ -62,6 +62,7 @@
                                 <th>Đơn giá</th>
                                 <th>Số lượng</th>
                                 <th>Thành tiền</th>
+                               
                             </tr>
                         </thead>
 
@@ -76,8 +77,10 @@
                                     $total_Pro=0;
                                     $total_All=0;
                                     // $qty=1;
+                                    // echo print_r($_SESSION['cart']);    
                                     foreach ($_SESSION['cart'] as $item) {
                                         extract($item);
+                                        
                                         $total = $pricePro * $qtyPro;
                                         $total_Pro+=$total;
                                         $total_All=$total_Pro+$ship;
@@ -85,7 +88,7 @@
                                         '
                                         <tr>
                                             <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                                    src="./assets/img/img_main/'.$imgPro.'.png" alt="">
+                                                src="./assets/img/img_main/'.$imgPro.'.png" >
                                             </td>
                                             <td class="pay-ment__bod--title">'.$namePro.'</td>
                                             <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>

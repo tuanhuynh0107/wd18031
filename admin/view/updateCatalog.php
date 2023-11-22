@@ -1,5 +1,4 @@
 <?php 
-
     if(is_array($catalog)){
         extract($catalog);
     }else{
@@ -116,8 +115,4 @@
                         </table>
                     </article>
                 </div>
-                <article class="notify">
-
-                </article>
-
-            </main>
+                

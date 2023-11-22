@@ -1,12 +1,14 @@
 <?php
     session_start();
     ob_start();
+    
     require_once "model/db.php";
     require_once "model/product.php";
     require_once "model/handleContainer.php";
     $listCatalog= getCatalog();
     require_once "view/header.php";
     $thongbao = "";
+    
     if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
 
@@ -51,10 +53,11 @@
                 handleProduct();
                 break;
             case "cart":
-                require_once "view/cart.php";
+                
+                 require_once "view/cart.php";
                 break;
-            case "addCart":
-                handleUserAddCart();
+            case "addCart":           
+                    handleUserAddCart();
                 break;    
             case "byNow":
                 handleUserbyNow();

@@ -197,6 +197,7 @@
     }
 
     function handleDefault() {
+        
         $listItemLimitRanDom = getDetailProductLimitRanDom();
         $listItemLimit = getDetailProductLimit();
         $listProduct = getDetailProduct();

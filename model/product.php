@@ -635,6 +635,18 @@ function getYourCart($id_user){
             ';
         }
     }
+      // Admin home
+      function getAdmin_LoadNewCart(){
+            $sql="SELECT *
+            FROM package
+            WHERE DATE(time) BETWEEN CURDATE() - INTERVAL 2 DAY AND CURDATE();";
+            return get_All($sql);
+        }
+      function getAdmin_LoadAllUser(){
+            $sql="SELECT count(id_user) as allUser FROM user";
+            return get_All($sql);
+        }
+
     // thống kê catalog
     function getAdminCountCatalog(){
         $sql="SELECT count(DISTINCT id_catalog) as count_catalog FROM catalog";
@@ -732,4 +744,5 @@ function getYourCart($id_user){
         WHERE DATE(time) = CURDATE();";
         return get_All($sql);
     }
+  
 ?>

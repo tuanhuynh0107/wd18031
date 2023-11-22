@@ -75,66 +75,9 @@
                             </thead>
                             <tbody>
                                 <?=get_List_Catalog($listCatalog);?>
-                                <!-- <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#MT01</a></td>
-                                    <td>Cua</td>
-                                    <td>100</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr> -->
+                            
                             </tbody>
                         </table>
                     </article>
                 </div>
-<<<<<<< HEAD
       
-=======
-                
->>>>>>> 7bad29af331f139696720400d48f01d891fccd75

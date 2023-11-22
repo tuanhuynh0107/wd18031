@@ -131,10 +131,16 @@
             break;
 
             default:
+                $soldProduct=getAdminAll_SoldProduct();
+                $loadAllUser=getAdmin_LoadAllUser();
+                $loadNewCart=getAdmin_LoadNewCart();
                 require_once "view/home.php";
                 break;
         };
     }else{
+        $soldProduct=getAdminAll_SoldProduct();
+        $loadAllUser=getAdmin_LoadAllUser();
+        $loadNewCart=getAdmin_LoadNewCart();
         require_once "view/home.php";
     }
 

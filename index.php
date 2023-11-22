@@ -17,6 +17,9 @@
             case 'proFile':
                 require_once "view/proFile/userProFile.php";
                 break;
+            case 'yourCard':
+                require_once "view/proFile/yourCard.php";
+                break;
             case 'login':
                 require_once "view/login.php";
                 break;

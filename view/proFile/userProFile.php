@@ -33,7 +33,7 @@
                     <div class="sidebar--bottom row">
                         <ul class="nav_sidebar row">
                             <li class="nav_sidebar--li">
-                                <a href="#!" class="nav_sidebar--li__a">Đơn hàng của bạn</a>
+                                <a href="index.php?page=yourCard" class="nav_sidebar--li__a">Đơn hàng của bạn</a>
                             </li>
                             <li class="nav_sidebar--li">
                                 <a href="#!" class="nav_sidebar--li__a">Sản phẩm yêu thích</a>

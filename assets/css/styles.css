@@ -1900,10 +1900,11 @@ p {
 
 }
 
-.action__incons:hover ~.action__name-user {
+.action__incons:hover~.action__name-user {
     color: #fff;
     opacity: 1;
 }
+
 .notify__cart-empty {
     opacity: 0;
     /* Ẩn ban đầu */
@@ -1913,10 +1914,12 @@ p {
     transition: opacity 0.2s ease-in-out;
 
 }
-.action:hover ~ .notify__cart-empty{
+
+.action:hover~.notify__cart-empty {
     color: #fff;
     opacity: 1;
 }
+
 /* ******************************form__login  *******************************/
 
 
@@ -2295,6 +2298,68 @@ p {
     border: none;
     color: #fff;
     background-color: var(--primary-color-bgc);
+}
+
+/* ***************yourCard***************** */
+
+
+.yourCard {
+    width: 100%;
+    margin-top: 30px;
+    background-color: #fff;
+}
+
+.status {
+    text-align: center;
+}
+
+.status-round {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #10ed4e;
+}
+
+.yourCard__header {
+    height: 43px;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.yourCard__header--content {
+    border-top: 1px solid #f0f0f0;
+}
+
+.yourCard__header--content td {
+    padding: 20px 0px;
+}
+
+
+.tfoot {
+    margin-top: 20px;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
+    padding: 24px 10px 24px;
+    background-color: #fff;
+}
+
+.note__yourCard {
+    white-space: nowrap;
+}
+
+.rounds {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.desc-round {
+    white-space: nowrap;
+}
+
+.round {
+    display: flex;
 }
 
 /* forgot pass */

@@ -1,9 +1,16 @@
 <?php
     extract($itemDetailProduct);
     extract($itemAlbum);
+    // hàm này sử dụng được
     extract($itemProduct);
-    $linkByNow='index.php?page=byNow&idProduct='.$product_id;
-    $sameType=sameTypeProducts($id_catalog);
+    $linkByNow='index.php?page=byNow&idProduct='.$id;
+    $sameType=sameTypeProducts($id);
+    // print_r($itemDetailProduct);
+    // echo '<br>----------------------<br>';
+    // print_r($itemProduct);
+    // echo '<br>----------------------<br>';
+    // echo "test key: ".$type;
+    ;
 ?>  
 <main>
       
@@ -56,7 +63,7 @@
                       </div>
 
                       <div class="main-product__content--pice row">
-                          <div class="main-product__content--pice__cost">225,000đ</div>
+                          <div class="main-product__content--pice__cost"><?=$price?>đ</div>
                           <div class="main-product__content--pice__del-cost">255,000đ</div>
                           <div class="main-product__content--pice__sale"><?=$sale?>%</div>
 
@@ -65,13 +72,13 @@
                       <div class="main-product__content--title row"><?=$name_prd?></div>
                       <div class="main-product__content--btn row ">
                         <form action="<?=$linkByNow?>" method="post">
-                                <input type="hidden" name="idPro" value="<?=$product_id?>">
-                                <input type="hidden" name="imgPro" value="'<?=$product_image?>">
-                                <input type="hidden" name="namePro" value="<?=$product_name?>">
-                                <input type="hidden" name="pricePro" value="<?=$product_price?>">
-                                <input type="hidden" name="typePro" value="'<?=$product_type?>">
+                                <input type="hidden" name="idPro" value="<?=$id?>">
+                                <input type="hidden" name="imgPro" value="<?=$img1?>">
+                                <input type="hidden" name="namePro" value="<?=$name?>">
+                                <input type="hidden" name="pricePro" value="<?=$price?>">
+                                <input type="hidden" name="typePro" value="'<?=$type?>">
                                 <input type="hidden" name="qtyPro" value="1">
-                                <input type="hidden" name="nameCata" value="<?=$category_name?>">
+                                <!-- <input type="hidden" name="nameCata" value="<?=$category_name?>"> -->
                                 <input type="submit" value="Mua ngay" class="btn btn__act--Product" name="byNow">
                         </form>
                       </div>

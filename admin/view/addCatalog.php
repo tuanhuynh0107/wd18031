@@ -108,8 +108,4 @@
                         </table>
                     </article>
                 </div>
-                <article class="notify">
-
-                </article>
-
-            </main>
+                x

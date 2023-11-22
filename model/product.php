@@ -270,7 +270,20 @@ function showImgAdmin(){
       `id_user` =".$id_user;
       update($sql);
  }
+ function updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user) {
+           $sql = "UPDATE user
+            SET 
+                phone='$phone_user', 
+                username='$name_user', 
+                address='$adress_user', 
+                email='$email_user', 
+                gender='$gender_user', 
+                dob='$dob_user' 
+            WHERE id_user=".$id_user;
 
+
+    update($sql);
+}
 
 // admin
 

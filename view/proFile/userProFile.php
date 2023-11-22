@@ -97,11 +97,11 @@
                             <img  src="./assets/user/<?=$_SESSION['user_info']['img']?>.png">
                             <input type="file" name="imgUser">
                             <input type="hidden" name="idImgUser" value="<?=$_SESSION['user_info']['id_user']?>">
-                            <input type="submit" value="Thay đổi" class="change__btn--img">
+                            <input type="submit" name="change" value="Thay đổi" class="change__btn--img">
                         </div>
                     </form>
                     <div class="change__proFile--full row">
-                        <form action="" method="post" class="form-change">
+                        <form action="index.php?page=changeProfile" method="post" class="form-change">
                             <div class="change__proFile">
                                 <div class="form__group">
                                     <label for="fistName" class="label__icon" data-animal-type="Họ và tên">
@@ -171,13 +171,14 @@
                                 </div>
                             </div>
                                 <input type="hidden" name="name_user" value="<?=$_SESSION['user_info']['username']?>">
-                                <input type="hidden" name="email" value="<?=$_SESSION['user_info']['eamil']?>">
+                                <input type="hidden" name="email_user" value="<?=$_SESSION['user_info']['eamil']?>">
                                 <input type="hidden" name="gender_user" value="<?=$_SESSION['user_info']['gender']?>">
                                 <input type="hidden" name="dob_user" value="<?=$_SESSION['user_info']['dob']?>">
                                 <input type="hidden" name="phone_user" value="<?=$_SESSION['user_info']['phone']?>">
                                 <input type="hidden" name="adress_user" value="<?=$_SESSION['user_info']['address']?>">
                                 <input type="hidden" name="id_user" value="<?=$_SESSION['user_info']['id_user']?>">
-                            <input type="submit" value="Lưu" class="change__btn--full">
+
+                                <input type="submit" name="saveUser" value="Lưu" class="change__btn--full">
                         </form>
 
                         <div class="line_change">

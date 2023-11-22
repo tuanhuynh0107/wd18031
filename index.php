@@ -29,6 +29,20 @@
                 updateImgUser($id_user,$hinh);
                 header('location: index.php?page=proFile');
                 break;
+            case 'changeProfile':
+                if (isset($_POST['saveUser'])) {
+                    $name_user = $_POST['name_user'];
+                    $email_user = $_POST['email_user'];
+                    $gender_user = $_POST['gender_user'];
+                    $dob_user = $_POST['dob_user'];
+                    $phone_user = $_POST['phone_user'];
+                    $adress_user = $_POST['adress_user'];
+                    $id_user = $_POST['id_user'];
+                
+                    updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user);
+                }
+                require_once "view/proFile/userProFile.php";
+                break;    
             case 'proFile':
                 require_once "view/proFile/userProFile.php";
                 break;

@@ -1090,12 +1090,14 @@ p {
 }
 
 .btn__act--Product {
-    width: 100%;
-    padding: 10px;
+    width: 473px;
+    /* padding: 10px; */
     border-radius: var(--primary-boder);
     background-color: var(--primary-color-font);
     color: var(--primary-color-btn);
     font-weight: 600;
+    font-size: 3rem;
+    border: none;
 }
 
 .main-product__content--btn a {

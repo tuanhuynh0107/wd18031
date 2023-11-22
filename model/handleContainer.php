@@ -91,6 +91,35 @@
         }
         header("location: index.php");
     }
+
+    function handleUserbyNow() {
+        if(isset($_POST['byNow']) &&($_POST['byNow'])){
+            $idProduct=$_POST['idPro'];
+            $imgPro=$_POST['imgPro'];
+            $namePro=$_POST['namePro'];
+            $pricePro=$_POST['pricePro'];
+            $nameCata=$_POST['nameCata'];
+            $typePro=$_POST['typePro'];
+
+            if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
+                $qtyPro=$_POST['qtyPro'];
+            }else{
+                $qtyPro = 1;
+            }
+            
+           
+            // check_trung_sanpham
+            if(checkDuplicates( $idProduct)>=0){
+                $vitritrung = checkDuplicates( $idProduct);
+                upDataQty($vitritrung);
+            }else{
+                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata];
+                $_SESSION['cart'][] = $item;
+            }    
+        }
+        header("location: index.php?page=payMent");
+    }
+
     function handleUserDelCart() {
         if(isset($_GET['id'])){
             array_splice($_SESSION['cart'],$_GET['id'],1);

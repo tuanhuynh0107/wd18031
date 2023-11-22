@@ -46,12 +46,14 @@
             case 'product':
                 handleProduct();
                 break;
-
             case "cart":
                 require_once "view/cart.php";
                 break;
             case "addCart":
                 handleUserAddCart();
+                break;    
+            case "byNow":
+                handleUserbyNow();
                 break;    
             case 'delCart':
                 handleUserDelCart();
@@ -67,7 +69,7 @@
                 handleShowCatalog();
                 break;
             default:
-            handleDefault();
+                handleDefault();
                 break;
         };
     }else{

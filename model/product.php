@@ -106,6 +106,7 @@ function getProduct($id_pro){
             }
           
             $linkAddCart='index.php?page=addCart&idProduct='.$product_id;
+            $linkByNow='index.php?page=byNow&idProduct='.$product_id;
             $linkProduct = 'index.php?page=product&idProduct='.$product_id;
             $proQty=1;
             $kq .= '<div class="course-item">
@@ -152,7 +153,17 @@ function getProduct($id_pro){
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Mua ngay" class="btn book-btn">
+            
+            <form action="'.$linkByNow.'" method="post">
+                <input type="hidden" name="idPro" value="'.$product_id.'">
+                <input type="hidden" name="imgPro" value="'.$album_image.'">
+                <input type="hidden" name="namePro" value="'.$product_name.'">
+                <input type="hidden" name="pricePro" value="'.$product_price.'">
+                <input type="hidden" name="typePro" value="'.$product_type.'">
+                <input type="hidden" name="qtyPro" value="'.$proQty.'">
+                <input type="hidden" name="nameCata" value="'.$category_name.'">
+                <input type="submit" value="Mua ngay" class="btn book-btn" name="byNow">
+            </form>
         </div>';
         $id_lable++;
         }

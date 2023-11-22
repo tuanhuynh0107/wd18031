@@ -1921,6 +1921,7 @@ p {
 
 .form__group {
     width: 100%;
+    position: relative;
 }
 
 .form__group .full-name,
@@ -2024,6 +2025,7 @@ p {
 
 .proFile {
     margin-top: 24px;
+    margin-bottom: 100px;
 }
 
 .proFile__sidebar {
@@ -2144,6 +2146,7 @@ p {
 }
 
 .proFile__change {
+    height: auto;
     flex: 1;
 }
 
@@ -2164,10 +2167,15 @@ p {
 
 
 .change__main {
-    padding: 10px 75px;
-    height: 500px;
+    padding: 10px 63px 10px 75px;
+    height: auto;
     margin-top: 38px;
     background-color: #fff;
+}
+
+.change__proFile--full {
+    margin-top: 33px;
+    gap: 30px;
 }
 
 .change__group {
@@ -2196,13 +2204,85 @@ p {
 }
 
 /* change__proFile */
-
-
-
-.change__proFile {
-    margin-top: 33px;
+.line_change {
+    height: 200px;
+    width: 2px;
+    background-color: #0F94F5;
 }
 
-.change__fullName {}
+.form-change {
+    width: 60%;
+}
+
+.change__proFile {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    margin-top: 33px;
+    gap: 42px;
+}
+
+.change__fullName {
+    width: 213px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    color: var(--primary-color--font);
+}
+
+.label__icon {
+    position: absolute;
+    right: 9px;
+    top: 13px;
+}
+
+.label__icon::before {
+    position: absolute;
+    content: attr(data-animal-type);
+    display: block;
+    color: var(--primary-color--font);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 14px;
+    top: -33px;
+    left: -181px;
+}
+
+
+/* change__link */
+
+.change__link {
+    margin-top: -19px;
+    flex: 1;
+    flex-direction: column;
+    gap: 49px;
+    /* background-color: #000; */
+}
+
+.change__link--act {
+    padding: 12px;
+    gap: 20px;
+    border-radius: 5px;
+    background: #F0F0F0;
+}
+
+.change--link__title {
+    color: var(--primary-color--font);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 14px;
+    /* 100% */
+}
+
+.change__btn--full {
+    float: right;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    background-color: var(--primary-color-bgc);
+}
 
 /* forgot pass */

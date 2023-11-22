@@ -13,7 +13,36 @@
         $page = $_GET['page'];
 
         switch ($page) {
-            
+            case 'changeImgUser':
+                $id_user=$_POST['idImgUser'];
+                // lấy file hình ảnh
+                $hinh=$_FILES['imgUser']['name'];
+                $target_dir = "./assets/uploads/";
+                $target_file = $target_dir.basename($_FILES["imgUser"]["name"]);
+
+                if (move_uploaded_file($_FILES["imgUser"]["tmp_name"], $target_file)) {
+                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                  } else {
+                    // echo "Sorry, there was an error uploading your file.";
+                  }
+                
+                updateImgUser($id_user,$hinh);
+                header('location: index.php?page=proFile');
+                break;
+            case 'changeProfile':
+                if (isset($_POST['saveUser'])) {
+                    $name_user = $_POST['name_user'];
+                    $email_user = $_POST['email_user'];
+                    $gender_user = $_POST['gender_user'];
+                    $dob_user = $_POST['dob_user'];
+                    $phone_user = $_POST['phone_user'];
+                    $adress_user = $_POST['adress_user'];
+                    $id_user = $_POST['id_user'];
+                
+                    updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user);
+                }
+                require_once "view/proFile/userProFile.php";
+                break;    
             case 'proFile':
                 require_once "view/proFile/userProFile.php";
                 break;

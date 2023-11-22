@@ -212,7 +212,7 @@ function showImgUser(){
     }else{
         if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img']!=""){
                $name_user=$_SESSION['user_info']['username'];
-            echo '<a href="index.php?page=login">
+            echo '<a href="index.php?page=proFile">
                     <img src="./assets/user/'.$_SESSION['user_info']['img'].'.png" alt="">
                       <div class="action__name-user">'.$name_user.' </div>
                 </a>
@@ -262,6 +262,31 @@ function showImgAdmin(){
         }
     }
 }
+
+// user
+ function updateImgUser($id_user,$hinh){
+    $sql="UPDATE `user`
+    SET 
+      `img` = '$hinh'
+    WHERE 
+      `id_user` =".$id_user;
+      update($sql);
+ }
+ function updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user) {
+           $sql = "UPDATE user
+            SET 
+                phone='$phone_user', 
+                username='$name_user', 
+                address='$adress_user', 
+                email='$email_user', 
+                gender='$gender_user', 
+                dob='$dob_user' 
+            WHERE id_user=".$id_user;
+
+
+    update($sql);
+}
+
 // admin
 
 

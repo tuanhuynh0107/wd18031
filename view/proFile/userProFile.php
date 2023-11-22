@@ -10,7 +10,7 @@
                 </div>
             </div>
         </article>
-        <article class="proFile">
+        <article class="proFile" >
             <div class="main-content main__content--forfile">
                 <div class="proFile__sidebar">
                     <div class="sidebar--top row">

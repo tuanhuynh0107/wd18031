@@ -1,3 +1,10 @@
+<?php
+//  echo print_r($loadUser);
+    if(isset($loadUser)){
+        extract($loadUser);
+    }
+ 
+?>
 <main>
         <article class="heading-cart">
             <div class="main-content">
@@ -15,18 +22,30 @@
                 <div class="proFile__sidebar">
                     <div class="sidebar--top row">
                         <figure class="sidebar--top__left row ">
-                            <img src="./assets/user/user1.png"
+                            <img src="./assets/user/<?=$img?>.png"
                                 alt="user" class="sidebar--top__left--img">
-                            <figcaption class="sidebar--top__left--id">ID:565356</figcaption>
+                            <figcaption class="sidebar--top__left--id">ID:<?=$id_user?></figcaption>
                             <div class="sidebar--edit__proFile">
                                 <a href="#!"> thay đổi</a>
                             </div>
                         </figure>
                         <div class="sidebar--top__right row">
-                            <div class="sidebar--top__right--content">Huỳnh Ngọc Anh</div>
-                            <div class="sidebar--top__right--content">12-08-2021</div>
-                            <div class="sidebar--top__right--content">Nữ</div>
-                            <div class="sidebar--top__right--content">Quận 2 Hồ Chí Minh</div>
+                            <div class="sidebar--top__right--content"><?=$username?></div>
+                            <div class="sidebar--top__right--content"><?=$dob?></div>
+                            <div class="sidebar--top__right--content">
+                            <?php
+                                if($gender==1){
+                                    echo 'Nam';
+                                }else{
+                                    if($gender==2){
+                                        echo 'Nữ';
+                                    }else{
+                                        echo 'Khác';
+                                    }
+                                }
+                            ?>
+                            </div>
+                            <div class="sidebar--top__right--content"><?=$address?></div>
                         </div>
                     </div>
 
@@ -70,7 +89,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="yourCard__header--content">
+                            <?php
+                               
+                                
+                                foreach($listCart as $yourCart){
+                                    extract($yourCart);
+                                     $pay="";
+                                    if($pay_ms==1){
+                                        $pay.= "Thanh toán tiền mặc";
+                                    }else{
+                                        if($pay_ms==2){
+                                            $pay.= "Chuyển khoản";
+                                        }else{
+                                            if($pay_ms==3){
+                                                $pay.= "Thanh toán online";
+                                            }
+                                        }
+                                        
+                                    }
+                                    echo 
+                                    '
+                                    <tr class="yourCard__header--content">
+                                        <td>#DH'.$id_package.'</td>
+                                        <td>'.number_format($total,0,",",".").' đ</td>
+                                        <td>'.$pay.'</td>
+                                        <td class="status">
+                                            <div class="status-round">'.$status.'</div>
+                                        </td>
+                                    </tr>
+                                    ';
+                                }
+                            ?>
+                            <!-- <tr class="yourCard__header--content">
                                 <td>#dh001</td>
                                 <td>350.000 đ</td>
                                 <td>Thanh toán khi nhận hàng</td>
@@ -99,7 +149,7 @@
                                 <td>350.000 đ</td>
                                 <td>Thanh toán khi nhận hàng</td>
                                 <td class="status"><div class="status-round"></div></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
 
                         

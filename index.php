@@ -51,6 +51,11 @@
                 require_once "view/proFile/userProFile.php";
                 break;
             case 'yourCard':
+                // if(){
+
+                // }
+                $listCart= getAdminCart();
+                $loadUser=loadAllUser($id_user);
                 require_once "view/proFile/yourCard.php";
                 break;
             case 'login':

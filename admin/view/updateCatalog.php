@@ -104,6 +104,8 @@
                             <thead>
                                 <tr>
                                     <td>Mã loại</td>
+                                    <td>icon</td>
+                                    <td>banner</td>
                                     <td>Tên loại</td>
                                     <td>Số lượng</td>
                                     <td>Thao tác</td>

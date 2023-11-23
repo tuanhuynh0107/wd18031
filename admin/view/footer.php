@@ -77,7 +77,7 @@
                                     <rect x="130.001" width="17" height="196" fill="#879FFF" />
                                     <rect x="155.001" y="25" width="17" height="171" fill="#D9D9D9" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="190" height="231" viewBox="0 0 190 231"
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="190" height="231" viewBox="0 0 190 231"
                                     fill="none" class="grid notify__grid">
                                     <rect x="0.000976562" width="190" height="231" rx="12" fill="#F9FAFC" />
                                     <mask id="path-2-inside-1_327_3099" fill="white">
@@ -115,7 +115,7 @@
                                     </mask>
                                     <path d="M190.001 230H0.000976562V232H190.001V230Z" fill="#E3E9F0"
                                         mask="url(#path-14-inside-7_327_3099)" />
-                                </svg>
+                                </svg> -->
                             </div>
                         </div>
 

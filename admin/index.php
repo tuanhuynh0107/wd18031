@@ -14,7 +14,7 @@
                 $totalAllProducts=getAdminAll_TotalProduct();
                 $soldProduct=getAdminAll_SoldProduct();
                 $inventoryProduct=getAdmin_inventoryProduct();
-               require_once "view/product.php";
+                require_once "view/product.php";
                 break;
              case "delProduct" :
                 if (isset($_GET['id_Prd'])&&( $_GET['id_Prd']) >0) {
@@ -81,7 +81,7 @@
                 $listItem=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
-                require_once "view/addCatalog.php";
+                require_once "view/formAddCatalog.php";
                 break;      
             case 'updateCatalog':
                 if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {

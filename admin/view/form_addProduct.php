@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <select name="loaiHang"  id="">
-                                        <?=$kqDM?>
+                                        <!-- <?=$kqDM?> -->
                                     </select>
                                     <span class="form-message"></span>
                                 </div>

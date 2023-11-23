@@ -108,4 +108,3 @@
                         </table>
                     </article>
                 </div>
-                x

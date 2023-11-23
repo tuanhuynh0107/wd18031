@@ -674,7 +674,7 @@ function forgotPassUser($phone) {
     // funtion admin viết ở đây
 
     function getAdminCatalog(){
-        $sql="SELECT * FROM catalog ";
+        $sql="SELECT * FROM catalog";
         return get_All($sql);
     }
     
@@ -705,6 +705,8 @@ function forgotPassUser($phone) {
             '
             <tr>
                 <td><a href="">#'.$id_catalog.'</a></td>
+                <td><img src="../assets/icons/'.$img_catalog.'.png" alt="" style=" width:30px; height:30px"></td>
+                <td><img src="../assets/img/banner_product/'.$banner_catalog.'.png" alt="" style=" width:100px; height:50px"></td>
                 <td>'.$name_catalog.'</td>
                 <td>'.$qty_catalog.'</td>
                 <td>

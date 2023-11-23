@@ -449,10 +449,10 @@
             var catalogList = document.getElementById('catalogList');
             console.log("Before: " + catalogList.style.display);
             toggleButton.addEventListener('click', function () {
-                if (catalogList.style.display === 'none' || catalogList.style.display === '') {
-                    catalogList.style.display = 'block';
-                } else {
+                if (catalogList.style.display === 'block' || catalogList.style.display === '') {
                     catalogList.style.display = 'none';
+                } else {
+                    catalogList.style.display = 'block';
                 }
             });
             });

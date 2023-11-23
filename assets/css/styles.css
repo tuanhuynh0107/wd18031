@@ -368,6 +368,7 @@ input {
     width: 100%;
     padding: 8px 16px;
     box-sizing: border-box;
+    display: none;
 }
 
 .menu__catalog:hover {

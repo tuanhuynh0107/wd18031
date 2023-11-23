@@ -26,7 +26,7 @@
                                 alt="user" class="sidebar--top__left--img">
                             <figcaption class="sidebar--top__left--id">ID:<?=$id_user?></figcaption>
                             <div class="sidebar--edit__proFile">
-                                <a href="#!"> thay đổi</a>
+                                <a href="index.php?page=changeProfile"> thay đổi</a>
                             </div>
                         </figure>
                         <div class="sidebar--top__right row">
@@ -92,7 +92,7 @@
                             <?php
                                 foreach($listCart as $yourCart){
                                     extract($yourCart);
-                                     $pay="";
+                                    $pay="";
                                     if($pay_ms==1){
                                         $pay.= "Thanh toán tiền mặc";
                                     }else{
@@ -112,7 +112,7 @@
                                         <td>'.number_format($total,0,",",".").' đ</td>
                                         <td>'.$pay.'</td>
                                         <td class="status">
-                                            <div class="status-round">'.$status.'</div>
+                                            <div class="status-round"></div>
                                         </td>
                                     </tr>
                                     

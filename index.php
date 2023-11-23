@@ -31,7 +31,6 @@
                 header('location: index.php?page=proFile');
                 break;
             case 'changeProfile':
-                
                 if (isset($_POST['saveUser'])) {
                     $name_user = $_POST['name_user'];
                     $email_user = $_POST['email_user'];
@@ -49,6 +48,7 @@
                 require_once "view/proFile/userProFile.php";
                 break;    
             case 'proFile':
+                $loadUser=loadAllUser($id_user);
                 require_once "view/proFile/userProFile.php";
                 break;
             case 'yourCard':
@@ -86,21 +86,7 @@
                 break;
             case 'resetPassword':
                 require_once "view/resetPassword.php";
-                break;
-            case 'changeAdress':
-                if(isset($_POST['change'])&&($_POST['change']>0)){
-                    $phone=$_POST['phone'];
-                    $name=$_POST['name'];
-                    $pass=$_POST['pass'];
-                    $address=$_POST['address'];
-                    $id_user=$_POST['id_user'];
-
-                    update_changeAdress($id_user, $phone, $name, $pass, $address);
-                    $_SESSION['user_info']= getUser($phone, $pass);
-                    header('Location: index.php?page=changeAdress');
-                }
-                require_once "view/changeAdress.php";
-                break;    
+                break; 
             case 'product':
                 handleProduct();
                 break;
@@ -109,7 +95,7 @@
                  require_once "view/cart.php";
                 break;
             case "addCart":           
-                    handleUserAddCart();
+                handleUserAddCart();
                 break;    
             case "byNow":
                 handleUserbyNow();
@@ -119,6 +105,7 @@
                 break;    
                 
             case 'payMent':
+                $loadUser=loadAllUser($id_user);
                 require_once('view/payMent.php');
                 break;
             case 'bill':      

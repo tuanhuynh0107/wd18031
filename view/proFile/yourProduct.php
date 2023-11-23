@@ -28,7 +28,7 @@
                                 alt="user" class="sidebar--top__left--img">
                             <figcaption class="sidebar--top__left--id">ID:<?=$id_user?></figcaption>
                             <div class="sidebar--edit__proFile">
-                                <a href="#!"> thay đổi</a>
+                                <a href="index.php?page=changeProfile"> thay đổi</a>
                             </div>
                         </figure>
                         <div class="sidebar--top__right row">
@@ -88,7 +88,7 @@
                                 <td>Tên sản phẩm</td>
                                 <td>Số lượng</td>
                                 <td>Giá</td>
-                                <td>Tổng sản phẩm</td>
+                                <td>Tổng tiền</td>
                                 <td>Mã đơn hàng</td>
                                 <td>Đơn vị vận chuyển</td>
                             </tr>
@@ -117,8 +117,8 @@
                                         <td>#CTDH'.$id_Detail_Package.'</td>
                                         <td>'.$name_prd.'</td>
                                         <td>'.$qty.'</td>
-                                        <td>'.$price.'</td>
-                                        <td>'.$total.'</td>
+                                        <td>'.number_format($price,0,",",".").' </td>
+                                        <td>'.number_format($total,0,",",".").' </td>
                                         <td>'.$id_package.'</td>
                                         <td>'.$trans.'</td>
                                     </tr>
@@ -127,56 +127,11 @@
                                 }
                             
                             ?>
-                            <!-- <tr class="yourCard__header--content">
-                                <td>#CTDH01</td>
-                                <td>Cua Cà Mau</td>
-                                <td>4</td>
-                                <td>190000</td>
-                                <td>760000</td>
-                                <td>Mã đơn hàng</td>
-                                <td>Bee</td>
-                            </tr>
-                            <tr class="yourCard__header--content">
-                                <td>#CTDH01</td>
-                                <td>Cua Cà Mau</td>
-                                <td>4</td>
-                                <td>190000</td>
-                                <td>760000</td>
-                                <td>Mã đơn hàng</td>
-                                <td>Bee</td>
-                            </tr>
-                            <tr class="yourCard__header--content">
-                                <td>#CTDH01</td>
-                                <td>Cua Cà Mau</td>
-                                <td>4</td>
-                                <td>190000</td>
-                                <td>760000</td>
-                                <td>Mã đơn hàng</td>
-                                <td>Bee</td>
-                            </tr> -->
                         </tbody>
 
                         
                          
                   </table>
-                  <div class="tfoot row">
-                            <div class="note__yourCard">Ghi chú: Nhấp vào mã đơn để xem chi tiết đơn hàng</div>
-                        
-                            <div class="rounds" rowspan="4">
-                                <div class="round">
-                                    <div class="status-round"></div>
-                                    <span class="desc-round">Thành Công</span>
-                                </div>
-                                <div class="round">
-                                    <div class="status-round"></div>
-                                    <span class="desc-round">Đang vận chuyện</span>
-                                </div>
-                                <div class="round">
-                                    <div class="status-round"></div>
-                                    <span class="desc-round">Thất bại</span>
-                                </div>
-                            </div>
-                        </div>
                 </div>
 
                 

@@ -38,7 +38,7 @@
                         
                         <figcaption class="sidebar--top__left--id">ID:<?=$id_user?></figcaption>
                         <div class="sidebar--edit__proFile">
-                            <a href="#!"> thay đổi</a>
+                            <a href="index.php?page=changeProfile"> thay đổi</a>
                         </div>
                     </figure>
                     <div class="sidebar--top__right row">

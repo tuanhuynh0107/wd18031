@@ -754,6 +754,31 @@ function forgotPassUser($phone) {
     ORDER BY p.id ASC";
         return get_All($sql);
     }
+    function getAdminProductID($idPro){
+        $sql="SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        c.name_catalog AS category_name,
+        c.id_catalog AS id_catalog,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        p.qty AS product_qty,
+        a.img1 AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd
+    WHERE
+        dp.id_prd =".$idPro;
+        $sql.=" ORDER BY id_DP ASC";
+        return get_All($sql);
+    }
     function  deleteProduct($id){
         $sql= "DELETE FROM product where id=".$id;
         delete($sql);
@@ -784,7 +809,7 @@ function forgotPassUser($phone) {
             echo 
             '
             <tr>
-                <td class="table__packgeNew--Yellow"><a href="">#'.$product_id.'</a></td>
+                <td class="table__packgeNew--Yellow"><a href="index.php?page=detailProduct&idPro='.$product_id.'">#'.$product_id.'</a></td>
                 <td>'.$product_name.'</td>
                 <td>'.$detail_product_type.'</td>
                 <td>'.number_format($product_price,0,",",".").'đ</td>

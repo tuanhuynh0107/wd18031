@@ -16,6 +16,18 @@
                 $inventoryProduct=getAdmin_inventoryProduct();
                require_once "view/product.php";
                 break;
+            case 'detailProduct':
+                if(isset($_GET['idPro'])&&($_GET['idPro']>0)){
+                    $listProductID=getAdminProductID($_GET['idPro']);
+                }
+               
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+
+                $listCatalog=getAdminCatalog();
+                require_once "view/detailProduct.php";
+                break;    
              case "delProduct" :
                 if (isset($_GET['id_Prd'])&&( $_GET['id_Prd']) >0) {
                     deleteProduct($_GET['id_Prd']);
@@ -46,7 +58,11 @@
                 require_once "view/addProduct.php";
                 break;
             case 'updateProduct':
-                
+                // chưa xong 
+                $listProduct=getAdminProduct();
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
                 require_once "view/product.php";
                 break;  
             case 'showUpdate':

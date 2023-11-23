@@ -70,7 +70,7 @@
                                 <a href="#!" class="nav_sidebar--li__a">Sản phẩm yêu thích</a>
                             </li>
                             <li class="nav_sidebar--li">
-                                <a href="index.php?page=yourProduct" class="nav_sidebar--li__a">Sản phẩm đã mua</a>
+                                <a href="index.php?page=yourProduct&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Sản phẩm đã mua</a>
                             </li>
                             <li class="nav_sidebar--li">
                                 <a href="#!" class="nav_sidebar--li__a">Chính sách hỗ trợ</a>

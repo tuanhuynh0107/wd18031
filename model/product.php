@@ -293,6 +293,20 @@ function getYourCart($id_user){
     $sql="SELECT * FROM package WHERE id_User=".$id_user;
     return get_All($sql);
 }
+function getYourProduct($id_user){
+    $sql="SELECT
+        dp.*
+    FROM
+        detail_package dp
+    JOIN
+        package pa ON dp.id_package = pa.id_package
+    LEFT JOIN
+        user u ON pa.id_User = u.id_user
+    WHERE
+        u.id_user =".$id_user;
+    $sql.=" ORDER BY dp.id_Detail_Package DESC";   
+        return get_All($sql);
+}
 // admin
 
 

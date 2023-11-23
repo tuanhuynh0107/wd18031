@@ -60,6 +60,9 @@
                 require_once "view/proFile/yourCard.php";
                 break;
             case 'yourProduct':
+                if (isset($_GET['id_user'])&&($_GET['id_user']>0)) {
+                    $listCartProduct= getYourProduct($_GET['id_user']);
+                }
                 require_once "view/proFile/yourProduct.php";
                 break;    
             case 'logOut':

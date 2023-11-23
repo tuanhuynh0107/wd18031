@@ -3,7 +3,9 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
- 
+    // echo '<pre>';
+    //     print_r($listCartProduct);
+    // echo '</pre>';
 ?>
 <main>
         <article class="heading-cart">
@@ -82,18 +84,76 @@
                        
                         <thead class="yourCard__header">
                             <tr >
+                                <td>Mã chi tiết đơn hàng</td>
+                                <td>Tên sản phẩm</td>
+                                <td>Số lượng</td>
+                                <td>Giá</td>
+                                <td>Tổng sản phẩm</td>
                                 <td>Mã đơn hàng</td>
-                                <td>Số tiền</td>
-                                <td>Phương thức thanh toán</td>
-                                <td>Trạng thái</td>
+                                <td>Đơn vị vận chuyển</td>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                               
-                                
-                             
-                            ?>   
+                                foreach($listCartProduct as $cartPro){
+                                    extract($cartPro);
+                                        $trans="";
+                                        if($id_trans==1){
+                                            $trans="Grap";
+                                        }else
+                                         if($id_trans==2){
+                                            $trans="Bee";
+                                        }else
+                                         if($id_trans==3){
+                                            $trans="Ahamove";
+                                        }else
+                                         if($id_trans==4){
+                                            $trans="Sv xanh";
+                                        }
+                                    echo 
+                                    
+                                    '
+                                    <tr class="yourCard__header--content">
+                                        <td>#CTDH'.$id_Detail_Package.'</td>
+                                        <td>'.$name_prd.'</td>
+                                        <td>'.$qty.'</td>
+                                        <td>'.$price.'</td>
+                                        <td>'.$total.'</td>
+                                        <td>'.$id_package.'</td>
+                                        <td>'.$trans.'</td>
+                                    </tr>
+                                    
+                                    ';
+                                }
+                            
+                            ?>
+                            <!-- <tr class="yourCard__header--content">
+                                <td>#CTDH01</td>
+                                <td>Cua Cà Mau</td>
+                                <td>4</td>
+                                <td>190000</td>
+                                <td>760000</td>
+                                <td>Mã đơn hàng</td>
+                                <td>Bee</td>
+                            </tr>
+                            <tr class="yourCard__header--content">
+                                <td>#CTDH01</td>
+                                <td>Cua Cà Mau</td>
+                                <td>4</td>
+                                <td>190000</td>
+                                <td>760000</td>
+                                <td>Mã đơn hàng</td>
+                                <td>Bee</td>
+                            </tr>
+                            <tr class="yourCard__header--content">
+                                <td>#CTDH01</td>
+                                <td>Cua Cà Mau</td>
+                                <td>4</td>
+                                <td>190000</td>
+                                <td>760000</td>
+                                <td>Mã đơn hàng</td>
+                                <td>Bee</td>
+                            </tr> -->
                         </tbody>
 
                         

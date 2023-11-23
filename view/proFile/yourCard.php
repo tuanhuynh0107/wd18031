@@ -3,7 +3,7 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
- 
+//   print_r( $listCart);
 ?>
 <main>
         <article class="heading-cart">
@@ -58,7 +58,7 @@
                                 <a href="#!" class="nav_sidebar--li__a">Sản phẩm yêu thích</a>
                             </li>
                             <li class="nav_sidebar--li">
-                                <a href="#!" class="nav_sidebar--li__a">Sản phẩm đã mua</a>
+                                <a href="index.php?page=yourProduct&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Sản phẩm đã mua</a>
                             </li>
                             <li class="nav_sidebar--li">
                                 <a href="#!" class="nav_sidebar--li__a">Chính sách hỗ trợ</a>
@@ -90,8 +90,6 @@
                         </thead>
                         <tbody>
                             <?php
-                               
-                                
                                 foreach($listCart as $yourCart){
                                     extract($yourCart);
                                      $pay="";
@@ -117,9 +115,13 @@
                                             <div class="status-round">'.$status.'</div>
                                         </td>
                                     </tr>
+                                    
                                     ';
+                                     
                                 }
+                              
                             ?>
+                            
                             <!-- <tr class="yourCard__header--content">
                                 <td>#dh001</td>
                                 <td>350.000 đ</td>

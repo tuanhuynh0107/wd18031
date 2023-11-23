@@ -1,4 +1,5 @@
 <?php
+  
 ?>
 <main class="main--login" >
         <article class="login">
@@ -14,19 +15,28 @@
                             <input type="text" placeholder="Nhập số điện thoại hoặc Email của bạn" class="full-name" name="phone">
                         </div>
                         <div class="form__group">
-                            <input type="submit" name="loginUser" value="Gửi Yêu Cầu" class="btn push__login">
+                            <input type="submit" name="forgotPass" value="Gửi Yêu Cầu" class="btn push__login">
                             <?php
                                 
-                                    if(isset($thongbao) && $thongbao == "") {
-                                        echo '<p class="notification" style="color:#15101d;"> Vui lòng nhập tài khoản và mật khẩu</p>';
-                                    }else {
-                                        echo '<p class="notification">'.$thongbao.'</p>';
-                                    }
+                                    // if(isset($check_pass)&& $check_pass == "") {
+                                    //     echo '<p class="notification" style="color:#15101d;">  </p>';
+                                    // }else {
+                                    //     echo ' Mật khẩu của bạn là: <p class="notification"> '. $check_pass.'</p>';
+                                    // }
+                                    
+                                  
                                ?>          
                         </div>
                         <div class="form__group">
                             <ul class="form__group--1">
-                                <li class="form__desc">Hệ thống sẽ gửi email khôi phục tài khoản qua Email hoặc số điện thoại của bạn.</li>
+                                <?php
+                                    if((isset($check_pass))){
+                                ?>
+                                <li class="form__desc">
+                                    Hãy dùng mật khẩu này <span class="notification"><?=$check_pass?></span> để đăng nhập vào tài khoản của bạn 
+                                    <a href="index.php?page=login" class="form__desc--hosline">Đăng nhập</a>
+                                </li>
+                                <?php }?>
                                 <li class="form__desc">Liên hệ <a href="0907578881" class="form__desc--hosline">Tổng đải</a> để được hỗ trợ nếu không nhận được tin nhắn</li>
                             </ul>
                         </div>

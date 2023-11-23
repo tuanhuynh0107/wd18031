@@ -308,6 +308,43 @@ function getYourProduct($id_user){
     $sql.=" ORDER BY dp.id_Detail_Package DESC";   
         return get_All($sql);
 }
+function generateRandomPassword($length = 8) {
+    $pattern = "/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/";
+    $password = '';
+
+    do {
+        $password = '';
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for ($i = 0; $i < $length; $i++) {
+            $password .= $characters[rand(0, strlen($characters) - 1)];
+        }
+    } while (!preg_match($pattern, $password));
+
+    return $password;
+}
+function forgotPassUser($phone) {
+    // Kiểm tra xem trường "phone" có bị để trống không
+    if (empty($phone)) {
+       $notify_pass = "Số điện thoại của bạn chưa được nhập";
+    } else {
+        // Kiểm tra xem tên loại đã tồn tại trong cơ sở dữ liệu chưa
+        $sql = "SELECT * FROM user WHERE phone = ?";
+        $existingphone = pdo_query_one($sql, $phone);
+
+        if (!$existingphone && !preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
+            $notify_pass = "Sai số điện thoại";
+        } else {       
+                    $phoneNumber = $phone; 
+                    // Tạo mật khẩu ngẫu nhiên
+                    $newPassword = generateRandomPassword();
+                    // Cập nhật mật khẩu mới trong cơ sở dữ liệu
+                    $sql = "UPDATE user SET pass = '$newPassword' WHERE phone = '$phoneNumber'";
+                    update($sql);
+                    $notify_pass = $newPassword;        
+        }
+    }
+       return $notify_pass;
+   }
 // admin
 
 

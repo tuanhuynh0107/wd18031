@@ -82,10 +82,19 @@
                 handleUserLogin();
                 break;
             case 'forgotPassword':
+              
+
                 require_once "view/forgotPassword.php";
                 break;
             case 'resetPassword':
-                require_once "view/resetPassword.php";
+                if(isset($_POST['forgotPass'])){
+                    $phone=$_POST['phone'];
+                    $check_pass=forgotPassUser($phone);
+                   
+                }
+               
+              
+                require_once "view/forgotPassword.php";
                 break; 
             case 'product':
                 handleProduct();

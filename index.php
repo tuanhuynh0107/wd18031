@@ -127,10 +127,15 @@
                 break;    
                 
             case 'payMent':
-                $loadUser=loadAllUser($id_user);
+                if(isset($_SESSION['user_info'])){
+                     $loadUser=loadAllUser($id_user);
+                }
+
                 require_once('view/payMent.php');
                 break;
             case 'bill':      
+                
+                // $loadUser=loadAllUser($id_user);
                 handleBill();
                 break;    
             case 'showCatalog';

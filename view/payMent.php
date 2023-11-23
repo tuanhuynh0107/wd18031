@@ -3,6 +3,7 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
+    // print_r($_SESSION['user_info'])
 ?>
 
 
@@ -49,8 +50,15 @@
                             <div class="pay__address--desc"><?php if(isset($address)&&($address!="")) {echo $address;}else{echo 'bạn chưa có Địa chỉ';}?>
                                 <span>(mặc định)</span>
                             </div>
-                            
-                            <div class="pay__address--btn"><a href="index.php?page=changeProfile">Thay đổi</a></div>
+                            <?php 
+                                if(isset($_SESSION['user_info'])){
+                                    echo '<div class="pay__address--btn"><a href="index.php?page=changeProfile">Thay đổi</a></div>
+                                    ';
+                               }else{
+                                    echo '<div class="pay__address--btn"><a href="index.php?page=login">Thay đổi</a> | Bạn cần đăng nhập</div>';
+                               }
+                            ?>
+                               
                         </div>
                     </div>
 

@@ -59,6 +59,9 @@
                 $loadUser=loadAllUser($id_user);
                 require_once "view/proFile/yourCard.php";
                 break;
+            case 'yourProduct':
+                require_once "view/proFile/yourProduct.php";
+                break;    
             case 'logOut':
                 session_unset();
                 header('Location: index.php');

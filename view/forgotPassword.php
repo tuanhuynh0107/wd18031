@@ -7,7 +7,7 @@
                 <div class="main-login row">
                     <img src="../assets/img/logo_sign.png" alt="">
 
-                    <form action="index.php?page=resetPassword" method="post" class="form__login row">
+                    <form action="index.php?page=forPass" method="post" class="form__login row">
                         <div class="form__group">
                             <h2 class="form__group--title">Khôi phục tài khoản</h2>
                         </div>

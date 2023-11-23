@@ -82,20 +82,33 @@
                 handleUserLogin();
                 break;
             case 'forgotPassword':
-              
-
                 require_once "view/forgotPassword.php";
                 break;
-            case 'resetPassword':
+            case 'forPass':
                 if(isset($_POST['forgotPass'])){
                     $phone=$_POST['phone'];
                     $check_pass=forgotPassUser($phone);
                    
                 }
-               
-              
                 require_once "view/forgotPassword.php";
                 break; 
+            case 'resetPassWord':
+                if(isset($_GET['id_user'])&&($_GET['id_user']>0)){
+                    $loadOneResetPass=loadAllUser($id_user);
+                }
+                require_once "view/resetPassword.php";
+                break;    
+            case 'reserPass':
+                if(isset($_POST['resetpass'])){
+                    $id_user=$_POST['idUser'];
+                    $oldPass=$_POST['oldPass'];
+                    $newPass=$_POST['newPass'];
+                    $comfrimNewPass=$_POST['comfrimNewPass'];
+                    
+                    $updatePass= updatePassWord($oldPass, $newPass, $comfrimNewPass, $id_user);
+                }
+                require_once "view/resetPassword.php";
+                break;    
             case 'product':
                 handleProduct();
                 break;

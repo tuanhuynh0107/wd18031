@@ -334,16 +334,44 @@ function forgotPassUser($phone) {
         if (!$existingphone && !preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
             $notify_pass = "Sai số điện thoại";
         } else {       
-                    $phoneNumber = $phone; 
-                    // Tạo mật khẩu ngẫu nhiên
-                    $newPassword = generateRandomPassword();
-                    // Cập nhật mật khẩu mới trong cơ sở dữ liệu
-                    $sql = "UPDATE user SET pass = '$newPassword' WHERE phone = '$phoneNumber'";
-                    update($sql);
-                    $notify_pass = $newPassword;        
+            $phoneNumber = $phone; 
+            // Tạo mật khẩu ngẫu nhiên
+            $newPassword = generateRandomPassword();
+            // Cập nhật mật khẩu mới trong cơ sở dữ liệu
+            $sql = "UPDATE user SET pass = '$newPassword' WHERE phone = '$phoneNumber'";
+            update($sql);
+            $notify_pass = $newPassword;        
         }
     }
        return $notify_pass;
+   }
+   function updatePassWord($oldPass, $newPass, $comfrimNewPass, $id_user){
+        if(empty($oldPass)||empty($newPass)||empty($comfrimNewPass)){
+            $notify_passWord="Không được để trống";
+        }else{
+            if(!preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $oldPass) &&
+            !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $newPass) &&
+            !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $comfrimNewPass)){
+                $notify_passWord= "Mật khẩu không đúng địng dạng";
+            }else{
+                $sql = "SELECT * FROM user WHERE id_user = ? AND pass= ?";
+                $existingidUser = pdo_query_one($sql, $id_user,$oldPass);
+
+                if (!$existingidUser) {
+                    $notify_passWord= "Id người dùng không đúng và mất khẩu cũ không đúng";
+                }else{
+                    if($newPass != $comfrimNewPass){
+                        $notify_passWord= "Mật khẩu không trùng nhau";
+                    }else{
+                        $sql = "UPDATE user SET pass = '$newPass' WHERE id_user = ".$id_user;
+                        update($sql);
+                        $notify_passWord= "Cập nhật pass thành công";
+                    }
+                } 
+            }
+         
+        }
+           return $notify_passWord;
    }
 // admin
 

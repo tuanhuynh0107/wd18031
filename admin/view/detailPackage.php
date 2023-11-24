@@ -1,5 +1,5 @@
 <?php
-    print_r($newOrder);
+    print_r($itemDetailPackage);
 
 ?>
 <input type="submit" value="">
@@ -19,7 +19,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Tổng đơn hàng</p>
-                                <div class="total_product__content--qty"><?=$countAllCart[0]['total_package']?></div>
+                                <div class="total_product__content--qty"></div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Đơn hàng đang vận chuyển</p>
-                                <div class="total_product__content--qty"><?=$shipCart[0]['shipCart']?></div>
+                                <div class="total_product__content--qty"></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Đơn hàng mới</p>
-                                <div class="total_product__content--qty"><?=$newOrder[0]['new_orders']?></div>
+                                <div class="total_product__content--qty"></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>
@@ -60,94 +60,78 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title">
-                                <h4>Đơn hàng mới</h4>
+                                <h4>Chi tiết đơn hàng <?=$id_package?></h4>
                             </div>
                             <div class="revenue__status row">
-                                <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
+                                <!-- <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
                                 <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang vận chuyển</a>
                                 <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Giao hàng thành công</a>
                                 <a href="index.php?page=loadCartStatus&status=4" class="revenue__top--satus">Thất bại</a>
-                                <a href="index.php?page=loadCartStatus&status=5" class="revenue__top--satus">Đã hủy</a>
+                                <a href="index.php?page=loadCartStatus&status=5" class="revenue__top--satus">Đã hủy</a> -->
                             </div>
                         </div>
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <td>Mã đơn hàng</td>
-                                    <td>Khách hàng</td>
-                                    <td>Thời gian</td>
-                                    <td>Trạng thái</td>
-                                    <td>Thao tác</td>
+                                    <td>Mã chi tiết</td>
+                                    <td>Tên sản phẩm</td>
+                                    <td>Số lượng</td>
+                                    <td>Giá</td>
+                                    <td>Tổng tiền</td>
+                                    <td>Đơn vị vận chuyển</td>
+                                    <td>Thuộc đơn hàng</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    foreach($listCart as $cart){
+                               <?php
+                                    foreach($itemDetailPackage as $cart){
                                         extract($cart);
-                                        $statusShow="";
-                                        if($status==1) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="1">Chờ xác nhận</option>
-                                                    <option value="2">Đang vận chuyển</option>
-                                                    <option value="3">Giao hàng thành công</option>
-                                                    <option value="4">Giao hàng thất bại</option>
-                                                </select>
-                                            ';
-                                        }elseif($status==2) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="2">Đang vận chuyển</option>
-                                                    <option value="3">Giao hàng thành công</option>
-                                                    <option value="4">Giao hàng thất bại</option>
-                                                </select>
-                                            ';
-                                        }elseif($status==3) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="3">Giao hàng thành công</option>
-                                                </select>
-                                                ';
+                                        $transShow="";
+
+                                        if($id_trans==1) {
+                                            $transShow.= "
+                                                Grab
+                                            ";
+                                        }elseif($id_trans==2) {
+                                            $transShow.= "
+                                                Bee
+                                            ";
                                         }
-                                        elseif($status==4) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="4">Giao hàng thất bại</option>
-                                                    <option value="2">Đang vận chuyển</option>
-                                                    <option value="3">Giao hàng thành công</option>
-                                                </select>
-                                                ';
+                                        elseif($id_trans==3) {
+                                            $transShow.= "
+                                                Ahamovw
+                                            ";
                                         }
-                                        elseif($status==5) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="5">Đã hủy</option>
-                                                    <option value="2">Đang vận chuyển</option>
-                                                    <option value="3">Giao hàng thành công</option>
-                                                    <option value="4">Giao hàng thất bại</option>
-                                                    <option value="1">Chờ xác nhận</option>
-                                                </select>
-                                                ';
+                                        elseif($id_trans==4) {
+                                            $transShow.= "
+                                                Sv xanh
+                                            ";
                                         }
                                         echo 
                                         '
-                                        <form action="index.php?page=updateStatus&idPackage='.$id_package.'" method="post">
+                                        <form action="" method="post">
                                             <tr>
-                                                <td><a href="index.php?page=detailPackage&idPackage='.$id_package.'" class="id__cart">'.$id_package.'</a></td>
-                                                <td>'.$name.'</td>
-                                                <td>'.$time.'</td>
+                                                <td><a href="" class="id__cart">'.$id_Detail_Package.'</a></td>
+                                                <td>'.$name_prd.'</td>
+                                                <td>'.$qty.'</td>
                                                 <td> 
-                                                    '. $statusShow.'
+                                                    '. $price.'
                                                 </td>
-                                                <td>
-                                                    <input type="hidden" name="id_package" value="'.$id_package.'">
-                                                    <input type="submit" value="Thay đổi" name="updateStatus" class="hendel-update-act">
+                                                <td> 
+                                                    '. $total.'
                                                 </td>
+                                                <td> 
+                                                    '. $transShow.'
+                                                </td>
+                                                <td> 
+                                                    '. $id_package.'
+                                                </td>
+                                                
                                             </tr>
                                         </form>
                                         ';
                                     }
-                                ?>
+                                ?> 
                                 
                                 
                             </tbody>

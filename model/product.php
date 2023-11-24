@@ -734,7 +734,7 @@ function forgotPassUser($phone) {
       function getAdmin_LoadNewCart(){
             $sql="SELECT *
             FROM package
-            WHERE DATE(time) BETWEEN CURDATE() - INTERVAL 2 DAY AND CURDATE();";
+            WHERE DATE(time) BETWEEN CURDATE() - INTERVAL 2 DAY AND CURDATE() limit 3";
             return get_All($sql);
         }
       function getAdmin_LoadAllUser(){
@@ -888,5 +888,8 @@ function forgotPassUser($phone) {
         WHERE DATE(time) = CURDATE();";
         return get_All($sql);
     }
-  
+    function getDetailPackage($id_package) {
+        $sql = "SELECT * from detail_package where id_package=".$id_package;
+        return get_All($sql);
+    }
 ?>

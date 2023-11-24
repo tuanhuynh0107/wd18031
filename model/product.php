@@ -204,64 +204,31 @@ function getProduct($id_pro){
         c.id_catalog=".$id_Cata ;
         return get_All($sql); 
     }
-// load user
-function showImgUser(){
-    if(!isset($_SESSION['user_info'])){
-        $name_user="";
-       echo' <a href="index.php?page=login" class="btn sign-up-btn">Đăng nhập</a>';
-    }else{
-        if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img']!=""){
-               $name_user=$_SESSION['user_info']['username'];
-            echo '<a href="index.php?page=login">
-                    <img src="./assets/user/'.$_SESSION['user_info']['img'].'.png" alt="">
-                      <div class="action__name-user">'.$name_user.' </div>
-                </a>
-              
-                ';
-        }else{
-            if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img'] ==""){
-                   $name_user=$_SESSION['user_info']['username'];
-                echo '
-                <a href="index.php?page=proFile">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" class="action__incons">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M25 0C38.8075 0 50 11.1925 50 25C50.0088 30.7697 48.0134 36.3634 44.355 40.825L44.405 40.88L44.075 41.16C41.7305 43.933 38.8089 46.1608 35.5143 47.6877C32.2196 49.2145 28.6313 50.0037 25 49.9999C17.625 49.9999 11 46.8074 6.42502 41.7325L5.92502 41.1575L5.59502 40.8825L5.64502 40.8225C1.98692 36.3617 -0.00841855 30.7689 2.66985e-05 25C2.66985e-05 11.1925 11.1925 0 25 0ZM25 37.5C20.35 37.5 16.1475 38.98 13.0175 41.0125C16.4732 43.6065 20.679 45.0061 25 44.9999C29.321 45.0061 33.5268 43.6065 36.9825 41.0125C33.4056 38.7215 29.2476 37.5026 25 37.5ZM25 4.99999C21.2363 4.99989 17.549 6.06178 14.3618 8.06362C11.1747 10.0655 8.61703 12.926 6.98292 16.3164C5.34881 19.7068 4.70453 23.4896 5.12415 27.2298C5.54376 30.97 7.01024 34.5159 9.35502 37.46C13.4075 34.5525 18.9375 32.5 25 32.5C31.0625 32.5 36.5925 34.5525 40.645 37.46C42.9898 34.5159 44.4562 30.97 44.8759 27.2298C45.2955 23.4896 44.6512 19.7068 43.0171 16.3164C41.383 12.926 38.8253 10.0655 35.6382 8.06362C32.451 6.06178 28.7637 4.99989 25 4.99999ZM25 9.99999C27.6522 9.99999 30.1957 11.0536 32.0711 12.9289C33.9464 14.8043 35 17.3478 35 20C35 22.6521 33.9464 25.1957 32.0711 27.071C30.1957 28.9464 27.6522 30 25 30C22.3478 30 19.8043 28.9464 17.9289 27.071C16.0536 25.1957 15 22.6521 15 20C15 17.3478 16.0536 14.8043 17.9289 12.9289C19.8043 11.0536 22.3478 9.99999 25 9.99999ZM25 15C23.6739 15 22.4021 15.5268 21.4645 16.4644C20.5268 17.4021 20 18.6739 20 20C20 21.3261 20.5268 22.5978 21.4645 23.5355C22.4021 24.4732 23.6739 25 25 25C26.3261 25 27.5978 24.4732 28.5355 23.5355C29.4732 22.5978 30 21.3261 30 20C30 18.6739 29.4732 17.4021 28.5355 16.4644C27.5978 15.5268 26.3261 15 25 15Z" fill="black"/>
-                    </svg>
-                     <div class="action__name-user">'.$name_user.' </div>
-                </a>';
-            }
-        }
-    }
-}
-function showImgAdmin(){
-    if(!isset($_SESSION['user_info'])){
-        $name_user="";
-       echo' <a href="index.php?page=login" class="btn sign-up-btn">Đăng nhập</a>';
-    }else{
-        if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img']!=""){
-               $name_user=$_SESSION['user_info']['username'];
-            echo '<img src="../assets/user/'.$_SESSION['user_info']['img'].'.png" alt="" class="user__clon"
-                    style="height: 30px; width: 30px; object-fit: cover;">
-                <p class="user__title">
-                    '.$name_user.'
-                </p>
-              
-                ';
-        }else{
-            if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img'] ==""){
-                   $name_user=$_SESSION['user_info']['username'];
-                echo '
-                <a href="index.php?page=login">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" class="action__incons">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M25 0C38.8075 0 50 11.1925 50 25C50.0088 30.7697 48.0134 36.3634 44.355 40.825L44.405 40.88L44.075 41.16C41.7305 43.933 38.8089 46.1608 35.5143 47.6877C32.2196 49.2145 28.6313 50.0037 25 49.9999C17.625 49.9999 11 46.8074 6.42502 41.7325L5.92502 41.1575L5.59502 40.8825L5.64502 40.8225C1.98692 36.3617 -0.00841855 30.7689 2.66985e-05 25C2.66985e-05 11.1925 11.1925 0 25 0ZM25 37.5C20.35 37.5 16.1475 38.98 13.0175 41.0125C16.4732 43.6065 20.679 45.0061 25 44.9999C29.321 45.0061 33.5268 43.6065 36.9825 41.0125C33.4056 38.7215 29.2476 37.5026 25 37.5ZM25 4.99999C21.2363 4.99989 17.549 6.06178 14.3618 8.06362C11.1747 10.0655 8.61703 12.926 6.98292 16.3164C5.34881 19.7068 4.70453 23.4896 5.12415 27.2298C5.54376 30.97 7.01024 34.5159 9.35502 37.46C13.4075 34.5525 18.9375 32.5 25 32.5C31.0625 32.5 36.5925 34.5525 40.645 37.46C42.9898 34.5159 44.4562 30.97 44.8759 27.2298C45.2955 23.4896 44.6512 19.7068 43.0171 16.3164C41.383 12.926 38.8253 10.0655 35.6382 8.06362C32.451 6.06178 28.7637 4.99989 25 4.99999ZM25 9.99999C27.6522 9.99999 30.1957 11.0536 32.0711 12.9289C33.9464 14.8043 35 17.3478 35 20C35 22.6521 33.9464 25.1957 32.0711 27.071C30.1957 28.9464 27.6522 30 25 30C22.3478 30 19.8043 28.9464 17.9289 27.071C16.0536 25.1957 15 22.6521 15 20C15 17.3478 16.0536 14.8043 17.9289 12.9289C19.8043 11.0536 22.3478 9.99999 25 9.99999ZM25 15C23.6739 15 22.4021 15.5268 21.4645 16.4644C20.5268 17.4021 20 18.6739 20 20C20 21.3261 20.5268 22.5978 21.4645 23.5355C22.4021 24.4732 23.6739 25 25 25C26.3261 25 27.5978 24.4732 28.5355 23.5355C29.4732 22.5978 30 21.3261 30 20C30 18.6739 29.4732 17.4021 28.5355 16.4644C27.5978 15.5268 26.3261 15 25 15Z" fill="black"/>
-                    </svg>
-                     <div class="action__name-user">'.$name_user.' </div>
-                </a>';
-            }
-        }
-    }
-}
 // admin
+    function showProductAdmin($listItems) {
+        $kq = ""; 
+        $stt = 1;
 
+        foreach ($listItems as $item) {
+            extract($item);
+            $kq .= '
+                <tr>
+                    <td>'.$stt.'</td>
+                    <td>'.$name.'</td>
+                    <td><img src="../uploads/'.$img.'" style="" alt="" class="card-image" /> </td>
+                    <td>'.number_format($pice,0,",",".").' đ</td>
+                    <td>122</td>
+                    <td>'.$id_catalog.'</td>
+                    <td><a href="index.php?page=showUpdate&idSP='.$id.'">Sửa</a> 
+                    | <a href="index.php?page=delProduct&idSP='.$id.'">Xóa</a>|
+                    </td>
+                </tr>
+            ';
+            $stt++;
+        }
+        return $kq;
+
+    }
 
     function getProductDetail($idProduct) {
         $sql = "SELECT *  FROM detail_product where id_prd=".$idProduct;
@@ -346,7 +313,14 @@ function showImgAdmin(){
     }
 
     // admin
-    
+    function getUserAdmin(){
+        $sql= "SELECT * FROM user";
+        return get_All($sql);
+    }
+    // function delUser($id_user) {
+    //     $sql = "DELETE FROM user WHERE id = ".$id_user;
+    //     delete($sql);
+    // }
     function delProduct($id) {
         $sql = "DELETE FROM product WHERE id = ".$id;
         delete($sql);
@@ -355,6 +329,10 @@ function showImgAdmin(){
         $sql = "DELETE FROM danhmuc WHERE idDM = ".$idDM;
         delete($sql);
     }
+    // function delCartUser($id_user, $) {
+    //     $sql = "DELETE FROM danhmuc WHERE idDM = ".$idDM;
+    //     delete($sql);
+    // }
     function delUser($idKH) {
         $sql = "DELETE FROM khachhang WHERE idKH= ".$idKH;
         delete($sql);
@@ -561,7 +539,7 @@ function showImgAdmin(){
     // funtion admin viết ở đây
 
     function getAdminCatalog(){
-        $sql="SELECT * FROM catalog ";
+        $sql="SELECT * FROM catalog";
         return get_All($sql);
     }
     
@@ -583,6 +561,10 @@ function showImgAdmin(){
         $sql = "UPDATE catalog SET name_catalog='".$nameCatalog."', qty_catalog='".$quantityCatalog."' WHERE id_catalog=".$id;
         update($sql);
     }
+    function updateCatalogStatus($id_package, $indStatus) {
+        $sql = "UPDATE package SET status='".$indStatus."' WHERE id_package=".$id_package;
+        update($sql);
+    }
     function get_List_Catalog($listCatalog){
         foreach($listCatalog as $cata){
             extract($cata);
@@ -592,6 +574,8 @@ function showImgAdmin(){
             '
             <tr>
                 <td><a href="">#'.$id_catalog.'</a></td>
+                <td><img src="../assets/icons/'.$img_catalog.'.png" alt="" style=" width:30px; height:30px"></td>
+                <td><img src="../assets/img/banner_product/'.$banner_catalog.'.png" alt="" style=" width:100px; height:50px"></td>
                 <td>'.$name_catalog.'</td>
                 <td>'.$qty_catalog.'</td>
                 <td>
@@ -602,6 +586,18 @@ function showImgAdmin(){
             ';
         }
     }
+      // Admin home
+      function getAdmin_LoadNewCart(){
+            $sql="SELECT *
+            FROM package
+            WHERE DATE(time) BETWEEN CURDATE() - INTERVAL 2 DAY AND CURDATE();";
+            return get_All($sql);
+        }
+      function getAdmin_LoadAllUser(){
+            $sql="SELECT count(id_user) as allUser FROM user";
+            return get_All($sql);
+        }
+
     // thống kê catalog
     function getAdminCountCatalog(){
         $sql="SELECT count(DISTINCT id_catalog) as count_catalog FROM catalog";
@@ -627,6 +623,31 @@ function showImgAdmin(){
     JOIN 
         detail_product dp ON p.id = dp.id_prd 
     ORDER BY p.id ASC";
+        return get_All($sql);
+    }
+    function getAdminProductID($idPro){
+        $sql="SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        c.name_catalog AS category_name,
+        c.id_catalog AS id_catalog,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        p.qty AS product_qty,
+        a.img1 AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd
+    WHERE
+        dp.id_prd =".$idPro;
+        $sql.=" ORDER BY id_DP ASC";
         return get_All($sql);
     }
     function  deleteProduct($id){
@@ -659,7 +680,7 @@ function showImgAdmin(){
             echo 
             '
             <tr>
-                <td class="table__packgeNew--Yellow"><a href="">#'.$product_id.'</a></td>
+                <td class="table__packgeNew--Yellow"><a href="index.php?page=detailProduct&idPro='.$product_id.'">#'.$product_id.'</a></td>
                 <td>'.$product_name.'</td>
                 <td>'.$detail_product_type.'</td>
                 <td>'.number_format($product_price,0,",",".").'đ</td>
@@ -677,8 +698,15 @@ function showImgAdmin(){
     }
 
     // cart 
+    function getAdminCartStatus($status){
+        $sql="SELECT * FROM package where status=".$status;
+        return get_All($sql);
+    }
+
     function getAdminCart(){
-        $sql="SELECT * FROM package";
+        // $sql="SELECT * FROM package ORDER BY time DESC ";
+        // $sql = "SELECT * FROM package WHERE DATE(time) = CURDATE() ORDER BY time DESC";
+        $sql = "SELECT * FROM package WHERE YEARWEEK(time) = YEARWEEK(CURDATE()) ORDER BY time DESC";
         return get_All($sql);
     }
     // thống kế đơn hàng 
@@ -699,4 +727,5 @@ function showImgAdmin(){
         WHERE DATE(time) = CURDATE();";
         return get_All($sql);
     }
+  
 ?>

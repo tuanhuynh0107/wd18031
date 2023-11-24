@@ -9,13 +9,27 @@
         $page = $_GET['page'];
 
         switch ($page) {
+
+           
             case 'product':
                 $listProduct=getAdminProduct();
                 $totalAllProducts=getAdminAll_TotalProduct();
                 $soldProduct=getAdminAll_SoldProduct();
                 $inventoryProduct=getAdmin_inventoryProduct();
-               require_once "view/product.php";
+                require_once "view/product.php";
                 break;
+            case 'detailProduct':
+                if(isset($_GET['idPro'])&&($_GET['idPro']>0)){
+                    $listProductID=getAdminProductID($_GET['idPro']);
+                }
+               
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+
+                $listCatalog=getAdminCatalog();
+                require_once "view/detailProduct.php";
+                break;    
              case "delProduct" :
                 if (isset($_GET['id_Prd'])&&( $_GET['id_Prd']) >0) {
                     deleteProduct($_GET['id_Prd']);
@@ -45,14 +59,29 @@
                 $listProduct=getAdminProduct();
                 require_once "view/addProduct.php";
                 break;
-            case 'updateProduct':
                 
-                require_once "view/product.php";
+            case 'updateProduct':
+                // chưa xong 
+                if(isset($_GET['id_Prd'])&&($_GET['id_Prd']>0)){
+                    $listProductID=getAdminProductID($_GET['id_Prd']);
+                }
+               
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+
+                $listCatalog=getAdminCatalog();
+                require_once "view/update.php";
                 break;  
+            case 'updateFormPro':
+                if(isset($_POST['']))
+                require_once "view/update.php";
+                break;                
             case 'showUpdate':
                 
                 require_once "view/Update.php";
                 break;
+           
             case 'form_addProduct':
                   
                 break;
@@ -81,7 +110,7 @@
                 $listItem=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
-                require_once "view/addCatalog.php";
+                require_once "view/formAddCatalog.php";
                 break;      
             case 'updateCatalog':
                 if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
@@ -121,7 +150,6 @@
             //                 $product = getProduct();
             //                 require_once  "view/product.php";
             //                 break;
-            
            case 'loadCart':
             $countAllCart=getAdmin_AllCart();
             $shipCart=getAdmin_ShippCart();
@@ -129,12 +157,39 @@
             $listCart= getAdminCart();
             require_once "view/cartAdmin.php";
             break;
-
+            case 'loadCartStatus':
+                if(isset($_GET['status'])&&($_GET['status'])){
+                    $status = $_GET['status'];
+                    $listCart=getAdminCartStatus($status);
+                }
+                $countAllCart=getAdmin_AllCart();
+                $shipCart=getAdmin_ShippCart();
+                $newOrder=getAdmin_NewCart();
+                require_once "view/cartAdmin.php";
+                break;
+            case 'updateStatus':
+                if(isset($_POST['updateStatus'])&&($_POST['updateStatus'])){
+                    $indStatus = $_POST['indStatus'];
+                    $idpackage = $_POST['id_package'];
+                    updateCatalogStatus($idpackage, $indStatus);
+                }
+                $countAllCart=getAdmin_AllCart();
+                $shipCart=getAdmin_ShippCart();
+                $newOrder=getAdmin_NewCart();
+                $listCart= getAdminCart();
+                require_once "view/cartAdmin.php";
+                break;
             default:
+                $soldProduct=getAdminAll_SoldProduct();
+                $loadAllUser=getAdmin_LoadAllUser();
+                $loadNewCart=getAdmin_LoadNewCart();
                 require_once "view/home.php";
                 break;
         };
     }else{
+        $soldProduct=getAdminAll_SoldProduct();
+        $loadAllUser=getAdmin_LoadAllUser();
+        $loadNewCart=getAdmin_LoadNewCart();
         require_once "view/home.php";
     }
 

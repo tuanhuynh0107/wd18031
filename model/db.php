@@ -97,4 +97,20 @@
             unset($conn);
         }
     }
+    function pdo_query_one($sql){
+        $sql_args = array_slice(func_get_args(), 1);
+        try{
+            $conn = db();
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($sql_args);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        catch(PDOException $e){
+            throw $e;
+        }
+        finally{
+            unset($conn);
+        }
+    }
  ?>

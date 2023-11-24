@@ -1,5 +1,4 @@
 <?php 
-
     if(is_array($catalog)){
         extract($catalog);
     }else{
@@ -105,6 +104,8 @@
                             <thead>
                                 <tr>
                                     <td>Mã loại</td>
+                                    <td>icon</td>
+                                    <td>banner</td>
                                     <td>Tên loại</td>
                                     <td>Số lượng</td>
                                     <td>Thao tác</td>
@@ -116,8 +117,4 @@
                         </table>
                     </article>
                 </div>
-                <article class="notify">
-
-                </article>
-
-            </main>
+                

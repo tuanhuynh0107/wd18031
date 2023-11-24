@@ -1,9 +1,16 @@
 <?php
     extract($itemDetailProduct);
     extract($itemAlbum);
+    // hàm này sử dụng được
     extract($itemProduct);
-    $linkByNow='index.php?page=byNow&idProduct='.$product_id;
-    $sameType=sameTypeProducts($id_catalog);
+    $linkByNow='index.php?page=byNow&idProduct='.$id;
+    $sameType=sameTypeProducts($id);
+    // print_r($itemDetailProduct);
+    // echo '<br>----------------------<br>';
+    // print_r($itemProduct);
+    // echo '<br>----------------------<br>';
+    // echo "test key: ".$type;
+    ;
 ?>  
 <main>
       
@@ -13,26 +20,52 @@
               <div class="main-product--row">
                   <div class="main-product__img">
                       <div class="main-product__img--top">
-                          <figure>
-                              <img src="./assets/img/img_main/<?=$img_main?>.png"
-                                  alt="" class="main-product__img--top-img">
-                          </figure>
+                      <div class="slider slider-for h3" >
+                                <img src="https://images.unsplash.com/photo-1682695797873-aa4cb6edd613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60"
+                                    alt="" class="main-product__img--top-img">
+                                <img src="../assets/img/blog-1.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-2.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-3.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/bo-dung-cu-an-HS.png" alt="" class="main-product__img--top-img">    
+                            </div>
                       </div>
                       <div class="main-product__img--bottom">
-                          <figure>
-                              <img src="./assets/img/img_main/<?=$img1?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img2?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img3?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img4?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img5?>.png"
-                                  alt="">
-                          </figure>
+                      <figure class="slider slider-nav h3">
+                                <img src="https://images.unsplash.com/photo-1682695797873-aa4cb6edd613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60"
+                                    alt="" class="main-product__img--top-img">
+                                <img src="../assets/img/blog-1.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-2.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-3.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/bo-dung-cu-an-HS.png" alt="" class="main-product__img--top-img">    
+                            </figure>
                       </div>
                   </div>
+                  <!-- JS Slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+   $('.slider-for').slick({
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ arrows: false,
+ fade: true,
+ asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+ slidesToShow: 3,
+ slidesToScroll: 1,
+ asNavFor: '.slider-for',
+ dots: true,
+ focusOnSelect: true
+});
+
+$('a[data-slide]').click(function(e) {
+ e.preventDefault();
+ var slideno = $(this).data('slide');
+ $('.slider-nav').slick('slickGoTo', slideno - 1);
+});
+</script>
+<!-- END JS Slider -->
                   <div class="main-product__content">
                       <div class="main-product__content--type row">
                           <div class="content--type"><?= $type?></div>
@@ -56,7 +89,7 @@
                       </div>
 
                       <div class="main-product__content--pice row">
-                          <div class="main-product__content--pice__cost">225,000đ</div>
+                          <div class="main-product__content--pice__cost"><?=$price?>đ</div>
                           <div class="main-product__content--pice__del-cost">255,000đ</div>
                           <div class="main-product__content--pice__sale"><?=$sale?>%</div>
 
@@ -65,13 +98,13 @@
                       <div class="main-product__content--title row"><?=$name_prd?></div>
                       <div class="main-product__content--btn row ">
                         <form action="<?=$linkByNow?>" method="post">
-                                <input type="hidden" name="idPro" value="<?=$product_id?>">
-                                <input type="hidden" name="imgPro" value="'<?=$product_image?>">
-                                <input type="hidden" name="namePro" value="<?=$product_name?>">
-                                <input type="hidden" name="pricePro" value="<?=$product_price?>">
-                                <input type="hidden" name="typePro" value="'<?=$product_type?>">
+                                <input type="hidden" name="idPro" value="<?=$id?>">
+                                <input type="hidden" name="imgPro" value="<?=$img1?>">
+                                <input type="hidden" name="namePro" value="<?=$name?>">
+                                <input type="hidden" name="pricePro" value="<?=$price?>">
+                                <input type="hidden" name="typePro" value="'<?=$type?>">
                                 <input type="hidden" name="qtyPro" value="1">
-                                <input type="hidden" name="nameCata" value="<?=$category_name?>">
+                                <!-- <input type="hidden" name="nameCata" value="<?=$category_name?>"> -->
                                 <input type="submit" value="Mua ngay" class="btn btn__act--Product" name="byNow">
                         </form>
                       </div>

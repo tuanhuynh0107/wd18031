@@ -13,7 +13,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Khách hàng</p>
-                                <div class="total_product__content--qty">500.000</div>
+                                <div class="total_product__content--qty"><?=$loadAllUser[0]['allUser']?></div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Sản phẩm đã bán</p>
-                                <div class="total_product__content--qty">200.000</div>
+                                <div class="total_product__content--qty"><?=$soldProduct[0]['sold_product']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
@@ -123,7 +123,7 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title">
-                                <h4>Đơn hàng mới</h4>
+                                <h4>Đơn hàng mới trong ngày 3 ngày qua</h4>
                             </div>
 
                             <select class="revenue__top--hendel">
@@ -134,6 +134,7 @@
                         </div>
                         <table class="table__packgeNew">
                             <thead>
+                               
                                 <tr>
                                     <td>Mã đơn hàng</td>
                                     <td>Thời gian</td>
@@ -142,7 +143,42 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <?php
+                                    foreach( $loadNewCart as $newCart){
+                                        extract($newCart);
+                                        $sta="";
+                                        if($status==0){
+                                            $sta.="Đơn hàng bị hủy";
+                                        }else{
+                                            if($status==1){
+                                                $sta.="Đang xử lý ";
+                                            }else{
+                                                if($status==2){
+                                                    $sta.="Đang giao ";
+                                                }else{
+                                                    if($status==3){
+                                                        $sta.="Đã giao xong ";
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        echo 
+                                        
+                                        '
+                                        <tr>
+                                            <td><a href="">#DH'.$id_package.'</a></td>
+                                            <td>'.$time.'</td>
+                                            <td>'. $sta.'</td>
+                                            <td>
+                                                <a href="" class="hendel-update-act">Sửa</a>|
+                                                <a href="" class="hendel-delete-act">Xóa</a>
+                                            </td>
+                                        </tr>
+                                        ';
+                                    }
+                                    
+                                    ?>
+                              <!--    <tr>
                                     <td><a href="">#DH0123</a></td>
                                     <td>24-10-2023</td>
                                     <td>Đã thanh toán</td>
@@ -168,7 +204,7 @@
                                         <a href="" class="hendel-update-act">Sửa</a>|
                                         <a href="" class="hendel-delete-act">Xóa</a>
                                     </td>
-                                </tr>
+                                </tr> -->
 
                             </tbody>
                         </table>

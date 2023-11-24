@@ -58,7 +58,7 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Cập nhật sản phẩm</h4>
+                                <h4>Loại hàng mới</h4>
                             </div>
     
                             <select class="revenue__top--hendel">
@@ -68,7 +68,7 @@
                             </select>
                         </div>
                         <!-- form  -->
-                        <form action="index.php?page=updateFormPro" method="post" enctype="multipart/form-data">
+                        <form action="index.php?page=addProduct" method="post" enctype="multipart/form-data">
                             <div class="form_group ">
                                 <div class="form_group__box-input">
                                     <div class="form_group__input-file--product">
@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="form_group__add_product--item_submit">
                                         <input type="submit" class="form_group__item_input--cancle" name="" id="" value="Canle">
-                                        <input type="submit" class="form_group__item_input--them" name="btnAddPro" id="" value="Lưu">
+                                        <input type="submit" class="form_group__item_input--them" name="btnAddPro" id="" value="Thêm">
 
                                     </div>
                                     

@@ -101,6 +101,8 @@
             $nameCata=$_POST['nameCata'];
             $typePro=$_POST['typePro'];
 
+            // echo var_dump($pricePro);
+
             if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
                 $qtyPro=$_POST['qtyPro'];
             }else{
@@ -173,7 +175,7 @@
                      }else{
                              $id_package=insert_Package($name, $address, $phone, $pay_ms, $total_All, $status, $time, $note, $id_user);                     
                              foreach ($_SESSION['cart'] as $cart){
-                                 insert_Detail_Package($cart['namePro'],$cart['pricePro'],$cart['pricePro'], $total,$id_package,$id_trans);
+                                 insert_Detail_Package($cart['namePro'],$cart['qtyPro'],$cart['pricePro'], $total,$id_package,$id_trans);
                              }
                              $_SESSION['cart']=[];
                              $thongbao="Bạn đã đặt hàng thành công";
@@ -195,6 +197,7 @@
     }
 
     function handleDefault() {
+        
         $listItemLimitRanDom = getDetailProductLimitRanDom();
         $listItemLimit = getDetailProductLimit();
         $listProduct = getDetailProduct();

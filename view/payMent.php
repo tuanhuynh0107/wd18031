@@ -1,8 +1,9 @@
 <?php
     // print_r($_SESSION['user_info']);
-    if(isset($_SESSION['user_info'])){
-        extract($_SESSION['user_info']);
+    if(isset($loadUser)){
+        extract($loadUser);
     }
+    // print_r($_SESSION['user_info'])
 ?>
 
 
@@ -49,8 +50,15 @@
                             <div class="pay__address--desc"><?php if(isset($address)&&($address!="")) {echo $address;}else{echo 'bạn chưa có Địa chỉ';}?>
                                 <span>(mặc định)</span>
                             </div>
-                            
-                            <div class="pay__address--btn"><a href="index.php?page=changeAdress&idUser=<?=$id_user?>">Thay đổi</a></div>
+                            <?php 
+                                if(isset($_SESSION['user_info'])){
+                                    echo '<div class="pay__address--btn"><a href="index.php?page=changeProfile">Thay đổi</a></div>
+                                    ';
+                               }else{
+                                    echo '<div class="pay__address--btn"><a href="index.php?page=login">Thay đổi</a> | Bạn cần đăng nhập</div>';
+                               }
+                            ?>
+                               
                         </div>
                     </div>
 
@@ -62,6 +70,7 @@
                                 <th>Đơn giá</th>
                                 <th>Số lượng</th>
                                 <th>Thành tiền</th>
+                               
                             </tr>
                         </thead>
 
@@ -76,8 +85,10 @@
                                     $total_Pro=0;
                                     $total_All=0;
                                     // $qty=1;
+                                    // echo print_r($_SESSION['cart']);    
                                     foreach ($_SESSION['cart'] as $item) {
                                         extract($item);
+                                        
                                         $total = $pricePro * $qtyPro;
                                         $total_Pro+=$total;
                                         $total_All=$total_Pro+$ship;
@@ -85,7 +96,7 @@
                                         '
                                         <tr>
                                             <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                                    src="./assets/img/img_main/'.$imgPro.'.png" alt="">
+                                                src="./assets/img/img_main/'.$imgPro.'.png" >
                                             </td>
                                             <td class="pay-ment__bod--title">'.$namePro.'</td>
                                             <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>

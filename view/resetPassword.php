@@ -15,13 +15,13 @@
                             <h2 class="form__group--title">Đặt lại mât khẩu</h2>
                         </div>
                         <div class="form__group">
-                            <input type="text" placeholder="Nhập mật khẩu cũ" class="full-name" name="oldPass">
+                            <input type="password" placeholder="Nhập mật khẩu cũ" class="full-name" name="oldPass">
                         </div>
                         <div class="form__group">
-                            <input type="text" placeholder="Nhập mật khẩu mới" class="full-name" name="newPass">
+                            <input type="password" placeholder="Nhập mật khẩu mới" class="full-name" name="newPass">
                         </div>
                         <div class="form__group">
-                            <input type="text" placeholder="Xác nhận mật khẩu mới" class="full-name" name="comfrimNewPass">
+                            <input type="password" placeholder="Xác nhận mật khẩu mới" class="full-name" name="comfrimNewPass">
                         </div>
                         <div class="form__group">
                             <input type="hidden" name="idUser" value="<?=$id_user?>">

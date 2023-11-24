@@ -370,7 +370,7 @@ function forgotPassUser($phone) {
                     }else{
                         $sql = "UPDATE user SET pass = '$newPass' WHERE id_user = ".$id_user;
                         update($sql);
-                        $notify_passWord= "Cập nhật pass thành công";
+                        $notify_passWord= "Cập nhật mật khẩu thành công";
                     }
                 } 
             }

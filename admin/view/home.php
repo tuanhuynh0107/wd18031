@@ -1,3 +1,6 @@
+<?php
+
+?>
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
@@ -44,8 +47,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Khách hàng mới</p>
-                                <div class="total_product__content--qty">200,000</div>
+                                <p class="total_product__content--title">Khách hàng ưu tiên</p>
+                                <div class="total_product__content--qty"><?=$vipUser[0]['total_customers']?></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>

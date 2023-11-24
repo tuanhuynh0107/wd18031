@@ -741,6 +741,18 @@ function forgotPassUser($phone) {
             $sql="SELECT count(id_user) as allUser FROM user";
             return get_All($sql);
         }
+    function getAdminVipUser(){
+        $sql="SELECT COUNT(DISTINCT u.id_user) as total_customers
+        FROM user u
+        WHERE u.id_user IN (
+            SELECT p.id_user
+            FROM package p
+            GROUP BY p.id_User
+            HAVING COUNT(p.id_package) >= 10
+        );
+        ";
+         return get_All($sql);
+    }
 
     // thống kê catalog
     function getAdminCountCatalog(){

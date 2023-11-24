@@ -1,7 +1,16 @@
 <?php
     extract($itemDetailProduct);
     extract($itemAlbum);
-    $sameType=sameTypeProducts($id_catalog);
+    // hàm này sử dụng được
+    extract($itemProduct);
+    $linkByNow='index.php?page=byNow&idProduct='.$id;
+    $sameType=sameTypeProducts($id);
+    // print_r($itemDetailProduct);
+    // echo '<br>----------------------<br>';
+    // print_r($itemProduct);
+    // echo '<br>----------------------<br>';
+    // echo "test key: ".$type;
+    ;
 ?>  
 <main>
       
@@ -80,7 +89,7 @@ $('a[data-slide]').click(function(e) {
                       </div>
 
                       <div class="main-product__content--pice row">
-                          <div class="main-product__content--pice__cost">225,000đ</div>
+                          <div class="main-product__content--pice__cost"><?=$price?>đ</div>
                           <div class="main-product__content--pice__del-cost">255,000đ</div>
                           <div class="main-product__content--pice__sale"><?=$sale?>%</div>
 
@@ -88,11 +97,20 @@ $('a[data-slide]').click(function(e) {
 
                       <div class="main-product__content--title row"><?=$name_prd?></div>
                       <div class="main-product__content--btn row ">
-                          <a href="#!" class="btn btn__act--Product">Mua ngay</a>
+                        <form action="<?=$linkByNow?>" method="post">
+                                <input type="hidden" name="idPro" value="<?=$id?>">
+                                <input type="hidden" name="imgPro" value="<?=$img1?>">
+                                <input type="hidden" name="namePro" value="<?=$name?>">
+                                <input type="hidden" name="pricePro" value="<?=$price?>">
+                                <input type="hidden" name="typePro" value="'<?=$type?>">
+                                <input type="hidden" name="qtyPro" value="1">
+                                <!-- <input type="hidden" name="nameCata" value="<?=$category_name?>"> -->
+                                <input type="submit" value="Mua ngay" class="btn btn__act--Product" name="byNow">
+                        </form>
                       </div>
                       <div class="main-product__content--btn-2 row">
-                          <a href="#!" class="btn btn__add--Cart">Thêm vào sọt</a>
-                          <a href="#!" class="btn btn__advisory">Nhận tư vấn</a>
+                          <a href="#!" class="btn btn__add--Cart">Thêm vào giỏ hàng </a>
+                          <a href="#!" class="btn btn__advisory">Tiếp tục mua hàng</a>
                       </div>
 
                       <div class="main-product__together">

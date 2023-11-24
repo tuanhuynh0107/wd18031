@@ -1,10 +1,10 @@
-<main class="main--login" >
+<main>
         <article class="login">
             <div class="main-content">
                 <div class="main-login row">
                     <img src="../assets/img/logo_sign.png" alt="">
 
-                    <form action="index.php?page=registerNew" method="post" class="form__login row">
+                    <form action="index.php?page=changeAdress" method="post" class="form__login row">
                         <div class="form__group">
                             <h2 class="form__group--title">Đăng ký</h2>
                             <div class="form__group--desc">
@@ -14,24 +14,26 @@
                             </div>
                         </div>
                         <div class="form__group">
-                            <input type="text" placeholder="Nhập số điện thoại" class="full-name" name="phone">
+                            <input type="text" value="<?=$_SESSION['user_info']['phone']?>" class="full-name" name="phone">
                         </div>
                         <div class="form__group">
-                            <input type="password" placeholder="Nhập mật khẩu" class="pass" name="pass">
+                            <input type="text" value="<?=$_SESSION['user_info']['username']?>" class="pass" name="name">
                         </div>
                         <div class="form__group">
-                            <input type="password" placeholder="Nhập lại mật khẩu" class="pass" name="interPass">
+                            <input type="password" value="<?=$_SESSION['user_info']['pass']?>" class="pass" name="pass">
+                        </div> 
+                        <div class="form__group">
+                            <input type="text" value="<?=$_SESSION['user_info']['address']?>" class="pass" name="address">
                         </div>
                         <div class="form__group">
-                            <input type="submit" value="Đăng ký" class="btn push__login" name="registerNew">
-                            
-
+                            <input type="hidden" name="id_user" value="<?=$_SESSION['user_info']['id_user']?>">
+                            <input type="submit" value="Cập Nhật" class="btn push__login" name="change">
                                <?php
                                 
                                     if(isset($thongbao) && $thongbao == "") {
-                                        echo '<p class="notification" style="color:#15101d;">Chào mừng bạn đến với Hải Sản Mièn tây</p>';
+                                        echo $thongbao= "Chào mừng bạn đến với Hải sản Miền Tây";
                                     }else {
-                                        echo '<p class="notification">'.$thongbao.'</p>';
+                                        echo $thongbao;
                                     }
 
 
@@ -43,6 +45,7 @@
                         <div class="form__group">
                             <div class="form__group--desc">Bạn đã có tài khoản?
                                 <a href="index.php?page=login" class="form__group--register">Đăng nhập</a> tại đây
+                                <a href="" class="forgot__Pass">Quên mật khẩu</a>
                             </div>
                             <div class="line" style="width: 80%; margin-left: auto; margin-right: auto; border-bottom: 1px solid;
                             height: 1px; margin-top: 22px;margin-bottom: 28px;"></div>
@@ -123,5 +126,5 @@
                 </div>
             </div>
         </article>
-        <img src="./assets/icons/logo_main--login.png" alt="" class="logo-main--login" >    
+
     </main>

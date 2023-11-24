@@ -91,6 +91,37 @@
         }
         header("location: index.php");
     }
+
+    function handleUserbyNow() {
+        if(isset($_POST['byNow']) &&($_POST['byNow'])){
+            $idProduct=$_POST['idPro'];
+            $imgPro=$_POST['imgPro'];
+            $namePro=$_POST['namePro'];
+            $pricePro=$_POST['pricePro'];
+            $nameCata=$_POST['nameCata'];
+            $typePro=$_POST['typePro'];
+
+            // echo var_dump($pricePro);
+
+            if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
+                $qtyPro=$_POST['qtyPro'];
+            }else{
+                $qtyPro = 1;
+            }
+            
+           
+            // check_trung_sanpham
+            if(checkDuplicates( $idProduct)>=0){
+                $vitritrung = checkDuplicates( $idProduct);
+                upDataQty($vitritrung);
+            }else{
+                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata];
+                $_SESSION['cart'][] = $item;
+            }    
+        }
+        header("location: index.php?page=payMent");
+    }
+
     function handleUserDelCart() {
         if(isset($_GET['id'])){
             array_splice($_SESSION['cart'],$_GET['id'],1);
@@ -115,6 +146,46 @@
     //     extract($listCatalog);
     //     require_once('view/catalog/'.$name_catalog.'.php');
     // }
+    function handleBill() {
+          // check người dùng không đăng nhập thì không cho đặt hàng
+          if(!isset($_SESSION['user_info']['username']) || empty($_SESSION['user_info']['username']) && !isset($_SESSION['user_info']['phone']) || empty($_SESSION['user_info']['phone']) && !isset($_SESSION['user_info']['address']) || empty($_SESSION['user_info']['address'])){
+            $thongbao='Bạn chưa điền thông tin.';
+         }else{
+             $note="";
+             if(isset($_POST['order'])&&($_POST['order'])){ 
+                 // insert bill
+                 $name=$_POST['name'];              
+                 $phone=$_POST['phone'];
+                 $address=$_POST['address'];
+                 $total_All=$_POST['total_All'];
+                 $id_user=$_POST['idUser'];
+                 $pay_ms=$_POST['pttt'];                    
+                 $status=1 ;
+                 $time = date('Y-m-d H:i:s');
+                 $note=$_POST['note'];
+                 // insert cart
+                 $total=$_POST['total'];
+
+                 $id_trans=$_POST['Exxpress'];
+                 if($pay_ms===""){
+                     $thongbao="Bạn chưa chọn phương thức thanh toán";
+                 }else{
+                     if($id_trans===""){
+                         $thongbao="Bạn chưa chọn phương thức vận chuyển";
+                     }else{
+                             $id_package=insert_Package($name, $address, $phone, $pay_ms, $total_All, $status, $time, $note, $id_user);                     
+                             foreach ($_SESSION['cart'] as $cart){
+                                 insert_Detail_Package($cart['namePro'],$cart['qtyPro'],$cart['pricePro'], $total,$id_package,$id_trans);
+                             }
+                             $_SESSION['cart']=[];
+                             $thongbao="Bạn đã đặt hàng thành công";
+                         }
+                     }
+                 
+             }
+         }
+         require_once "view/payMent.php";
+    }
 
     function handleShowCatalog() {
         if(isset($_GET['id_Cata'])&& ($_GET['id_Cata']>0)){
@@ -126,6 +197,7 @@
     }
 
     function handleDefault() {
+        
         $listItemLimitRanDom = getDetailProductLimitRanDom();
         $listItemLimit = getDetailProductLimit();
         $listProduct = getDetailProduct();

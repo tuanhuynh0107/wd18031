@@ -287,6 +287,18 @@ html {
     justify-content: space-between;
 }
 
+.revenue__top--satus {
+    padding: 10px 18px;
+    background-color: var(--primary-color--bg);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 1.4rem;
+}
+
+.revenue__status {
+    gap: 10px;
+}
+
 .revenue__top--title>h4 {
     color: var(--primary-color--font);
     font-size: 2.4rem;
@@ -413,8 +425,15 @@ html {
     color: #EDC710;
 }
 
+.id__cart {
+    color: #f00;
+    text-decoration: underline;
+}
+
 .hendel-update-act {
+    border: none;
     color: #879FFF;
+    background-color: #fff;
 }
 
 .hendel-delete-act {

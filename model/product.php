@@ -106,6 +106,7 @@ function getProduct($id_pro){
             }
           
             $linkAddCart='index.php?page=addCart&idProduct='.$product_id;
+            $linkByNow='index.php?page=byNow&idProduct='.$product_id;
             $linkProduct = 'index.php?page=product&idProduct='.$product_id;
             $proQty=1;
             $kq .= '<div class="course-item">
@@ -152,7 +153,17 @@ function getProduct($id_pro){
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Mua ngay" class="btn book-btn">
+            
+            <form action="'.$linkByNow.'" method="post">
+                <input type="hidden" name="idPro" value="'.$product_id.'">
+                <input type="hidden" name="imgPro" value="'.$album_image.'">
+                <input type="hidden" name="namePro" value="'.$product_name.'">
+                <input type="hidden" name="pricePro" value="'.$product_price.'">
+                <input type="hidden" name="typePro" value="'.$product_type.'">
+                <input type="hidden" name="qtyPro" value="'.$proQty.'">
+                <input type="hidden" name="nameCata" value="'.$category_name.'">
+                <input type="submit" value="Mua ngay" class="btn book-btn" name="byNow">
+            </form>
         </div>';
         $id_lable++;
         }
@@ -191,7 +202,7 @@ function getProduct($id_pro){
         album a ON p.id = a.id_prd
       WHERE 
         c.id_catalog=".$id_Cata ;
-        return get_All($sql);
+        return get_All($sql); 
     }
 // admin
     function showProductAdmin($listItems) {
@@ -214,27 +225,6 @@ function getProduct($id_pro){
                 </tr>
             ';
             $stt++;
-        }
-        return $kq;
-
-    }
-
-    function showUserAdmin($listItems) {
-        $kq = ""; 
-        foreach ($listItems as $item) {
-            extract($item);
-            $kq .= '
-            <tr>
-            <td><a href="">aaaaa</a></td>
-            <td>Huỳnh Võ Hoàng Tuấn</td>
-            <td>096585589</td>
-            <td>Đống Đa</td>
-            <td>0</td>
-            <td>
-                <a href="" class="hendel-delete-act">Xóa</a>
-            </td>
-        </tr>
-            ';
         }
         return $kq;
 
@@ -525,6 +515,10 @@ function getProduct($id_pro){
              VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans')";
              return pdo_execute_return_lastInsertId($sql);
     }
+    function   update_changeAdress($id_user, $phone, $name, $pass, $address){
+        $sql = "UPDATE user SET username='".$name."',pass='".$pass."',address='".$address."',phone='".$phone."' WHERE id_user=".$id_user;
+        return update($sql);
+    }
     // function removeFromCart($product_id) {
     //     if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
     //         foreach($_SESSION['cart'] as $key => $item) {
@@ -536,4 +530,198 @@ function getProduct($id_pro){
     //         }
     //     }
     // }
+
+
+    // funtion admin viết ở đây
+
+    function getAdminCatalog(){
+        $sql="SELECT * FROM catalog";
+        return get_All($sql);
+    }
+    
+    // Xoa catalog
+    function deleteCatalog($id){
+        $sql= "DELETE FROM catalog where id_catalog=".$id;
+         delete($sql);
+    }
+    function get_One_Admin_Catalog($id){
+        $sql = "SELECT * FROM catalog WHERE id_catalog=".$id;
+        return get_One($sql);
+    }
+    function insertCatalog($nameCatalog, $qtyCatalog) {
+        $sql = "INSERT INTO catalog( name_catalog, qty_catalog) 
+        VALUES ('$nameCatalog', '$qtyCatalog')";
+        inset($sql);
+    }
+    function updateCatalog($id, $nameCatalog, $quantityCatalog) {
+        $sql = "UPDATE catalog SET name_catalog='".$nameCatalog."', qty_catalog='".$quantityCatalog."' WHERE id_catalog=".$id;
+        update($sql);
+    }
+    function updateCatalogStatus($id_package, $indStatus) {
+        $sql = "UPDATE package SET status='".$indStatus."' WHERE id_package=".$id_package;
+        update($sql);
+    }
+    function get_List_Catalog($listCatalog){
+        foreach($listCatalog as $cata){
+            extract($cata);
+            $linkUpdateCatalog='index.php?page=updateCatalog&id_catalog='.$id_catalog;
+            $linkDeleteCatalog='index.php?page=DeleteCatalog&id_catalog='.$id_catalog;
+            echo 
+            '
+            <tr>
+                <td><a href="">#'.$id_catalog.'</a></td>
+                <td><img src="../assets/icons/'.$img_catalog.'.png" alt="" style=" width:30px; height:30px"></td>
+                <td><img src="../assets/img/banner_product/'.$banner_catalog.'.png" alt="" style=" width:100px; height:50px"></td>
+                <td>'.$name_catalog.'</td>
+                <td>'.$qty_catalog.'</td>
+                <td>
+                    <a href="'.$linkUpdateCatalog.'" class="hendel-update-act">Sửa</a>|
+                    <a href="'.$linkDeleteCatalog.'" class="hendel-delete-act">Xóa</a>
+                </td>
+            </tr>
+            ';
+        }
+    }
+      // Admin home
+      function getAdmin_LoadNewCart(){
+            $sql="SELECT *
+            FROM package
+            WHERE DATE(time) BETWEEN CURDATE() - INTERVAL 2 DAY AND CURDATE();";
+            return get_All($sql);
+        }
+      function getAdmin_LoadAllUser(){
+            $sql="SELECT count(id_user) as allUser FROM user";
+            return get_All($sql);
+        }
+
+    // thống kê catalog
+    function getAdminCountCatalog(){
+        $sql="SELECT count(DISTINCT id_catalog) as count_catalog FROM catalog";
+        return get_All($sql);
+    }
+    function getAdminWorkCatalog(){
+        $sql="SELECT COUNT(DISTINCT id_catalog) AS total_catalogs
+        FROM product;";
+        return get_All($sql);
+    }
+
+    // product
+    function getAdminProduct(){
+        $sql="SELECT 
+        p.id AS product_id,
+        p.name AS product_name,
+        p.price AS product_price,
+        p.qty AS product_qty,
+        dp.sale AS detail_product_sale,
+        dp.type AS detail_product_type
+    FROM 
+        product p
+    JOIN 
+        detail_product dp ON p.id = dp.id_prd 
+    ORDER BY p.id ASC";
+        return get_All($sql);
+    }
+    function getAdminProductID($idPro){
+        $sql="SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        c.name_catalog AS category_name,
+        c.id_catalog AS id_catalog,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        p.qty AS product_qty,
+        a.img1 AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd
+    WHERE
+        dp.id_prd =".$idPro;
+        $sql.=" ORDER BY id_DP ASC";
+        return get_All($sql);
+    }
+    function  deleteProduct($id){
+        $sql= "DELETE FROM product where id=".$id;
+        delete($sql);
+    }
+    function insert_product($id_catalog,$name_product,$price_product, $qty_product) {
+        $sql = "INSERT INTO product(id_catalog, name, price, qty) 
+        VALUES ('$id_catalog','$name_product','$price_product', '$qty_product')";
+        inset($sql);
+    }
+    // Thống kê product
+    function getAdminAll_TotalProduct(){
+        $sql="SELECT COUNT(DISTINCT id) AS total_product FROM product;";
+        return get_All($sql);
+    }
+    function getAdminAll_SoldProduct(){
+        $sql="SELECT COUNT(DISTINCT id_Detail_Package) AS sold_product FROM detail_package;";
+        return get_All($sql);
+    }
+    function getAdmin_inventoryProduct(){
+        $sql= "SELECT SUM(qty) AS total_qty FROM product";
+        return get_All($sql);
+    }
+    function showAdminProduct($listProduct){
+        foreach($listProduct as $item){
+            extract($item);
+            $linkDeleteProduct="index.php?page=delProduct&id_Prd=".$product_id;
+            $linkUpdateProduct="index.php?page=updateProduct&id_Prd=".$product_id;
+            echo 
+            '
+            <tr>
+                <td class="table__packgeNew--Yellow"><a href="index.php?page=detailProduct&idPro='.$product_id.'">#'.$product_id.'</a></td>
+                <td>'.$product_name.'</td>
+                <td>'.$detail_product_type.'</td>
+                <td>'.number_format($product_price,0,",",".").'đ</td>
+                <td>'.$detail_product_sale.'%</td>
+                <td>'.$product_qty.'</td>
+                <td>
+                    <a href="'. $linkUpdateProduct.'" class="hendel-update-act">Sửa</a>|
+                    <a href="'.$linkDeleteProduct.'" class="hendel-delete-act">Xóa</a>
+                </td>
+            </tr>
+            
+            ';
+        }
+
+    }
+
+    // cart 
+    function getAdminCartStatus($status){
+        $sql="SELECT * FROM package where status=".$status;
+        return get_All($sql);
+    }
+
+    function getAdminCart(){
+        // $sql="SELECT * FROM package ORDER BY time DESC ";
+        // $sql = "SELECT * FROM package WHERE DATE(time) = CURDATE() ORDER BY time DESC";
+        $sql = "SELECT * FROM package WHERE YEARWEEK(time) = YEARWEEK(CURDATE()) ORDER BY time DESC";
+        return get_All($sql);
+    }
+    // thống kế đơn hàng 
+    function getAdmin_AllCart(){
+        $sql="SELECT COUNT(DISTINCT id_package) AS total_package FROM package;";
+        return get_All($sql);
+    }
+    function getAdmin_ShippCart(){
+        $sql="SELECT COUNT(*) as shipCart FROM package WHERE status = 2;";
+        return get_All($sql);
+    }
+    // DAYOFWEEK(CURDATE()) trả về số ngày trong tuần cho ngày hiện tại.
+    // CURDATE() - INTERVAL DAYOFWEEK(CURDATE()) - 1 DAY sẽ là ngày đầu tiên của tuần.
+    // CURDATE() + INTERVAL 7 - DAYOFWEEK(CURDATE()) DAY sẽ là ngày cuối cùng của tuần.
+    function getAdmin_NewCart(){
+        $sql="SELECT COUNT(*) AS new_orders
+        FROM package
+        WHERE DATE(time) = CURDATE();";
+        return get_All($sql);
+    }
+  
 ?>

@@ -12,8 +12,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Tổng sản phẩm</p>
-                                <div class="total_product__content--qty"><?=$totalAllProducts[0]['total_product']?></div>
+                                <p class="total_product__content--title">Số loại hàng</p>
+                                <div class="total_product__content--qty"><?=$countAllCatalog[0]['count_catalog'];?></div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -28,8 +28,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Sản phẩm đã bán</p>
-                                <div class="total_product__content--qty"><?=$soldProduct[0]['sold_product']?></div>
+                                <p class="total_product__content--title">Hoạt động</p>
+                                <div class="total_product__content--qty"><?=$workCatalog[0]['total_catalogs']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
@@ -44,43 +44,42 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Hàng tồn kho</p>
-                                <div class="total_product__content--qty"><?= $inventoryProduct[0]['total_qty']?></div>
+                                <p class="total_product__content--title">Cần xuất nhanh</p>
+                                <div class="total_product__content--qty">3</div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>
                     </article>
-                    <!-- code table don hang o day -->
+                    <!-- code table loai hang o day -->
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Sản phẩm</h4>
-                                <button class="btn btn-ml"><a href="add_sanpham_admin.html">Thêm </a></button>
+                                <h4>Loại hàng mới</h4>
+                                <button class="btn btn-ml"><a href="index.php?page=addCatalog">Thêm </a></button>
                             </div>
-                            
+    
                             <select class="revenue__top--hendel">
-                                <option value="1">Cá hồi</option>
-                                <option value="2">Cua</option>
-                                <option value="3">Ghẹ</option>
+                                <option value="1">Sắp xếp</option>
+                                <option value="2">Tăng dần</option>
+                                <option value="3">Giảm dần</option>
                             </select>
                         </div>
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <td>Mã sản phẩm</td>
-                                    <td>Tên</td>
-                                    <td>Phân loại</td>
-                                    <td>Giá</td>
-                                    <td>Sale</td>
-                                    <td>Còn lại</td>
+                                    <td>Mã loại</td>
+                                    <td>icon</td>
+                                    <td>Banner</td>
+                                    <td>Tên loại</td>
+                                    <td>Số lượng</td>
                                     <td>Thao tác</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?=showAdminProduct($listProduct)?>
+                                <?=get_List_Catalog($listCatalog);?>
+                            
                             </tbody>
                         </table>
                     </article>
                 </div>
-
-            
+      

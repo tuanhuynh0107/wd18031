@@ -164,29 +164,52 @@
                 $workCatalog=getAdminWorkCatalog();
                 require_once "view/formAddCatalog.php";
                 break;      
-            // case 'updateCatalog':
-            //     if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
-            //         $catalogID = get_One_Admin_Catalog($_GET['id_catalog']);
-            //         $listItem=getAdminCatalog();
+            case 'updateCatalog':
+                if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
+                    $catalogID = get_One_Admin_Catalog($_GET['id_catalog']);
+                    $listItem=getAdminCatalog();
 
-            //     }
-            //     $countAllCatalog= getAdminCountCatalog();
-            //     $workCatalog=getAdminWorkCatalog();
-            //     require_once "view/formAddCatalog.php";
-            //     break; 
-            // case 'updateCata':
-            //   if(null !== $_POST['updateCatalog'] ){
-            //     $nameCatalog=$_POST['nameCatalog'];
-            //     $quantityCatalog=$_POST['quantityCatalog'];
-            //     $id=$_POST['idCatalog'];
-            //     updateCatalog($id, $nameCatalog, $quantityCatalog);
-                
-            //   }
-            //   $countAllCatalog= getAdminCountCatalog();
-            //   $workCatalog=getAdminWorkCatalog();
-            //   $listCatalog=getAdminCatalog();
-            //   require_once "view/catalog.php";
-            //     break;
+                }
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
+                require_once "view/formUpdateCatalog.php";
+                break; 
+            case 'updateCata':
+              if(isset($_POST['btnUpdateCatalog'])&&($_POST['btnUpdateCatalog'])){
+                $nameCatalog=$_POST['nameCatalog'];
+                    $qtyCatalog=$_POST['quantityCatalog'];
+                    $satus=$_POST['satus'];
+
+                    // hình banner catalog
+                    $bannerCatalog=$_FILES['img_catalog']['name'];
+                    $target_dir = "../assets/uploads/";
+                    $target_file = $target_dir . basename($_FILES["img_catalog"]["name"]);
+
+                    if (move_uploaded_file($_FILES["img_catalog"]["tmp_name"], $target_file)) {
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                      } else {
+                        // echo "Sorry, there was an error uploading your file.";
+                      }
+                    //  hình icons catalog
+                    $iconsCatalog=$_FILES['icon_catalog']['name'];
+                    $target_dir = "../assets/uploads/";
+                    $target_file = $target_dir . basename($_FILES["icon_catalog"]["name"]);
+
+                    if (move_uploaded_file($_FILES["icon_catalog"]["tmp_name"], $target_file)) {
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                      } else {
+                        // echo "Sorry, there was an error uploading your file.";
+                      }
+
+                $id=$_POST['id_catalog'];
+                updateCatalog($nameCatalog, $qtyCatalog,$satus, $bannerCatalog, $iconsCatalog, $id);
+                $thongbao="bạn đã cập nhật thành công";
+              }
+              $countAllCatalog= getAdminCountCatalog();
+              $workCatalog=getAdminWorkCatalog();
+              $listCatalog=getAdminCatalog();
+              require_once "view/catalog.php";
+                break;
 
             // case "addProduct" :
             //         if(isset($_POST['addProduct'])&&($_POST['addProduct'])){

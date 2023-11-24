@@ -701,8 +701,8 @@ function forgotPassUser($phone) {
          VALUES ('$nameCatalog', $qtyCatalog, '$satus', '$bannerCatalog', '$iconsCatalog')";
         inset($sql);
     }
-    function updateCatalog($id, $nameCatalog, $quantityCatalog) {
-        $sql = "UPDATE catalog SET name_catalog='".$nameCatalog."', qty_catalog='".$quantityCatalog."' WHERE id_catalog=".$id;
+    function updateCatalog($nameCatalog, $qtyCatalog,$satus, $bannerCatalog, $iconsCatalog, $id){
+        $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog, status_catalog='$satus', banner_catalog='$bannerCatalog', img_catalog='$iconsCatalog' WHERE id_catalog=$id";
         update($sql);
     }
     function updateCatalogStatus($id_package, $indStatus) {

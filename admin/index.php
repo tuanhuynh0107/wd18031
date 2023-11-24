@@ -59,18 +59,29 @@
                 $listProduct=getAdminProduct();
                 require_once "view/addProduct.php";
                 break;
+                
             case 'updateProduct':
                 // chưa xong 
-                $listProduct=getAdminProduct();
+                if(isset($_GET['id_Prd'])&&($_GET['id_Prd']>0)){
+                    $listProductID=getAdminProductID($_GET['id_Prd']);
+                }
+               
                 $totalAllProducts=getAdminAll_TotalProduct();
                 $soldProduct=getAdminAll_SoldProduct();
                 $inventoryProduct=getAdmin_inventoryProduct();
-                require_once "view/product.php";
+
+                $listCatalog=getAdminCatalog();
+                require_once "view/update.php";
                 break;  
+            case 'updateFormPro':
+                if(isset($_POST['']))
+                require_once "view/update.php";
+                break;                
             case 'showUpdate':
                 
                 require_once "view/Update.php";
                 break;
+           
             case 'form_addProduct':
                   
                 break;

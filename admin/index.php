@@ -156,10 +156,18 @@
                 $newOrder=getAdmin_NewCart();
                 require_once "view/cartAdmin.php";
                 break;
-            case "delProduct" :
-                 
-                        require_once "view/product.php";
-                        break;
+            case 'updateStatus':
+                if(isset($_POST['updateStatus'])&&($_POST['updateStatus'])){
+                    $indStatus = $_POST['indStatus'];
+                    $idpackage = $_POST['id_package'];
+                    updateCatalogStatus($idpackage, $indStatus);
+                }
+                $countAllCart=getAdmin_AllCart();
+                $shipCart=getAdmin_ShippCart();
+                $newOrder=getAdmin_NewCart();
+                $listCart= getAdminCart();
+                require_once "view/cartAdmin.php";
+                break;
             default:
                 $soldProduct=getAdminAll_SoldProduct();
                 $loadAllUser=getAdmin_LoadAllUser();

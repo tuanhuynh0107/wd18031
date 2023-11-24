@@ -329,6 +329,10 @@ function getProduct($id_pro){
         $sql = "DELETE FROM danhmuc WHERE idDM = ".$idDM;
         delete($sql);
     }
+    // function delCartUser($id_user, $) {
+    //     $sql = "DELETE FROM danhmuc WHERE idDM = ".$idDM;
+    //     delete($sql);
+    // }
     function delUser($idKH) {
         $sql = "DELETE FROM khachhang WHERE idKH= ".$idKH;
         delete($sql);

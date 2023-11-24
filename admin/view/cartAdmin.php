@@ -64,9 +64,10 @@
                             </div>
                             <div class="revenue__status row">
                                 <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
-                                <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang giao</a>
-                                <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Đã giao</a>
+                                <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang vận chuyển</a>
+                                <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Giao hàng thành công</a>
                                 <a href="index.php?page=loadCartStatus&status=4" class="revenue__top--satus">Thất bại</a>
+                                <a href="index.php?page=loadCartStatus&status=5" class="revenue__top--satus">Đã hủy</a>
                             </div>
                         </div>
                         <table class="table__packgeNew">
@@ -112,6 +113,17 @@
                                             $statusShow .= '
                                                 <select name="indStatus" class="revenue__top--hendel yourCard__status">
                                                     <option value="4">Thất bại</option>
+                                                </select>
+                                                ';
+                                        }
+                                        elseif($status==5) {
+                                            $statusShow .= '
+                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
+                                                    <option value="5">Đã hủy</option>
+                                                    <option value="2">Đang vận chuyển</option>
+                                                    <option value="3">Giao hàng thành công</option>
+                                                    <option value="4">Thất bại</option>
+                                                    <option value="1">Chờ xác nhận</option>
                                                 </select>
                                                 ';
                                         }

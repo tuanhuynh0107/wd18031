@@ -60,16 +60,49 @@
                 require_once "view/addProduct.php";
                 break;
             case 'updateProduct':
-                // chưa xong 
+                if(isset($_GET['id_Prd'])&&($_GET['id_Prd']>0)){
+                    $listProductID=getAdminProductID($_GET['id_Prd']);
+                }
+               
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+
+                $listCatalog=getAdminCatalog();
+                require_once "view/update.php";
+                break;  
+            case 'updatePro':
+                if(isset($_POST['btnUpdatePro'])){
+                    $nameProduct=$_POST['nameProduct'];
+                    $priceProduct=$_POST['priceProduct'];
+                    $qtyProduct=$_POST['qtyProduct'];
+                    $typeProduct=$_POST['typeProduct'];
+                    $selectCatalog=$_POST['selectCatalog'];
+                    $idProduct=$_POST['idProduct'];
+                    
+                    $hinh=$_FILES['imgProduct']['name'];
+                    $target_dir = "../assets/uploads/";
+                    $target_file = $target_dir.basename($_FILES["imgProduct"]["name"]);
+    
+                    if (move_uploaded_file($_FILES["imgProduct"]["tmp_name"], $target_file)) {
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                      } else {
+                        // echo "Sorry, there was an error uploading your file.";
+                      }
+
+                      updateAdminProduct($nameProduct,$priceProduct,$hinh,$qtyProduct,$typeProduct,$selectCatalog,$idProduct);
+                      $thongbao="bạn đã udpate thành công sản phẩm";
+                }
                 $listProduct=getAdminProduct();
                 $totalAllProducts=getAdminAll_TotalProduct();
                 $soldProduct=getAdminAll_SoldProduct();
                 $inventoryProduct=getAdmin_inventoryProduct();
+                
                 require_once "view/product.php";
-                break;  
+                break;    
             case 'showUpdate':
                 
-                require_once "view/Update.php";
+                require_once "view/product.php";
                 break;
             case 'form_addProduct':
                   

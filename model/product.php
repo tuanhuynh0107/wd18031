@@ -696,9 +696,9 @@ function forgotPassUser($phone) {
         $sql = "SELECT * FROM catalog WHERE id_catalog=".$id;
         return get_One($sql);
     }
-    function insertCatalog($nameCatalog, $qtyCatalog) {
-        $sql = "INSERT INTO catalog( name_catalog, qty_catalog) 
-        VALUES ('$nameCatalog', '$qtyCatalog')";
+    function insertCatalog($nameCatalog, $qtyCatalog,$satus,  $bannerCatalog, $iconsCatalog) {
+        $sql = "INSERT INTO catalog (name_catalog, qty_catalog, status_catalog, banner_catalog, img_catalog)
+         VALUES ('$nameCatalog', $qtyCatalog, '$satus', '$bannerCatalog', '$iconsCatalog')";
         inset($sql);
     }
     function updateCatalog($id, $nameCatalog, $quantityCatalog) {

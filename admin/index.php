@@ -81,15 +81,20 @@
                     $idProduct=$_POST['idProduct'];
                     
                     $hinh=$_FILES['imgProduct']['name'];
-                    $target_dir = "../assets/uploads/";
+                    $target_dir = 'C:/xampp/htdocs/ky 4/change fisman/wd18031/assets/uploads/';
                     $target_file = $target_dir.basename($_FILES["imgProduct"]["name"]);
     
                     if (move_uploaded_file($_FILES["imgProduct"]["tmp_name"], $target_file)) {
-                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
                       } else {
-                        // echo "Sorry, there was an error uploading your file.";
+                        echo "Sorry, there was an error uploading your file.";
                       }
-
+                      error_reporting(E_ALL);
+                      ini_set('display_errors', 1);
+                      
+                      // Thêm các dòng sau trước các lời gọi move_uploaded_file
+                      echo 'Thư Mục Đích: ' . $destinationDirectory . '<br>';
+                      echo 'Tên Tệp Đã Tải Lên: ' . $uploadedFileName . '<br>';
                       updateAdminProduct($nameProduct,$priceProduct,$hinh,$qtyProduct,$typeProduct,$selectCatalog,$idProduct);
                       $thongbao="bạn đã udpate thành công sản phẩm";
                 }
@@ -104,7 +109,7 @@
                 
                 require_once "view/product.php";
                 break;
-            case 'form_addProduct':
+            case '  Product':
                   
                 break;
             case 'catalog':
@@ -124,39 +129,65 @@
                 require_once "view/catalog.php";
                 break;
             case 'addCatalog':
-                if(isset($_POST['addCatalog'])&&($_POST['addCatalog'])){
+                if(isset($_POST['addCata'])&&($_POST['addCata'])){
                     $nameCatalog=$_POST['nameCatalog'];
                     $qtyCatalog=$_POST['quantityCatalog'];
-                    insertCatalog($nameCatalog, $qtyCatalog );
+                    $satus=$_POST['satus'];
+
+                    // hình banner catalog
+                    $bannerCatalog=$_FILES['img_catalog']['name'];
+                    $target_dir = ".../assets/uploads/";
+                    $target_file = $target_dir . basename($_FILES["img_catalog"]["name"]);
+
+                    if (move_uploaded_file($_FILES["img_catalog"]["tmp_name"], $target_file)) {
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                      } else {
+                        // echo "Sorry, there was an error uploading your file.";
+                      }
+                    //  hình icons catalog
+                    $iconsCatalog=$_FILES['icon_catalog']['name'];
+                    $target_dir = ".../assets/uploads/";
+                    $target_file = $target_dir . basename($_FILES["icon_catalog"]["name"]);
+
+                    if (move_uploaded_file($_FILES["icon_catalog"]["tmp_name"], $target_file)) {
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                      } else {
+                        // echo "Sorry, there was an error uploading your file.";
+                      }
+
+                    insertCatalog($nameCatalog, $qtyCatalog,$satus,  $bannerCatalog, $iconsCatalog);
+                    $thongbao="bạn đã thêm thành công";
+
                 }
                 $listItem=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
                 require_once "view/formAddCatalog.php";
                 break;      
-            case 'updateCatalog':
-                if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
-                    $catalog = get_One_Admin_Catalog($_GET['id_catalog']);
-                    $listItem=getAdminCatalog();
+            // case 'updateCatalog':
+            //     if (isset($_GET['id_catalog'])&&($_GET['id_catalog']) >0) {
+            //         $catalogID = get_One_Admin_Catalog($_GET['id_catalog']);
+            //         $listItem=getAdminCatalog();
 
-                }
-                $countAllCatalog= getAdminCountCatalog();
-                $workCatalog=getAdminWorkCatalog();
-                require_once "view/updateCatalog.php";
-                break; 
-            case 'updateCata':
-              if(null !== $_POST['updateCatalog'] ){
-                $nameCatalog=$_POST['nameCatalog'];
-                $quantityCatalog=$_POST['quantityCatalog'];
-                $id=$_POST['idCatalog'];
-                updateCatalog($id, $nameCatalog, $quantityCatalog);
+            //     }
+            //     $countAllCatalog= getAdminCountCatalog();
+            //     $workCatalog=getAdminWorkCatalog();
+            //     require_once "view/formAddCatalog.php";
+            //     break; 
+            // case 'updateCata':
+            //   if(null !== $_POST['updateCatalog'] ){
+            //     $nameCatalog=$_POST['nameCatalog'];
+            //     $quantityCatalog=$_POST['quantityCatalog'];
+            //     $id=$_POST['idCatalog'];
+            //     updateCatalog($id, $nameCatalog, $quantityCatalog);
                 
-              }
-              $countAllCatalog= getAdminCountCatalog();
-              $workCatalog=getAdminWorkCatalog();
-              $listCatalog=getAdminCatalog();
-              require_once "view/catalog.php";
-                break;
+            //   }
+            //   $countAllCatalog= getAdminCountCatalog();
+            //   $workCatalog=getAdminWorkCatalog();
+            //   $listCatalog=getAdminCatalog();
+            //   require_once "view/catalog.php";
+            //     break;
+
             // case "addProduct" :
             //         if(isset($_POST['addProduct'])&&($_POST['addProduct'])){
             //                 // $id = $_POST['idDM'];

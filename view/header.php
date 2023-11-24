@@ -25,6 +25,8 @@
 
         <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/slider.css" />
+
     <script src="app.js"></script>
 </head>
 

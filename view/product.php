@@ -11,26 +11,52 @@
               <div class="main-product--row">
                   <div class="main-product__img">
                       <div class="main-product__img--top">
-                          <figure>
-                              <img src="./assets/img/img_main/<?=$img_main?>.png"
-                                  alt="" class="main-product__img--top-img">
-                          </figure>
+                      <div class="slider slider-for h3" >
+                                <img src="https://images.unsplash.com/photo-1682695797873-aa4cb6edd613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60"
+                                    alt="" class="main-product__img--top-img">
+                                <img src="../assets/img/blog-1.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-2.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-3.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/bo-dung-cu-an-HS.png" alt="" class="main-product__img--top-img">    
+                            </div>
                       </div>
                       <div class="main-product__img--bottom">
-                          <figure>
-                              <img src="./assets/img/img_main/<?=$img1?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img2?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img3?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img4?>.png"
-                                  alt="">
-                              <img src="./assets/img/img_main/<?=$img5?>.png"
-                                  alt="">
-                          </figure>
+                      <figure class="slider slider-nav h3">
+                                <img src="https://images.unsplash.com/photo-1682695797873-aa4cb6edd613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60"
+                                    alt="" class="main-product__img--top-img">
+                                <img src="../assets/img/blog-1.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-2.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/blog-3.jpg" alt="" class="main-product__img--top-img">    
+                                <img src="../assets/img/bo-dung-cu-an-HS.png" alt="" class="main-product__img--top-img">    
+                            </figure>
                       </div>
                   </div>
+                  <!-- JS Slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+   $('.slider-for').slick({
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ arrows: false,
+ fade: true,
+ asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+ slidesToShow: 3,
+ slidesToScroll: 1,
+ asNavFor: '.slider-for',
+ dots: true,
+ focusOnSelect: true
+});
+
+$('a[data-slide]').click(function(e) {
+ e.preventDefault();
+ var slideno = $(this).data('slide');
+ $('.slider-nav').slick('slickGoTo', slideno - 1);
+});
+</script>
+<!-- END JS Slider -->
                   <div class="main-product__content">
                       <div class="main-product__content--type row">
                           <div class="content--type"><?= $type?></div>

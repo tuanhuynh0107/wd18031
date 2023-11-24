@@ -101,7 +101,7 @@
                                         <label for="add_product--select" class="form_group__item_input--text">Phân loại</label> <br>
 
                                        
-                                        <input type="text" class="form_group__item_input--input" name="qtyProduct" id="add_product--input"  value="<?=$listProductID[0]['product_type']?>">
+                                        <input type="text" class="form_group__item_input--input" name="typeProduct" id="add_product--input"  value="<?=$listProductID[0]['product_type']?>">
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Số lượng sản phâm</label> <br>
@@ -122,9 +122,11 @@
                                                     $kqDM.= '<option value="'. $idPRESENT.'" selected>'.$name_catalog.'</option>';
                                                 }else {
                                                     $kqDM.= '<option value="'.$id_catalog.'">'.$name_catalog.'</option>';
+                                                    
                                                 }
                                             }
                                             echo $kqDM;
+                                            
                                         }
                                         ?>
                                       
@@ -133,7 +135,6 @@
                                     <div class="form_group__add_product--item_submit">
                                         <input type="submit" class="form_group__item_input--cancle" name="" id="" value="Canle">
                                         <input type="submit" class="form_group__item_input--them" name="btnAddPro" id="" value="Thêm">
-
                                     </div>
                                     
                                 </div>

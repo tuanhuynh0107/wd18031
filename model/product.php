@@ -811,6 +811,23 @@ function forgotPassUser($phone) {
         $sql= "SELECT SUM(qty) AS total_qty FROM product";
         return get_All($sql);
     }
+    function updateAdminProduct($nameProduct,$priceProduct,$hinh,$qtyProduct,$typeProduct,$selectCatalog,$idProduct){
+        $sql = "UPDATE product p
+        JOIN catalog c ON p.id_catalog = c.id_catalog
+        JOIN detail_product dp ON p.id = dp.id_prd
+        LEFT JOIN
+        album a ON p.id = a.id_prd
+        SET
+            p.name = '$nameProduct',
+            p.price = $priceProduct, -- Giá mới của sản phẩm
+            dp.type = '$typeProduct',
+            p.qty = '$qtyProduct', -- Số lượng tồn kho mới
+            c.id_catalog = '$selectCatalog',
+            a.img1='$hinh'
+        WHERE
+            dp.id_prd = ".$idProduct;
+        pdo_execute($sql);;
+    }
     function showAdminProduct($listProduct){
         foreach($listProduct as $item){
             extract($item);

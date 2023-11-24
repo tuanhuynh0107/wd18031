@@ -17,14 +17,7 @@
                         <div class="form__group">
                             <input type="submit" name="forgotPass" value="Gửi Yêu Cầu" class="btn push__login">
                             <?php
-                                
-                                    // if(isset($check_pass)&& $check_pass == "") {
-                                    //     echo '<p class="notification" style="color:#15101d;">  </p>';
-                                    // }else {
-                                    //     echo ' Mật khẩu của bạn là: <p class="notification"> '. $check_pass.'</p>';
-                                    // }
-                                    
-                                  
+                                 
                                ?>          
                         </div>
                         <div class="form__group">
@@ -37,7 +30,7 @@
                                     <a href="index.php?page=login" class="form__desc--hosline">Đăng nhập</a>
                                 </li>
                                 <?php }?>
-                                <li class="form__desc">Liên hệ <a href="0907578881" class="form__desc--hosline">Tổng đải</a> để được hỗ trợ nếu không nhận được tin nhắn</li>
+                                <li class="form__desc">Liên hệ <a href="0907578881" class="form__desc--hosline">Tổng đải</a> để được hỗ trợ nếu không nhận được mật khẩu mới</li>
                             </ul>
                         </div>
                     </form>

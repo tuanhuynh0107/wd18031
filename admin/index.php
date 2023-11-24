@@ -168,6 +168,13 @@
                 $listCart= getAdminCart();
                 require_once "view/cartAdmin.php";
                 break;
+            case 'detailPackage':
+                if(isset($_GET['idPackage'])&&($_GET['idPackage']) > 0) {
+                    $id_package= $_GET['idPackage'];
+                    $itemDetailPackage=getDetailPackage($id_package);
+                }
+                require_once "view/detailPackage.php";
+                break;
             default:
                 $soldProduct=getAdminAll_SoldProduct();
                 $loadAllUser=getAdmin_LoadAllUser();

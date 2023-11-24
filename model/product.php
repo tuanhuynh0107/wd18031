@@ -327,21 +327,26 @@ function forgotPassUser($phone) {
     if (empty($phone)) {
        $notify_pass = "Số điện thoại của bạn chưa được nhập";
     } else {
-        // Kiểm tra xem tên loại đã tồn tại trong cơ sở dữ liệu chưa
-        $sql = "SELECT * FROM user WHERE phone = ?";
-        $existingphone = pdo_query_one($sql, $phone);
+        if(!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)){
+            $notify_pass = "Sai định dang";
+        }else{
+             // Kiểm tra xem tên loại đã tồn tại trong cơ sở dữ liệu chưa
+            $sql = "SELECT * FROM user WHERE phone = ?";
+            $existingphone = pdo_query_one($sql, $phone);
 
-        if (!$existingphone && !preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
-            $notify_pass = "Sai số điện thoại";
-        } else {       
-            $phoneNumber = $phone; 
-            // Tạo mật khẩu ngẫu nhiên
-            $newPassword = generateRandomPassword();
-            // Cập nhật mật khẩu mới trong cơ sở dữ liệu
-            $sql = "UPDATE user SET pass = '$newPassword' WHERE phone = '$phoneNumber'";
-            update($sql);
-            $notify_pass = $newPassword;        
+            if (!$existingphone) {
+                $notify_pass = "Sai số điện thoại";
+            } else {       
+                $phoneNumber = $phone; 
+                // Tạo mật khẩu ngẫu nhiên
+                $newPassword = generateRandomPassword();
+                // Cập nhật mật khẩu mới trong cơ sở dữ liệu
+                $sql = "UPDATE user SET pass = '$newPassword' WHERE phone = '$phoneNumber'";
+                update($sql);
+                $notify_pass = $newPassword;        
+            }
         }
+       
     }
        return $notify_pass;
    }

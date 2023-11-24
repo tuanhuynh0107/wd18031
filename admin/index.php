@@ -3,6 +3,7 @@
     ob_start()  ;
     require_once "../model/db.php";
     require_once "../model/product.php";
+    // require_once "../model/user.php";
     require_once 'view/header.php';
      if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
@@ -43,8 +44,18 @@
                 break;
             case "delProduct" :
                  
-                        require_once "view/product.php";
-                        break;
+                require_once "view/product.php";
+                break;
+                // case "deleteUser" :
+                //     if(isset($_GET['id'])&&($_GET['id'])>0){
+
+                //     }
+                //     require_once "view/user.php";
+                //     break;
+            case "user" :
+                $listUser = getUserAdmin();
+                require_once "view/user.php";
+                break;       
             default:
                 require_once "view/home.php";
                 break;

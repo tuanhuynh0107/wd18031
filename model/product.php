@@ -219,6 +219,27 @@ function getProduct($id_pro){
 
     }
 
+    function showUserAdmin($listItems) {
+        $kq = ""; 
+        foreach ($listItems as $item) {
+            extract($item);
+            $kq .= '
+            <tr>
+            <td><a href="">aaaaa</a></td>
+            <td>Huỳnh Võ Hoàng Tuấn</td>
+            <td>096585589</td>
+            <td>Đống Đa</td>
+            <td>0</td>
+            <td>
+                <a href="" class="hendel-delete-act">Xóa</a>
+            </td>
+        </tr>
+            ';
+        }
+        return $kq;
+
+    }
+
     function getProductDetail($idProduct) {
         $sql = "SELECT *  FROM detail_product where id_prd=".$idProduct;
         return get_One($sql);
@@ -302,7 +323,14 @@ function getProduct($id_pro){
     }
 
     // admin
-
+    function getUserAdmin(){
+        $sql= "SELECT * FROM user";
+        return get_All($sql);
+    }
+    // function delUser($id_user) {
+    //     $sql = "DELETE FROM user WHERE id = ".$id_user;
+    //     delete($sql);
+    // }
     function delProduct($id) {
         $sql = "DELETE FROM product WHERE id = ".$id;
         delete($sql);

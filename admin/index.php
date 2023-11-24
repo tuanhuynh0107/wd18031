@@ -9,6 +9,8 @@
         $page = $_GET['page'];
 
         switch ($page) {
+
+           
             case 'product':
                 $listProduct=getAdminProduct();
                 $totalAllProducts=getAdminAll_TotalProduct();
@@ -137,7 +139,6 @@
             //                 $product = getProduct();
             //                 require_once  "view/product.php";
             //                 break;
-            
            case 'loadCart':
             $countAllCart=getAdmin_AllCart();
             $shipCart=getAdmin_ShippCart();
@@ -145,7 +146,30 @@
             $listCart= getAdminCart();
             require_once "view/cartAdmin.php";
             break;
-
+            case 'loadCartStatus':
+                if(isset($_GET['status'])&&($_GET['status'])){
+                    $status = $_GET['status'];
+                    $listCart=getAdminCartStatus($status);
+                }
+                $countAllCart=getAdmin_AllCart();
+                $shipCart=getAdmin_ShippCart();
+                $newOrder=getAdmin_NewCart();
+                require_once "view/cartAdmin.php";
+                break;
+            case 'updateStatus':
+                if(isset($_POST['updateStatus'])&&($_POST['updateStatus'])){
+                    $indStatus = $_POST['indStatus'];
+                    $idpackage = $_POST['id_package'];
+                    echo  'Mã đơn hàng là '.$idpackage;
+                    echo  'Trạng thái là '.$indStatus;
+                    updateCatalogStatus($idpackage, $indStatus);
+                }
+                $countAllCart=getAdmin_AllCart();
+                $shipCart=getAdmin_ShippCart();
+                $newOrder=getAdmin_NewCart();
+                $listCart= getAdminCart();
+                require_once "view/cartAdmin.php";
+                break;
             default:
                 $soldProduct=getAdminAll_SoldProduct();
                 $loadAllUser=getAdmin_LoadAllUser();

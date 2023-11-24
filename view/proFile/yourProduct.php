@@ -54,16 +54,13 @@
                     <div class="sidebar--bottom row">
                         <ul class="nav_sidebar row">
                             <li class="nav_sidebar--li">
-                                <a href="index.php?page=yourCard&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Đơn hàng của bạn</a>
+                                <a href="index.php?page=yourCard&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Lịch sử đơn hàng</a>
                             </li>
                             <li class="nav_sidebar--li">
-                                <a href="#!" class="nav_sidebar--li__a">Sản phẩm yêu thích</a>
+                                <a href="index.php?page=yourProduct&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Sản phẩm đã mua</a>
                             </li>
                             <li class="nav_sidebar--li">
-                                <a href="#!" class="nav_sidebar--li__a">Sản phẩm đã mua</a>
-                            </li>
-                            <li class="nav_sidebar--li">
-                                <a href="#!" class="nav_sidebar--li__a">Chính sách hỗ trợ</a>
+                                <a href="index.php?page=resetPassWord&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Đổi mật khẩu</a>
                             </li>
                             <li class="nav_sidebar--li" >
                                 <a href="index.php?page=logOut" class="nav_sidebar--li__a">Đăng xuất</a>

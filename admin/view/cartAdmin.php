@@ -2,6 +2,8 @@
     print_r($newOrder);
 
 ?>
+<input type="submit" value="">
+<form action="" method="post"></form>
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
@@ -60,17 +62,18 @@
                             <div class="revenue__top--title">
                                 <h4>Đơn hàng mới</h4>
                             </div>
-    
-                            <select class="revenue__top--hendel">
-                                <option value="1">Sắp xếp</option>
-                                <option value="2">Tăng dần</option>
-                                <option value="3">Giảm dần</option>
-                            </select>
+                            <div class="revenue__status row">
+                                <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
+                                <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang giao</a>
+                                <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Đã giao</a>
+                                <a href="index.php?page=loadCartStatus&status=4" class="revenue__top--satus">Thất bại</a>
+                            </div>
                         </div>
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
                                     <td>Mã đơn hàng</td>
+                                    <td>Khách hàng</td>
                                     <td>Thời gian</td>
                                     <td>Trạng thái</td>
                                     <td>Thao tác</td>
@@ -80,90 +83,61 @@
                                 <?php
                                     foreach($listCart as $cart){
                                         extract($cart);
+                                        $statusShow="";
+                                        if($status==1) {
+                                            $statusShow .= '
+                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
+                                                    <option value="1">Chờ xác nhận</option>
+                                                    <option value="2">Đang vận chuyển</option>
+                                                    <option value="3">Giao hàng thành công</option>
+                                                    <option value="4">Hủy</option>
+                                                </select>
+                                            ';
+                                        }elseif($status==2) {
+                                            $statusShow .= '
+                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
+                                                    <option value="2">Đang vận chuyển</option>
+                                                    <option value="3">Giao hàng thành công</option>
+                                                    <option value="4">Thất bại</option>
+                                                </select>
+                                            ';
+                                        }elseif($status==3) {
+                                            $statusShow .= '
+                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
+                                                    <option value="3">Giao hàng thành công</option>
+                                                </select>
+                                                ';
+                                        }
+                                        elseif($status==4) {
+                                            $statusShow .= '
+                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
+                                                    <option value="4">Thất bại</option>
+                                                </select>
+                                                ';
+                                        }
                                         echo 
                                         '
-                                        <tr>
-                                            <td><a href="">#DH'.$id_package.'</a></td>
-                                            <td>'.$time.'</td>
-                                            <td>'.$status.'</td>
-                                            <td>
-                                                <a href="" class="hendel-update-act">Sửa</a>|
-                                                <a href="" class="hendel-delete-act">Xóa</a>
-                                            </td>
-                                        </tr>
+                                        <form action="index.php?page=updateStatus&idPackage='.$id_package.'" method="post">
+                                            <tr>
+                                                <td><a href="" class="id__cart">'.$id_package.'</a></td>
+                                                <td>'.$name.'</td>
+                                                <td>'.$time.'</td>
+                                                <td> 
+                                                    '. $statusShow.'
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="id_package" value="'.$id_package.'">
+                                                    <input type="submit" value="Thay đổi" name="updateStatus" class="hendel-update-act">
+                                                </td>
+                                            </tr>
+                                        </form>
                                         ';
                                     }
                                 ?>
                                 
-                                <!-- <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Đã thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">#DH0123</a></td>
-                                    <td>24-10-2023</td>
-                                    <td>Chưa thanh toán</td>
-                                    <td>
-                                        <a href="" class="hendel-update-act">Sửa</a>|
-                                        <a href="" class="hendel-delete-act">Xóa</a>
-                                    </td>
-                                </tr> -->
+                                
                             </tbody>
                         </table>
                     </article>
                 </div>
-                <article class="notify">
-
-                </article>
-
-            </main>
+               

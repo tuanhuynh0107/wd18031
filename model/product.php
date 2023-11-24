@@ -291,7 +291,7 @@ function loadAllUser($id_user){
 }
 function getYourCart($id_user){
     $sql="SELECT * FROM package WHERE id_User=".$id_user;
-    $sql.=" ORDER BY id_package DESC";
+    $sql.=" ORDER BY id_package DESC limit 10";
     return get_All($sql);
 }
 function getYourProduct($id_user){
@@ -696,6 +696,10 @@ function forgotPassUser($phone) {
         $sql = "UPDATE catalog SET name_catalog='".$nameCatalog."', qty_catalog='".$quantityCatalog."' WHERE id_catalog=".$id;
         update($sql);
     }
+    function updateCatalogStatus($id_package, $indStatus) {
+        $sql = "UPDATE package SET status='".$indStatus."' WHERE id_package=".$id_package;
+        update($sql);
+    }
     function get_List_Catalog($listCatalog){
         foreach($listCatalog as $cata){
             extract($cata);
@@ -829,8 +833,15 @@ function forgotPassUser($phone) {
     }
 
     // cart 
+    function getAdminCartStatus($status){
+        $sql="SELECT * FROM package where status=".$status;
+        return get_All($sql);
+    }
+
     function getAdminCart(){
-        $sql="SELECT * FROM package";
+        // $sql="SELECT * FROM package ORDER BY time DESC ";
+        // $sql = "SELECT * FROM package WHERE DATE(time) = CURDATE() ORDER BY time DESC";
+        $sql = "SELECT * FROM package WHERE YEARWEEK(time) = YEARWEEK(CURDATE()) ORDER BY time DESC";
         return get_All($sql);
     }
     // thống kế đơn hàng 

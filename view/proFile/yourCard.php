@@ -52,16 +52,13 @@
                     <div class="sidebar--bottom row">
                         <ul class="nav_sidebar row">
                             <li class="nav_sidebar--li">
-                                <a href="index.php?page=yourCard&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Đơn hàng của bạn</a>
-                            </li>
-                            <li class="nav_sidebar--li">
-                                <a href="#!" class="nav_sidebar--li__a">Sản phẩm yêu thích</a>
+                                <a href="index.php?page=yourCard&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Lịch sử đơn hàng</a>
                             </li>
                             <li class="nav_sidebar--li">
                                 <a href="index.php?page=yourProduct&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Sản phẩm đã mua</a>
                             </li>
                             <li class="nav_sidebar--li">
-                                <a href="#!" class="nav_sidebar--li__a">Chính sách hỗ trợ</a>
+                                <a href="index.php?page=resetPassWord&id_user=<?=$id_user?>" class="nav_sidebar--li__a">Đổi mật khẩu</a>
                             </li>
                             <li class="nav_sidebar--li" >
                                 <a href="index.php?page=logOut" class="nav_sidebar--li__a">Đăng xuất</a>
@@ -83,6 +80,7 @@
                         <thead class="yourCard__header">
                             <tr >
                                 <td>Mã đơn hàng</td>
+                                <td>Thời gian đặt hàng</td>
                                 <td>Số tiền</td>
                                 <td>Phương thức thanh toán</td>
                                 <td>Trạng thái</td>
@@ -90,11 +88,13 @@
                         </thead>
                         <tbody>
                             <?php
+                                
                                 foreach($listCart as $yourCart){
                                     extract($yourCart);
+                                    $statusShow="";
                                     $pay="";
                                     if($pay_ms==1){
-                                        $pay.= "Thanh toán tiền mặc";
+                                        $pay.= "Thanh toán tiền mặt";
                                     }else{
                                         if($pay_ms==2){
                                             $pay.= "Chuyển khoản";
@@ -105,14 +105,35 @@
                                         }
                                         
                                     }
+
+                                    if($status==1) {
+                                        $statusShow .= '
+                                           <span class="yourCard__status"> Chờ xác nhận</span>
+                                        ';
+                                    }elseif($status==2) {
+                                        $statusShow .= '
+                                        <span class="yourCard__status">Đang vận chuyển</span>
+                                        ';
+                                    }elseif($status==3) {
+                                        $statusShow .= '
+                                           
+                                            <span class="yourCard__status"> Giao hàng thành công </span>
+                                            ';
+                                    }
+                                    elseif($status==4) {
+                                        $statusShow .= '
+                                        <span class="yourCard__status">Thất bại </span>
+                                            ';
+                                    }
                                     echo 
                                     '
                                     <tr class="yourCard__header--content">
                                         <td>#DH'.$id_package.'</td>
+                                        <td>'.$time.'</td>
                                         <td>'.number_format($total,0,",",".").' đ</td>
                                         <td>'.$pay.'</td>
                                         <td class="status">
-                                            <div class="status-round"></div>
+                                           '.$statusShow.'
                                         </td>
                                     </tr>
                                     
@@ -121,37 +142,6 @@
                                 }
                               
                             ?>
-                            
-                            <!-- <tr class="yourCard__header--content">
-                                <td>#dh001</td>
-                                <td>350.000 đ</td>
-                                <td>Thanh toán khi nhận hàng</td>
-                                <td class="status"><div class="status-round"></div></td>
-                            </tr>
-                            <tr class="yourCard__header--content">
-                                <td>#dh001</td>
-                                <td>350.000 đ</td>
-                                <td>Thanh toán khi nhận hàng</td>
-                                <td class="status"><div class="status-round"></div></td>
-                            </tr>
-                            <tr class="yourCard__header--content">
-                                <td>#dh001</td>
-                                <td>350.000 đ</td>
-                                <td>Thanh toán khi nhận hàng</td>
-                                <td class="status"><div class="status-round"></div></td>
-                            </tr>
-                            <tr class="yourCard__header--content">
-                                <td>#dh001</td>
-                                <td>350.000 đ</td>
-                                <td>Thanh toán khi nhận hàng</td>
-                                <td class="status"><div class="status-round"></div></td>
-                            </tr>
-                            <tr class="yourCard__header--content">
-                                <td>#dh001</td>
-                                <td>350.000 đ</td>
-                                <td>Thanh toán khi nhận hàng</td>
-                                <td class="status"><div class="status-round"></div></td>
-                            </tr> -->
                         </tbody>
 
                         

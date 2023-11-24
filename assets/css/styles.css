@@ -2157,6 +2157,10 @@ p {
     /* 100% */
 }
 
+.nav_sidebar--li__a {
+    width: 100%;
+}
+
 
 .nav_sidebar--li:hover .nav_sidebar--li__a {
     color: #fff;
@@ -2336,6 +2340,7 @@ p {
 
 .yourCard__header--content td {
     padding: 20px 0px;
+    font-size: 1.4rem;
 }
 
 

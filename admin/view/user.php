@@ -1,10 +1,7 @@
-<?php
-    print_r($newOrder);
 
-?>
-<input type="submit" value="">
-<form action="" method="post"></form>
-<main class="main row">
+                    
+       
+            <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
                         <section class="total_product row">
@@ -18,8 +15,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Tổng đơn hàng</p>
-                                <div class="total_product__content--qty"><?=$countAllCart[0]['total_package']?></div>
+                                <p class="total_product__content--title">Khách hàng</p>
+                                <div class="total_product__content--qty">500.000</div>
                                 <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
@@ -34,8 +31,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Đơn hàng đang vận chuyển</p>
-                                <div class="total_product__content--qty"><?=$shipCart[0]['shipCart']?></div>
+                                <p class="total_product__content--title">Khách hàng mới</p>
+                                <div class="total_product__content--qty">800</div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
@@ -50,106 +47,63 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Đơn hàng mới</p>
-                                <div class="total_product__content--qty"><?=$newOrder[0]['new_orders']?></div>
+                                <p class="total_product__content--title">Khách hàng chưa đăng kí</p>
+                                <div class="total_product__content--qty">200</div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>
                     </article>
-                    <!-- code table don hang o day -->
+                    <!-- code table khach hang o day -->
                     <article class="revenue">
                         <div class="revenue__top row">
-                            <div class="revenue__top--title">
-                                <h4>Đơn hàng mới</h4>
+                            <div class="revenue__top--title row">
+                                <h4>Khách hàng</h4>
+                                <button class="btn btn-ml"><a href="#">Thêm </a></button>
                             </div>
-                            <div class="revenue__status row">
-                                <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
-                                <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang vận chuyển</a>
-                                <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Giao hàng thành công</a>
-                                <a href="index.php?page=loadCartStatus&status=4" class="revenue__top--satus">Thất bại</a>
-                                <a href="index.php?page=loadCartStatus&status=5" class="revenue__top--satus">Đã hủy</a>
-                            </div>
+                            
+                            <select class="revenue__top--hendel">
+                                <option value="1">Sắp xếp</option>
+                                <option value="2">Tăng dần</option>
+                                <option value="3">Giảm dần</option>
+                            </select>
                         </div>
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <td>Mã đơn hàng</td>
-                                    <td>Khách hàng</td>
-                                    <td>Thời gian</td>
-                                    <td>Trạng thái</td>
+                                    <td>Mã khách hàng</td>
+                                    <td>Tên</td>
+                                    <td>Số điện thoại</td>
+                                    <td>Địa chỉ</td>
+                                    <td>Vai trò</td>
                                     <td>Thao tác</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    foreach($listCart as $cart){
-                                        extract($cart);
-                                        $statusShow="";
-                                        if($status==1) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="1">Chờ xác nhận</option>
-                                                    <option value="2">Đang vận chuyển</option>
-                                                    <option value="3">Giao hàng thành công</option>
-                                                    <option value="4">Hủy</option>
-                                                </select>
-                                            ';
-                                        }elseif($status==2) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="2">Đang vận chuyển</option>
-                                                    <option value="3">Giao hàng thành công</option>
-                                                    <option value="4">Thất bại</option>
-                                                </select>
-                                            ';
-                                        }elseif($status==3) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="3">Giao hàng thành công</option>
-                                                </select>
-                                                ';
-                                        }
-                                        elseif($status==4) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="4">Thất bại</option>
-                                                </select>
-                                                ';
-                                        }
-                                        elseif($status==5) {
-                                            $statusShow .= '
-                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
-                                                    <option value="5">Đã hủy</option>
-                                                    <option value="2">Đang vận chuyển</option>
-                                                    <option value="3">Giao hàng thành công</option>
-                                                    <option value="4">Thất bại</option>
-                                                    <option value="1">Chờ xác nhận</option>
-                                                </select>
-                                                ';
-                                        }
-                                        echo 
-                                        '
-                                        <form action="index.php?page=updateStatus&idPackage='.$id_package.'" method="post">
-                                            <tr>
-                                                <td><a href="" class="id__cart">'.$id_package.'</a></td>
-                                                <td>'.$name.'</td>
-                                                <td>'.$time.'</td>
-                                                <td> 
-                                                    '. $statusShow.'
-                                                </td>
-                                                <td>
-                                                    <input type="hidden" name="id_package" value="'.$id_package.'">
-                                                    <input type="submit" value="Thay đổi" name="updateStatus" class="hendel-update-act">
-                                                </td>
-                                            </tr>
-                                        </form>
-                                        ';
-                                    }
-                                ?>
-                                
-                                
+                            <?php
+                            foreach ($listUser as $list) {
+                                extract($list);
+                                echo'
+                                <tr>
+                            <td><a href="">'.$id_user.'</a></td>
+                            <td>'.$username.'</td>
+                            <td>'.$phone.'</td>
+                            <td>'.$address.'</td>
+                            <td>'.$role_user.'</td>
+                            <td>
+                                <a href="" class="hendel-delete-act">Chặn</a>
+                            </td>
+                        </tr>
+                                ';
+                            }
+       ?>
                             </tbody>
                         </table>
                     </article>
                 </div>
-               
+                <article class="notify">
+
+                </article>
+
+            </main>
+        </div>
+    

@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li class="main__menu--li row">
-                        <a href="khachhang_admin.html" class="row main__menu--li__action">
+                        <a href="index.php?page=user" class="row main__menu--li__action">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                 fill="none">
                                 <path
@@ -181,6 +181,7 @@
         <div class="container__admin" style="flex-grow: 1;  width: 100%;">
             <header class="header row fixed">
                 <div class="header__name">
+                    <!-- Code thay đổi header name -->
                     <h2 class="header__namePage">Trang chủ</h2>
                     <div class="header__date">23 tháng 10 năm 2023</div>
                 </div>

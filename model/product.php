@@ -204,177 +204,31 @@ function getProduct($id_pro){
         c.id_catalog=".$id_Cata ;
         return get_All($sql); 
     }
-// load user
-function showImgUser(){
-    if(!isset($_SESSION['user_info'])){
-        $name_user="";
-       echo' <a href="index.php?page=login" class="btn sign-up-btn">Đăng nhập</a>';
-    }else{
-        if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img']!=""){
-               $name_user=$_SESSION['user_info']['username'];
-            echo '<a href="index.php?page=proFile">
-                    <img src="./assets/user/'.$_SESSION['user_info']['img'].'.png" alt="">
-                      <div class="action__name-user">'.$name_user.' </div>
-                </a>
-              
-                ';
-        }else{
-            if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img'] ==""){
-                   $name_user=$_SESSION['user_info']['username'];
-                echo '
-                <a href="index.php?page=proFile">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 30 30" fill="none">
-                        <rect width="30" height="30" rx="15" fill="white"/>
-                        <path d="M15.0601 25.2C9.42011 25.2 4.86011 20.64 4.86011 15C4.86011 9.36005 9.42011 4.80005 15.0601 4.80005C20.7001 4.80005 25.2601 9.36005 25.2601 15C25.2601 20.64 20.6401 25.2 15.0601 25.2ZM15.0601 6.00005C10.0801 6.00005 6.06011 10.02 6.06011 15C6.06011 19.98 10.0801 24 15.0601 24C20.0401 24 24.0601 19.98 24.0601 15C24.0601 10.02 19.9801 6.00005 15.0601 6.00005Z" fill="#333333"/>
-                        <path d="M9.1801 22.38L8.1001 21.9C8.4001 21.18 9.3601 20.76 10.3801 20.28C11.4001 19.8 12.6601 19.26 12.6601 18.6V17.7C12.3001 17.4 11.7001 16.74 11.5801 15.78C11.2801 15.48 10.8001 14.94 10.8001 14.22C10.8001 13.8 10.9801 13.44 11.1001 13.2C10.9801 12.72 10.8601 11.82 10.8601 11.1C10.8601 8.75995 12.4801 7.19995 15.0601 7.19995C15.7801 7.19995 16.6801 7.37995 17.1601 7.91995C18.3001 8.15995 19.2601 9.47995 19.2601 11.1C19.2601 12.12 19.0801 12.96 18.9601 13.38C19.0801 13.56 19.2001 13.86 19.2001 14.22C19.2001 15 18.7801 15.54 18.4201 15.78C18.3001 16.74 17.7601 17.34 17.4001 17.64V18.6C17.4001 19.14 18.4801 19.56 19.4401 19.92C20.5801 20.34 21.7801 20.82 22.2001 21.78L21.0601 22.2C20.8801 21.72 19.9201 21.36 19.0201 21.06C17.7001 20.58 16.2001 20.04 16.2001 18.66V17.1L16.5001 16.92C16.5001 16.92 17.2201 16.44 17.2201 15.48V15.06L17.5801 14.88C17.6401 14.88 17.9401 14.7 17.9401 14.22C17.9401 14.1 17.8201 13.92 17.7601 13.86L17.5201 13.62L17.6401 13.32C17.6401 13.32 17.9401 12.36 17.9401 11.16C17.9401 10.02 17.2801 9.17995 16.7401 9.17995H16.3801L16.2001 8.87995C16.2001 8.63995 15.7801 8.39995 15.0601 8.39995C13.2001 8.39995 12.0601 9.41995 12.0601 11.1C12.0601 11.88 12.3601 13.2 12.3601 13.2L12.4201 13.5L12.1801 13.8C12.1201 13.8 12.0001 13.98 12.0001 14.22C12.0001 14.52 12.3601 14.88 12.5401 15L12.7801 15.18V15.48C12.7801 16.38 13.5601 16.86 13.5601 16.92L13.8601 17.1V18.66C13.8601 20.1 12.3001 20.82 10.8601 21.42C10.2001 21.66 9.3001 22.08 9.1801 22.38Z" fill="#333333"/>
-                    </svg>
-                     <div class="action__name-user">'.$name_user.' </div>
-                </a>';
-            }
-        }
-    }
-}
-function showImgAdmin(){
-    if(!isset($_SESSION['user_info'])){
-        $name_user="";
-       echo' <a href="index.php?page=login" class="btn sign-up-btn">Đăng nhập</a>';
-    }else{
-        if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img']!=""){
-               $name_user=$_SESSION['user_info']['username'];
-            echo '<img src="../assets/user/'.$_SESSION['user_info']['img'].'.png" alt="" class="user__clon"
-                    style="height: 30px; width: 30px; object-fit: cover;">
-                <p class="user__title">
-                    '.$name_user.'
-                </p>
-              
-                ';
-        }else{
-            if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img'] ==""){
-                   $name_user=$_SESSION['user_info']['username'];
-                echo '
-                <a href="index.php?page=login">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" class="action__incons">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M25 0C38.8075 0 50 11.1925 50 25C50.0088 30.7697 48.0134 36.3634 44.355 40.825L44.405 40.88L44.075 41.16C41.7305 43.933 38.8089 46.1608 35.5143 47.6877C32.2196 49.2145 28.6313 50.0037 25 49.9999C17.625 49.9999 11 46.8074 6.42502 41.7325L5.92502 41.1575L5.59502 40.8825L5.64502 40.8225C1.98692 36.3617 -0.00841855 30.7689 2.66985e-05 25C2.66985e-05 11.1925 11.1925 0 25 0ZM25 37.5C20.35 37.5 16.1475 38.98 13.0175 41.0125C16.4732 43.6065 20.679 45.0061 25 44.9999C29.321 45.0061 33.5268 43.6065 36.9825 41.0125C33.4056 38.7215 29.2476 37.5026 25 37.5ZM25 4.99999C21.2363 4.99989 17.549 6.06178 14.3618 8.06362C11.1747 10.0655 8.61703 12.926 6.98292 16.3164C5.34881 19.7068 4.70453 23.4896 5.12415 27.2298C5.54376 30.97 7.01024 34.5159 9.35502 37.46C13.4075 34.5525 18.9375 32.5 25 32.5C31.0625 32.5 36.5925 34.5525 40.645 37.46C42.9898 34.5159 44.4562 30.97 44.8759 27.2298C45.2955 23.4896 44.6512 19.7068 43.0171 16.3164C41.383 12.926 38.8253 10.0655 35.6382 8.06362C32.451 6.06178 28.7637 4.99989 25 4.99999ZM25 9.99999C27.6522 9.99999 30.1957 11.0536 32.0711 12.9289C33.9464 14.8043 35 17.3478 35 20C35 22.6521 33.9464 25.1957 32.0711 27.071C30.1957 28.9464 27.6522 30 25 30C22.3478 30 19.8043 28.9464 17.9289 27.071C16.0536 25.1957 15 22.6521 15 20C15 17.3478 16.0536 14.8043 17.9289 12.9289C19.8043 11.0536 22.3478 9.99999 25 9.99999ZM25 15C23.6739 15 22.4021 15.5268 21.4645 16.4644C20.5268 17.4021 20 18.6739 20 20C20 21.3261 20.5268 22.5978 21.4645 23.5355C22.4021 24.4732 23.6739 25 25 25C26.3261 25 27.5978 24.4732 28.5355 23.5355C29.4732 22.5978 30 21.3261 30 20C30 18.6739 29.4732 17.4021 28.5355 16.4644C27.5978 15.5268 26.3261 15 25 15Z" fill="black"/>
-                    </svg>
-                     <div class="action__name-user">'.$name_user.' </div>
-                </a>';
-            }
-        }
-    }
-}
-
-// user
-function loadAllUser($id_user){
-    $sql = "SELECT * FROM user WHERE id_user = ".$id_user;
-    return get_One($sql);
-}
- function updateImgUser($id_user,$hinh){
-    $sql="UPDATE `user`
-    SET 
-      `img` = '$hinh'
-    WHERE 
-      `id_user` =".$id_user;
-      update($sql);
- }
- function updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user) {
-           $sql = "UPDATE `user` 
-           SET 
-             `dob` = '$dob_user',
-             `phone` = '$phone_user',
-             `username` = '$name_user',
-             `address` = '$adress_user',
-             `gender` = '$gender_user',
-             `email` = '$email_user'
-           WHERE 
-             `id_user` = ".$id_user;
-            update($sql);
-}
-function getYourCart($id_user){
-    $sql="SELECT * FROM package WHERE id_User=".$id_user;
-    $sql.=" ORDER BY id_package DESC limit 10";
-    return get_All($sql);
-}
-function getYourProduct($id_user){
-    $sql="SELECT
-        dp.*
-    FROM
-        detail_package dp
-    JOIN
-        package pa ON dp.id_package = pa.id_package
-    LEFT JOIN
-        user u ON pa.id_User = u.id_user
-    WHERE
-        u.id_user =".$id_user;
-    $sql.=" ORDER BY dp.id_Detail_Package DESC";   
-        return get_All($sql);
-}
-function generateRandomPassword($length = 8) {
-    $pattern = "/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/";
-    $password = '';
-
-    do {
-        $password = '';
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        for ($i = 0; $i < $length; $i++) {
-            $password .= $characters[rand(0, strlen($characters) - 1)];
-        }
-    } while (!preg_match($pattern, $password));
-
-    return $password;
-}
-function forgotPassUser($phone) {
-    // Kiểm tra xem trường "phone" có bị để trống không
-    if (empty($phone)) {
-       $notify_pass = "Số điện thoại của bạn chưa được nhập";
-    } else {
-        // Kiểm tra xem tên loại đã tồn tại trong cơ sở dữ liệu chưa
-        $sql = "SELECT * FROM user WHERE phone = ?";
-        $existingphone = pdo_query_one($sql, $phone);
-
-        if (!$existingphone && !preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
-            $notify_pass = "Sai số điện thoại";
-        } else {       
-            $phoneNumber = $phone; 
-            // Tạo mật khẩu ngẫu nhiên
-            $newPassword = generateRandomPassword();
-            // Cập nhật mật khẩu mới trong cơ sở dữ liệu
-            $sql = "UPDATE user SET pass = '$newPassword' WHERE phone = '$phoneNumber'";
-            update($sql);
-            $notify_pass = $newPassword;        
-        }
-    }
-       return $notify_pass;
-   }
-   function updatePassWord($oldPass, $newPass, $comfrimNewPass, $id_user){
-        if(empty($oldPass)||empty($newPass)||empty($comfrimNewPass)){
-            $notify_passWord="Không được để trống";
-        }else{
-            if(!preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $oldPass) &&
-            !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $newPass) &&
-            !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $comfrimNewPass)){
-                $notify_passWord= "Mật khẩu không đúng địng dạng";
-            }else{
-                $sql = "SELECT * FROM user WHERE id_user = ? AND pass= ?";
-                $existingidUser = pdo_query_one($sql, $id_user,$oldPass);
-
-                if (!$existingidUser) {
-                    $notify_passWord= "Id người dùng không đúng và mất khẩu cũ không đúng";
-                }else{
-                    if($newPass != $comfrimNewPass){
-                        $notify_passWord= "Mật khẩu không trùng nhau";
-                    }else{
-                        $sql = "UPDATE user SET pass = '$newPass' WHERE id_user = ".$id_user;
-                        update($sql);
-                        $notify_passWord= "Cập nhật pass thành công";
-                    }
-                } 
-            }
-         
-        }
-           return $notify_passWord;
-   }
 // admin
+    function showProductAdmin($listItems) {
+        $kq = ""; 
+        $stt = 1;
 
+        foreach ($listItems as $item) {
+            extract($item);
+            $kq .= '
+                <tr>
+                    <td>'.$stt.'</td>
+                    <td>'.$name.'</td>
+                    <td><img src="../uploads/'.$img.'" style="" alt="" class="card-image" /> </td>
+                    <td>'.number_format($pice,0,",",".").' đ</td>
+                    <td>122</td>
+                    <td>'.$id_catalog.'</td>
+                    <td><a href="index.php?page=showUpdate&idSP='.$id.'">Sửa</a> 
+                    | <a href="index.php?page=delProduct&idSP='.$id.'">Xóa</a>|
+                    </td>
+                </tr>
+            ';
+            $stt++;
+        }
+        return $kq;
+
+    }
 
     function getProductDetail($idProduct) {
         $sql = "SELECT *  FROM detail_product where id_prd=".$idProduct;
@@ -459,7 +313,14 @@ function forgotPassUser($phone) {
     }
 
     // admin
-    
+    function getUserAdmin(){
+        $sql= "SELECT * FROM user";
+        return get_All($sql);
+    }
+    // function delUser($id_user) {
+    //     $sql = "DELETE FROM user WHERE id = ".$id_user;
+    //     delete($sql);
+    // }
     function delProduct($id) {
         $sql = "DELETE FROM product WHERE id = ".$id;
         delete($sql);
@@ -468,6 +329,10 @@ function forgotPassUser($phone) {
         $sql = "DELETE FROM danhmuc WHERE idDM = ".$idDM;
         delete($sql);
     }
+    // function delCartUser($id_user, $) {
+    //     $sql = "DELETE FROM danhmuc WHERE idDM = ".$idDM;
+    //     delete($sql);
+    // }
     function delUser($idKH) {
         $sql = "DELETE FROM khachhang WHERE idKH= ".$idKH;
         delete($sql);

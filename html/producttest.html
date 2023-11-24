@@ -17,6 +17,8 @@
         rel="stylesheet" />
 
     <!-- Styles -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"> -->
     <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 
@@ -296,7 +298,8 @@
             </div>
         </div>
     </header>
-    <!-- CSS Slider -->
+
+<!-- CSS Slider -->
   <style>
     .slick-list,.slick-slider,.slick-track{position:relative;display:block}.slick-loading .slick-slide,.slick-loading .slick-track{visibility:hidden}.slick-slider{-moz-box-sizing:border-box;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{overflow:hidden;margin:0;padding:0}.slick-list:focus{outline:0}.slick-list.dragging{cursor:pointer;cursor:hand}.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.slick-track{top:0;left:0}.slick-track:after,.slick-track:before{display:table;content:''}.slick-track:after{clear:both}.slick-slide{display:none;float:left;min-height:1px}[dir=rtl] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
   </style>
@@ -322,6 +325,9 @@
 
   </style>
 <!-- END CSS Slider -->
+
+
+
     <main>
         <!-- Hero -->
 
@@ -339,7 +345,7 @@
                                 <img src="../assets/img/bo-dung-cu-an-HS.png" alt="" class="main-product__img--top-img">    
                             </div>
                         </div>
-                        <div class="main-product__img--bottom">
+                        <div class="main-product__img--bottom ">
                             <figure class="slider slider-nav h3">
                                 <img src="https://images.unsplash.com/photo-1682695797873-aa4cb6edd613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60"
                                     alt="" class="main-product__img--top-img">
@@ -349,34 +355,36 @@
                                 <img src="../assets/img/bo-dung-cu-an-HS.png" alt="" class="main-product__img--top-img">    
                             </figure>
                         </div>
-                        <!-- JS Slider -->
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-                        <script>
-                        $('.slider-for').slick({
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        fade: true,
-                        asNavFor: '.slider-nav'
-                        });
-                        $('.slider-nav').slick({
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        asNavFor: '.slider-for',
-                        dots: true,
-                        focusOnSelect: true
-                        });
-
-                        $('a[data-slide]').click(function(e) {
-                        e.preventDefault();
-                        var slideno = $(this).data('slide');
-                        $('.slider-nav').slick('slickGoTo', slideno - 1);
-                        });
-                        </script>
-                        <!-- END JS Slider -->
                     </div>
-                    <div class="main-product__content row">
+                    <!-- JS Slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+   $('.slider-for').slick({
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ arrows: false,
+ fade: true,
+ asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+ slidesToShow: 3,
+ slidesToScroll: 1,
+ asNavFor: '.slider-for',
+ dots: true,
+ focusOnSelect: true
+});
+
+$('a[data-slide]').click(function(e) {
+ e.preventDefault();
+ var slideno = $(this).data('slide');
+ $('.slider-nav').slick('slickGoTo', slideno - 1);
+});
+</script>
+<!-- END JS Slider -->
+                   
+
+<div class="main-product__content row">
                         <div class="main-product__content--type row">
                             <strong class="content__strong">Chọn:</strong>
                             <div class="content--type">500g(3-con)</div>
@@ -413,8 +421,8 @@
                             <a href="#!" class="btn btn__act--Product">Mua ngay</a>
                         </div>
                         <div class="main-product__content--btn-2 row">
-                            <a href="#!" class="btn btn__add--Cart">Thêm vào giỏ hàng</a>
-                            <a href="#!" class="btn btn__advisory">Tiếp tục mua hàng</a>
+                            <a href="#!" class="btn btn__add--Cart">Thêm vào sọt</a>
+                            <a href="#!" class="btn btn__advisory">Nhận tư vấn</a>
                         </div>
 
                         <div class="main-product__together">

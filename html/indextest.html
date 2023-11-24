@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dự Án 1</title>
+    <title>Du An 1</title>
     <!-- Reset CSS -->
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <!-- Embed fonts -->
@@ -14,14 +14,181 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
+<style>
+    
 
+    /* Carousel */
+
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 470px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .slide {
+        background: transparent url('https://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png') center center no-repeat;
+        background-size: cover;
+        /* display: none; */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .active-slide {
+        display: block;
+    }
+
+    .slide-copy h1 {
+        color: #363636;
+
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 40px;
+        margin-top: 105px;
+        margin-bottom: 0px;
+    }
+
+    .slide-copy h2 {
+        color: #b7b7b7;
+
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 40px;
+        margin: 5px;
+    }
+
+    .slide-copy p {
+        color: #959595;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.15em;
+        line-height: 1.75em;
+        margin-bottom: 15px;
+        margin-top: 16px;
+    }
+
+    .slide-img {
+        text-align: right;
+    }
+
+    /* Slide feature */
+
+    .slide-feature1 {
+        text-align: center;
+        background-image: url('../assets/icons/main-banner.png');
+        height: 470px;
+        background-size: 100% 100%;
+    }
+    .slide-feature2 {
+        text-align: center;
+        background-image: url('../assets/icons/main-banner2.png');
+        height: 470px;
+        background-size: 100% 100%;
+    }
+    .slide-feature3 {
+        text-align: center;
+        background-image: url('../assets/icons/main-banner3.png');
+        height: 470px;
+        background-size: 100% 100%;
+    }
+
+    .slide-feature1 img {
+        margin-top: 112px;
+        margin-bottom: 28px;
+    }
+
+    .slide-feature1 a {
+        display: block;
+        color: #6fc5e0;
+
+        font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 20px;
+    }
+    .slide-feature2 img {
+        margin-top: 112px;
+        margin-bottom: 28px;
+    }
+
+    .slide-feature2 a {
+        display: block;
+        color: #6fc5e0;
+
+        font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 20px;
+    }
+    .slide-feature3 img {
+        margin-top: 112px;
+        margin-bottom: 28px;
+    }
+
+    .slide-feature3 a {
+        display: block;
+        color: #6fc5e0;
+
+        font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 20px;
+    }
+
+    .slider-nav {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .arrow-prev {
+        margin-right: 45px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 9px;
+    }
+
+    .arrow-next {
+        margin-left: 45px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 9px;
+    }
+
+    .slider-dots {
+        list-style: none;
+        display: inline-block;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    .slider-dots li {
+        color: #bbbcbc;
+        display: inline;
+        font-size: 30px;
+        margin-right: 5px;
+    }
+
+    .slider-dots li.active-dot {
+        color: #363636;
+    }
+
+
+    
+</style>
 <body>
     <!-- Header -->
     <div class="header__head">
@@ -466,178 +633,6 @@
             </ul>
         </nav>
     </div>
-
-    <!-- CSS Cho Slider Trang Chủ -->
-    <style>
-    
-
-        /* Carousel */
-    
-        .slider {
-            position: relative;
-            width: 100%;
-            height: 470px;
-            border-bottom: 1px solid #ddd;
-        }
-    
-        .slide {
-            background: transparent url('https://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png') center center no-repeat;
-            background-size: cover;
-            /* display: none; */
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    
-        .active-slide {
-            display: block;
-        }
-    
-        .slide-copy h1 {
-            color: #363636;
-    
-            font-family: 'Oswald', sans-serif;
-            font-weight: 400;
-    
-            font-size: 40px;
-            margin-top: 105px;
-            margin-bottom: 0px;
-        }
-    
-        .slide-copy h2 {
-            color: #b7b7b7;
-    
-            font-family: 'Oswald', sans-serif;
-            font-weight: 400;
-    
-            font-size: 40px;
-            margin: 5px;
-        }
-    
-        .slide-copy p {
-            color: #959595;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 1.15em;
-            line-height: 1.75em;
-            margin-bottom: 15px;
-            margin-top: 16px;
-        }
-    
-        .slide-img {
-            text-align: right;
-        }
-    
-        /* Slide feature */
-    
-        .slide-feature1 {
-            text-align: center;
-            background-image: url('../assets/icons/main-banner.png');
-            height: 470px;
-            background-size: 100% 100%;
-        }
-        .slide-feature2 {
-            text-align: center;
-            background-image: url('../assets/icons/main-banner2.png');
-            height: 470px;
-            background-size: 100% 100%;
-        }
-        .slide-feature3 {
-            text-align: center;
-            background-image: url('../assets/icons/main-banner3.png');
-            height: 470px;
-            background-size: 100% 100%;
-        }
-    
-        .slide-feature1 img {
-            margin-top: 112px;
-            margin-bottom: 28px;
-        }
-    
-        .slide-feature1 a {
-            display: block;
-            color: #6fc5e0;
-    
-            font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 400;
-    
-            font-size: 20px;
-        }
-        .slide-feature2 img {
-            margin-top: 112px;
-            margin-bottom: 28px;
-        }
-    
-        .slide-feature2 a {
-            display: block;
-            color: #6fc5e0;
-    
-            font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 400;
-    
-            font-size: 20px;
-        }
-        .slide-feature3 img {
-            margin-top: 112px;
-            margin-bottom: 28px;
-        }
-    
-        .slide-feature3 a {
-            display: block;
-            color: #6fc5e0;
-    
-            font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 400;
-    
-            font-size: 20px;
-        }
-    
-        .slider-nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-    
-        .arrow-prev {
-            margin-right: 45px;
-            display: inline-block;
-            vertical-align: top;
-            margin-top: 9px;
-        }
-    
-        .arrow-next {
-            margin-left: 45px;
-            display: inline-block;
-            vertical-align: top;
-            margin-top: 9px;
-        }
-    
-        .slider-dots {
-            list-style: none;
-            display: inline-block;
-            padding-left: 0;
-            margin-bottom: 0;
-        }
-    
-        .slider-dots li {
-            color: #bbbcbc;
-            display: inline;
-            font-size: 30px;
-            margin-right: 5px;
-        }
-    
-        .slider-dots li.active-dot {
-            color: #363636;
-        }
-    
-    
-        
-    </style>
-    <!-- END CSS Cho Slider Trang Chủ -->
-
     <div class="main-content">
         <div class="main-hero">
             <div class="main-banner">
@@ -646,11 +641,9 @@
                     <!-- Ảnh 1 -->
                     <div class="slide slide-feature1"></div>
                     <!-- END Ảnh 1 -->
-
                     <!-- Ảnh 2 -->
                     <div class="slide slide-feature2"></div>
                     <!-- END Ảnh 2 -->
-                    
                     <!-- Ảnh 3 -->
                     <div class="slide slide-feature3"></div>
                     <!-- END Ảnh 3 -->

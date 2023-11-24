@@ -3,7 +3,7 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
-//   print_r( $listCart);
+//   print_r( $idPackageDel);
 ?>
 <main>
         <article class="heading-cart">
@@ -108,7 +108,7 @@
 
                                     if($status==1) {
                                         $statusShow .= '
-                                           <span class="yourCard__status"> Chờ xác nhận</span>
+                                           <span class="yourCard__status"> Chờ xác nhận </span> | <a href="index.php?page=delpackage&idPackage='.$id_package.'&id_user='.$id_user.'&status=5 " class="">Hủy</a>
                                         ';
                                     }elseif($status==2) {
                                         $statusShow .= '
@@ -124,19 +124,22 @@
                                         $statusShow .= '
                                         <span class="yourCard__status">Thất bại </span>
                                             ';
+                                    } elseif($status==5) {
+                                        $statusShow .= '
+                                        <span class="yourCard__status">Đã hủy </span>
+                                            ';
                                     }
                                     echo 
                                     '
-                                    <tr class="yourCard__header--content">
-                                        <td>#DH'.$id_package.'</td>
-                                        <td>'.$time.'</td>
-                                        <td>'.number_format($total,0,",",".").' đ</td>
-                                        <td>'.$pay.'</td>
-                                        <td class="status">
-                                           '.$statusShow.'
-                                        </td>
-                                    </tr>
-                                    
+                                        <tr class="yourCard__header--content">
+                                            <td>#DH'.$id_package.'</td>
+                                            <td>'.$time.'</td>
+                                            <td>'.number_format($total,0,",",".").' đ</td>
+                                            <td>'.$pay.'</td>
+                                            <td class="status">
+                                            '.$statusShow.'
+                                            </td>
+                                        </tr>
                                     ';
                                      
                                 }

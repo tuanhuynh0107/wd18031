@@ -59,6 +59,16 @@
                 $loadUser=loadAllUser($id_user);
                 require_once "view/proFile/yourCard.php";
                 break;
+            case 'delpackage': 
+                if (isset($_GET['idPackage'])&&(isset($_GET['status']))&&(isset($_GET['id_user']))) {
+                    $idPackage= $_GET['idPackage'];
+                    $indStatus = $_GET['status'];
+                    updateCatalogStatus($idPackage, $indStatus);
+                    $listCart= getYourCart($_GET['id_user']);
+                }
+                $loadUser=loadAllUser($id_user);
+                require_once "view/proFile/yourCard.php";
+                break;
             case 'yourProduct':
                 if (isset($_GET['id_user'])&&($_GET['id_user']>0)) {
                     $listCartProduct= getYourProduct($_GET['id_user']);

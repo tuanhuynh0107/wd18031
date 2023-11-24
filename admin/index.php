@@ -160,8 +160,6 @@
                 if(isset($_POST['updateStatus'])&&($_POST['updateStatus'])){
                     $indStatus = $_POST['indStatus'];
                     $idpackage = $_POST['id_package'];
-                    echo  'Mã đơn hàng là '.$idpackage;
-                    echo  'Trạng thái là '.$indStatus;
                     updateCatalogStatus($idpackage, $indStatus);
                 }
                 $countAllCart=getAdmin_AllCart();

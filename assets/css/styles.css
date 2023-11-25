@@ -395,7 +395,7 @@ input {
 
 .main-banner {
     margin-top: 10px;
-    flex: 1;
+    flex: 2;
     max-width: 100%;
 }
 
@@ -2370,3 +2370,178 @@ p {
 }
 
 /* forgot pass */
+
+/* slider trang chu */
+
+
+    
+
+    /* Carousel */
+
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 470px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .slide {
+        background: transparent url('https://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png') center center no-repeat;
+        background-size: cover;
+        /* display: none; */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .active-slide {
+        display: block;
+    }
+
+    .slide-copy h1 {
+        color: #363636;
+
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 40px;
+        margin-top: 105px;
+        margin-bottom: 0px;
+    }
+
+    .slide-copy h2 {
+        color: #b7b7b7;
+
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 40px;
+        margin: 5px;
+    }
+
+    .slide-copy p {
+        color: #959595;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.15em;
+        line-height: 1.75em;
+        margin-bottom: 15px;
+        margin-top: 16px;
+    }
+
+    .slide-img {
+        text-align: right;
+    }
+
+    /* Slide feature */
+
+    .slide-feature1 {
+        text-align: center;
+        background-image: url('../icons/main-banner.png');
+        height: 470px;
+        background-size: 100% 100%;
+    }
+    .slide-feature2 {
+        text-align: center;
+        background-image: url('../icons/main-banner2.png');
+        height: 470px;
+        background-size: 100% 100%;
+    }
+    .slide-feature3 {
+        text-align: center;
+        background-image: url('../icons/main-banner3.png');
+        height: 470px; 
+        background-size: 100% 100%;
+    }
+
+    .slide-feature1 img {
+        margin-top: 112px;
+        margin-bottom: 28px;
+    }
+
+    .slide-feature1 a {
+        display: block;
+        color: #6fc5e0;
+
+        font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 20px;
+    }
+    .slide-feature2 img {
+        margin-top: 112px;
+        margin-bottom: 28px;
+    }
+
+    .slide-feature2 a {
+        display: block;
+        color: #6fc5e0;
+
+        font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 20px;
+    }
+    .slide-feature3 img {
+        margin-top: 112px;
+        margin-bottom: 28px;
+    }
+
+    .slide-feature3 a {
+        display: block;
+        color: #6fc5e0;
+
+        font-family: "HelveticaNeueMdCn", Helvetica, sans-serif;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+
+        font-size: 20px;
+    }
+
+    .slider-nav {
+        text-align: center;
+        margin-top: 20px;
+        position: relative;
+        top: -60px;
+    }
+
+    .arrow-prev {
+        margin-right: 45px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 9px;
+    }
+
+    .arrow-next {
+        margin-left: 45px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 9px;
+    }
+
+    .slider-dots {
+        list-style: none;
+        display: inline-block;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    .slider-dots li {
+        color:white;
+        display: inline;
+        font-size: 30px;
+        margin-right: 5px;
+    }
+
+    .slider-dots li.active-dot {
+        color: #363636;
+    }
+
+
+    
+
+
+/* END slider trang chu */

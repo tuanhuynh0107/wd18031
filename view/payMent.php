@@ -3,7 +3,7 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
-    // print_r($_SESSION['user_info'])
+    print_r($_SESSION['cart'])
 ?>
 
 
@@ -175,6 +175,7 @@
                                     <input type="hidden" name="total_All" value="<?=$total_All?>">
                                     <input type="hidden" name="total" value="<?=$total?>">
                                     <input type="hidden" name="idUser" value="<?=$id_user?>">
+                                    <input type="hidden" name="idProduct" value="<?=$idProduct?>">
 
                                     <input type="submit" name="order" value="Đặt hàng" class="main-product__content--btn btn" style="width: 326px; border: 0px;">
                                 

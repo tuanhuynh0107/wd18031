@@ -658,9 +658,9 @@ function forgotPassUser($phone) {
              VALUES ('$name', '$address', '$phone', '$pay_ms', '$total_All', '$status', '$time', '$note', '$id_user')";
              return pdo_execute_return_lastInsertId($sql);
     }
-    function insert_Detail_Package($name_prd,$qty,$price, $total,$id_package,$id_trans) {
-        $sql="INSERT INTO detail_package (name_prd, qty, price, total, id_package, id_trans) 
-             VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans')";
+    function insert_Detail_Package($name_prd,$qty,$price, $total,$id_package,$id_trans,$idProduct) {
+        $sql="INSERT INTO detail_package (name_prd, qty, price, total, id_package, id_trans,id_prd) 
+             VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans','$idProduct')";
              return pdo_execute_return_lastInsertId($sql);
     }
     function   update_changeAdress($id_user, $phone, $name, $pass, $address){
@@ -774,6 +774,9 @@ function forgotPassUser($phone) {
     }
 
     // product
+    function getAdminProductQty(){
+        $sql= "UPDATE product ";
+    }
     function getAdminProduct(){
         $sql="SELECT 
         p.id AS product_id,
@@ -914,6 +917,7 @@ function forgotPassUser($phone) {
         $sql = "SELECT * FROM package WHERE YEARWEEK(time) = YEARWEEK(CURDATE()) ORDER BY time DESC";
         return get_All($sql);
     }
+    
     // thống kế đơn hàng 
     function getAdmin_AllCart(){
         $sql="SELECT COUNT(DISTINCT id_package) AS total_package FROM package;";

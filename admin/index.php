@@ -248,7 +248,7 @@
                     $indStatus = $_POST['indStatus'];
                     $idpackage = $_POST['id_package'];
                     updateCatalogStatus($idpackage, $indStatus);
-                    getDetailPackage($idpackage);
+                    $listDetail=getDetailPackage($idpackage);
                 }
                 $countAllCart=getAdmin_AllCart();
                 $shipCart=getAdmin_ShippCart();

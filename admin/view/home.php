@@ -1,5 +1,8 @@
 <?php
-
+    foreach($loadKhachHangVip as $khachHang){
+        extract($khachHang);
+        echo '<h1>Tên khách hàng là:'.$name.' khách hàng mua được '.$total_customers.' đơn</h1>';
+    }
 ?>
 <main class="main row">
                 <div class="main-content row">

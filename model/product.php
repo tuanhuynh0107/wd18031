@@ -753,7 +753,15 @@ function forgotPassUser($phone) {
         ";
          return get_All($sql);
     }
-
+    function getAdminLoadKhachHangVip(){
+        $sql="SELECT COUNT(u.id_user) as total_customers, u.username as name
+        FROM user u
+        JOIN package p ON u.id_user = p.id_User
+        GROUP BY u.id_user
+        HAVING COUNT(p.id_package) >= 10;
+        ";
+         return get_All($sql);
+    }
     // thống kê catalog
     function getAdminCountCatalog(){
         $sql="SELECT count(DISTINCT id_catalog) as count_catalog FROM catalog";

@@ -289,6 +289,15 @@ function loadAllUser($id_user){
              `id_user` = ".$id_user;
             update($sql);
 }
+// Forfie
+function getIdPackage($idPackage){
+    $sql="SELECT * FROM detail_package WHERE id_package=".$idPackage;
+    return get_All($sql);
+}
+function insertCommentFeadBack($textComment, $dateComment,$id_prd,$idUser){
+    $sql= "INSERT INTO comment(id_user, id_prd, text, time) VALUES ('".$idUser."', '".$id_prd."', '".$textComment."','".$dateComment."')";
+    inset($sql);
+}
 function getYourCart($id_user){
     $sql="SELECT * FROM package WHERE id_User=".$id_user;
     $sql.=" ORDER BY id_package DESC limit 10";

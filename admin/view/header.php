@@ -105,7 +105,7 @@
                         </a>
                     </li>
                     <li class="main__menu--li row">
-                        <a href="#!" class="row main__menu--li__action">
+                        <a href="index.php?page=comment" class="row main__menu--li__action">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                 fill="none">
                                 <g clip-path="url(#clip0_502_282)">
@@ -123,7 +123,7 @@
                         </a>
                     </li>
                     <li class="main__menu--li row">
-                        <a href="#!" class="row main__menu--li__action">
+                        <a href="index.php?page=statistical" class="row main__menu--li__action">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                 fill="none">
                                 <path

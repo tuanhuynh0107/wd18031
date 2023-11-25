@@ -5,7 +5,7 @@
     //     echo '<h1>Tên khách hàng là:'.$name.' khách hàng mua được '.$total_customers.' đơn</h1>';
     // }
     echo '<pre>';
-    print_r($loadKhachHangVip);
+    print_r($loadstatistical);
     echo '</pre>';
 ?>
 <main class="main row">
@@ -67,8 +67,8 @@
                     $dataPoints = [];
                     foreach ($loadstatistical as $data) {
                         $dataPoints[] = [
-                            'day_of_week' => $data['day_of_week'],
-                            'daily_sales' => $data['daily_sales']
+                            'month' => $data['month'],
+                            'monthly_sales' => $data['monthly_sales']
                         ];
                     }
 
@@ -86,10 +86,10 @@
                     var myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: dataPoints.map(item => 'Tuần ' + item.day_of_week),
+                            labels: dataPoints.map(item => 'Tháng ' + item.month),
                             datasets: [{
                                 label: 'Doanh số bán hàng',
-                                data: dataPoints.map(item => item.daily_sales),
+                                data: dataPoints.map(item => item.monthly_sales),
                                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                                 borderColor: 'rgba(75, 192, 192, 1)',
                                 borderWidth: 1
@@ -195,8 +195,6 @@
                                         ';
                                     }
                                 ?>
-                                
-                                
                             </tbody>
                         </table>
                     </article>

@@ -825,12 +825,26 @@ function forgotPassUser($phone) {
     }
     // thống kê home
     function getAdminstatistical(){
-        $sql = "SELECT WEEKDAY(time) AS day_of_week, SUM(total) AS daily_sales, status 
+        $sql = "SELECT
+            DATE_FORMAT(time, '%Y-%m') AS month,
+            SUM(total) AS monthly_sales
+        FROM
+            package
+        WHERE
+            YEAR(time) = YEAR(CURRENT_DATE) -- Lấy dữ liệu cho cùng một năm
+        GROUP BY
+            month
+        ORDER BY
+            month
+        ";
+        return get_All($sql);
+    }
+    function getAdminstatisticalDay(){
+        $sql="SELECT WEEKDAY(time) AS day_of_week, SUM(total) AS daily_sales, status 
         FROM package 
         WHERE status = 3 AND  WEEK(time) = WEEK(CURRENT_DATE)
         GROUP BY day_of_week 
-        ORDER BY day_of_week
-        ";
+        ORDER BY  DAYOFWEEK(day_of_week)";
         return get_All($sql);
     }
     // Thống kê product

@@ -917,6 +917,10 @@ function forgotPassUser($phone) {
         $sql = "SELECT * FROM package WHERE YEARWEEK(time) = YEARWEEK(CURDATE()) ORDER BY time DESC";
         return get_All($sql);
     }
+    function getAllAdminCart($indStatus){
+        $sql= "SELECT * FROM package WHERE status=".$indStatus;
+        return get_All($sql);
+    }
     
     // thống kế đơn hàng 
     function getAdmin_AllCart(){

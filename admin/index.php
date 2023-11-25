@@ -249,12 +249,14 @@
                     $idpackage = $_POST['id_package'];
                     updateCatalogStatus($idpackage, $indStatus);
                     $listDetail=getDetailPackage($idpackage);
+                    $loadAll=getAllAdminCart($indStatus);
                 }
                 $countAllCart=getAdmin_AllCart();
                 $shipCart=getAdmin_ShippCart();
                 $newOrder=getAdmin_NewCart();
                 $listCart= getAdminCart();
-                require_once "view/cartAdmin.php";
+                
+                require_once "view/cartStatus.php";
                 break;
             case 'detailPackage':
                 if(isset($_GET['idPackage'])&&($_GET['idPackage']) > 0) {

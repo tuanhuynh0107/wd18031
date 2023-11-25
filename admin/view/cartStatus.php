@@ -1,5 +1,5 @@
 <?php
-    print_r($loadAll);
+    // print_r($loadAll);
 ?>
 <input type="submit" value="">
 <form action="" method="post"></form>
@@ -81,7 +81,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach($listCart as $cart){
+                                    foreach($loadAll as $cart){
                                         extract($cart);
                                         $statusShow="";
                                         if($status==1) {

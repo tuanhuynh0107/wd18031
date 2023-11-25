@@ -271,6 +271,8 @@
                 $soldProduct=getAdminAll_SoldProduct();
                 $loadAllUser=getAdmin_LoadAllUser();
                 $loadNewCart=getAdmin_LoadNewCart();
+                // bản thống kê
+                $loadstatistical=getAdminstatistical();
                 require_once "view/home.php";
                 break;
         };
@@ -280,6 +282,8 @@
         $soldProduct=getAdminAll_SoldProduct();
         $loadAllUser=getAdmin_LoadAllUser();
         $loadNewCart=getAdmin_LoadNewCart();
+
+        $loadstatistical=getAdminstatistical();
         require_once "view/home.php";
     }
 

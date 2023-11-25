@@ -748,17 +748,17 @@ function forgotPassUser($phone) {
             SELECT p.id_user
             FROM package p
             GROUP BY p.id_User
-            HAVING COUNT(p.id_package) >= 10
+            HAVING SUM(p.total) >= 10000000
         );
         ";
          return get_All($sql);
     }
     function getAdminLoadKhachHangVip(){
-        $sql="SELECT COUNT(u.id_user) as total_customers, u.username as name
+        $sql="SELECT u.id_user as id_user, u.username as name, SUM(p.total) as total_all, u.phone as phone, u.address as address, u.email as email 
         FROM user u
         JOIN package p ON u.id_user = p.id_User
         GROUP BY u.id_user
-        HAVING COUNT(p.id_package) >= 10;
+        HAVING SUM(p.total) >= 10000000;
         ";
          return get_All($sql);
     }
@@ -822,6 +822,16 @@ function forgotPassUser($phone) {
         $sql = "INSERT INTO product(id_catalog, name, price, qty) 
         VALUES ('$id_catalog','$name_product','$price_product', '$qty_product')";
         inset($sql);
+    }
+    // thống kê home
+    function getAdminstatistical(){
+        $sql = "SELECT WEEKDAY(time) AS day_of_week, SUM(total) AS daily_sales, status 
+        FROM package 
+        WHERE status = 3 AND  WEEK(time) = WEEK(CURRENT_DATE)
+        GROUP BY day_of_week 
+        ORDER BY day_of_week
+        ";
+        return get_All($sql);
     }
     // Thống kê product
     function getAdminAll_TotalProduct(){

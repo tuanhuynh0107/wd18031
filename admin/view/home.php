@@ -1,8 +1,12 @@
-<?php
-    foreach($loadKhachHangVip as $khachHang){
-        extract($khachHang);
-        echo '<h1>Tên khách hàng là:'.$name.' khách hàng mua được '.$total_customers.' đơn</h1>';
-    }
+<?php   
+    // thống kê chi tiết khách hàng nào mua được nhiều sản phẩm để trở thành khách hàng vip
+    // foreach($loadKhachHangVip as $khachHang){
+    //     extract($khachHang);
+    //     echo '<h1>Tên khách hàng là:'.$name.' khách hàng mua được '.$total_customers.' đơn</h1>';
+    // }
+    echo '<pre>';
+    print_r($loadKhachHangVip);
+    echo '</pre>';
 ?>
 <main class="main row">
                 <div class="main-content row">
@@ -58,72 +62,48 @@
                     </article>
                     <!-- code table don hang o day -->
                     <article class="revenue">
-                        <div class="revenue__top row">
-                            <div class="revenue__top--title">
-                                <h4>Doanh thu</h4>
-                            </div>
+                    <?php
+                    // Dữ liệu mẫu về doanh số bán hàng theo tháng
+                    $dataPoints = [];
+                    foreach ($loadstatistical as $data) {
+                        $dataPoints[] = [
+                            'day_of_week' => $data['day_of_week'],
+                            'daily_sales' => $data['daily_sales']
+                        ];
+                    }
 
-                            <select class="revenue__top--hendel">
-                                <option value="1">Năm 2023</option>
-                                <option value="2">Năm 2024</option>
-                                <option value="3">Năm 2025</option>
-                            </select>
-                        </div>
-                        <div class="revenue__content">
-                            <div class="revenue__content--chart">
-                                <div class="revenue--chart__line"></div>
-                                <div class="revenue--chart__line"></div>
-                                <div class="revenue--chart__line"></div>
-                                <div class="revenue--chart__line"></div>
-                                <div class="revenue__content--columns row">
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Jan</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Feb</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Mar</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Apr</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">May</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Jan</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">July</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Aug</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Sep</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Oct</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Nov</div>
-                                    </div>
-                                    <div class="revenue__content--column">
-                                        <div class="revenue--column_desc">Dec</div>
-                                    </div>
-                                </div>
-                            </div>
+                    // Chuyển định dạng dữ liệu sang JSON để truyền vào JavaScript
+                    $salesDataJSON = json_encode($dataPoints);
+                    ?>
+                    <canvas id="myChart" class="revenue__chart"></canvas>
 
-                            <div class="revenue__content--price row">
-                                <p class="price">80tr</p>
-                                <p class="price">60tr</p>
-                                <p class="price">40tr</p>
-                                <p class="price">20tr</p>
-                            </div>
+                    <script>
+                    // Dữ liệu từ PHP
+                    var dataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
 
-
-                        </div>
+                    // Tạo biểu đồ Bar Chart
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: dataPoints.map(item => 'Tuần ' + item.day_of_week),
+                            datasets: [{
+                                label: 'Doanh số bán hàng',
+                                data: dataPoints.map(item => item.daily_sales),
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
                     </article>
 
                     <article class="revenue">

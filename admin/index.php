@@ -247,14 +247,26 @@
                 if(isset($_POST['updateStatus'])&&($_POST['updateStatus'])){
                     $indStatus = $_POST['indStatus'];
                     $idpackage = $_POST['id_package'];
-                    updateCatalogStatus($idpackage, $indStatus);
                     $listDetail=getDetailPackage($idpackage);
+
+                    if(isset($listDetail)&& $indStatus==2){
+                        foreach($listDetail as $item){
+                             extract($item);
+                             setQtyProductReduce($id_prd,$qty);
+                        }
+                    }else if(isset($listDetail)&& $indStatus==4){
+                        foreach($listDetail as $item){
+                            extract($item);
+                            setQtyProductPlus($id_prd,$qty);
+                       }
+                    }
+
+                    updateCatalogStatus($idpackage, $indStatus);
                     $loadAll=getAllAdminCart($indStatus);
                 }
                 $countAllCart=getAdmin_AllCart();
                 $shipCart=getAdmin_ShippCart();
                 $newOrder=getAdmin_NewCart();
-                $listCart= getAdminCart();
                 
                 require_once "view/cartStatus.php";
                 break;

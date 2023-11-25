@@ -964,4 +964,24 @@ function forgotPassUser($phone) {
         update($sql);
 
     }
+    // load comment ở đây
+    function getAdminCommet(){
+        $sql="SELECT
+        p.name AS product_name,
+        p.qty AS product_qty,
+        c.time AS comment_time,
+        c.text AS comment_text,
+        u.username AS user_username
+    FROM
+        comment c
+    JOIN
+        user u ON c.id_user = u.id_user
+    JOIN
+        product p ON c.id_prd = p.id;";
+        return get_All($sql);
+    }
+    function getAdminAllComment(){
+        $sql= "SELECT COUNT(*) AS total_comments FROM comment;";
+        return get_All($sql);
+    }
 ?>

@@ -277,6 +277,11 @@
                 }
                 require_once "view/detailPackage.php";
                 break;
+            case 'comment':
+                $loadComment=getAdminCommet();
+                $AllComment=getAdminAllComment();
+                require_once 'view/comment.php';
+                break;   
             default:
             // khách hàng ưu tiên thì tôi cho mua 10 đơn hàng trở lên thành khách hàng vip
             // niếu muôn thay đổi khách hàng đó mua bao nhiêu đơn thi ngay dòng 751 model/product.php

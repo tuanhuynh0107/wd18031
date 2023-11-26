@@ -5,10 +5,13 @@
     extract($itemProduct);
     $linkByNow='index.php?page=byNow&idProduct='.$id;
     $sameType=sameTypeProducts($id);
-    // print_r($itemDetailProduct);
-    // echo '<br>----------------------<br>';
-    // print_r($itemProduct);
-    // echo '<br>----------------------<br>';
+
+    print_r($itemProduct);
+    echo '<br>----------------------<br>';
+    print_r($itemDetailProduct);
+    echo '<br>----------------------<br>';
+    print_r($itemAlbum);
+    echo '<br>----------------------<br>';
     // echo "test key: ".$type;
     ;
 ?>  
@@ -83,7 +86,19 @@
                         </form>
                       </div>
                       <div class="main-product__content--btn-2 row">
-                          <a href="#!" class="btn btn__add--Cart">Thêm vào giỏ hàng </a>
+                      <form action="index.php?page=addCart&idProduct=<?=$id_DP?>" method="post">
+                            <input type="hidden" name="idPro" value="'<?=$id_DP?>">
+                            <input type="hidden" name="imgPro" value="<?=$img1?>">
+                            <input type="hidden" name="namePro" value="<?=$name_prd?>">
+                            <input type="hidden" name="pricePro" value="<?=$price?>">
+                            <input type="hidden" name="typePro" value="<?=$price?>">
+                            <input type="hidden" name="qtyPro" value="1">
+                            <input type="hidden" name="nameCata" value="'.$category_name.'">
+
+                            <input type="submit" name="addCart"  class="btn btn__add--Cart"  value="Thêm vào giỏ hàng ">
+                            <!-- <a href="#!" name="addCart"></a> -->
+                        </form>
+                          
                           <a href="#!" class="btn btn__advisory">Tiếp tục mua hàng</a>
                       </div>
 

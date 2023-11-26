@@ -66,6 +66,40 @@ function hendelPlusQtyProdct(x) {
     chidrenValus.value = chidrenValusNew;
     console.log(chidrenValus.value);
 }
+function hendelReduxQtyProdct(x) {
+    var parentQty = x.parentElement;
+    var chidrenValus = parentQty.children[1];
+    var chidrenValusNew = +chidrenValus.value - 1;
+    chidrenValus.value =  chidrenValusNew;
+    var index = parentQty.children[2].value;
+    var xhr = new XMLHttpRequest();
+
+    // Xác định phương thức và URL
+    xhr.open("POST", "update_cart.php", true);
+
+    // Xác định tiêu đề yêu cầu
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // Xử lý sự kiện khi yêu cầu được gửi đi và nhận được phản hồi
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+        }
+    };
+
+    // Chuẩn bị dữ liệu để gửi đi
+    var data = "index=" + index + "&qtyPro=" + chidrenValusNew;
+
+    // Gửi yêu cầu
+    xhr.send(data);
+
+    console.log(data);
+
+    // Cập nhật giá trị trong trình duyệt mà không cần đợi phản hồi từ server
+    chidrenValus.value = chidrenValusNew;
+    console.log(chidrenValus.value);
+}
+
 
 
 

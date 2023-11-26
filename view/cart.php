@@ -98,11 +98,14 @@
                                             </div>
                                         </div>
                                         <div class="cart--hendel row">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
-                                                fill="none">
-                                                <path d="M11.8856 5.25L7.96606 11.4093L4.04648 5.25L11.8856 5.25Z"
-                                                    fill="#C0C0C0" stroke="black" stroke-width="0.5" />
-                                            </svg>
+                                            
+                                            <a onclick="hendelReduxQtyProdct(this)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                                    fill="none">
+                                                    <path d="M11.8856 5.25L7.96606 11.4093L4.04648 5.25L11.8856 5.25Z"
+                                                        fill="#C0C0C0" stroke="black" stroke-width="0.5" />
+                                                </svg>
+                                            </a>
                                             
                                             <input type="text" value="'.$qtyPro.'" name="qty" >
                                             <input type="hidden" value="'.$index.'" name="index" >

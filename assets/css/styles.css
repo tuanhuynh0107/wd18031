@@ -981,10 +981,8 @@ p {
 }
 
 .main-product__img--top-img {
-    width: 100%;
-    height: 368px;
-    object-fit: cover;
-
+    height: 348px;
+    object-fit: fill;
 }
 
 .main-product__img--top {
@@ -2382,7 +2380,6 @@ p {
         position: relative;
         width: 100%;
         height: 470px;
-        border-bottom: 1px solid #ddd;
     }
 
     .slide {
@@ -2439,19 +2436,19 @@ p {
     .slide-feature1 {
         text-align: center;
         background-image: url('../icons/main-banner.png');
-        height: 470px;
+        height: 398px;
         background-size: 100% 100%;
     }
     .slide-feature2 {
         text-align: center;
         background-image: url('../icons/main-banner2.png');
-        height: 470px;
+        height: 398px;
         background-size: 100% 100%;
     }
     .slide-feature3 {
         text-align: center;
         background-image: url('../icons/main-banner3.png');
-        height: 470px; 
+        height: 398px; 
         background-size: 100% 100%;
     }
 
@@ -2505,7 +2502,7 @@ p {
         text-align: center;
         margin-top: 20px;
         position: relative;
-        top: -60px;
+        top: -120px;
     }
 
     .arrow-prev {

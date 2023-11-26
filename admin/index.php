@@ -71,6 +71,10 @@
                 
                 require_once "view/Update.php";
                 break;
+            case 'user':
+                $listUser = loadAllUser();
+                require_once "view/user.php";
+                break;
             case 'form_addProduct':
                   
                 break;

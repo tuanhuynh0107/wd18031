@@ -264,9 +264,9 @@ function showImgAdmin(){
 }
 
 // user
-function loadAllUser($id_user){
-    $sql = "SELECT * FROM user WHERE id_user = ".$id_user;
-    return get_One($sql);
+function loadAllUser(){
+    $sql = "SELECT * FROM user ";
+    return get_All($sql);
 }
  function updateImgUser($id_user,$hinh){
     $sql="UPDATE `user`

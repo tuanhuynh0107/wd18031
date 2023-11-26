@@ -103,7 +103,34 @@ function hendelReduxQtyProdct(x) {
 
 
 
+function changeTransport() {
+    // Lấy phần tử select
+    var selectElement = document.getElementById("transportSelect");
+    
+    // Lấy giá trị được chọn
+    var selectedValue = selectElement.value;
+    
+    // Lấy phần tử span chứa tên đơn vị vận chuyển
+    var transportNameElement = document.getElementById("transportName");
 
+    // Cập nhật nội dung của phần tử span
+    switch (selectedValue) {
+        case "1":
+            transportNameElement.textContent = "Grab";
+            break;
+        case "2":
+            transportNameElement.textContent = "Bee";
+            break;
+        case "3":
+            transportNameElement.textContent = "Ahamove";
+            break;
+        case "4":
+            transportNameElement.textContent = "Sv xanh";
+            break;
+        default:
+            transportNameElement.textContent = "JHN Exxpress";
+    }
+}
 
 
 

@@ -47,6 +47,11 @@
                     $_SESSION['user_info']= $getUser;
                     header('location: index.php');
                     exit();
+                }else if ($role_user == 4) {
+                    $_SESSION['user_id'] = $userId;
+                    // $_SESSION['user_info']= $getUser;
+                    $thongbao = "Tài khoản không thể hoạt động vui lòng liên hệ để biết thêm chi tiết";
+                    exit();
                 } else {
                     $thongbao = "Tài khoản mật khẩu không đúng";
                     exit();

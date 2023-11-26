@@ -1,5 +1,5 @@
 <?php
-    print_r($listDetail);
+    // print_r($listDetail);
 ?>
 <input type="submit" value="">
 <form action="" method="post"></form>

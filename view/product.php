@@ -6,14 +6,14 @@
     $linkByNow='index.php?page=byNow&idProduct='.$id;
     $sameType=sameTypeProducts($id);
 
-    print_r($itemProduct);
-    echo '<br>----------------------<br>';
-    print_r($itemDetailProduct);
-    echo '<br>----------------------<br>';
-    print_r($itemAlbum);
-    echo '<br>----------------------<br>';
-    // echo "test key: ".$type;
-    ;
+    // print_r($itemProduct);
+    // echo '<br>----------------------<br>';
+    // print_r($itemDetailProduct);
+    // echo '<br>----------------------<br>';
+    // print_r($itemAlbum);
+    // echo '<br>----------------------<br>';
+    // // echo "test key: ".$type;
+    // ;
 ?>  
 <main>
       
@@ -99,10 +99,10 @@
                             <!-- <a href="#!" name="addCart"></a> -->
                         </form>
                           
-                          <a href="#!" class="btn btn__advisory">Tiếp tục mua hàng</a>
+                          <a href="index.php" class="btn btn__advisory">Tiếp tục mua hàng</a>
                       </div>
 
-                      <div class="main-product__together">
+                      <!-- <div class="main-product__together">
                           <div class="main-product__together--heading">
                               Thường được mua cùng:
                           </div>
@@ -173,7 +173,7 @@
                                   Thêm N vào sọt
                               </a>
                           </div>
-                      </div>
+                      </div> -->
                   </div>
               </div>
           </div>

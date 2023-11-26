@@ -1,5 +1,5 @@
 <?php
-    print_r($_SESSION['cart']);
+    // print_r($_SESSION['cart']);
 ?>
 <main>
         <!-- heading-cart -->

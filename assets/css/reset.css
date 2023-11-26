@@ -152,3 +152,9 @@ a {
 td {
     vertical-align: middle;
 }
+
+th {
+    white-space: nowrap;
+    font-size: 1.4rem;
+    font-weight: 500;
+}

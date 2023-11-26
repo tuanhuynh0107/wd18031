@@ -1,5 +1,5 @@
 <?php
-    print_r($loadAll);
+    // print_r($loadAll);
 ?>
 <input type="submit" value="">
 <form action="" method="post"></form>
@@ -75,6 +75,7 @@
                                     <td>Mã đơn hàng</td>
                                     <td>Khách hàng</td>
                                     <td>Thời gian</td>
+                                    <td>Ghi chú</td>
                                     <td>Trạng thái</td>
                                     <td>Thao tác</td>
                                 </tr>
@@ -135,6 +136,7 @@
                                                 <td><a href="index.php?page=detailPackage&idPackage='.$id_package.'" class="id__cart">'.$id_package.'</a></td>
                                                 <td>'.$name.'</td>
                                                 <td>'.$time.'</td>
+                                                <td>'.$note.'</td>
                                                 <td> 
                                                     '. $statusShow.'
                                                 </td>

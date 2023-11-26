@@ -9,7 +9,13 @@
         $page = $_GET['page'];
 
         switch ($page) {
-
+            case 'showUser':
+                $listUser=getAdminUser();
+                $totalAllUser=getAdminAll_TotalUser();
+                // $newUsersInMonth=getNewUsersInMonth(); Chưa có ngày đăng ký của khách hàng
+                $vipUser=getAdminVipUser();
+                require_once "view/showUser.php";
+                break;
            
             case 'product':
                 $listProduct=getAdminProduct();

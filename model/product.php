@@ -859,6 +859,20 @@ function forgotPassUser($phone) {
         ORDER BY  DAYOFWEEK(day_of_week)";
         return get_All($sql);
     }
+    // thống kê user
+    function getAdminAll_TotalUser(){
+        $sql="SELECT COUNT(DISTINCT id_user) AS total_user FROM user;";
+        return get_All($sql);
+    }
+
+    function getNewUsersInMonth() {
+        $sql = "SELECT COUNT(id_user) AS new_users
+                FROM user
+                WHERE DATE_FORMAT(registered_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m');";
+    
+        return get_All($sql);
+    }
+
     // Thống kê product
     function getAdminAll_TotalProduct(){
         $sql="SELECT COUNT(DISTINCT id) AS total_product FROM product;";
@@ -913,6 +927,62 @@ function forgotPassUser($phone) {
         }
 
     }
+    function showAdminUser($listProduct){
+        foreach($listProduct as $item){
+            extract($item);
+            $linkBlockProduct="index.php?page=blockUser&id_Prd=".$id_user;
+            $genderShơw="";
+            $role_userShow= "";
+            if($gender==1) {
+                $genderShơw.= '
+                    Nam
+                ';
+            }elseif($gender == 2) {
+                $genderShơw.= '
+                    Nữ
+                ';
+            }elseif($gender == 3) {
+                $genderShơw.= '
+                    Khác
+                ';
+            }
+            if($role_user==1) {
+                $role_userShow.= '
+                    Quản trị
+                ';
+            }elseif($role_user == 0) {
+                $role_userShow.= '
+                    Khách hàng
+                ';
+            }else {
+
+            }
+            echo 
+            '
+            <tr>
+                <td>'.$id_user.'</td>
+                <td>'.$username.'</td>
+                <td>'.$phone.'</td>
+                <td>'.$email.'</td>
+                <td>'.$genderShơw.'</td>
+                <td>'.$address.'</td>
+                <td>'.$role_userShow.'</td>
+                <td>
+                    <a href="'.$linkBlockProduct.'" class="hendel-delete-act">Chặn</a>
+                </td>
+            </tr>
+            
+            ';
+        }
+
+    }
+
+    // get user admin
+    function getAdminUser(){
+        $sql="SELECT * FROM user ";
+        return get_All($sql);
+    }
+
 
     // cart 
     function getAdminCartStatus($status){

@@ -3,7 +3,7 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
-    print_r($_SESSION['cart'])
+    // print_r($_SESSION['cart'])
 ?>
 
 
@@ -100,8 +100,8 @@
                                             </td>
                                             <td class="pay-ment__bod--title">'.$namePro.'</td>
                                             <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>
-                                            <td class="pay-ment__bod--pice">'.number_format($pricePro,0,",",".").'</td>
-                                            <td class="pay-ment__bod--qty"><input type="text" value="'.$qtyPro.'" name="" id=""></td>
+                                            <td class="pay-ment__bod--pice">'.number_format($pricePro,0,",",".").'đ</td>
+                                            <td class="pay-ment__bod--qty">'.$qtyPro.'</td>
                                             <td class="pay-ment__bod--total">'.number_format($total,0,",",".").'đ</td>
                                         </tr>
                                         ';
@@ -116,9 +116,21 @@
                             <input type="text" name="note" id="note" placeholder="gửi lời nhắn cho Hải sản miền tây">
                         </div>
                         <div class="note__express row">
-                            <div class="note__express--top row">Đơn vị vận chuyển: JHN Exxpress
+                            <div class="note__express--top row">
+                                Đơn vị vận chuyển: <span id="transportName">JHN Exxpress</span>
+                                    <div class="pay__address--btn">
+                                        <select name="Exxpress" id="transportSelect" class="option" onchange="changeTransport()">
+                                            <option value="">Thay đổi</option>
+                                            <option value="1">Grab</option>
+                                            <option value="2">Bee</option>
+                                            <option value="3">Ahamove</option>
+                                            <option value="4">Sv xanh</option>
+                                        </select>
+                                    </div>
+
+                                Dịch vụ: <span id="transportName">Nhanh</span>
                                 <div class="pay__address--btn">
-                                    <select name="Exxpress" id="">
+                                    <select name="Exxpress" id="transportSelect" class="option" onchange="changeTransport()">
                                         <option value="">Thay đổi</option>
                                         <option value="1">Grab</option>
                                         <option value="2">Bee</option>
@@ -126,8 +138,6 @@
                                         <option value="4">Sv xanh</option>
                                     </select>
                                 </div>
-
-                                <p class="note__express--time-Ship">Nhanh dự kiến giao trong vòng 24h</p>
                             </div>
 
                             <div class="note__express--bottom row">
@@ -143,11 +153,11 @@
                             <div class="delivery__pay--desc">
                                 <div class="delivery__pay--desc__title">Thanh toán khi nhận hàng</div>
                                 
-                                <select class="pay__address--btn " name="pttt">
+                                <select class="option" name="pttt" >
                                     <option value="">Thay đổi</option>
                                     <option value="1" >Thanh toán khi nhận hàng</option>
-                                    <option value="2" >Chuyển Khoản</option>
-                                    <option value="3"  >Chuyển Momo</option>
+                                    <!-- <option value="2" >Chuyển Khoản</option>
+                                    <option value="3"  >Chuyển Momo</option> -->
                                 </select>
                             </div>
                         </div>

@@ -24,6 +24,13 @@ body {
 }
 
 /* Common */
+
+.option {
+    padding: 6px;
+    border-radius: 6px;
+    outline: none;
+}
+
 .main--login {
     position: relative;
 }
@@ -1090,6 +1097,9 @@ p {
 
 .main-product__content--btn {
     justify-content: center;
+    border: none;
+    background-color: var(--primary-color-font);
+    border-radius: var(--primary-boder);
 }
 
 .btn__act--Product {
@@ -1118,6 +1128,13 @@ p {
 .main-product__content--btn-2>.btn {
     color: #fff;
     width: 50%;
+    background-color: var(--primary-color-font);
+    border-radius: var(--primary-boder);
+}
+
+.btn__add--Cart {
+    width: 220px;
+    border: none;
     background-color: var(--primary-color-font);
     border-radius: var(--primary-boder);
 }
@@ -1670,8 +1687,8 @@ p {
 .pay__address--btn {
     cursor: pointer;
     margin-left: 19px;
-    background-color: #d9d9d9;
-    padding: 4px;
+    /* background-color: #d9d9d9; */
+    /* padding: 4px; */
 }
 
 .pay__address--btn a {

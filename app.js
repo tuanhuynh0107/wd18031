@@ -39,6 +39,7 @@ function hendelPlusQtyProdct(x) {
     var chidrenValusNew = +chidrenValus.value + 1;
     chidrenValus.value =  chidrenValusNew;
     var index = parentQty.children[2].value;
+    console.log(index);
     var xhr = new XMLHttpRequest();
 
     // Xác định phương thức và URL
@@ -60,11 +61,11 @@ function hendelPlusQtyProdct(x) {
     // Gửi yêu cầu
     xhr.send(data);
 
-    console.log(data);
+    // console.log(data);
 
     // Cập nhật giá trị trong trình duyệt mà không cần đợi phản hồi từ server
     chidrenValus.value = chidrenValusNew;
-    console.log(chidrenValus.value);
+    // console.log(chidrenValus.value);
 }
 function hendelReduxQtyProdct(x) {
     var parentQty = x.parentElement;

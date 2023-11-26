@@ -108,7 +108,7 @@
                                             </a>
                                             
                                             <input type="text" value="'.$qtyPro.'" name="qty" >
-                                            <input type="hidden" value="'.$index.'" name="index" >
+                                            <input type="hidden" value="'.$idCart.'" name="index" >
                                             <a onclick="hendelPlusQtyProdct(this)">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
                                                 fill="none">
@@ -122,6 +122,7 @@
                                     </div>
                                 </div>
                                     ';
+                                   
                                     $idCart++;
                                     $total_qty += $total;
                                     $quantyty += $qtyPro;

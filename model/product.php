@@ -289,6 +289,15 @@ function loadAllUser($id_user){
              `id_user` = ".$id_user;
             update($sql);
 }
+// Forfie
+function getIdPackage($idPackage){
+    $sql="SELECT * FROM detail_package WHERE id_package=".$idPackage;
+    return get_All($sql);
+}
+function insertCommentFeadBack($textComment, $dateComment,$id_prd,$idUser){
+    $sql= "INSERT INTO comment(id_user, id_prd, text, time) VALUES ('".$idUser."', '".$id_prd."', '".$textComment."','".$dateComment."')";
+    inset($sql);
+}
 function getYourCart($id_user){
     $sql="SELECT * FROM package WHERE id_User=".$id_user;
     $sql.=" ORDER BY id_package DESC limit 10";
@@ -658,9 +667,9 @@ function forgotPassUser($phone) {
              VALUES ('$name', '$address', '$phone', '$pay_ms', '$total_All', '$status', '$time', '$note', '$id_user')";
              return pdo_execute_return_lastInsertId($sql);
     }
-    function insert_Detail_Package($name_prd,$qty,$price, $total,$id_package,$id_trans) {
-        $sql="INSERT INTO detail_package (name_prd, qty, price, total, id_package, id_trans) 
-             VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans')";
+    function insert_Detail_Package($name_prd,$qty,$price, $total,$id_package,$id_trans,$idProduct) {
+        $sql="INSERT INTO detail_package (name_prd, qty, price, total, id_package, id_trans,id_prd) 
+             VALUES ('$name_prd','$qty','$price', '$total','$id_package','$id_trans','$idProduct')";
              return pdo_execute_return_lastInsertId($sql);
     }
     function   update_changeAdress($id_user, $phone, $name, $pass, $address){
@@ -748,17 +757,17 @@ function forgotPassUser($phone) {
             SELECT p.id_user
             FROM package p
             GROUP BY p.id_User
-            HAVING COUNT(p.id_package) >= 10
+            HAVING SUM(p.total) >= 10000000
         );
         ";
          return get_All($sql);
     }
     function getAdminLoadKhachHangVip(){
-        $sql="SELECT COUNT(u.id_user) as total_customers, u.username as name
+        $sql="SELECT u.id_user as id_user, u.username as name, SUM(p.total) as total_all, u.phone as phone, u.address as address, u.email as email 
         FROM user u
         JOIN package p ON u.id_user = p.id_User
         GROUP BY u.id_user
-        HAVING COUNT(p.id_package) >= 10;
+        HAVING SUM(p.total) >= 10000000;
         ";
          return get_All($sql);
     }
@@ -774,6 +783,9 @@ function forgotPassUser($phone) {
     }
 
     // product
+    function getAdminProductQty(){
+        $sql= "UPDATE product ";
+    }
     function getAdminProduct(){
         $sql="SELECT 
         p.id AS product_id,
@@ -822,6 +834,30 @@ function forgotPassUser($phone) {
         $sql = "INSERT INTO product(id_catalog, name, price, qty) 
         VALUES ('$id_catalog','$name_product','$price_product', '$qty_product')";
         inset($sql);
+    }
+    // thống kê home
+    function getAdminstatistical(){
+        $sql = "SELECT
+            DATE_FORMAT(time, '%Y-%m') AS month,
+            SUM(total) AS monthly_sales
+        FROM
+            package
+        WHERE
+            YEAR(time) = YEAR(CURRENT_DATE) -- Lấy dữ liệu cho cùng một năm
+        GROUP BY
+            month
+        ORDER BY
+            month
+        ";
+        return get_All($sql);
+    }
+    function getAdminstatisticalDay(){
+        $sql="SELECT WEEKDAY(time) AS day_of_week, SUM(total) AS daily_sales, status 
+        FROM package 
+        WHERE status = 3 AND  WEEK(time) = WEEK(CURRENT_DATE)
+        GROUP BY day_of_week 
+        ORDER BY  DAYOFWEEK(day_of_week)";
+        return get_All($sql);
     }
     // Thống kê product
     function getAdminAll_TotalProduct(){
@@ -890,6 +926,11 @@ function forgotPassUser($phone) {
         $sql = "SELECT * FROM package WHERE YEARWEEK(time) = YEARWEEK(CURDATE()) ORDER BY time DESC";
         return get_All($sql);
     }
+    function getAllAdminCart($indStatus){
+        $sql= "SELECT * FROM package WHERE status=".$indStatus;
+        return get_All($sql);
+    }
+    
     // thống kế đơn hàng 
     function getAdmin_AllCart(){
         $sql="SELECT COUNT(DISTINCT id_package) AS total_package FROM package;";
@@ -910,6 +951,37 @@ function forgotPassUser($phone) {
     }
     function getDetailPackage($id_package) {
         $sql = "SELECT * from detail_package where id_package=".$id_package;
+        return get_All($sql);
+    }
+    // tăng giảm số lượng product
+    function setQtyProductReduce($id_prd,$qty){
+        $sql="UPDATE product SET qty=qty-'$qty' where id=".$id_prd;
+        update($sql);
+
+    }
+    function setQtyProductPlus($id_prd,$qty){
+        $sql="UPDATE product SET qty=qty+'$qty' where id=".$id_prd;
+        update($sql);
+
+    }
+    // load comment ở đây
+    function getAdminCommet(){
+        $sql="SELECT
+        p.name AS product_name,
+        p.qty AS product_qty,
+        c.time AS comment_time,
+        c.text AS comment_text,
+        u.username AS user_username
+    FROM
+        comment c
+    JOIN
+        user u ON c.id_user = u.id_user
+    JOIN
+        product p ON c.id_prd = p.id;";
+        return get_All($sql);
+    }
+    function getAdminAllComment(){
+        $sql= "SELECT COUNT(*) AS total_comments FROM comment;";
         return get_All($sql);
     }
 ?>

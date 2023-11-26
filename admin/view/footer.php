@@ -1,3 +1,8 @@
+<?php
+        // echo '<pre>';
+        // print_r($loadStatisticalDay );
+        // echo '</pre>';
+?>
 <section class="notify row">
                     <!-- POST -->
                     <div class="notify__post ">
@@ -67,16 +72,48 @@
                         <div class="revenue__chart row ">
                             <div class="chart__content row">
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="196" viewBox="0 0 167 196"
-                                    fill="none" class="chart notify__chart">
-                                    <rect x="0.000976562" y="99" width="17" height="97" fill="#D9D9D9" />
-                                    <rect x="30.001" y="124" width="17" height="72" fill="#D9D9D9" />
-                                    <rect x="55.001" y="77" width="17" height="119" fill="#D9D9D9" />
-                                    <rect x="80.001" y="44" width="17" height="152" fill="#D9D9D9" />
-                                    <rect x="105.001" y="103" width="17" height="93" fill="#D9D9D9" />
-                                    <rect x="130.001" width="17" height="196" fill="#879FFF" />
-                                    <rect x="155.001" y="25" width="17" height="171" fill="#D9D9D9" />
-                                </svg>
+                            <?php
+                    // Dữ liệu mẫu về doanh số bán hàng theo tháng
+                    $dataPoints = [];
+                    foreach ($loadStatisticalDay as $data) {
+                        $dataPoints[] = [
+                            'day_of_week' => $data['day_of_week'],
+                            'daily_sales' => $data['daily_sales']
+                        ];
+                    }
+
+                    // Chuyển định dạng dữ liệu sang JSON để truyền vào JavaScript
+                    $salesDataJSON = json_encode($dataPoints);
+                    ?>
+                    <canvas id="chart" class="revenue__chart"></canvas>
+
+                    <script>
+                    // Dữ liệu từ PHP
+                    var dataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
+
+                    // Tạo biểu đồ Bar Chart
+                    var ctx = document.getElementById('chart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: dataPoints.map(item => 'Tuần ' + item.day_of_week),
+                            datasets: [{
+                                label: 'Doanh số bán hàng',
+                                data: dataPoints.map(item => item.daily_sales),
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
                                 
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 <?php
-    // session_start();
+    print_r($_SESSION['cart']);
 ?>
 <main>
         <!-- heading-cart -->
@@ -53,12 +53,12 @@
                                 $idCart= 0;
                                 $total_qty=0;
                                 $quantyty = 0;
-                                // $qty=1;
+                                $index = 0;
                                 foreach ($_SESSION['cart'] as $item) {
-                                  
                                     extract($item);
                                     $total = $pricePro * $qtyPro;
                                     $linkDeleCart = "index.php?page=delCart&id=".$idCart;
+                                    $index++;
                                     echo '
                                     <div class="cart__content--item">
                                     <div class="cart--item__nav">
@@ -98,17 +98,24 @@
                                             </div>
                                         </div>
                                         <div class="cart--hendel row">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                            
+                                            <a onclick="hendelReduxQtyProdct(this)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                                    fill="none">
+                                                    <path d="M11.8856 5.25L7.96606 11.4093L4.04648 5.25L11.8856 5.25Z"
+                                                        fill="#C0C0C0" stroke="black" stroke-width="0.5" />
+                                                </svg>
+                                            </a>
+                                            
+                                            <input type="text" value="'.$qtyPro.'" name="qty" >
+                                            <input type="hidden" value="'.$index.'" name="index" >
+                                            <a onclick="hendelPlusQtyProdct(this)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
                                                 fill="none">
-                                                <path d="M11.8856 5.25L7.96606 11.4093L4.04648 5.25L11.8856 5.25Z"
-                                                    fill="#C0C0C0" stroke="black" stroke-width="0.5" />
-                                            </svg>
-                                            <input type="text" value="'.$qtyPro.'" name="" id="">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
-                                                fill="none">
-                                                <path d="M4.04648 9.75L7.96606 3.59066L11.8856 9.75H4.04648Z" fill="#C0C0C0"
-                                                    stroke="black" stroke-width="0.5" />
-                                            </svg>
+                                                    <path d="M4.04648 9.75L7.96606 3.59066L11.8856 9.75H4.04648Z" fill="#C0C0C0"
+                                                    stroke="black" stroke-width="0.5" />            
+                                                </svg>
+                                            </a>
                                         </div>
                                         <div class="cart-total">'.number_format($total,0,",",".").'đ</div>
                                         <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div>

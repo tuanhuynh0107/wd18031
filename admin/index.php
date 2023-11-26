@@ -247,13 +247,28 @@
                 if(isset($_POST['updateStatus'])&&($_POST['updateStatus'])){
                     $indStatus = $_POST['indStatus'];
                     $idpackage = $_POST['id_package'];
+                    $listDetail=getDetailPackage($idpackage);
+
+                    if(isset($listDetail)&& $indStatus==2){
+                        foreach($listDetail as $item){
+                             extract($item);
+                             setQtyProductReduce($id_prd,$qty);
+                        }
+                    }else if(isset($listDetail)&& $indStatus==4){
+                        foreach($listDetail as $item){
+                            extract($item);
+                            setQtyProductPlus($id_prd,$qty);
+                       }
+                    }
+
                     updateCatalogStatus($idpackage, $indStatus);
+                    $loadAll=getAllAdminCart($indStatus);
                 }
                 $countAllCart=getAdmin_AllCart();
                 $shipCart=getAdmin_ShippCart();
                 $newOrder=getAdmin_NewCart();
-                $listCart= getAdminCart();
-                require_once "view/cartAdmin.php";
+                
+                require_once "view/cartStatus.php";
                 break;
             case 'detailPackage':
                 if(isset($_GET['idPackage'])&&($_GET['idPackage']) > 0) {
@@ -262,6 +277,11 @@
                 }
                 require_once "view/detailPackage.php";
                 break;
+            case 'comment':
+                $loadComment=getAdminCommet();
+                $AllComment=getAdminAllComment();
+                require_once 'view/comment.php';
+                break;   
             default:
             // khách hàng ưu tiên thì tôi cho mua 10 đơn hàng trở lên thành khách hàng vip
             // niếu muôn thay đổi khách hàng đó mua bao nhiêu đơn thi ngay dòng 751 model/product.php
@@ -271,6 +291,8 @@
                 $soldProduct=getAdminAll_SoldProduct();
                 $loadAllUser=getAdmin_LoadAllUser();
                 $loadNewCart=getAdmin_LoadNewCart();
+                // bản thống kê theo tuần
+                $loadstatistical=getAdminstatistical();
                 require_once "view/home.php";
                 break;
         };
@@ -280,9 +302,10 @@
         $soldProduct=getAdminAll_SoldProduct();
         $loadAllUser=getAdmin_LoadAllUser();
         $loadNewCart=getAdmin_LoadNewCart();
+        // bản thống kê theo tuần
+        $loadstatistical=getAdminstatistical();
         require_once "view/home.php";
     }
-
-
+    $loadStatisticalDay =getAdminstatisticalDay();
     require_once 'view/footer.php';
 ?>

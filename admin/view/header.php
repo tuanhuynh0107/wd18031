@@ -13,9 +13,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="../assets/css/input.css">
+        <link rel="stylesheet" href="../assets/css/reset.css">
+        <link rel="stylesheet" href="../assets/css/admin.css">
+        <link rel="stylesheet" href="../assets/css/input.css">
+        <script src="../chart.js"></script>
 </head>
 
 <body>
@@ -104,7 +105,7 @@
                         </a>
                     </li>
                     <li class="main__menu--li row">
-                        <a href="#!" class="row main__menu--li__action">
+                        <a href="index.php?page=comment" class="row main__menu--li__action">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                 fill="none">
                                 <g clip-path="url(#clip0_502_282)">
@@ -121,8 +122,8 @@
                             Bình luận
                         </a>
                     </li>
-                    <li class="main__menu--li row">
-                        <a href="#!" class="row main__menu--li__action">
+                    <!-- <li class="main__menu--li row">
+                        <a href="index.php?page=statistical" class="row main__menu--li__action">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                 fill="none">
                                 <path
@@ -136,7 +137,7 @@
                             </svg>
                             Thống kê
                         </a>
-                    </li>
+                    </li> -->
 
                     <div class="main__menu--line">
                     </div>

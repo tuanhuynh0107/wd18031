@@ -278,13 +278,15 @@ html {
 /* revenue doanh thu */
 
 .revenue {
-    width: 100%;
+    width: 923px;
     background-color: #fff;
     height: auto;
     border-radius: 13px;
     padding: 35px;
 }
-
+/* .revenue__chart{
+    width: 100%;
+} */
 
 .revenue__top {
     justify-content: space-between;

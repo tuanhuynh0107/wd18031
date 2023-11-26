@@ -72,6 +72,7 @@
             $pricePro=$_POST['pricePro'];
             $nameCata=$_POST['nameCata'];
             $typePro=$_POST['typePro'];
+            $index=$_POST['index'];
 
             if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
                 $qtyPro=$_POST['qtyPro'];
@@ -85,7 +86,7 @@
                 $vitritrung = checkDuplicates( $idProduct);
                 upDataQty($vitritrung);
             }else{
-                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata];
+                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata,"index"=>$index];
                 $_SESSION['cart'][] = $item;
             }    
         }
@@ -165,6 +166,7 @@
                  $note=$_POST['note'];
                  // insert cart
                  $total=$_POST['total'];
+                 $idProduct=$_POST['idProduct'];
 
                  $id_trans=$_POST['Exxpress'];
                  if($pay_ms===""){
@@ -175,7 +177,7 @@
                      }else{
                              $id_package=insert_Package($name, $address, $phone, $pay_ms, $total_All, $status, $time, $note, $id_user);                     
                              foreach ($_SESSION['cart'] as $cart){
-                                 insert_Detail_Package($cart['namePro'],$cart['qtyPro'],$cart['pricePro'], $total,$id_package,$id_trans);
+                                 insert_Detail_Package($cart['namePro'],$cart['qtyPro'],$cart['pricePro'], $total,$id_package,$id_trans,$idProduct);
                              }
                              $_SESSION['cart']=[];
                              $thongbao="Bạn đã đặt hàng thành công";

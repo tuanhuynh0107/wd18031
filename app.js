@@ -95,7 +95,7 @@ function hendelReduxQtyProdct(x) {
 
     console.log(data);
 
-    // Cập nhật giá trị trong trình duyệt mà không cần đợi phản hồi từ server
+    // Cập nhật giá trị trong trình duyệt mà không cần đợi phản hồi từ server dâdadadadgit 
     chidrenValus.value = chidrenValusNew;
     console.log(chidrenValus.value);
 }

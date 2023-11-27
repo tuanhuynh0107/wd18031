@@ -16,12 +16,18 @@
               
                 require_once "view/statistical.php";
                 break;
+            case 'statisticalCatalog':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    $loadstatisticsCatalog=getAminstatisticsCatalog($_GET['id']);
+                }
+                require_once "view/statisticalCatalog.php";
+                break;
             case 'statisticalProduct':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     $loadstatisticsProduct=getAminstatisticsProduct($_GET['id']);
                 }
                 require_once "view/statisticalProduct.php";
-                break;
+                break;     
             case 'showUser':
                 $listUser=getAdminUser();
                 $totalAllUser=getAdminAll_TotalUser();

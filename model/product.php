@@ -988,12 +988,21 @@ function forgotPassUser($phone) {
         }
         return get_All($sql);
     }
-    function getAminstatisticsProduct($id){
+    function getAminstatisticsCatalog($id){
         if($id==4){
             $sql="SELECT qty_catalog as qty, name_catalog as namePro FROM catalog";
         }
         return get_All($sql);
     }
+    function getAminstatisticsProduct($id){
+        if($id==5){
+            $sql="SELECT name_prd as nameProduct, SUM(qty) as qtysold 
+            FROM  detail_package
+            GROUP BY
+            name_prd";
+        }
+        return get_All($sql);
+    }   
     // thống kê home
     function getAdminstatistical(){
         $sql = "SELECT

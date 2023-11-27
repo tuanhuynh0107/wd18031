@@ -26,7 +26,7 @@
                                 <a href="index.php?page=statistical&id=1">Thống kê tuần</a>
                                 <a href="index.php?page=statistical&id=2">Thống kê tháng</a>
                                 <a href="index.php?page=statistical&id=3">Thống kê năm</a>
-                                <a href="index.php?page=statisticalProduct&id=4">Thống kê loại hàng</a>
+                                <a href="index.php?page=statisticalCatalog&id=4">Thống kê loại hàng</a>
                                 <a href="index.php?page=statisticalProduct&id=5">Thống kê sản phẩm bán ra nhiều nhất</a>
                             </div>
                         </div>

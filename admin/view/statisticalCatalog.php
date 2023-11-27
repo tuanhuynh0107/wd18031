@@ -1,5 +1,5 @@
 <?php
-    print_r($loadstatistics);
+    // print_r($loadstatistics);
 ?>
 <input type="submit" value="">
 <form action="" method="post"></form>
@@ -33,10 +33,10 @@
                         <?php
                     // Dữ liệu mẫu về doanh số bán hàng theo tháng
                     $dataPoints = [];
-                    foreach ($loadstatisticsProduct as $data) {
+                    foreach ($loadstatisticsCatalog as $data) {
                         $dataPoints[] = [
-                            'nameProduct' => $data['nameProduct'],
-                            'qtysold' => $data['qtysold'],
+                            'namePro' => $data['namePro'],
+                            'qty' => $data['qty'],
                             
                         ];
                     }
@@ -44,32 +44,39 @@
                     // Chuyển định dạng dữ liệu sang JSON để truyền vào JavaScript
                     $salesDataJSON = json_encode($dataPoints);
                     ?>
-                    <canvas id="myLineChart" width="400" height="200"></canvas>
+                    <div style="width: 50%;">
+                        <canvas id="productChart"></canvas>
+                    </div>
 
                     <script>
                     // Sử dụng dữ liệu PHP đã chuyển định dạng sang JSON
-                    var dataPoints = <?php echo $salesDataJSON; ?>;
+                    var productData = <?php echo  $salesDataJSON; ?>;
 
-                    // Tạo biểu đồ đường bằng Chart.js
-                    var ctx = document.getElementById('myLineChart').getContext('2d');
-                    var myLineChart = new Chart(ctx, {
-                        type: 'line',
+                    // Tạo biểu đồ hình tròn bằng Chart.js
+                    var ctx = document.getElementById('productChart').getContext('2d');
+                    var productChart = new Chart(ctx, {
+                        type: 'pie',
                         data: {
-                            labels: dataPoints.map(item => item.nameProduct),
+                            labels: productData.map(item => item.namePro),
                             datasets: [{
-                                label: 'sản phẩm đã bán ra',
-                                data: dataPoints.map(item => item.qtysold),
-                                borderColor: 'rgba(75, 192, 192, 1)',
-                                borderWidth: 1,
-                                fill: false
+                                data: productData.map(item => item.qty),
+                                backgroundColor: [
+                                    'rgba(75, 192, 192, 0.7)', // Màu cho Type A
+                                    'rgba(255, 99, 132, 0.7)', // Màu cho Type B
+                                    'rgba(255, 255, 102, 0.7)' // Màu cho Type C
+                                    // Thêm màu cho các loại hàng khác nếu cần
+                                ],
+                                borderColor: [
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(255, 255, 102, 1)'
+                                ],
+                                borderWidth: 1
                             }]
                         },
                         options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
+                            responsive: true,
+                            maintainAspectRatio: false
                         }
                     });
                     </script>

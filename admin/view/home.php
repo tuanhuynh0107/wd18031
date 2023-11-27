@@ -4,9 +4,9 @@
     //     extract($khachHang);
     //     echo '<h1>Tên khách hàng là:'.$name.' khách hàng mua được '.$total_customers.' đơn</h1>';
     // }
-    // echo '<pre>';
-    // print_r($loadstatistical);
-    // echo '</pre>';
+    echo '<pre>';
+    print_r( $vipUser);
+    echo '</pre>';
 ?>
 <main class="main row">
                 <div class="main-content row">

@@ -821,6 +821,7 @@ function forgotPassUser($phone) {
         WHERE u.id_user IN (
             SELECT p.id_user
             FROM package p
+            WHERE status = 3
             GROUP BY p.id_User
             HAVING SUM(p.total) >= 10000000
         );
@@ -841,9 +842,10 @@ function forgotPassUser($phone) {
         package p ON u.id_user = p.id_User
     WHERE
         u.id_user IN (
-            SELECT id_user
+            SELECT id_User
             FROM package
-            GROUP BY id_user
+            WHERE status = 3
+            GROUP BY id_User
             HAVING SUM(total) >= 10000000
         )
     GROUP BY
@@ -854,7 +856,7 @@ function forgotPassUser($phone) {
     function getAdminLoadKhachHangVip(){
         $sql="SELECT u.id_user as id_user, u.username as name, SUM(p.total) as total_all, u.phone as phone, u.address as address, u.email as email 
         FROM user u
-        JOIN package p ON u.id_user = p.id_User
+        JOIN package p ON u.id_user = p.id_User AND p.status = 3
         GROUP BY u.id_user
         HAVING SUM(p.total) >= 10000000;
         ";

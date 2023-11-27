@@ -475,6 +475,7 @@ input {
     transition: scale 500ms ease-in-out, color 200ms ease-out;
     box-shadow: 0px 0px 4px 0px #58A2E8;
     padding: 5px;
+    margin-bottom: 2px;
 }
 
 .popular .course-item:hover {
@@ -482,18 +483,16 @@ input {
     z-index: 1000;
 }
 
-
 .course__images {
     position: relative;
 }
 
 .course_sale {
     position: absolute;
+    right: -10px;
 }
 
-.course__sale--item {
-    position: relative;
-}
+
 
 .course_sale--title {
     position: absolute;
@@ -507,7 +506,7 @@ input {
     width: 100%;
     height: 212px;
     object-fit: cover;
-    padding: 10px;
+    padding: 20px;
     background-color: #fcfcfc;
     box-shadow: 0px 0px 2px 0px #ccc;
 
@@ -643,17 +642,17 @@ input {
     left: 0;
     width: 100%;
     border-radius: 0px;
-    background: var(--primary-color);
+    background: var(--primary-color-bgc);
     line-height: 2.5;
     border: none;
-    color: #171100;
+    color: #fff;
     opacity: 0;
     transition: opacity 500ms ease-in-out;
 }
 
 
 .popular .course-item:hover .book-btn {
-    opacity: 1;
+    opacity: 0.85;
 }
 
 /* Feedback */

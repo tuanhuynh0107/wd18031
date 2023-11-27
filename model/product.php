@@ -152,8 +152,9 @@ function getProduct($id_pro){
             $linkProduct = 'index.php?page=product&idProduct='.$product_id;
             $proQty=1;
             $kq .= '<div class="course-item">
-            <a href="'.$linkProduct.'">
+            <a href="'.$linkProduct.'" class="course__images">
                 <img src="./assets/img/img_main/'.$album_image.'.png" alt="Basic web design" class="thumb" />
+                <img src="./assets/icons/roll_song.png" alt="" class="course_sale">
             </a>
             <div class="info row">
                 <div class="body row">

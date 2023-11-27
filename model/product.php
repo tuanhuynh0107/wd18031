@@ -816,7 +816,7 @@ function forgotPassUser($phone) {
             return get_All($sql);
         }
     function getAdminVipUser(){
-        $sql="SELECT COUNT(DISTINCT u.id_user) as total_customers
+        $sql="SELECT COUNT( u.id_user) as total_customers
         FROM user u
         WHERE u.id_user IN (
             SELECT p.id_user
@@ -826,6 +826,30 @@ function forgotPassUser($phone) {
         );
         ";
          return get_All($sql);
+    }
+    function getAllAdminVipUser(){
+        $sql="SELECT
+        u.id_user,
+        u.username AS customer_name,
+        u.phone,
+        u.email,
+        COUNT(p.id_package) AS total_orders,
+        SUM(p.total) AS total_order_amount
+    FROM
+        user u
+    JOIN
+        package p ON u.id_user = p.id_User
+    WHERE
+        u.id_user IN (
+            SELECT id_user
+            FROM package
+            GROUP BY id_user
+            HAVING SUM(total) >= 10000000
+        )
+    GROUP BY
+        u.id_user, u.username, u.phone, u.email;
+    ";
+    return get_All($sql);
     }
     function getAdminLoadKhachHangVip(){
         $sql="SELECT u.id_user as id_user, u.username as name, SUM(p.total) as total_all, u.phone as phone, u.address as address, u.email as email 

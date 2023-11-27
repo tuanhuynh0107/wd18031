@@ -24,6 +24,10 @@
                 $vipUser=getAdminVipUser();
                 require_once "view/showUser.php";
                 break;
+            case 'userVip':
+                $LoadAllVipUser=getAllAdminVipUser();
+                require_once "view/userVip.php";
+                break;    
            
             case 'product':
                 $listProduct=getAdminProduct();

@@ -53,11 +53,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Khách hàng ưu tiên</p>
-                                <div class="total_product__content--qty"><?=$vipUser[0]['total_customers']?></div>
-                                <p class="total_product__content--desc">Tăng 15% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=userVip">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Khách hàng ưu tiên</p>
+                                    <div class="total_product__content--qty"><?=$vipUser[0]['total_customers']?></div>
+                                    <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                                </div>
+                            </a>
                         </section>
                     </article>
                     <!-- code table don hang o day -->

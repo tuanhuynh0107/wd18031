@@ -163,7 +163,6 @@ function getProduct($id_pro){
                             '.$product_name.'
                         </a>
                     </h3>
-
                     <div class="add__to-Cart">
                         <form action="'.$linkAddCart.'" method="post">
                             <input type="hidden" name="idPro" value="'.$product_id.'">

@@ -96,7 +96,7 @@ a {
 }
 
 .heading.lv2 {
-    font-size: 3.8rem;
+    font-size: 2.6rem;
     line-height: 1.26;
 }
 
@@ -118,8 +118,9 @@ a {
     color: #000;
     font-size: 1.6rem;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 30px;
+    text-transform: capitalize;
 }
 
 .line-clamp.line-2 {
@@ -473,9 +474,10 @@ input {
     flex: 1;
     background: #ffffff;
     transition: scale 500ms ease-in-out, color 200ms ease-out;
-    box-shadow: 0px 0px 4px 0px #58A2E8;
+    box-shadow: 0px 0px 2px 0px var(--primary-color-bgc);
     padding: 5px;
     margin-bottom: 2px;
+    border: none;
 }
 
 .popular .course-item:hover {
@@ -484,6 +486,8 @@ input {
 }
 
 .course__images {
+    width: 230px;
+    height: 212px;
     position: relative;
 }
 
@@ -507,7 +511,7 @@ input {
     height: 212px;
     object-fit: cover;
     padding: 20px;
-    background-color: #fcfcfc;
+    background-color: #fff;
     box-shadow: 0px 0px 2px 0px #ccc;
 
 }

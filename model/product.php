@@ -97,14 +97,13 @@ function getProduct($id_pro){
         foreach ($listItems as $Item) {
             
             extract($Item);
-            $sale = "";
+            $saleShow = "";
             if($product_sale > 0){
-                $priceSale = $product_price * ($product_sale /100);
-                $sale .='<del class="price-del">'.number_format($priceSale,0,",",".").' đ</del>';
+                $priceSale = $product_price - ($product_sale / 100 );
+                $saleShow .='<del class="price-del">'.number_format($priceSale,0,",",".").' đ</del>';
             }else{
-                $sale .='';
+                $saleShow .='';
             }
-          
             $linkAddCart='index.php?page=addCart&idProduct='.$product_id;
             $linkByNow='index.php?page=byNow&idProduct='.$product_id;
             $linkProduct = 'index.php?page=product&idProduct='.$product_id;
@@ -140,7 +139,7 @@ function getProduct($id_pro){
                     </div>
                 </div>
                 <div class="foot row">
-                    <span class="price">'.number_format($product_price,0,",",".").' VND / '.$product_type.'</span>'.$sale.'
+                    <span class="price">'.number_format($product_price,0,",",".").' VND / '.$product_type.'</span>'.$saleShow.'
                    
                     <div class="rating">
                         <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
@@ -1054,4 +1053,5 @@ function forgotPassUser($phone) {
         $sql= "SELECT COUNT(*) AS total_comments FROM comment;";
         return get_All($sql);
     }
+    
 ?>

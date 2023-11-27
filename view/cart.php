@@ -151,7 +151,7 @@
                                 <div class="total__order--pice"><?php if(isset($total_qty)&&isset($ship)){ echo number_format($total_qty + $ship,0,",",".");}else{echo 0;}?>đ</div>
                             </div>
                         </div>
-                        <a href="index.php?page=payMent" class="cart__pay btn">Thanh toán</a>
+                        <a href="index.php?page=payMent" class="cart__pay btn">Tiến hành đặt hàng</a>
                     </div>
                 </div>
 

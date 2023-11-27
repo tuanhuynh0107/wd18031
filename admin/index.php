@@ -217,21 +217,7 @@
               require_once "view/catalog.php";
                 break;
 
-            // case "addProduct" :
-            //         if(isset($_POST['addProduct'])&&($_POST['addProduct'])){
-            //                 // $id = $_POST['idDM'];
-            //                 $pice = $_POST['pice'];
-            //                 $name = $_POST['name'];
-            //                 $id_catalog = $_POST['loaiHang'];
-            //                 $img = $_FILES['img']['name'];
-            //                 $target_dir = "uploads/";
-            //                 $target_file = $target_dir . basename($_FILES["img"]["name"]);
-            //                 // move_uploaded_file($_FILES['img']['tmp_name'], $file);
-            //                 insetProduct($name,$img,$pice,$id_catalog);
-            //                 }
-            //                 $product = getProduct();
-            //                 require_once  "view/product.php";
-            //                 break;
+            
            case 'loadCart':
             $countAllCart=getAdmin_AllCart();
             $shipCart=getAdmin_ShippCart();

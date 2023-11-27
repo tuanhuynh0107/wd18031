@@ -403,7 +403,7 @@
                             </defs>
                         </svg>
                         <span class="log__atc--title" style="white-space: wrap; width: 179px;">
-                            Miễn phí vận chuyện cho đơn hàng từ 150k
+                            Miễn phí vận chuyện cho đơn hàng từ 500k
                         </span>
                     </a>
                 </li>

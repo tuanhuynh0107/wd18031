@@ -464,7 +464,7 @@ input {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: 2;
-    gap: 22px;
+    gap: 4px;
     margin-top: 55px;
 }
 
@@ -473,19 +473,44 @@ input {
     flex: 1;
     background: #ffffff;
     transition: scale 500ms ease-in-out, color 200ms ease-out;
-
+    box-shadow: 0px 0px 4px 0px #58A2E8;
+    padding: 5px;
 }
 
 .popular .course-item:hover {
     scale: 1.05;
+    z-index: 1000;
+}
+
+
+.course__images {
+    position: relative;
+}
+
+.course_sale {
+    position: absolute;
+}
+
+.course__sale--item {
+    position: relative;
+}
+
+.course_sale--title {
+    position: absolute;
+    left: 0;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .popular .course-item .thumb {
-    width: 230px;
+    width: 100%;
     height: 212px;
     object-fit: cover;
-    /* border-radius: 16px 16px 0px 0px; */
-    box-shadow: 0px 0px 4px 0px #58A2E8;
+    padding: 10px;
+    background-color: #fcfcfc;
+    box-shadow: 0px 0px 2px 0px #ccc;
+
 }
 
 
@@ -1588,7 +1613,7 @@ p {
     margin-top: 21px;
     width: 100%;
     border-radius: 12px;
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 1.6;
     padding: 10px;

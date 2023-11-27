@@ -1,4 +1,37 @@
 <?php
+    function handleUserFeadback() {
+        if(isset($_POST['btnComment'])){
+            $idPackage=$_POST['idPackage'];
+            $idUser=$_POST['idUser'];
+            $textComment=$_POST['comment'];
+            $dateComment = date('Y-m-d H:i:s');
+            $idProduct= getIdPackage($idPackage);
+
+
+            if(isset($idProduct)){
+                foreach($idProduct as $item){
+                    extract($item);
+                    insertCommentFeadBack($textComment, $dateComment,$id_prd,$idUser);
+                }
+            }
+        
+            $listCart= getYourCart($idUser);
+        
+        
+        }
+        require_once "view/proFile/yourCard.php";
+    }
+
+    function handleDelPackage() {
+        if (isset($_GET['idPackage'])&&(isset($_GET['status']))&&(isset($_GET['id_user']))) {
+            $idPackage= $_GET['idPackage'];
+            $indStatus = $_GET['status'];
+            updateCatalogStatus($idPackage, $indStatus);
+            $listCart= getYourCart($_GET['id_user']);
+        }
+        $loadUser=loadAllUser($id_user);
+        require_once "view/proFile/yourCard.php";
+    }
 
     function handleRegistration() {
         if (isset($_POST['registerNew']) && ($_POST['registerNew'])) {
@@ -68,6 +101,25 @@
         }
        
     }
+
+    function handleChangeProFile() {
+        if (isset($_POST['saveUser'])) {
+            $name_user = $_POST['name_user'];
+            $email_user = $_POST['email_user'];
+            $gender_user = $_POST['gender_user'];
+            $dob_user = $_POST['dob_user'];
+            $phone_user = $_POST['phone_user'];
+            $adress_user = $_POST['adress_user'];
+            $id_user = $_POST['id_user'];
+        
+            updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user);
+           
+            $thongbao="Bạn đã lưu thay đổi thành công";
+        }
+        $loadUser=loadAllUser($id_user);
+        require_once "view/proFile/userProFile.php";
+    }
+    
 
     function handleUserAddCart() {
         if(isset($_POST['addCart']) &&($_POST['addCart'])){

@@ -256,8 +256,9 @@
     }
 
     function handleDefault() {
-        
+        $listItemLimitSpecialty = getDetailSpecialtyProductLimit();
         $listItemLimitRanDom = getDetailProductLimitRanDom();
+        $listItemLimitSale = getDetailSaleProductLimit();
         $listItemLimit = getDetailProductLimit();
         $listProduct = getDetailProduct();
         require_once "view/home.php";

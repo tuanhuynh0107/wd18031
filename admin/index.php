@@ -9,6 +9,14 @@
         $page = $_GET['page'];
 
         switch ($page) {
+            case 'statistical':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    $loadstatistics= getAminstatistics($_GET['id']);
+                }
+              
+                require_once "view/statistical.php";
+                break;
+
             case 'showUser':
                 $listUser=getAdminUser();
                 $totalAllUser=getAdminAll_TotalUser();

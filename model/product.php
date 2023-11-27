@@ -877,6 +877,85 @@ function forgotPassUser($phone) {
         VALUES ('$id_catalog','$name_product','$price_product', '$qty_product')";
         inset($sql);
     }
+    // trang thống kê
+    function getAminstatistics($id){
+        
+        if($id==1){
+            // thống kê tổng đơn hàng trong ngày
+            $sql="SELECT
+                u.phone as phone,
+                u.username as name,
+                SUM(CASE WHEN p.status = 3 THEN p.total ELSE 0 END) AS total_status_3,
+                SUM(CASE WHEN p.status = 4 THEN p.total ELSE 0 END) AS total_status_4,
+                SUM(CASE WHEN p.status = 5 THEN p.total ELSE 0 END) AS total_status_5
+            FROM
+                package p
+            JOIN
+                user u ON p.id_User = u.id_user
+            WHERE
+                p.status IN (3, 4, 5) AND WEEK(p.time) = WEEK(CURRENT_DATE)
+            GROUP BY
+                name
+            ORDER BY
+                name;
+        ";
+
+        }else if($id==2){
+            // Thống kê theo tổng đơn hàng trong tuần
+            $sql="SELECT
+                    u.phone as phone,
+                    u.username as name,
+                    SUM(CASE WHEN p.status = 3 THEN p.total ELSE 0 END) AS total_status_3,
+                    SUM(CASE WHEN p.status = 4 THEN p.total ELSE 0 END) AS total_status_4,
+                    SUM(CASE WHEN p.status = 5 THEN p.total ELSE 0 END) AS total_status_5
+                FROM
+                    package p
+                JOIN
+                    user u ON p.id_User = u.id_user
+                WHERE
+                    p.status IN (3, 4, 5) AND MONTH(p.time) = MONTH(CURRENT_DATE)
+                GROUP BY
+                    name
+                ORDER BY
+                    name;
+        ";
+        }else if($id==3){
+            $sql="SELECT
+                    u.phone as phone,
+                    u.username as name,
+                    SUM(CASE WHEN p.status = 3 THEN p.total ELSE 0 END) AS total_status_3,
+                    SUM(CASE WHEN p.status = 4 THEN p.total ELSE 0 END) AS total_status_4,
+                    SUM(CASE WHEN p.status = 5 THEN p.total ELSE 0 END) AS total_status_5
+                FROM
+                    package p
+                JOIN
+                    user u ON p.id_User = u.id_user
+                WHERE
+                    p.status IN (3, 4, 5) AND YEAR(p.time) = YEAR(CURRENT_DATE)
+                GROUP BY
+                    name
+                ORDER BY
+                    name;";
+        }else if($id==4){
+            $sql="SELECT
+                    u.phone as phone,
+                    u.username as name,
+                    SUM(CASE WHEN p.status = 3 THEN p.total ELSE 0 END) AS total_status_3,
+                    SUM(CASE WHEN p.status = 4 THEN p.total ELSE 0 END) AS total_status_4,
+                    SUM(CASE WHEN p.status = 5 THEN p.total ELSE 0 END) AS total_status_5
+                FROM
+                    package p
+                JOIN
+                    user u ON p.id_User = u.id_user
+                WHERE
+                    p.status IN (3, 4, 5) AND DAY(p.time) = DAY(CURRENT_DATE)
+                GROUP BY
+                    name
+                ORDER BY
+                    name;";
+        }
+        return get_All($sql);
+    }
     // thống kê home
     function getAdminstatistical(){
         $sql = "SELECT

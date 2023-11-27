@@ -985,23 +985,12 @@ function forgotPassUser($phone) {
                     name
                 ORDER BY
                     name;";
-        }else if($id==4){
-            $sql="SELECT
-                    u.phone as phone,
-                    u.username as name,
-                    SUM(CASE WHEN p.status = 3 THEN p.total ELSE 0 END) AS total_status_3,
-                    SUM(CASE WHEN p.status = 4 THEN p.total ELSE 0 END) AS total_status_4,
-                    SUM(CASE WHEN p.status = 5 THEN p.total ELSE 0 END) AS total_status_5
-                FROM
-                    package p
-                JOIN
-                    user u ON p.id_User = u.id_user
-                WHERE
-                    p.status IN (3, 4, 5) AND DAY(p.time) = DAY(CURRENT_DATE)
-                GROUP BY
-                    name
-                ORDER BY
-                    name;";
+        }
+        return get_All($sql);
+    }
+    function getAminstatisticsProduct($id){
+        if($id==4){
+            $sql="SELECT qty_catalog as qty, name_catalog as namePro FROM catalog";
         }
         return get_All($sql);
     }
@@ -1138,7 +1127,7 @@ function forgotPassUser($phone) {
                 <td>'.$address.'</td>
                 <td>'.$role_userShow.'</td>
                 <td>
-                    <a href="'.$linkBlockProduct.'" class="hendel-delete-act">Chặn</a>
+                    <a href="'.$linkBlockProduct.'" class="hendel-delete-act">Xem chi tiết</a>
                 </td>
             </tr>
             

@@ -105,7 +105,7 @@
                 handleProduct();
                 break;
             case "cart":
-                
+                $listItemLimitRanDom = getDetailProductLimitRanDom();
                  require_once "view/cart.php";
                 break;
             case "addCart":           

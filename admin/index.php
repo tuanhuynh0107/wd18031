@@ -39,7 +39,16 @@
                 $LoadAllVipUser=getAllAdminVipUser();
                 require_once "view/userVip.php";
                 break;    
-           
+            case 'customerOrder':
+                if(isset($_GET['id_user'])&&($_GET['id_user']>0)){
+                    $loadUserAdmin=getAdminDetailUser($_GET['id_user']);
+                }
+                $listUser=getAdminUser();
+                $totalAllUser=getAdminAll_TotalUser();
+                // $newUsersInMonth=getNewUsersInMonth(); Chưa có ngày đăng ký của khách hàng
+                $vipUser=getAdminVipUser();
+                require_once "view/customerOrder.php";
+                break;
             case 'product':
                 $listProduct=getAdminProduct();
                 $totalAllProducts=getAdminAll_TotalProduct();

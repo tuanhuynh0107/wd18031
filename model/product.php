@@ -929,7 +929,7 @@ function forgotPassUser($phone) {
     // trang thống kê
     function getAminstatistics($id){
         
-        if($id==1){
+        if($id==1 || $id == ""){
             // thống kê tổng đơn hàng trong ngày
             $sql="SELECT
                 u.phone as phone,
@@ -1098,7 +1098,7 @@ function forgotPassUser($phone) {
     function showAdminUser($listProduct){
         foreach($listProduct as $item){
             extract($item);
-            $linkBlockProduct="index.php?page=blockUser&id_Prd=".$id_user;
+            $linkBlockProduct="index.php?page=customerOrder&id_user=".$id_user;
             $genderShơw="";
             $role_userShow= "";
             if($gender==1) {
@@ -1150,7 +1150,9 @@ function forgotPassUser($phone) {
         $sql="SELECT * FROM user ";
         return get_All($sql);
     }
+    function getAdminDetailUser(){
 
+    }
 
     // cart 
     function getAdminCartStatus($status){

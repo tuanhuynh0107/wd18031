@@ -31,6 +31,9 @@
                             </div>
                         </div>
                         <?php
+                        if(isset($loadstatistics)){
+
+                       
                     // Dữ liệu mẫu về doanh số bán hàng theo tháng
                     $dataPoints = [];
                     foreach ($loadstatistics as $data) {
@@ -45,6 +48,7 @@
 
                     // Chuyển định dạng dữ liệu sang JSON để truyền vào JavaScript
                     $salesDataJSON = json_encode($dataPoints);
+                }
                     ?>
                     <canvas id="myComparisonChart" width="400" height="200"></canvas>
 

@@ -100,9 +100,9 @@
                                             </td>
                                             <td class="pay-ment__bod--title">'.$namePro.'</td>
                                             <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>
-                                            <td class="pay-ment__bod--pice">'.number_format($pricePro,0,",",".").'đ</td>
+                                            <td class="pay-ment__bod--pice">'.number_format($pricePro,0,",",".").' đ</td>
                                             <td class="pay-ment__bod--qty">'.$qtyPro.'</td>
-                                            <td class="pay-ment__bod--total">'.number_format($total,0,",",".").'đ</td>
+                                            <td class="pay-ment__bod--total">'.number_format($total,0,",",".").' đ</td>
                                         </tr>
                                         ';
                                     }
@@ -139,10 +139,10 @@
                                 <div class="pay__address--btn">
                                     <select name="Exxpress" id="transportSelect" class="option" onchange="changeTransport()">
                                         <option value="">Thay đổi</option>
-                                        <option value="1">Grab</option>
-                                        <option value="2">Bee</option>
-                                        <option value="3">Ahamove</option>
-                                        <option value="4">Sv xanh</option>
+                                        <option value="1">Nhanh 2h nội thành(HCM)</option>
+                                        <option value="2">4h nội thành(HCM)</option>
+                                        <option value="3">Bất kỳ</option>
+                                        <option value="4">Càng sớm càng tốt</option>
                                     </select>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
                                 Được phép đồng điểm
                             </div>
                         </div>
-                        <div class="note__pice-Ship"><?php if(isset($total)){echo number_format($ship,0,",",".");}else{echo $ship=0;} ?>đ</div>
+                        
                     </div>
 
                     <div class="delivery ">

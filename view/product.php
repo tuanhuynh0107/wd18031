@@ -5,15 +5,6 @@
     extract($itemProduct);
     $linkByNow='index.php?page=byNow&idProduct='.$id;
     $sameType=sameTypeProducts($id);
-
-    // print_r($itemProduct);
-    // echo '<br>----------------------<br>';
-    // print_r($itemDetailProduct);
-    // echo '<br>----------------------<br>';
-    // print_r($itemAlbum);
-    // echo '<br>----------------------<br>';
-    // // echo "test key: ".$type;
-    // ;
 ?>  
 <main>
       
@@ -25,26 +16,27 @@
                       <div class="main-product__img--top">
                           <figure>
                               <img src="./assets/img/img_main/<?=$img_main?>.png"
-                                  alt="" class="main-product__img--top-img">
+                                  alt="haisanmientay" class="main-product__img--top-img">
                           </figure>
                       </div>
                       <div class="main-product__img--bottom">
                           <figure>
                               <img src="./assets/img/img_main/<?=$img1?>.png"
-                                  alt="">
+                                  alt="haisanmientay">
                               <img src="./assets/img/img_main/<?=$img2?>.png"
-                                  alt="">
+                                  alt="haisanmientay">
                               <img src="./assets/img/img_main/<?=$img3?>.png"
-                                  alt="">
+                                  alt="haisanmientay">
                               <img src="./assets/img/img_main/<?=$img4?>.png"
-                                  alt="">
+                                  alt="haisanmientay">
                               <img src="./assets/img/img_main/<?=$img5?>.png"
-                                  alt="">
+                                  alt="haisanmientay">
                           </figure>
                       </div>
                   </div>
                   <div class="main-product__content">
                       <div class="main-product__content--type row">
+                        <strong class="content__strong">Đóng gói:</strong>
                           <div class="content--type"><?= $type?></div>
                       </div>
                       <div class="main-product__content--desc  row">
@@ -66,7 +58,7 @@
                       </div>
 
                       <div class="main-product__content--pice row">
-                          <div class="main-product__content--pice__cost"><?=$price?>đ</div>
+                          <div class="main-product__content--pice__cost"><?=number_format($price,0,",",".")?>đ</div>
                           <div class="main-product__content--pice__del-cost">255,000đ</div>
                           <div class="main-product__content--pice__sale"><?=$sale?>%</div>
 
@@ -102,78 +94,7 @@
                           <a href="index.php" class="btn btn__advisory">Tiếp tục mua hàng</a>
                       </div>
 
-                      <!-- <div class="main-product__together">
-                          <div class="main-product__together--heading">
-                              Thường được mua cùng:
-                          </div>
-                          <div class="main-product__together--content">
-                              <div class="together--content__box row">
-                                  <div class="content__box--1 row">
-                                      <div class="together--content__box--checked">
-                                          <input type="checkbox" name="" id="check">
-                                      </div>
-                                      <div class="together--content__box--img">
-                                          <img src="./assets/img/muoi-ot-do.png" alt="">
-                                      </div>
-                                      <div class="together--content__box--title">Muối ớt đỏ (DH-food)</div>
-                                  </div>
-                                  <div class="content__box--2 row">
-                                      <div class="together--content__box--checked">
-                                          <input type="checkbox" name="" id="check">
-                                      </div>
-                                      <div class="together--content__box--img">
-                                          <img src="./assets/img/muoi-ot-xanh.png" alt="">
-                                      </div>
-                                      <div class="together--content__box--title">Muối ớt xanh (DH-food)</div>
-                                  </div>
-                              </div>
-                              <div class="together--content__box row">
-                                  <div class="content__box--1 row">
-                                      <div class="together--content__box--checked">
-                                          <input type="checkbox" name="" id="check">
-                                      </div>
-                                      <div class="together--content__box--img">
-                                          <img src="./assets/img/nuoc-tuong0hq.png" alt="">
-                                      </div>
-                                      <div class="together--content__box--title">Nước tương HQ</div>
-                                  </div>
-                                  <div class="content__box--2 row">
-                                      <div class="together--content__box--checked">
-                                          <input type="checkbox" name="" id="check">
-                                      </div>
-                                      <div class="together--content__box--img">
-                                          <img src="./assets/img/wasabi.png" alt="">
-                                      </div>
-                                      <div class="together--content__box--title">Wasabi Nhật Bản</div>
-                                  </div>
-                              </div>
-                              <div class="together--content__box row">
-                                  <div class="content__box--1 row">
-                                      <div class="together--content__box--checked">
-                                          <input type="checkbox" name="" id="check">
-                                      </div>
-                                      <div class="together--content__box--img">
-                                          <img src="./assets/img/bo-dung-cu-an-HS.png" alt="">
-                                      </div>
-                                      <div class="together--content__box--title">Bộ dụng cụ ăn HS</div>
-                                  </div>
-                                  <div class="content__box--2 row">
-                                      <div class="together--content__box--checked">
-                                          <input type="checkbox" name="" id="check">
-                                      </div>
-                                      <div class="together--content__box--img">
-                                          <img src="./assets/img/bo-kep-cua.png" alt="">
-                                      </div>
-                                      <div class="together--content__box--title">Bộ Kẹp Cua</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="main-product__together--btn  row">
-                              <a href="" class="btn">
-                                  Thêm N vào sọt
-                              </a>
-                          </div>
-                      </div> -->
+                      
                   </div>
               </div>
           </div>
@@ -237,12 +158,13 @@
               </div>
           </div>
       </section>
+
       <!-- feedback-product -->
       <section class="feedback-product">
             <div class="main-content">
                 <div class="feedback__heading row">
                     <h2 class="feedback__heading--title">
-                        Phản hồi từ Khách Hàng về Combo Miệt Vườn
+                        Phản hồi từ Khách Hàng về <?=$name_prd?>
                     </h2>
                 </div>
                 <div class="feedback-content row">
@@ -372,24 +294,6 @@
                 </div>
             </div>
       </section>
-
-      <section class="partner">
-          <div class="main-content">
-              <div class="partner__heading row">
-                  <h2 class="partner__heading--title">
-                      Đối tác vận chuyển
-                  </h2>
-              </div>
-              <figure class="partner__list-img row">
-
-                  <img src="./assets/icons/xanhSV.png" alt="">
-                  <img src="./assets/icons/bee.png" alt="">
-                  <img src="./assets/icons/grab.png" alt="">
-                  <img src="./assets/icons/ahamov.png" alt="">
-                  <img src="./assets/icons/gojeck.png" alt="">
-              </figure>
-          </div>
-      </section>
       <div class=" popular">
           <div class="main-content">
               <div class="popular-top">
@@ -418,14 +322,27 @@
               </div>
 
               <div class="course-list">
-                <?php
-                if($sameType  === []) {
-                    echo "khong rong";
-                }else {
-                    echo "rong";
-                }
-                ?>
+                  <?= showProduct($listItemCatalog)?>
               </div>
           </div>
       </div>
+
+      <section class="partner">
+          <div class="main-content">
+              <div class="partner__heading row">
+                  <h2 class="partner__heading--title">
+                      Đối tác vận chuyển
+                  </h2>
+              </div>
+              <figure class="partner__list-img row">
+
+                  <img src="./assets/icons/xanhSV.png" alt="">
+                  <img src="./assets/icons/bee.png" alt="">
+                  <img src="./assets/icons/grab.png" alt="">
+                  <img src="./assets/icons/ahamov.png" alt="">
+                  <img src="./assets/icons/gojeck.png" alt="">
+              </figure>
+          </div>
+      </section>
+      
   </main>

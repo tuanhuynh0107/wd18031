@@ -130,7 +130,7 @@
             $nameCata=$_POST['nameCata'];
             $typePro=$_POST['typePro'];
             $index=$_POST['index'];
-
+           
             if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
                 $qtyPro=$_POST['qtyPro'];
             }else{
@@ -158,7 +158,7 @@
             $pricePro=$_POST['pricePro'];
             $nameCata=$_POST['nameCata'];
             $typePro=$_POST['typePro'];
-
+           
             // echo var_dump($pricePro);
 
             if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
@@ -196,6 +196,7 @@
             $itemAlbum=getOneAlbum($idDetailProduct);
             $itemProduct= getProduct($idDetailProduct);
             extract($itemProduct);
+            $listItemCatalog = getItemCatalogLimit($id_catalog,5);
         }
         require_once "view/product.php";
     }

@@ -46,8 +46,6 @@ function getProduct($id_pro){
         return get_All($sql);
     }
 
-    
-
     function getDetailProductLimitRanDom() {
         $sql = "SELECT
         p.id AS product_id,
@@ -246,6 +244,31 @@ function getProduct($id_pro){
         c.id_catalog=".$id_Cata ;
         return get_All($sql); 
     }
+    function getItemCatalogLimit($id_Cata, $limit) {
+        $sql = "SELECT
+            p.id AS product_id,
+            p.name AS product_name,
+            c.name_catalog AS category_name,
+            p.price AS product_price,
+            dp.type AS product_type,
+            dp.production AS product_image,
+            dp.sale AS product_sale,
+            a.img1 AS album_image
+          FROM
+            product p
+          JOIN
+            catalog c ON p.id_catalog = c.id_catalog
+          JOIN
+            detail_product dp ON p.id = dp.id_prd
+          LEFT JOIN
+            album a ON p.id = a.id_prd
+          WHERE 
+            c.id_catalog = '$id_Cata' 
+          LIMIT $limit";
+        
+        return get_All($sql); 
+    }
+    
 // load user
 function showImgUser(){
     if(!isset($_SESSION['user_info'])){

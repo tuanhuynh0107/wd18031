@@ -1,5 +1,5 @@
 <?php
-    print_r($loadstatistics);
+    // print_r($loadstatistics);
 ?>
 <input type="submit" value="">
 <form action="" method="post"></form>

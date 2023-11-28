@@ -268,7 +268,7 @@
                 require_once "view/cartAdmin.php";
                 break;
             case 'updateStatus':
-                if(isset($_POST['updateStatus'])&&($_POST['updateStatus'])){
+                if(isset($_POST['updateStatus']) && isset($_POST['indStatus']) && isset($_POST['id_package']) && $_POST['updateStatus']){
                     $indStatus = $_POST['indStatus'];
                     $idpackage = $_POST['id_package'];
                     $listDetail=getDetailPackage($idpackage);

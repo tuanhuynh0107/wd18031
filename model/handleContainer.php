@@ -80,11 +80,6 @@
                     $_SESSION['user_info']= $getUser;
                     header('location: index.php');
                     exit();
-                }else if ($role_user == 4) {
-                    $_SESSION['user_id'] = $userId;
-                    // $_SESSION['user_info']= $getUser;
-                    $thongbao = "Tài khoản không thể hoạt động vui lòng liên hệ để biết thêm chi tiết";
-                    exit();
                 } else {
                     $thongbao = "Tài khoản mật khẩu không đúng";
                     exit();
@@ -101,25 +96,7 @@
         }
        
     }
-
-    function handleChangeProFile() {
-        if (isset($_POST['saveUser'])) {
-            $name_user = $_POST['name_user'];
-            $email_user = $_POST['email_user'];
-            $gender_user = $_POST['gender_user'];
-            $dob_user = $_POST['dob_user'];
-            $phone_user = $_POST['phone_user'];
-            $adress_user = $_POST['adress_user'];
-            $id_user = $_POST['id_user'];
-        
-            updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user);
-           
-            $thongbao="Bạn đã lưu thay đổi thành công";
-        }
-        $loadUser=loadAllUser($id_user);
-        require_once "view/proFile/userProFile.php";
-    }
-    
+   
 
     function handleUserAddCart() {
         if(isset($_POST['addCart']) &&($_POST['addCart'])){

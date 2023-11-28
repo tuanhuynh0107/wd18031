@@ -1133,7 +1133,7 @@ function forgotPassUser($phone) {
                 <td>'.$phone.'</td>
                 <td>'.$email.'</td>
                 <td>'.$genderShơw.'</td>
-                <td>'.$address.'</td>
+                <td class="line-clamp">'.$address.'</td>
                 <td>'.$role_userShow.'</td>
                 <td>
                     <a href="'.$linkBlockProduct.'" class="hendel-delete-act">Xem chi tiết</a>

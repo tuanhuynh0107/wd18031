@@ -72,12 +72,12 @@
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <td>Mã đơn hàng</td>
-                                    <td>Khách hàng</td>
-                                    <td>Thời gian</td>
-                                    <td>Ghi chú</td>
-                                    <td>Trạng thái</td>
-                                    <td>Thao tác</td>
+                                    <th>Mã đơn hàng</th>
+                                    <th>Khách hàng</th>
+                                    <th>Thời gian</th>
+                                    <th>Ghi chú</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>

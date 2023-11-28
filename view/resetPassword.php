@@ -12,7 +12,7 @@
 
                     <form action="index.php?page=reserPass" method="post" class="form__login row">
                         <div class="form__group">
-                            <h2 class="form__group--title">Đặt lại mât khẩu</h2>
+                            <h2 class="form__group--title">Đặt lại mật khẩu</h2>
                         </div>
                         <div class="form__group">
                             <input type="password" placeholder="Nhập mật khẩu cũ" class="full-name" name="oldPass">

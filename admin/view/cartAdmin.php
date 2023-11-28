@@ -1,8 +1,7 @@
 <?php
     // print_r($loadAll);
 ?>
-<input type="submit" value="">
-<form action="" method="post"></form>
+
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">

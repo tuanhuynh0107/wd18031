@@ -17,11 +17,12 @@
         <link rel="stylesheet" href="../assets/css/admin.css">
         <link rel="stylesheet" href="../assets/css/input.css">
         <script src="../chart.js"></script>
+        
 </head>
 
 <body>
-    <div class="root row">
-        <nav class="sidebar_menu">
+    <div class="root row ">
+        <nav class="sidebar_menu ">
             <div class="infor__user row">
                 <div class="infor__user--img">
                     <img src="../assets/user/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>.png" alt="">
@@ -180,10 +181,41 @@
             </section>
         </nav>
         <div class="container__admin" style="flex-grow: 1;  width: 100%;">
-            <header class="header row fixed">
-                <div class="header__name">
-                    <h2 class="header__namePage">Trang chủ</h2>
-                    <div class="header__date">23 tháng 10 năm 2023</div>
+            <header class="header row fixed ">
+                <div class="header__name ">
+                    <h2 class="header__namePage" id="pageName"><?php echo getPageName(); ?></h2>
+                    <?php
+                        function getPageName() {
+                            // Kiểm tra xem có tham số 'page' được truyền không
+                            $currentPage = isset($_GET['page']) ? $_GET['page'] : 'home';
+
+                            switch ($currentPage) {
+                                case 'home':
+                                    return 'Trang chủ';
+                                case 'product':
+                                    return 'Sản phẩm';
+                                case 'showUser':
+                                    return 'Khách hàng';
+                                case 'loadCart':
+                                    return 'Đơn hàng';
+                                case 'catalog':
+                                    return 'Loại hàng';
+                                case 'showUser':
+                                    return 'Khách hàng';
+                                case 'comment':
+                                    return 'Bình luận';
+                                case 'statistical':
+                                    return 'Thống kê';
+                                // Thêm các trang khác nếu cần
+                                default:
+                                    return 'Trang không xác định';
+                            }
+                        }
+                    ?>
+                    <?=setlocale(LC_TIME, 'vi_VN.utf8'); ?>
+
+                    <div class="header__date"><?php echo strftime('%d tháng %m năm %Y'); ?></div>
+
                 </div>
 
                 <div class="header__atc row">

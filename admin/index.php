@@ -4,7 +4,9 @@
     require_once "../model/db.php";
     require_once "../model/product.php";
     require_once "../model/handleContainer.php";
+    $pageName ="ahahha";
     require_once 'view/header.php';
+   
      if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
 
@@ -328,6 +330,7 @@
         $loadNewCart=getAdmin_LoadNewCart();
         // bản thống kê theo tuần
         $loadstatistical=getAdminstatistical();
+        $pageName .="Trang chủ";
         require_once "view/home.php";
     }
     $loadStatisticalDay =getAdminstatisticalDay();

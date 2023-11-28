@@ -2483,5 +2483,15 @@ p {
 .round {
     display: flex;
 }
+.table__hover-cart{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table__hover-cart tr {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+}
 
 /* forgot pass */

@@ -41,7 +41,7 @@
                 break;    
             case 'customerOrder':
                 if(isset($_GET['id_user'])&&($_GET['id_user']>0)){
-                    $loadUserAdmin=getAdminDetailUser($_GET['id_user']);
+                    $loadUserCartAdmin=getAdminDetailUser($_GET['id_user']);
                 }
                 $listUser=getAdminUser();
                 $totalAllUser=getAdminAll_TotalUser();

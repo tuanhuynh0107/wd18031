@@ -1150,8 +1150,9 @@ function forgotPassUser($phone) {
         $sql="SELECT * FROM user ";
         return get_All($sql);
     }
-    function getAdminDetailUser(){
-
+    function getAdminDetailUser($id_user){
+        $sql= "SELECT * FROM package WHERE id_User=".$id_user;
+        return get_All($sql);
     }
 
     // cart 

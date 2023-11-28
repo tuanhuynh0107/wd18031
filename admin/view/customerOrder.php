@@ -1,3 +1,6 @@
+<?php
+    print_r($loadUserCartAdmin);
+?>
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
@@ -64,13 +67,54 @@
                             </select>
                         </div>
                         <table class="table__packgeNew">
-                            <tr >
-                                <td>Mã đơn hàng</td>
-                                <td>Thời gian đặt hàng</td>
-                                <td>Số tiền</td>
-                                <td>Phương thức thanh toán</td>
-                                <td>Trạng thái</td>
-                            </tr>
+                            <thead>
+                                <tr >
+                                    <td>Mã đơn hàng</td>
+                                    <td>Tổng đơn</td>
+                                    <td>Trạng thái</td>
+                                    <td>Thời gian đặt hàng</td>
+                                    <td>Ghi chú khách hàng</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    foreach($loadUserCartAdmin as $item){
+                                        extract($item);
+                                        $statusShow="";
+                                        if($status==1){
+                                            $statusShow="Chờ xác nhận";
+                                        }else if($status==2){
+                                            $statusShow="Đang vận chuyển";
+                                        }else if($status==3){
+                                             $statusShow="Giao hàng thành công";
+                                        }else if($status==4){
+                                            $statusShow="Giao hàng thất bại";
+                                        }else if($status==5){
+                                            $statusShow="Đã hủy";
+                                        }
+                                        echo 
+                                        '
+                                        <tr>
+                                            <td>#ĐH'.$id_package.'</td>
+                                            <td>'.number_format($total,0,",",".").'đ</td>
+                                            <td>'.$statusShow.'</td>
+                                            <td>'.$time.'</td>
+                                            <td>'.$note.'</td>
+                                        </tr>
+                                        ';
+                                    }
+                                
+                                ?>
+                                <!-- <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr> -->
+                            </tbody>
+                        </table>    
                     </article>
                 </div>
 

@@ -56,6 +56,10 @@
                     </article>
                     <!-- code table don hang o day -->
                     <article class="revenue">
+                        <form action="index.php?page=loadCart" method="post">
+                            <input type="text" name="findCart">
+                            <input type="submit" name="btnFindCart" value="Tìm">
+                        </form>
                         <div class="revenue__top row">
                             <div class="revenue__top--title">
                                 <h4>Đơn hàng mới</h4>

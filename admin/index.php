@@ -253,10 +253,15 @@
 
             
            case 'loadCart':
+            if(isset($_POST['findCart'])&&$_POST['findCart']!=""){
+               $findidCart= $_POST['findCart'];                
+            }else{
+                $findidCart="";
+            }
             $countAllCart=getAdmin_AllCart();
             $shipCart=getAdmin_ShippCart();
             $newOrder=getAdmin_NewCart();
-            $listCart= getAdminCart();
+            $listCart= getAdminCart($findidCart);
             require_once "view/cartAdmin.php";
             break;
             case 'loadCartStatus':

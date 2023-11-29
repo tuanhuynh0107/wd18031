@@ -296,8 +296,8 @@ input {
 /* Cart preview */
 .cart-preview {
     position: absolute;
-    top: 46px;
-    right: -8px;
+    top: 66px;
+    right: -4px;
 
     display: flex;
     align-items: center;
@@ -2483,15 +2483,40 @@ p {
 .round {
     display: flex;
 }
-.table__hover-cart{
+
+.table__hover-cart {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 .table__hover-cart tr {
-    display: flex;
-    flex-direction: column;
     margin-left: 8px;
+}
+
+.table__hover-cart td {
+    color: #000;
+    font-size: 1.6rem;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.viewCart {
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    position: absolute;
+    bottom: -8px;
+    border: none;
+    border-radius: 0px;
+    background-color: var(--primary-color-bgc);
+
+}
+
+.imgCartView {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
 }
 
 /* forgot pass */

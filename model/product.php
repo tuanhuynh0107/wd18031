@@ -1215,17 +1215,36 @@ function forgotPassUser($phone) {
     }
     // load comment ở đây
     function getUserComment($idpro){
-        $sql= "SELECT * FROM comment WHERE 1";
+        $sql= "SELECT comment.id_cmt , comment.id_user, comment.id_prd, comment.text, comment.time,
+        user.role_user, user.username, comment.replay_comment
+        FROM comment
+        LEFT JOIN user ON comment.id_user = user.id_user  WHERE 1";
         if($idpro>0){
-            $sql.=" AND id_prd ='".$idpro."'";
+            $sql.=" AND comment.id_prd ='".$idpro."'";
         }
-        $sql.=" ORDER BY id_cmt DESC ";
+        $sql.=" ORDER BY comment.id_cmt DESC ";
+        return get_All($sql);
+    }
+    function getReplies($id_cmt){
+        $sql= "SELECT comment.id_cmt , comment.id_user, comment.id_prd, comment.text, comment.time,
+        user.role_user, user.username, comment.replay_comment
+        FROM comment
+        LEFT JOIN user ON comment.id_user = user.id_user  WHERE 1";
+        if($id_cmt>0){
+            $sql.=" AND comment.replay_comment ='".$id_cmt."'";
+        }
+        $sql.=" ORDER BY comment.id_cmt DESC ";
         return get_All($sql);
     }
     function insert_binhluan($content, $iduser, $idpro, $dateComment){
         $sql = "INSERT INTO comment(text, id_user, id_prd, time) VALUES ('$content', '$iduser', '$idpro', '$dateComment')";
         inset($sql);
     }
+    function insert_replay($content, $iduser, $idpro, $dateComment, $id_replay){
+        $sql = "INSERT INTO comment(text, id_user, id_prd, time, replay_comment) VALUES ('$content', '$iduser', '$idpro', '$dateComment','$id_replay')";
+        inset($sql);
+    }
+
     function getAdminCommet(){
         $sql="SELECT
         p.name AS product_name,

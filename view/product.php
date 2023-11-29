@@ -12,12 +12,26 @@
       <section class="main-product">
           <div class="main-content">
               <div class="main-product--row">
-                  <div class="main-product__img">
+                    <div class="main-product__img">
                       <div class="main-product__img--top">
+                        <a href="#!" class="main-product__icon--left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 60 60" fill="none">
+                                <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" fill="white"/>
+                                <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" stroke="black"/>
+                                <path d="M26.6354 30L40 43.2228L36.1823 47L19 30L36.1823 13L40 16.7799L26.6354 30.0027V30Z" fill="#ABABAB"/>
+                            </svg>
+                        </a>
                           <figure>
                               <img src="./assets/img/img_main/<?=$img_main?>.png"
                                   alt="haisanmientay" class="main-product__img--top-img">
                           </figure>
+                        <a href="#!" class="main-product__icon--right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 60 60" fill="none">
+                            <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" fill="white"/>
+                            <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" stroke="black"/>
+                            <path d="M32.3646 30L19 16.7772L22.8177 13L40 30L22.8177 47L19 43.2201L32.3646 29.9973V30Z" fill="#ABABAB"/>
+                        </svg>
+                        </a>
                       </div>
                       <div class="main-product__img--bottom">
                           <figure>
@@ -29,11 +43,11 @@
                                   alt="haisanmientay">
                               <img src="./assets/img/img_main/<?=$img4?>.png"
                                   alt="haisanmientay">
-                              <img src="./assets/img/img_main/<?=$img5?>.png"
-                                  alt="haisanmientay">
+                            <img src="./assets/img/img_main/<?=$img_main?>.png"
+                            alt="haisanmientay" class="main-product__img--top-img">
                           </figure>
                       </div>
-                  </div>
+                    </div>
                   <div class="main-product__content">
                       <div class="main-product__content--type row">
                         <strong class="content__strong">Đóng gói:</strong>
@@ -464,6 +478,40 @@
             document.getElementById("btn_comment").addEventListener("click", function () {
                 document.getElementById("mota").style.display = "none";
                 document.getElementById("comment").style.display = "block";
+            });
+            var thumbnailImages = document.querySelectorAll('.main-product__img--bottom img');
+            var mainImage = document.querySelector('.main-product__img--top-img');
+            var leftButton = document.querySelector('.main-product__img--top a:first-child');
+            var rightButton = document.querySelector('.main-product__img--top a:last-child');
+            var currentIndex = 0;
+
+            leftButton.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + thumbnailImages.length) % thumbnailImages.length;
+                mainImage.style.opacity = 0;
+                setTimeout(function () {
+                    mainImage.src = thumbnailImages[currentIndex].src;
+                    mainImage.style.opacity = 1;
+                }, 500); // Chờ transition kết thúc trước khi thay đổi src
+            });
+
+            rightButton.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % thumbnailImages.length;
+                mainImage.style.opacity = 0;
+                setTimeout(function () {
+                    mainImage.src = thumbnailImages[currentIndex].src;
+                    mainImage.style.opacity = 1;
+                }, 500);
+            });
+
+            thumbnailImages.forEach(function (thumbnail, index) {
+                thumbnail.addEventListener('click', function () {
+                    mainImage.style.opacity = 0;
+                    setTimeout(function () {
+                        mainImage.src = thumbnail.src;
+                        mainImage.style.opacity = 1;
+                    }, 500);
+                    currentIndex = index;
+                });
             });
             // Mặc định hiển thị nội dung của id="mota"
         });

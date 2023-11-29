@@ -363,6 +363,10 @@ function insertCommentFeadBack($textComment, $dateComment,$id_prd,$idUser){
     $sql= "INSERT INTO comment(id_user, id_prd, text, time) VALUES ('".$idUser."', '".$id_prd."', '".$textComment."','".$dateComment."')";
     inset($sql);
 }
+function insertPackage($idPackage, $stastusPb){
+    $sql="UPDATE package SET status_feadback = '$stastusPb' WHERE id_package = $idPackage";
+    update($sql);
+}
 function getYourCart($id_user){
     $sql="SELECT * FROM package WHERE id_User=".$id_user;
     $sql.=" ORDER BY id_package DESC limit 10";

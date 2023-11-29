@@ -932,8 +932,8 @@ function forgotPassUser($phone) {
     }
     // trang thống kê
     function getAminstatistics($id){
-        
-        if($id==1 || $id == ""){
+
+        if($id==1 || $id == null){
             // thống kê tổng đơn hàng trong ngày
             $sql="SELECT
                 u.phone as phone,

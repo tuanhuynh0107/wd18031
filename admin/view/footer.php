@@ -113,26 +113,7 @@
                             }
                         }
                     });
-                    document.getElementById('theme').addEventListener('change', function() {
-                        // Lấy NodeList chứa tất cả các phần tử có class .theme-light
-                        var themeLightElements = document.querySelectorAll(".theme-light");
-                        console.log(themeLightElements);
-                        // Duyệt qua từng phần tử trong NodeList và thực hiện thay đổi class
-                        themeLightElements.forEach(function(element) {
-                            // Kiểm tra xem element.classList có tồn tại không
-                            if (element.classList) {
-                                // Nếu checkbox được chọn, thêm class theme-dark và loại bỏ class theme-light
-                                if (document.getElementById('theme').checked) {
-                                    element.classList.remove('theme-light');
-                                    element.classList.add('theme-dark');
-                                } else {
-                                    // Nếu checkbox không được chọn, thêm class theme-light và loại bỏ class theme-dark
-                                    element.classList.remove('theme-dark');
-                                    element.classList.add('theme-light');
-                                }
-                            }
-                        });
-                    });
+                    
 
 
 

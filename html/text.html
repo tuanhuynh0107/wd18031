@@ -8,45 +8,25 @@
 </head>
 
 <body>
-    <ul class="catalog row">
-        <li class="catalog__log">
-            <a href="#" class="log__atc row" id="toggleCatalog">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
-                    class="log__atc--icon">
-                    <!-- Your SVG path here -->
-                </svg>
-                <span class="log__atc--title">
-                    Danh mục sản phẩm
-                </span>
+    <div class="description__btn row">
+        <div class="description__btn--btn btn">
+            <a href="" class="description__btn--act" id="btn_mota">Mô tả chi tiết</a>
+        </div>
+        <div class="description__btn--btn btn">
+            <a href="" class="description__btn--act" id="btn_comment">
+                Hỏi đáp về sản phẩm
             </a>
-        </li>
-    </ul>
-    <table>
-        
-        <td><img src="" alt=""></td>
-        <td>Thịt càng ghẹ</td>
-        <td>Giá</td>
-        <td>  <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div></td>
-    </table>
-    <a href=""></a>
-    <ul class="navber__menu" id="catalogList">
-        ẩn hiện
-    </ul>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var toggleButton = document.getElementById('toggleCatalog');
-            var catalogList = document.getElementById('catalogList');
+        </div>
+    </div>
 
-            toggleButton.addEventListener('click', function () {
-                // Toggle giữa ẩn và hiện của danh sách catalog
-                if (catalogList.style.display === 'none' || catalogList.style.display === '') {
-                    catalogList.style.display = 'block';
-                } else {
-                    catalogList.style.display = 'none';
-                }
-            });
-        });
-    </script>
+
+
+    <div class="description__content main-content" id="mota">
+        Nội dung Mô tả chi tiết
+    </div>
+    <div class="description__content main-content" id="comment">
+        Nội dung bình luận
+    </div>
 </body>
 
 </html>

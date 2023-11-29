@@ -90,11 +90,8 @@
                             <input type="submit" name="addCart"  class="btn btn__add--Cart"  value="Thêm vào giỏ hàng ">
                             <!-- <a href="#!" name="addCart"></a> -->
                         </form>
-                          
-                          <a href="index.php" class="btn btn__advisory">Tiếp tục mua hàng</a>
+                        <a href="index.php" class="btn btn__advisory">Tiếp tục mua hàng</a>
                       </div>
-
-                      
                   </div>
               </div>
           </div>

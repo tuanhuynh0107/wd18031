@@ -3,16 +3,11 @@
 }
 
 body {
+    background-color: #f1f1f1;
     font-family: "Poppins", sans-serif;
 }
 
-.theme-light {
-    background-color: #EFF3F4;
-}
 
-.theme-dark {
-    background-color: rgb(16, 201, 25);
-}
 
 html {
     font-size: 62.5%;

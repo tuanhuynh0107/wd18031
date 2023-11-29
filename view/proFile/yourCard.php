@@ -115,18 +115,25 @@
                                         <span class="yourCard__status">Đang vận chuyển</span>
                                         ';
                                     }elseif($status==3) {
-                                        $statusShow .= '
-                                        <form action="index.php?page=userFeadBack" method="post">
+                                        if($status_feadback==1){
+                                            $statusShow .= '
                                             <span class="yourCard__status"> Giao hàng thành công </span>
-                                            <input type="hidden" name="idPackage" value="'.$id_package.'">
-                                            <input type="hidden" name="idUser" value="'.$id_User.'"> 
-
-                                            <textarea name="comment"  id="" cols="30" rows="10"></textarea>
-                                            <input type="submit" name="btnComment" value="Gửi">
-                                            
-                                         </form>
-                                            
+                                            <span class="yourCard__status"> cảm ơn bạn đã feadback </span>
                                             ';
+                                        }else if($status_feadback==0){
+                                            $statusShow .= '
+                                            <form action="index.php?page=userFeadBack" method="post">
+                                                <span class="yourCard__status"> Giao hàng thành công </span>
+                                                <input type="hidden" name="idPackage" value="'.$id_package.'">
+                                                <input type="hidden" name="idUser" value="'.$id_User.'"> 
+    
+                                                <textarea name="comment"  id="" cols="30" rows="10"></textarea>
+                                                <input type="hidden" name="statusfb" value="1" >
+                                                <input type="submit" name="btnComment" value="Gửi">
+                                             </form>
+
+                                                ';                                        }
+                                       
                                     }
                                     elseif($status==4) {
                                         $statusShow .= '

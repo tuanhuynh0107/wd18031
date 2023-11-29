@@ -60,13 +60,14 @@
                 require_once "view/proFile/yourCard.php";
                 break;
             case 'userFeadBack':
+               
                 if(isset($_POST['btnComment'])){
                     $idPackage=$_POST['idPackage'];
                     $idUser=$_POST['idUser'];
                     $textComment=$_POST['comment'];
                     $dateComment = date('Y-m-d H:i:s');
                     $idProduct= getIdPackage($idPackage);
-        
+                    $stastusPb=$_POST['statusfb'];
         
                     if(isset($idProduct)){
                         foreach($idProduct as $item){
@@ -74,10 +75,9 @@
                             insertCommentFeadBack($textComment, $dateComment,$id_prd,$idUser);
                         }
                     }
-                
+                    insertPackage($idPackage, $stastusPb);
                     $listCart= getYourCart($idUser);
-                
-                
+                    $flagStatus=1;
                 }
                 require_once "view/proFile/yourCard.php";
                 break;    

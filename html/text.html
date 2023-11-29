@@ -8,25 +8,96 @@
 </head>
 
 <body>
-    <div class="description__btn row">
-        <div class="description__btn--btn btn">
-            <a href="" class="description__btn--act" id="btn_mota">Mô tả chi tiết</a>
+    <div class="comment__operation row">
+        <div class="comment--box__reply" onclick="toggleReply(this)">
+            Trả lời
         </div>
-        <div class="description__btn--btn btn">
-            <a href="" class="description__btn--act" id="btn_comment">
-                Hỏi đáp về sản phẩm
-            </a>
+        <div class="comment--box__like"></div>
+        <div class="comment--box__datetime">
+            ngày 03/10/2023
         </div>
     </div>
-
-
-
-    <div class="description__content main-content" id="mota">
-        Nội dung Mô tả chi tiết
+    <div class="box__reply" style="display: none;">
+        Nội dung trả lời
     </div>
-    <div class="description__content main-content" id="comment">
-        Nội dung bình luận
+    <div class="comment__operation row">
+        <div class="comment--box__reply" onclick="toggleReply(this)">
+            Trả lời
+        </div>
+        <div class="comment--box__like"></div>
+        <div class="comment--box__datetime">
+            ngày 03/10/2023
+        </div>
     </div>
+    <div class="box__reply" style="display: none;">
+        Nội dung trả lời
+    </div>
+    <div class="comment__operation row">
+        <div class="comment--box__reply" onclick="toggleReply(this)">
+            Trả lời
+        </div>
+        <div class="comment--box__like"></div>
+        <div class="comment--box__datetime">
+            ngày 03/10/2023
+        </div>
+    </div>
+    <div class="box__reply" style="display: none;">
+        Nội dung trả lời
+    </div>
+    <div class="comment__operation row">
+        <div class="comment--box__reply" onclick="toggleReply(this)">
+            Trả lời
+        </div>
+        <div class="comment--box__like"></div>
+        <div class="comment--box__datetime">
+            ngày 03/10/2023
+        </div>
+    </div>
+    <div class="box__reply" style="display: none;">
+        Nội dung trả lời
+    </div>
+    <div class="comment__operation row">
+        <div class="comment--box__reply" onclick="toggleReply(this)">
+            Trả lời
+        </div>
+        <div class="comment--box__like"></div>
+        <div class="comment--box__datetime">
+            ngày 03/10/2023
+        </div>
+    </div>
+    <div class="box__reply" style="display: none;">
+        Nội dung trả lời
+    </div>
+
+    <!-- Thêm nhiều comment khác ở đây -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Bạn có thể thêm sự kiện cho nhiều nút trả lời ở đây nếu cần
+        });
+
+        function toggleReply(clickedElement) {
+            // Mở chỉ box trả lời tương ứng với nút được bấm
+            var parentComment = clickedElement.closest('.comment__operation');
+            var replyBox = parentComment.nextElementSibling;
+
+            // Chuyển đổi giữa "Trả lời" và "Ẩn"
+            clickedElement.innerText = (clickedElement.innerText === "Trả lời") ? "Ẩn" : "Trả lời";
+
+            // Ẩn box__reply khi chuyển đổi sang trạng thái "Ẩn"
+            if (clickedElement.innerText === "Ẩn") {
+                replyBox.style.display = "block";
+            } else {
+                replyBox.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+
+
+
 </body>
 
 </html>

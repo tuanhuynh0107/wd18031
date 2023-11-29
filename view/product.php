@@ -1,10 +1,12 @@
 <?php
+    
     extract($itemDetailProduct);
     extract($itemAlbum);
     // hàm này sử dụng được
     extract($itemProduct);
     $linkByNow='index.php?page=byNow&idProduct='.$id;
     $sameType=sameTypeProducts($id);
+    print_r( $itemDetailProduct);
 ?>  
 <main>
       
@@ -155,7 +157,7 @@
 
             <div class="description__content main-content comment__product row" id="comment">
                 <h4 class="comment__product__title">Hỏi đáp từ khách hàng về <?=$name_prd?></h4>
-                <form action="" method="post">
+                <!-- <form action="" method="post">
                     <label for="content__comment" >Nhập nội dung</label>
                     <textarea name="content__comment" id="content__comment" class="content__comment" cols="100%" rows="5" placeholder="Nội dung..."></textarea>
                     <input type="submit" value="Gửi" name="sendComment" class="comment__send" id="comment__send">
@@ -164,10 +166,16 @@
                             <path d="M27.1875 2.8125L2.8125 14.0625L14.0625 16.4062M27.1875 2.8125L17.8125 27.1875L14.0625 16.4062M27.1875 2.8125L14.0625 16.4062" stroke="black" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </label>
-                </form>
-
-                <div class="history__comment row">
-                    <div class="history__comment--box row">
+                </form> -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $("#history__comment--box").load("view/comment.php", {idpro: <?=$id?>});
+                    });
+                </script>
+                <div class="history__comment row" id="history__comment--box">
+                    <div class="history__comment--box row" >
+                        <!-- load tên khách hàng -->
                         <div class="comment--box__nameUser">
                             Nguyễn Thị Yến Anh
                         </div>
@@ -176,7 +184,6 @@
                         </div>
                         <div class="comment__operation row">
                             <div class="comment--box__reply" id="reply" onclick="toggleReply(this)">
-                           
                                 Trả lời
                             </div>
                             <div class="comment--box__like">

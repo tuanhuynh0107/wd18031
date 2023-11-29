@@ -1214,6 +1214,18 @@ function forgotPassUser($phone) {
 
     }
     // load comment ở đây
+    function getUserComment($idpro){
+        $sql= "SELECT * FROM comment WHERE 1";
+        if($idpro>0){
+            $sql.=" AND id_prd ='".$idpro."'";
+        }
+        $sql.=" ORDER BY id_cmt DESC ";
+        return get_All($sql);
+    }
+    function insert_binhluan($content, $iduser, $idpro, $dateComment){
+        $sql = "INSERT INTO comment(text, id_user, id_prd, time) VALUES ('$content', '$iduser', '$idpro', '$dateComment')";
+        inset($sql);
+    }
     function getAdminCommet(){
         $sql="SELECT
         p.name AS product_name,

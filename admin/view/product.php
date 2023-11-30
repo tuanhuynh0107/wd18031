@@ -84,10 +84,11 @@
                         </table>
                         <div class="seclect__offset row">
                             <a href=""><pre><</pre></a>
-                            <a href="#!">1</a>
-                            <a href="#!">2</a>
-                            <a href="#!">3</a>
-                            <a href="#!">4</a>
+                            <a href="index.php?page=product&offset=0">1</a>
+                            <a href="index.php?page=product&offset=8">2</a>
+                            <a href="index.php?page=product&offset=16">3</a>
+                            <a href="index.php?page=product&offset=32">4</a>
+                            <a href="index.php?page=product&offset=40">5</a>
                             <a href=""><pre>></pre></a>
                         </div>
                     </article>

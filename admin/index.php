@@ -31,7 +31,12 @@
                 require_once "view/statisticalProduct.php";
                 break;     
             case 'showUser':
-                $listUser=getAdminUser();
+                if(isset($_GET['offset'])) {
+                    $offset = $_GET['offset'];
+                    $listUser=getAdminUser($offset);
+                }else {
+                    $listUser=getAdminUser(0);
+                } 
                 $totalAllUser=getAdminAll_TotalUser();
                 // $newUsersInMonth=getNewUsersInMonth(); Chưa có ngày đăng ký của khách hàng
                 $vipUser=getAdminVipUser();
@@ -52,7 +57,12 @@
                 require_once "view/customerOrder.php";
                 break;
             case 'product':
-                $listProduct=getAdminProduct();
+                if(isset($_GET['offset'])) {
+                    $offset = $_GET['offset'];
+                    $listProduct=getAdminProduct($offset);
+                }else {
+                    $listProduct=getAdminProduct(0);
+                }                
                 $totalAllProducts=getAdminAll_TotalProduct();
                 $soldProduct=getAdminAll_SoldProduct();
                 $inventoryProduct=getAdmin_inventoryProduct();
@@ -309,7 +319,12 @@
                 require_once "view/detailPackage.php";
                 break;
             case 'comment':
-                $loadComment=getAdminCommet();
+                if(isset($_GET['offset'])) {
+                    $offset = $_GET['offset'];
+                    $loadComment=getAdminCommet($offset);
+                }else {
+                    $loadComment=getAdminCommet(0);
+                }
                 $AllComment=getAdminAllComment();
                 require_once 'view/comment.php';
                 break;   

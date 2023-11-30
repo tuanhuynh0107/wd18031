@@ -99,7 +99,15 @@
                                 
                             </tbody>
                         </table>
-                        </table>
+                        <div class="seclect__offset row">
+                            <a href=""><pre><</pre></a>
+                            <a href="index.php?page=comment&offset=0">1</a>
+                            <a href="index.php?page=comment&offset=8">2</a>
+                            <a href="index.php?page=comment&offset=16">3</a>
+                            <a href="index.php?page=comment&offset=32">4</a>
+                            <a href="index.php?page=comment&offset=40">5</a>
+                            <a href=""><pre>></pre></a>
+                        </div>
                     </article>
                 </div>
       

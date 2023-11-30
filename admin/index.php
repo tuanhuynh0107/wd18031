@@ -325,6 +325,8 @@
                 }else {
                     $loadComment=getAdminCommet(0);
                 }
+                $loadNoResponded = getAdminNoResponded();
+                $loadResponded = getAdmiResponded();
                 $AllComment=getAdminAllComment();
                 require_once 'view/comment.php';
                 break;   

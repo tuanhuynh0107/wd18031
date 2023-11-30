@@ -1283,5 +1283,13 @@ function forgotPassUser($phone) {
         $sql= "SELECT COUNT(*) AS total_comments FROM comment;";
         return get_All($sql);
     }
+    function getAdminNoResponded(){
+        $sql="SELECT COUNT(replay_comment) as No_replay FROM comment WHERE replay_comment = 0";
+        return get_All($sql);
+    }
+    function getAdmiResponded(){
+        $sql="SELECT COUNT(replay_comment) as replay FROM comment WHERE replay_comment > 0";
+        return get_All($sql);
+    }
     
 ?>

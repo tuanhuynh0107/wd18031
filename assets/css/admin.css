@@ -751,3 +751,13 @@ html {
         box-shadow: 0 0 0 0.125em var(--primary);
     }
 }
+
+
+.seclect__offset {
+    gap: 12px;
+    justify-content: center;
+}
+
+.seclect__offset a {
+    font-size: 1.6rem;
+}

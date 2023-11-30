@@ -79,7 +79,17 @@
                             <tbody>
                                 <?=showAdminProduct($listProduct)?>
                             </tbody>
+
+                            
                         </table>
+                        <div class="seclect__offset row">
+                            <a href=""><pre><</pre></a>
+                            <a href="#!">1</a>
+                            <a href="#!">2</a>
+                            <a href="#!">3</a>
+                            <a href="#!">4</a>
+                            <a href=""><pre>></pre></a>
+                        </div>
                     </article>
                 </div>
 

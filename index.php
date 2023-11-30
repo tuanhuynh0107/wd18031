@@ -72,7 +72,7 @@
                     if(isset($idProduct)){
                         foreach($idProduct as $item){
                             extract($item);
-                            insertCommentFeadBack($textComment, $dateComment,$id_prd,$idUser);
+                            insertCommentFeadBack($idPackage, $dateComment,$textComment);
                         }
                     }
                     insertPackage($idPackage, $stastusPb);

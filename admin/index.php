@@ -315,6 +315,25 @@
                 $AllComment=getAdminAllComment();
                 require_once 'view/comment.php';
                 break;   
+            case 'noComment':
+                $loadNoResponded = getAdminNoResponded();
+                $loadResponded = getAdmiResponded();
+                $AllComment=getAdminAllComment();
+                $loadNoComment =  getAdminNoCommet();
+                require_once "view/noComment.php";
+                break;
+            case 'replatComment':
+                if (isset($_POST['btnReplay']) && ($_POST['btnReplay'])) {
+                    $content = $_POST['contentReplay'];
+                    $idpro = $_POST['idpro'];
+                    $iduser = $_SESSION['user_info']['id_user'];
+                    $id_replay=$_POST['parent_comment_id'];
+                    $dateComment = date('Y-m-d H:i:s');
+                    insert_replay($content, $iduser, $idpro, $dateComment, $id_replay);
+                    header("location: ".$_SERVER['HTTP_REFERER']);
+                    exit();
+                }
+                break;        
             default:
             // khách hàng ưu tiên thì tôi cho mua 10 đơn hàng trở lên thành khách hàng vip
             // niếu muôn thay đổi khách hàng đó mua bao nhiêu đơn thi ngay dòng 751 model/product.php

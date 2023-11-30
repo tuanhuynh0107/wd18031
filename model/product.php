@@ -359,8 +359,8 @@ function getIdPackage($idPackage){
     $sql="SELECT * FROM detail_package WHERE id_package=".$idPackage;
     return get_All($sql);
 }
-function insertCommentFeadBack($textComment, $dateComment,$id_prd,$idUser){
-    $sql= "INSERT INTO comment(id_user, id_prd, text, time) VALUES ('".$idUser."', '".$id_prd."', '".$textComment."','".$dateComment."')";
+function insertCommentFeadBack($idPackage, $dateComment,$textComment){
+    $sql= "INSERT INTO fead_back(id_package, content_feedback, time) VALUES ('".$idPackage."', '".$textComment."','".$dateComment."')";
     inset($sql);
 }
 function insertPackage($idPackage, $stastusPb){
@@ -1266,6 +1266,24 @@ function forgotPassUser($phone) {
     }
     function getAdminNoResponded(){
         $sql="SELECT COUNT(replay_comment) as No_replay FROM comment WHERE replay_comment = 0";
+        return get_All($sql);
+    }
+    function getAdminNoCommet(){
+        $sql="SELECT
+        p.name AS product_name,
+        p.qty AS product_qty,
+        c.time AS comment_time,
+        c.text AS comment_text,
+        c.replay_comment AS comment_replay,
+        u.username AS user_username
+    FROM
+        comment c
+    JOIN
+        user u ON c.id_user = u.id_user
+    JOIN
+        product p ON c.id_prd = p.id
+    WHERE c.replay_comment = 0
+        ";
         return get_All($sql);
     }
     function getAdmiResponded(){

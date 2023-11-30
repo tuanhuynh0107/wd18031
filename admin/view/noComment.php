@@ -1,5 +1,5 @@
 <?php
-    print_r($loadResponded );
+    // print_r($loadNoComment);
 
 ?>
 <main class="main row">
@@ -32,11 +32,9 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <a href="index.php?page=noComment">
-                                    <p class="total_product__content--title">Chưa trả lời</p>
-                                    <div class="total_product__content--qty"><?=$loadNoResponded[0]['No_replay']?></div>
-                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
-                                </a>
+                                <p class="total_product__content--title">Chưa trả lời</p>
+                                <div class="total_product__content--qty"><?=$loadNoResponded[0]['No_replay']?></div>
+                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
                         <section class="total_product row">
@@ -74,24 +72,29 @@
                             <thead>
                                 <tr>
                                     <td>Sản phẩm</td>
-                                    <td>Số lượng</td>
                                     <td>Ngày bình luận mới nhất</td>
                                     <td>Tên người dùng</td>
                                     <td>Nội dung</td>
+                                    <td>Trả lời</td>
+                                    <td>thao tác</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach($loadComment as $item){
-                                        extract($item);
+                                    foreach($loadNoComment as $itemComment){
+                                        extract($itemComment);
+                                        $linkReplay="index.php?page=replatComment";
                                         echo 
                                         '
                                         <tr>
-                                            <td>'.$product_name.'</td>
-                                            <td>'.$product_qty.'</td>
-                                            <td>'.$comment_time.'</td>
-                                            <td>'.$user_username.'</td>
-                                            <td>'.$comment_text.'</td>
+                                            <form action="'.$linkReplay.'" method="post">
+                                                <td>'.$product_name.'</td>
+                                                <td>'.$comment_time.'</td>
+                                                <td>'.$user_username.'</td>
+                                                <td>'.$comment_text.'</td>                                 
+                                                <td><input type="text" name="contentReplay"></td>
+                                                <td><input type="submit" name="btnReplay"></td>
+                                            </form>
                                         </tr>
                                         
                                         ';

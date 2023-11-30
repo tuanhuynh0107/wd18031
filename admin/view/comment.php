@@ -1,5 +1,5 @@
 <?php
-    print_r($AllComment);
+    print_r($loadResponded );
 
 ?>
 <main class="main row">
@@ -32,8 +32,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Hoạt động</p>
-                                <div class="total_product__content--qty"></div>
+                                <p class="total_product__content--title">Chưa trả lời</p>
+                                <div class="total_product__content--qty"><?=$loadNoResponded[0]['No_replay']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
                             </div>
                         </section>
@@ -48,8 +48,8 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Cần xuất nhanh</p>
-                                <div class="total_product__content--qty">3</div>
+                                <p class="total_product__content--title">Đã đã lời</p>
+                                <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
                         </section>
@@ -58,7 +58,7 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Loại hàng mới</h4>
+                                <h4><?php echo getPageName(); ?></h4>
                                 <button class="btn btn-ml"><a href="index.php?page=addCatalog">Thêm </a></button>
                             </div>
     

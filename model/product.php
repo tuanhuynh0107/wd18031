@@ -881,21 +881,39 @@ function forgotPassUser($phone) {
     function getAdminProductQty(){
         $sql= "UPDATE product ";
     }
-    function getAdminProduct(){
-        $sql="SELECT 
-        p.id AS product_id,
-        p.name AS product_name,
-        p.price AS product_price,
-        p.qty AS product_qty,
-        dp.sale AS detail_product_sale,
-        dp.type AS detail_product_type
-    FROM 
-        product p
-    JOIN 
-        detail_product dp ON p.id = dp.id_prd 
-    ORDER BY p.id ASC";
+    // function getAdminProduct(){
+    //     $sql="SELECT 
+    //     p.id AS product_id,
+    //     p.name AS product_name,
+    //     p.price AS product_price,
+    //     p.qty AS product_qty,
+    //     dp.sale AS detail_product_sale,
+    //     dp.type AS detail_product_type
+    // FROM 
+    //     product p
+    // JOIN 
+    //     detail_product dp ON p.id = dp.id_prd 
+    // ORDER BY p.id ASC";
+    //     return get_All($sql);
+    // }
+    function getAdminProduct($offset = 0) {
+        $sql = "SELECT 
+                    p.id AS product_id,
+                    p.name AS product_name,
+                    p.price AS product_price,
+                    p.qty AS product_qty,
+                    dp.sale AS detail_product_sale,
+                    dp.type AS detail_product_type
+                FROM 
+                    product p
+                JOIN 
+                    detail_product dp ON p.id = dp.id_prd 
+                ORDER BY p.id ASC
+                LIMIT 8 OFFSET $offset";
+    
         return get_All($sql);
     }
+    
     function getAdminProductID($idPro){
         $sql="SELECT
         p.id AS product_id,
@@ -1150,8 +1168,8 @@ function forgotPassUser($phone) {
     }
 
     // get user admin
-    function getAdminUser(){
-        $sql="SELECT * FROM user ";
+    function getAdminUser($offset= 0){
+        $sql="SELECT * FROM user LIMIT 8 OFFSET $offset ";
         return get_All($sql);
     }
     function getAdminDetailUser($id_user){
@@ -1245,7 +1263,7 @@ function forgotPassUser($phone) {
         inset($sql);
     }
 
-    function getAdminCommet(){
+    function getAdminCommet($offset = 0){
         $sql="SELECT
         p.name AS product_name,
         p.qty AS product_qty,
@@ -1257,7 +1275,8 @@ function forgotPassUser($phone) {
     JOIN
         user u ON c.id_user = u.id_user
     JOIN
-        product p ON c.id_prd = p.id;";
+        product p ON c.id_prd = p.id 
+        LIMIT 8 OFFSET $offset;";
         return get_All($sql);
     }
     function getAdminAllComment(){

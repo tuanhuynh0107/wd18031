@@ -80,6 +80,15 @@
                                 <?=showAdminUser($listUser)?>
                             </tbody>
                         </table>
+                        <div class="seclect__offset row">
+                            <a href=""><pre><</pre></a>
+                            <a href="index.php?page=showUser&offset=0">1</a>
+                            <a href="index.php?page=showUser&offset=8">2</a>
+                            <a href="index.php?page=showUser&offset=16">3</a>
+                            <a href="index.php?page=showUser&offset=32">4</a>
+                            <a href="index.php?page=showUser&offset=40">5</a>
+                            <a href=""><pre>></pre></a>
+                        </div>
                     </article>
                 </div>
 

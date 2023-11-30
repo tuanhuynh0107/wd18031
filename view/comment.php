@@ -16,23 +16,26 @@
     <title>Document</title>
 </head>
 <body>
+   
     <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
+
         <label for="content__comment" >Nhập nội dung</label>
         <!-- nội dung -->
         <input type="hidden" name="idpro" value="<?=$idpro?>">
         <textarea name="content__comment" id="content__comment" class="content__comment" cols="100%" rows="5" placeholder="Nội dung..."></textarea>
-        <input type="submit" value="Gửi" class="comment__send" name="sendComment"  id="comment__send">
-        <label for="comment__send" class="comment__send--icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                <path d="M27.1875 2.8125L2.8125 14.0625L14.0625 16.4062M27.1875 2.8125L17.8125 27.1875L14.0625 16.4062M27.1875 2.8125L14.0625 16.4062" stroke="black" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </label>
+        <?php
+            if(isset( $_SESSION['user_info'])){
+                echo ' <input type="submit" value="Gửi" class="comment__send" name="sendComment"  id="comment__send">
+                        <label for="comment__send" class="comment__send--icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M27.1875 2.8125L2.8125 14.0625L14.0625 16.4062M27.1875 2.8125L17.8125 27.1875L14.0625 16.4062M27.1875 2.8125L14.0625 16.4062" stroke="black" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+         ';
+            }
+        ?>
+       
     </form>
-        
-
-
-
-
         
         <div class="history__comment--box row">
         <?php foreach ($loadComment as $ItemC) : ?>
@@ -103,13 +106,20 @@
 
     <?php
           if(isset($_POST['sendComment'])&&($_POST['sendComment'])){
-            $content = $_POST['content__comment'];
-            $idpro = $_POST['idpro'];
-            $iduser = $_SESSION['user_info']['id_user'];
-            $dateComment = date('Y-m-d H:i:s');
-            insert_binhluan($content, $iduser, $idpro, $dateComment);
-            header("location: ".$_SERVER['HTTP_REFERER']);
-            exit();
+            if(isset($_SESSION['user_info'])){
+                $content = $_POST['content__comment'];
+                $idpro = $_POST['idpro'];
+                $iduser = $_SESSION['user_info']['id_user'];
+                $dateComment = date('Y-m-d H:i:s');
+                insert_binhluan($content, $iduser, $idpro, $dateComment);
+                header("location: ".$_SERVER['HTTP_REFERER']);
+                exit();     
+            }else{
+                echo '<script>alert("bạn cần đăng nhập")</script>';
+                exit();     
+                header("location: ".$_SERVER['HTTP_REFERER']);
+            }
+           
         }
     ?>
     <?php

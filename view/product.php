@@ -189,8 +189,15 @@
                     });
                 </script>
                 <div class="history__comment row" >
+                    <?php
+                        if(!isset($_SESSION['user_info'])){
+                            echo 'Bạn cần đăng nhập để thực hiện chức năng này <a href="index.php?page=login">Đăng nhập tại đây</a>';
+                        }else{
+                            echo "";
+                        }
+                    ?>
                     <div class="history__comment--box row" id="history__comment--box">
-            
+                    
                       
                     </div>
                     <!-- <div class="history__comment--box row">

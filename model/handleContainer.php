@@ -20,20 +20,27 @@
             if (empty($phone) || empty($pass) || empty($interPass)) {
                 $thongbao = "Vui lòng điền đầy đủ thông tin.";
             } else {
-                if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
-                    $thongbao = "Số điện thoại của bạn không hợp lệ.";
-                } else {
-                    if (!preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $pass) && !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $interPass)) {
-                        $thongbao = "Mật khẩu phải có ít nhất 6 ký tự (chữ và số) nhiều nhất là 12 kí tự.";
+                $sql = "SELECT * FROM user WHERE phone = ? ";
+                $existingidUser = pdo_query_one($sql, $phone);
+                if($existingidUser){
+                    $thongbao="Trùng số điện thoại";
+                }else{
+                    if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
+                        $thongbao = "Số điện thoại của bạn không hợp lệ.";
                     } else {
-                        if ($pass == $interPass) {
-                            insetUser($phone,$pass);
-                            $thongbao = "Đăng ký thành công";
+                        if (!preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $pass) && !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $interPass)) {
+                            $thongbao = "Mật khẩu phải có ít nhất 6 ký tự (chữ và số) nhiều nhất là 12 kí tự.";
                         } else {
-                            $thongbao = "Mật khẩu không trùng nhau";
+                            if ($pass == $interPass) {
+                                insetUser($phone,$pass);
+                                $thongbao = "Đăng ký thành công";
+                            } else {
+                                $thongbao = "Mật khẩu không trùng nhau";
+                            }
                         }
                     }
                 }
+               
             }
         }
         require_once "view/register.php";

@@ -340,14 +340,19 @@
             case 'replatComment':
                 if (isset($_POST['btnReplay']) && ($_POST['btnReplay'])) {
                     $content = $_POST['contentReplay'];
-                    $idpro = $_POST['idpro'];
+                    $idpro = $_POST['idProReplay'];
                     $iduser = $_SESSION['user_info']['id_user'];
-                    $id_replay=$_POST['parent_comment_id'];
+                    $id_replay=$_POST['idCmtReplay'];
                     $dateComment = date('Y-m-d H:i:s');
-                    insert_replay($content, $iduser, $idpro, $dateComment, $id_replay);
-                    header("location: ".$_SERVER['HTTP_REFERER']);
-                    exit();
+                    $status_userReplay=1;
+                    insert_replay($content, $iduser, $idpro, $dateComment, $id_replay,$status_userReplay);
+                   
                 }
+                $loadNoResponded = getAdminNoResponded();
+                $loadResponded = getAdmiResponded();
+                $AllComment=getAdminAllComment();
+                $loadNoComment = getAdminNoCommet();
+                require_once "view/noComment.php";
                 break;        
             default:
             // khách hàng ưu tiên thì tôi cho mua 10 đơn hàng trở lên thành khách hàng vip

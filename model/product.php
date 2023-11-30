@@ -1234,7 +1234,7 @@ function forgotPassUser($phone) {
     // load comment ở đây
     function getUserComment($idpro){
         $sql= "SELECT comment.id_cmt , comment.id_user, comment.id_prd, comment.text, comment.time,
-        user.role_user, user.username, comment.replay_comment
+         user.username, comment.replay_comment
         FROM comment
         LEFT JOIN user ON comment.id_user = user.id_user  WHERE 1";
         if($idpro>0){
@@ -1245,7 +1245,7 @@ function forgotPassUser($phone) {
     }
     function getReplies($id_cmt){
         $sql= "SELECT comment.id_cmt , comment.id_user, comment.id_prd, comment.text, comment.time,
-        user.role_user, user.username, comment.replay_comment
+         user.username, comment.replay_comment, comment.status_comment
         FROM comment
         LEFT JOIN user ON comment.id_user = user.id_user  WHERE 1";
         if($id_cmt>0){
@@ -1254,12 +1254,12 @@ function forgotPassUser($phone) {
         $sql.=" ORDER BY comment.id_cmt DESC ";
         return get_All($sql);
     }
-    function insert_binhluan($content, $iduser, $idpro, $dateComment){
-        $sql = "INSERT INTO comment(text, id_user, id_prd, time) VALUES ('$content', '$iduser', '$idpro', '$dateComment')";
+    function  insert_binhluan($content, $iduser, $idpro, $dateComment,$status_userReplay){
+        $sql = "INSERT INTO comment(text, id_user, id_prd, time, status_comment) VALUES ('$content', '$iduser', '$idpro', '$dateComment','$status_userReplay')";
         inset($sql);
     }
-    function insert_replay($content, $iduser, $idpro, $dateComment, $id_replay){
-        $sql = "INSERT INTO comment(text, id_user, id_prd, time, replay_comment) VALUES ('$content', '$iduser', '$idpro', '$dateComment','$id_replay')";
+    function insert_replay($content, $iduser, $idpro, $dateComment, $id_replay,$status_userReplay){
+        $sql = "INSERT INTO comment(text, id_user, id_prd, time, replay_comment, status_comment) VALUES ('$content', '$iduser', '$idpro', '$dateComment','$id_replay','$status_userReplay')";
         inset($sql);
     }
 
@@ -1291,9 +1291,12 @@ function forgotPassUser($phone) {
         $sql="SELECT
         p.name AS product_name,
         p.qty AS product_qty,
+        p.id AS product_id,
         c.time AS comment_time,
         c.text AS comment_text,
+        c.id_cmt as comment_id,
         c.replay_comment AS comment_replay,
+        c.status_comment AS comment_status,
         u.username AS user_username
     FROM
         comment c
@@ -1301,8 +1304,7 @@ function forgotPassUser($phone) {
         user u ON c.id_user = u.id_user
     JOIN
         product p ON c.id_prd = p.id
-    WHERE c.replay_comment = 0
-        ";
+    WHERE c.status_comment = 0 ";
         return get_All($sql);
     }
     function getAdmiResponded(){

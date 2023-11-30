@@ -1,5 +1,5 @@
 <?php
-    // print_r($loadNoComment);
+    print_r($_SESSION['user_info']);
 
 ?>
 <main class="main row">
@@ -48,7 +48,7 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Đã đã lời</p>
+                                <p class="total_product__content--title">Đã trả lời</p>
                                 <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>
@@ -79,21 +79,35 @@
                                     <td>thao tác</td>
                                 </tr>
                             </thead>
+                            
                             <tbody>
                                 <?php
                                     foreach($loadNoComment as $itemComment){
                                         extract($itemComment);
                                         $linkReplay="index.php?page=replatComment";
+                                        $showReplay="";
+                                        if($comment_replay==0){
+                                            $showReplay.='<input type="text" name="contentReplay">';
+                                        }else if($comment_replay>0){
+                                            $showReplay.='<input type="text" name="contentReplay" value="'.$comment_text.'">';
+                                        }
+                                            
+                                       
+                                        
                                         echo 
                                         '
                                         <tr>
                                             <form action="'.$linkReplay.'" method="post">
+                                                <input type="hidden" name="idProReplay" value="'.$product_id.'">
+                                                <input type="hidden" name="idCmtReplay" value="'.$comment_id.'">
+
                                                 <td>'.$product_name.'</td>
                                                 <td>'.$comment_time.'</td>
                                                 <td>'.$user_username.'</td>
                                                 <td>'.$comment_text.'</td>                                 
-                                                <td><input type="text" name="contentReplay"></td>
+                                                <td>'. $showReplay.'</td>
                                                 <td><input type="submit" name="btnReplay"></td>
+                                               
                                             </form>
                                         </tr>
                                         

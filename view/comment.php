@@ -41,6 +41,7 @@
         <?php foreach ($loadComment as $ItemC) : ?>
 
             <?php if($ItemC['replay_comment']==0){ ?>
+                
                 <div class="comment--box__nameUser">
                     Người dùng: <?= $ItemC['username'] ?>
                 </div>
@@ -62,6 +63,7 @@
                         Ngày <?= $ItemC['time'] ?>
                     </div>
                 </div>
+                
                 <?php }?>
                 <div class="box__reply row"  id="reply__admin" style="display: none;">
                     <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
@@ -79,9 +81,17 @@
 
                 <?php $replies = getReplies($ItemC['id_cmt']); ?>
                 <?php foreach ($replies as $reply) : ?>
+                    <?php
+                        $showName="";
+                        if($reply['status_comment']==1){
+                            $showName="Quản trị viên";
+                        }else if($reply['status_comment']==2){
+                            $showName="người dùng";
+                        }
+                    ?>
                     <div class="box__reply--new row">
                         <div class="comment--box__nameUser">
-                            Quản trị viên: <?=$reply['username']?>
+                           <?=$showName?>: <?=$reply['username']?>
                         </div>
                         <div class="comment--box__content">
                             <?=$reply['text']?>
@@ -111,7 +121,8 @@
                 $idpro = $_POST['idpro'];
                 $iduser = $_SESSION['user_info']['id_user'];
                 $dateComment = date('Y-m-d H:i:s');
-                insert_binhluan($content, $iduser, $idpro, $dateComment);
+                $status_userReplay=2;
+                insert_binhluan($content, $iduser, $idpro, $dateComment,$status_userReplay);
                 header("location: ".$_SERVER['HTTP_REFERER']);
                 exit();     
             }else{
@@ -129,7 +140,8 @@
             $iduser = $_SESSION['user_info']['id_user'];
             $id_replay=$_POST['parent_comment_id'];
             $dateComment = date('Y-m-d H:i:s');
-            insert_replay($content, $iduser, $idpro, $dateComment, $id_replay);
+            $status_userReplay=2;
+            insert_replay($content, $iduser, $idpro, $dateComment, $id_replay,$status_userReplay);
             header("location: ".$_SERVER['HTTP_REFERER']);
             exit();
         }

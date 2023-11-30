@@ -50,7 +50,7 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Đã đã lời</p>
+                                <p class="total_product__content--title">Đã trả lời</p>
                                 <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
                             </div>

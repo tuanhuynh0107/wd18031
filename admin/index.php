@@ -309,6 +309,8 @@
                 require_once "view/detailPackage.php";
                 break;
             case 'comment':
+                $loadNoResponded = getAdminNoResponded();
+                $loadResponded = getAdmiResponded();
                 $loadComment=getAdminCommet();
                 $AllComment=getAdminAllComment();
                 require_once 'view/comment.php';

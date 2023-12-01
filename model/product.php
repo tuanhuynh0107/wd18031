@@ -1258,11 +1258,16 @@ function forgotPassUser($phone) {
         $sql = "INSERT INTO comment(text, id_user, id_prd, time, status_comment) VALUES ('$content', '$iduser', '$idpro', '$dateComment','$status_userReplay')";
         inset($sql);
     }
-    function insert_replay($content, $iduser, $idpro, $dateComment, $id_replay,$status_userReplay){
-        $sql = "INSERT INTO comment(text, id_user, id_prd, time, replay_comment, status_comment) VALUES ('$content', '$iduser', '$idpro', '$dateComment','$id_replay','$status_userReplay')";
+    function insert_replay($content, $iduser, $idpro, $dateComment, $id_replay, $status_userReplay){
+        $sql = "INSERT INTO comment(text, id_user, id_prd, time, replay_comment,status_comment) VALUES ('$content', '$iduser', '$idpro', '$dateComment','$id_replay','$status_userReplay')";
         inset($sql);
     }
-
+    function update_Status_Replay($id_replay,$status_userReplay){
+        $sql= "UPDATE comment 
+        SET status_comment = '$status_userReplay' 
+        WHERE id_cmt = $id_replay";
+        update($sql);
+    }
     function getAdminCommet($offset = 0){
         $sql="SELECT
         p.name AS product_name,
@@ -1304,7 +1309,8 @@ function forgotPassUser($phone) {
         user u ON c.id_user = u.id_user
     JOIN
         product p ON c.id_prd = p.id
-    WHERE c.status_comment = 0 ";
+    WHERE c.status_comment = 0
+    ORDER BY c.id_cmt DESC";
         return get_All($sql);
     }
     function getAdmiResponded(){

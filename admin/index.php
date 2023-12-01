@@ -345,7 +345,9 @@
                     $id_replay=$_POST['idCmtReplay'];
                     $dateComment = date('Y-m-d H:i:s');
                     $status_userReplay=1;
-                    insert_replay($content, $iduser, $idpro, $dateComment, $id_replay,$status_userReplay);
+                    update_Status_Replay($id_replay,$status_userReplay);
+                    insert_replay($content, $iduser, $idpro, $dateComment, $id_replay, $status_userReplay);
+                  
                    
                 }
                 $loadNoResponded = getAdminNoResponded();

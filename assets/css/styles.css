@@ -24,6 +24,15 @@ body {
 }
 
 /* Common */
+.icon__Cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
 
 .option {
     padding: 6px;
@@ -192,7 +201,13 @@ input {
 
 /* Header */
 .header {
+    /* padding: 12px 0px; */
+    height: auto;
     background: var(--primary-color-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .header.fixed {
@@ -365,9 +380,18 @@ input {
 .sign-up-btn {
     color: var(--primary-color-font);
     background-color: #fff;
+    border-radius: 12px;
 }
 
 /* action__cart */
+.Action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 40px;
+}
+
 .action__cart {
     position: relative;
 }
@@ -378,11 +402,12 @@ input {
     bottom: 25px;
     color: #f00;
     text-align: center;
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 500;
     background-color: #fff;
     padding: 4px;
     border-radius: 50%;
+    width: 15x;
 }
 
 /* Hero */

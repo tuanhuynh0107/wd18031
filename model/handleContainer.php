@@ -92,6 +92,7 @@
             $nameCata=$_POST['nameCata'];
             $typePro=$_POST['typePro'];
             $index=$_POST['index'];
+            $qty=$_POST['qty'];
            
             if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
                 $qtyPro=$_POST['qtyPro'];
@@ -105,7 +106,7 @@
                 $vitritrung = checkDuplicates( $idProduct);
                 upDataQty($vitritrung);
             }else{
-                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata,"index"=>$index];
+                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata,"index"=>$index,"qty"=>$qty];
                 $_SESSION['cart'][] = $item;
             }    
         }

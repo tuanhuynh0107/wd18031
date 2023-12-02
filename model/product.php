@@ -29,6 +29,7 @@ function getProduct($id_pro){
         $sql = "SELECT
         p.id AS product_id,
         p.name AS product_name,
+        p.qty AS product_qty,
         c.name_catalog AS category_name,
         p.price AS product_price,
         dp.type AS product_type,
@@ -51,6 +52,7 @@ function getProduct($id_pro){
         $sql = "SELECT
         p.id AS product_id,
         p.name AS product_name,
+        p.qty AS product_qty,
         c.name_catalog AS category_name,
         p.price AS product_price,
         dp.type AS product_type,
@@ -75,6 +77,7 @@ function getProduct($id_pro){
         $sql = "SELECT
         p.id AS product_id,
         p.name AS product_name,
+        p.qty AS product_qty,
         c.name_catalog AS category_name,
         p.price AS product_price,
         dp.type AS product_type,
@@ -176,6 +179,7 @@ function getProduct($id_pro){
                             <input type="hidden" name="typePro" value="'.$product_type.'">
                             <input type="hidden" name="qtyPro" value="'.$proQty.'">
                             <input type="hidden" name="nameCata" value="'.$category_name.'">
+                            <input type="hidden" name="qty" value="'.$product_qty.'">
                             <input type="submit" name="addCart" class="none" value="Thêm" id="addCart'.$id_lable.'">
                             <label for="addCart'.$id_lable.'" class="icon__addCart">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">

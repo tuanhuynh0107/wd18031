@@ -42,7 +42,8 @@ function getProduct($id_pro){
       JOIN
         detail_product dp ON p.id = dp.id_prd
       LEFT JOIN
-        album a ON p.id = a.id_prd" ;
+        album a ON p.id = a.id_prd
+    WHERE p.status_prd = 1" ;
         return get_All($sql);
     }
 
@@ -63,7 +64,10 @@ function getProduct($id_pro){
       JOIN
         detail_product dp ON p.id = dp.id_prd
       LEFT JOIN
-        album a ON p.id = a.id_prd ORDER BY RAND() limit 10";
+        album a ON p.id = a.id_prd
+    WHERE p.status_prd = 1
+
+    ORDER BY RAND() limit 10";
         return get_All($sql);
     }
 
@@ -84,7 +88,9 @@ function getProduct($id_pro){
       JOIN
         detail_product dp ON p.id = dp.id_prd
       LEFT JOIN
-        album a ON p.id = a.id_prd limit 10";
+        album a ON p.id = a.id_prd
+      WHERE p.status_prd = 1
+        limit 10";
         return get_All($sql);
     }
     function getDetailSaleProductLimit() {
@@ -106,7 +112,7 @@ function getProduct($id_pro){
       LEFT JOIN
         album a ON p.id = a.id_prd 
       WHERE 
-        dp.sale > 0 limit 10";
+        dp.sale > 0 AND p.status_prd = 1 limit 10";
         return get_All($sql);
     }
     function getDetailSpecialtyProductLimit() {
@@ -128,7 +134,7 @@ function getProduct($id_pro){
       LEFT JOIN
         album a ON p.id = a.id_prd 
       WHERE 
-        c.id_catalog = 2 limit 10";
+        c.id_catalog = 2 AND p.status_prd = 1 limit 10";
         return get_All($sql);
     }
     function showProduct($listItems){
@@ -241,7 +247,7 @@ function getProduct($id_pro){
       LEFT JOIN
         album a ON p.id = a.id_prd
       WHERE 
-        c.id_catalog=".$id_Cata ;
+     p.status_prd = 1 AND c.id_catalog=".$id_Cata ;
         return get_All($sql); 
     }
     function getItemCatalogLimit($id_Cata, $limit) {
@@ -902,6 +908,7 @@ function forgotPassUser($phone) {
                     p.name AS product_name,
                     p.price AS product_price,
                     p.qty AS product_qty,
+                    p.status_prd AS product_status,
                     c.name_catalog AS catalog_name
                 FROM 
                     product p
@@ -946,9 +953,9 @@ function forgotPassUser($phone) {
         $sql.=" ORDER BY id_DP ASC";
         return get_All($sql);
     }
-    function  deleteProduct($id){
-        $sql= "DELETE FROM product where id=".$id;
-        delete($sql);
+    function updateStautsPro($status,$id){
+        $sql = "UPDATE product SET status_prd = '$status' WHERE id = ".$id;
+        update($sql);
     }
     function insert_product($id_catalog,$name_product,$price_product, $qty_product) {
         $sql = "INSERT INTO product(id_catalog, name, price, qty) 
@@ -1120,8 +1127,14 @@ function forgotPassUser($phone) {
     function showAdminProduct($listProduct){
         foreach($listProduct as $item){
             extract($item);
-            $linkDeleteProduct="index.php?page=delProduct&id_Prd=".$product_id;
+            $linkDeleteProduct="index.php?page=delProduct&status=1&id_Prd=".$product_id;
             $linkUpdateProduct="index.php?page=updateProduct&id_Prd=".$product_id;
+            $showHidden="";
+            if($product_status == 0){
+                $showHidden='<a href="index.php?page=delProduct&status=1&id_Prd='.$product_id .'"class="hendel-delete-act">Hiện</a>';
+            }else{
+                $showHidden='<a href="index.php?page=delProduct&status=0&id_Prd='.$product_id .'" class="hendel-delete-act">Ẩn</a>';
+            }
             echo 
             '
             <tr>
@@ -1132,7 +1145,7 @@ function forgotPassUser($phone) {
                 <td>'.$product_qty.'</td>
                 <td>
                     <a href="'. $linkUpdateProduct.'" class="hendel-update-act">Sửa</a>|
-                    <a href="'.$linkDeleteProduct.'" class="hendel-delete-act">Ẩn</a>
+                    '.$showHidden.'
                 </td>
             </tr>
             

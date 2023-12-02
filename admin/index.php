@@ -145,8 +145,9 @@
                 require_once "view/detailProduct.php";
                 break;    
              case "delProduct" :
-                if (isset($_GET['id_Prd'])&&( $_GET['id_Prd']) >0) {
-                    deleteProduct($_GET['id_Prd']);
+                if (isset($_GET['id_Prd'])&&( $_GET['id_Prd']) >0 && isset($_GET['status'])){
+
+                    updateStautsPro($_GET['status'],$_GET['id_Prd']);
                     
                 }   
                 $listProduct=getAdminProduct();

@@ -68,6 +68,9 @@
                 $inventoryProduct=getAdmin_inventoryProduct();
                 require_once "view/product.php";
                 break;
+            case 'addDetailProduct':
+                require_once 'view/addDetailProduct.php';
+                break;    
             case 'detailProduct':
                 if(isset($_GET['idPro'])&&($_GET['idPro']>0)){
                     $listProductID=getAdminProductID($_GET['idPro']);

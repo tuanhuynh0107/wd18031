@@ -168,8 +168,9 @@
     //     require_once('view/catalog/'.$name_catalog.'.php');
     // }
     function handleBill() {
+        
           // check người dùng không đăng nhập thì không cho đặt hàng
-          if(!isset($_SESSION['user_info']['username']) || empty($_SESSION['user_info']['username']) && !isset($_SESSION['user_info']['phone']) || empty($_SESSION['user_info']['phone']) && !isset($_SESSION['user_info']['address']) || empty($_SESSION['user_info']['address'])){
+          if(!isset($_POST['name']) || empty($_POST['name']) && !isset($_POST['phone']) || empty($_POST['phone']) && !isset($_POST['address']) || empty($_POST['address'])){
             $thongbao='Bạn chưa điền thông tin.';
          }else{
              $note="";
@@ -206,6 +207,10 @@
                  
              }
          }
+         if(isset($_SESSION['user_info'])){
+            extract($_SESSION['user_info']);
+            $loadUser=loadAllUser($id_user);
+        }
          require_once "view/payMent.php";
     }
 

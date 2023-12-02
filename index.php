@@ -153,7 +153,8 @@
                 
             case 'payMent':
                 if(isset($_SESSION['user_info'])){
-                     $loadUser=loadAllUser($id_user);
+                    extract($_SESSION['user_info']);
+                    $loadUser=loadAllUser($id_user);
                 }
 
                 require_once('view/payMent.php');

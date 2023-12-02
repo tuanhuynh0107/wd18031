@@ -382,6 +382,7 @@
         $pageName .="Trang chủ";
         require_once "view/home.php";
     }
+    $loadCommentNew=getAdminCommetNew();
     $loadStatisticalDay =getAdminstatisticalDay();
     require_once 'view/footer.php';
 ?>

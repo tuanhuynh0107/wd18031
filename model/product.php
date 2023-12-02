@@ -1320,6 +1320,14 @@ function forgotPassUser($phone) {
     ORDER BY c.id_cmt DESC";
         return get_All($sql);
     }
+    function getAdminCommetNew(){
+        $sql="SELECT *
+        FROM comment
+        WHERE status_comment = 0
+        ORDER BY id_cmt DESC
+        LIMIT 5";
+        return get_All($sql);
+    }
     function getAdmiResponded(){
         $sql="SELECT COUNT(replay_comment) as replay FROM comment WHERE replay_comment > 0";
         return get_All($sql);

@@ -92,21 +92,19 @@
                 require_once "view/product.php";
                 break;  
             case "addProduct":
-                if(isset($_POST['btnAddPro'])&&($_POST['btnAddPro'])){
-                    $name_product=$_POST['nameProduct'];
-                    $price_product=$_POST['priceProduct'];
-                    $id_catalog=$_POST['selectCatalog'];
-                    $select_type=$_POST['selectType'];
-                    // $describe_product=$_POST['describeProduct'];
-                    $qty_product=$_POST['qtyProduct'];
+                if(isset($_POST['btnAddPro'])){
+                    $addNamePro=$_POST['nameProduct'];
+                    $addPricePro=$_POST['priceProduct'];
+                    $addQtyPro=$_POST['qtyProduct'];
+                    $addCatalogPro=$_POST['selectCatalog'];
 
-                    // $img_product=$_FILES['imgProduct']['name'];
-                    // $target_dir = "../uploads/";
-                    // $target_file = $target_dir . basename($_FILES["imgProduct"]["name"]);
-                    insert_product($id_catalog,$name_product,$price_product, $qty_product);
+                    addAdminProduct( $addNamePro, $addPricePro, $addQtyPro, $addCatalogPro);
+                    $thongbao="bạn đã udpate thành công sản phẩm";
                 }
                 $listCatalog=getAdminCatalog();
-                $listProduct=getAdminProduct();
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
                 require_once "view/addProduct.php";
                 break;
             case 'updateProduct':
@@ -135,16 +133,16 @@
                     $target_file = $target_dir.basename($_FILES["imgProduct"]["name"]);
     
                     if (move_uploaded_file($_FILES["imgProduct"]["tmp_name"], $target_file)) {
-                        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
                       } else {
-                        echo "Sorry, there was an error uploading your file.";
+                        // echo "Sorry, there was an error uploading your file.";
                       }
-                      error_reporting(E_ALL);
-                      ini_set('display_errors', 1);
+                    //   error_reporting(E_ALL);
+                    //   ini_set('display_errors', 1);
                       
                       // Thêm các dòng sau trước các lời gọi move_uploaded_file
-                      echo 'Thư Mục Đích: ' . $destinationDirectory . '<br>';
-                      echo 'Tên Tệp Đã Tải Lên: ' . $uploadedFileName . '<br>';
+                    //   echo 'Thư Mục Đích: ' . $destinationDirectory . '<br>';
+                    //   echo 'Tên Tệp Đã Tải Lên: ' . $uploadedFileName . '<br>';
                       updateAdminProduct($nameProduct,$priceProduct,$hinh,$qtyProduct,$typeProduct,$selectCatalog,$idProduct);
                       $thongbao="bạn đã udpate thành công sản phẩm";
                 }

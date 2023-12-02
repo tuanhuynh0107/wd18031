@@ -902,12 +902,11 @@ function forgotPassUser($phone) {
                     p.name AS product_name,
                     p.price AS product_price,
                     p.qty AS product_qty,
-                    dp.sale AS detail_product_sale,
-                    dp.type AS detail_product_type
+                    c.name_catalog AS catalog_name
                 FROM 
                     product p
                 JOIN 
-                    detail_product dp ON p.id = dp.id_prd 
+                    catalog c ON p.id_catalog = c.id_catalog 
                 ORDER BY p.id ASC
                 LIMIT 8 OFFSET $offset";
     
@@ -1093,6 +1092,15 @@ function forgotPassUser($phone) {
             dp.id_prd = ".$idProduct;
         pdo_execute($sql);;
     }
+    function addAdminProduct( $addNamePro, $addPricePro, $addQtyPro, $addCatalogPro) {
+        // Insert product
+        $sql = "INSERT INTO product (name, price, id_catalog, qty) VALUES ('$addNamePro', '$addPricePro', '$addCatalogPro', '$addQtyPro')";
+        inset($sql);;
+    
+     
+    }
+    
+    
     function showAdminProduct($listProduct){
         foreach($listProduct as $item){
             extract($item);
@@ -1103,13 +1111,12 @@ function forgotPassUser($phone) {
             <tr>
                 <td class="table__packgeNew--Yellow"><a href="index.php?page=detailProduct&idPro='.$product_id.'">#'.$product_id.'</a></td>
                 <td>'.$product_name.'</td>
-                <td>'.$detail_product_type.'</td>
                 <td>'.number_format($product_price,0,",",".").'đ</td>
-                <td>'.$detail_product_sale.'%</td>
+                <td>'.$catalog_name.'</td>
                 <td>'.$product_qty.'</td>
                 <td>
                     <a href="'. $linkUpdateProduct.'" class="hendel-update-act">Sửa</a>|
-                    <a href="'.$linkDeleteProduct.'" class="hendel-delete-act">Xóa</a>
+                    <a href="'.$linkDeleteProduct.'" class="hendel-delete-act">Ẩn</a>
                 </td>
             </tr>
             

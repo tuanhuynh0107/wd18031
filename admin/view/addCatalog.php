@@ -76,7 +76,7 @@
                                     <label for="name_product" class="form_group__title">
                                         Số lượng <br>
                                     </label>
-                                    <input type="text" class="form_group__input" id="name_product" name="quantityCatalog">
+                                    <input type="number" class="form_group__input" id="name_product" name="quantityCatalog" min="0">
                                 </div>
                                 <div class="form_group__loaihang">
                                     <label for="name_product" class="form_group__title">

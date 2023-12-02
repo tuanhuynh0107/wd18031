@@ -79,12 +79,12 @@
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Giá sản phẩm</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="priceProduct" id="add_product--input">
+                                        <input type="number" class="form_group__item_input--input" name="priceProduct" id="add_product--input" min="0">
                                     </div>
                                 
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Số lượng sản phâm</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="qtyProduct" id="add_product--input" >
+                                        <input type="number" class="form_group__item_input--input" name="qtyProduct" id="add_product--input" min="0">
                                     </div>
                                     <div class="form_group__add_product--item_select">
                                         <label for="add_product--select" class="form_group__item_input--text">Thuộc loại</label> <br>

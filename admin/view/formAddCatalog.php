@@ -92,11 +92,11 @@
                                     </div>  
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Số lương sản phảm</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="quantityCatalog" id="add_product--input"  placeholder="ví dụ 100">
+                                        <input type="number" class="form_group__item_input--input" name="quantityCatalog" id="add_product--input"  placeholder="ví dụ 100" min="0">
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Trạng thái</label> <br>
-                                        <input type="text" class="form_group__item_input--input"  name="satus" id="add_product--input"  placeholder=" ví dụ #CUA00235">
+                                        <input type="number" class="form_group__item_input--input"  name="satus" id="add_product--input"  placeholder=" ví dụ #CUA00235" min="0">
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Icon đại diện</label> <br>

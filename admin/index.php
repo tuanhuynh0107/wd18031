@@ -71,17 +71,22 @@
 
             case 'addDetailProduct':
                 if(isset($_POST['btnAddDetailPro'])){
-                    $name_product=$_POST['nameProduct'];
-                    $sale=$_POST['saleProduct'];
-                    $production=$_POST['productionProduct'];
-                    $type=$_POST['typeProduct'];
-                    $text=$_POST['textProduct'];
-                    $net_weight=$_POST['weightProduct'];
-                    $id_prd=$_POST['selectProduct'];
-                    $id_album=$_POST['selectAlbum'];
-
-                insert_Admin_DetailProduct($name_product, $sale, $production,  $type, $text, $net_weight, $id_prd, $id_album);
-                    $thongbao="bạn đã thêm chi tiết sản phẩm thành công";
+                    if(empty($_POST['nameProduct'])&&empty($_POST['saleProduct'])&&empty($_POST['productionProduct'])&&empty($_POST['typeProduct'])&&empty($_POST['textProduct'])){
+                        $thongbao="Bạn không dược để trống";
+                    }else{
+                        $name_product=$_POST['nameProduct'];
+                        $sale=$_POST['saleProduct'];
+                        $production=$_POST['productionProduct'];
+                        $type=$_POST['typeProduct'];
+                        $text=$_POST['textProduct'];
+                        $net_weight=$_POST['weightProduct'];
+                        $id_prd=$_POST['selectProduct'];
+                        $id_album=$_POST['selectAlbum'];
+    
+                        insert_Admin_DetailProduct($name_product, $sale, $production,  $type, $text, $net_weight, $id_prd, $id_album);
+                        $thongbao="bạn đã thêm chi tiết sản phẩm thành công";
+                    }
+                   
                 }
 
 
@@ -97,7 +102,7 @@
                 break;
             case 'addAdminAlbum':
                 if(isset($_POST['btnAddImg'])){
-                    $target_dir = "C:/xampp/htdocs/ky 4/change fisman/wd18031/assets/uploads/";
+                    $target_dir = "../assets/uploads/";
 
                     $images = array('mainImg', 'imgone', 'imgtwo', 'imgthree', 'imgfour', 'imgfive');
                     $imgMain = $_FILES[$images[0]]['name'];
@@ -111,6 +116,7 @@
                             $target_file = $target_dir . basename($_FILES[$currentImage]["name"]);
                             move_uploaded_file($_FILES[$currentImage]["tmp_name"], $target_file);
                         }
+                        $thongbaoImg="Bạn đã nhập ảnh thành công";
                     }
                     
                     insert_Admin_Album($imgMain, $img1, $img2, $img3, $img4, $img5, $id_prd);
@@ -151,13 +157,17 @@
                 break;  
             case "addProduct":
                 if(isset($_POST['btnAddPro'])){
-                    $addNamePro=$_POST['nameProduct'];
-                    $addPricePro=$_POST['priceProduct'];
-                    $addQtyPro=$_POST['qtyProduct'];
-                    $addCatalogPro=$_POST['selectCatalog'];
-
-                    addAdminProduct( $addNamePro, $addPricePro, $addQtyPro, $addCatalogPro);
-                    $thongbao="bạn đã udpate thành công sản phẩm";
+                    if(empty($_POST['nameProduct'])&&empty($_POST['priceProduct'])&& empty($_POST['qtyProduct'])){
+                        $thongbao="bạn không được để trống";
+                    }else{
+                        $addNamePro=$_POST['nameProduct'];
+                        $addPricePro=$_POST['priceProduct'];
+                        $addQtyPro=$_POST['qtyProduct'];
+                        $addCatalogPro=$_POST['selectCatalog'];
+    
+                        addAdminProduct( $addNamePro, $addPricePro, $addQtyPro, $addCatalogPro);
+                        $thongbao="bạn đã thêm thành công sản phẩm";
+                    }
                 }
                 $listCatalog=getAdminCatalog();
                 $totalAllProducts=getAdminAll_TotalProduct();
@@ -179,30 +189,35 @@
                 break;  
             case 'updatePro':
                 if(isset($_POST['btnUpdatePro'])){
-                    $nameProduct=$_POST['nameProduct'];
-                    $priceProduct=$_POST['priceProduct'];
-                    $qtyProduct=$_POST['qtyProduct'];
-                    $typeProduct=$_POST['typeProduct'];
-                    $selectCatalog=$_POST['selectCatalog'];
-                    $idProduct=$_POST['idProduct'];
+                    if(empty($_POST['nameProduct'])&&empty($_POST['priceProduct'])&& empty($_POST['qtyProduct'])&&empty($_POST['typeProduct'])){
+                        $thongbao="bạn không được để trống";
+                    }else{
+                        $nameProduct=$_POST['nameProduct'];
+                        $priceProduct=$_POST['priceProduct'];
+                        $qtyProduct=$_POST['qtyProduct'];
+                        $typeProduct=$_POST['typeProduct'];
+                        $selectCatalog=$_POST['selectCatalog'];
+                        $idProduct=$_POST['idProduct'];
+                        
+                        $hinh=$_FILES['imgProduct']['name'];
+                        $target_dir = 'C:/xampp/htdocs/ky 4/change fisman/wd18031/assets/uploads/';
+                        $target_file = $target_dir.basename($_FILES["imgProduct"]["name"]);
+        
+                        if (move_uploaded_file($_FILES["imgProduct"]["tmp_name"], $target_file)) {
+                            // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                          } else {
+                            // echo "Sorry, there was an error uploading your file.";
+                          }
+                        //   error_reporting(E_ALL);
+                        //   ini_set('display_errors', 1);
+                          
+                          // Thêm các dòng sau trước các lời gọi move_uploaded_file
+                        //   echo 'Thư Mục Đích: ' . $destinationDirectory . '<br>';
+                        //   echo 'Tên Tệp Đã Tải Lên: ' . $uploadedFileName . '<br>';
+                          updateAdminProduct($nameProduct,$priceProduct,$hinh,$qtyProduct,$typeProduct,$selectCatalog,$idProduct);
+                          $thongbao="bạn đã udpate thành công sản phẩm";
+                    }
                     
-                    $hinh=$_FILES['imgProduct']['name'];
-                    $target_dir = 'C:/xampp/htdocs/ky 4/change fisman/wd18031/assets/uploads/';
-                    $target_file = $target_dir.basename($_FILES["imgProduct"]["name"]);
-    
-                    if (move_uploaded_file($_FILES["imgProduct"]["tmp_name"], $target_file)) {
-                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                      } else {
-                        // echo "Sorry, there was an error uploading your file.";
-                      }
-                    //   error_reporting(E_ALL);
-                    //   ini_set('display_errors', 1);
-                      
-                      // Thêm các dòng sau trước các lời gọi move_uploaded_file
-                    //   echo 'Thư Mục Đích: ' . $destinationDirectory . '<br>';
-                    //   echo 'Tên Tệp Đã Tải Lên: ' . $uploadedFileName . '<br>';
-                      updateAdminProduct($nameProduct,$priceProduct,$hinh,$qtyProduct,$typeProduct,$selectCatalog,$idProduct);
-                      $thongbao="bạn đã udpate thành công sản phẩm";
                 }
                 $listProduct=getAdminProduct();
                 $totalAllProducts=getAdminAll_TotalProduct();
@@ -236,13 +251,16 @@
                 break;
             case 'addCatalog':
                 if(isset($_POST['addCata'])&&($_POST['addCata'])){
-                    $nameCatalog=$_POST['nameCatalog'];
+                    if(empty($_POST['nameCatalog'])&&empty($_POST['quantityCatalog'])&&empty($_POST['satus'])){
+                        $thongbao="Bạn không được để trống";
+                    }else{
+                        $nameCatalog=$_POST['nameCatalog'];
                     $qtyCatalog=$_POST['quantityCatalog'];
                     $satus=$_POST['satus'];
 
                     // hình banner catalog
                     $bannerCatalog=$_FILES['img_catalog']['name'];
-                    $target_dir = ".../assets/uploads/";
+                    $target_dir = "../assets/uploads/";
                     $target_file = $target_dir . basename($_FILES["img_catalog"]["name"]);
 
                     if (move_uploaded_file($_FILES["img_catalog"]["tmp_name"], $target_file)) {
@@ -252,7 +270,7 @@
                       }
                     //  hình icons catalog
                     $iconsCatalog=$_FILES['icon_catalog']['name'];
-                    $target_dir = ".../assets/uploads/";
+                    $target_dir = "../assets/uploads/";
                     $target_file = $target_dir . basename($_FILES["icon_catalog"]["name"]);
 
                     if (move_uploaded_file($_FILES["icon_catalog"]["tmp_name"], $target_file)) {
@@ -263,6 +281,8 @@
 
                     insertCatalog($nameCatalog, $qtyCatalog,$satus,  $bannerCatalog, $iconsCatalog);
                     $thongbao="bạn đã thêm thành công";
+                    }
+                    
 
                 }
                 $listItem=getAdminCatalog();

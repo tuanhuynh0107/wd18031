@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">sale</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="saleProduct" id="add_product--input">
+                                        <input type="number" class="form_group__item_input--input" name="saleProduct" id="add_product--input" min="0">
                                     </div>
                                     
                                     <div class="form_group__add_product--item_select">
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">cân nặng</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="weightProduct" id="add_product--input"  >
+                                        <input type="number" class="form_group__item_input--input" name="weightProduct" id="add_product--input" min="0" >
                                     </div>
                                     <!-- sản phẩm -->
                                     <div class="form_group__add_product--item_select">
@@ -187,8 +187,8 @@
 
                         </form>
                         <?php
-                            if(isset($thongbao)&&($thongbao!="")){
-                                echo $thongbao;
+                            if(isset($thongbaoImg)&&($thongbaoImg!="")){
+                                echo $thongbaoImg;
                             }
                         
                         ?>

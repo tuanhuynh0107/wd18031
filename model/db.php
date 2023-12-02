@@ -63,6 +63,14 @@
         $conn -> exec($sql);
         $conn = null;
     }   
+    function insert_ID($sql) {
+        $conn = db();
+        $conn->exec($sql); // Execute the INSERT statement
+        $lastInsertId = $conn->lastInsertId(); // Get the last inserted ID
+        $conn = null;
+    
+        return $lastInsertId; // Return the last inserted ID
+    } 
     // Truy vấn ví dụ để hiển thị danh mục (Duy)
     // function show($sql){
     //     $sql = "SELECT * FROM catalog";

@@ -66,7 +66,7 @@
                 
                 <?php }?>
                 <div class="box__reply row"  id="reply__admin" style="display: none;">
-                    <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
+                    <!-- <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
                         <input type="hidden" name="idpro" value="<?=$ItemC['id_prd']?>">
                         <input type="hidden" name="parent_comment_id" value="<?=$ItemC['id_cmt']?>">
                         <textarea name="reply__content" class="content__comment" cols="100%" rows="3" placeholder="Nội dung..."></textarea>
@@ -77,21 +77,14 @@
                                 <path d="M27.1875 2.8125L2.8125 14.0625L14.0625 16.4062M27.1875 2.8125L17.8125 27.1875L14.0625 16.4062M27.1875 2.8125L14.0625 16.4062" stroke="black" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </label>
-                    </form> 
+                    </form>  -->
 
                 <?php $replies = getReplies($ItemC['id_cmt']); ?>
                 <?php foreach ($replies as $reply) : ?>
-                    <?php
-                        $showName="";
-                        if($reply['status_comment']==1){
-                            $showName="Quản trị viên";
-                        }else if($reply['status_comment']==2){
-                            $showName="người dùng";
-                        }
-                    ?>
+                    
                     <div class="box__reply--new row">
                         <div class="comment--box__nameUser">
-                           <?=$showName?>: <?=$reply['username']?>
+                          Quản trị viên: <?=$reply['username']?>
                         </div>
                         <div class="comment--box__content">
                             <?=$reply['text']?>
@@ -121,7 +114,7 @@
                 $idpro = $_POST['idpro'];
                 $iduser = $_SESSION['user_info']['id_user'];
                 $dateComment = date('Y-m-d H:i:s');
-                $status_userReplay=2;
+                $status_userReplay=0;
                 insert_binhluan($content, $iduser, $idpro, $dateComment,$status_userReplay);
                 header("location: ".$_SERVER['HTTP_REFERER']);
                 exit();     
@@ -134,17 +127,17 @@
         }
     ?>
     <?php
-        if (isset($_POST['sendReply']) && ($_POST['sendReply'])) {
-            $content = $_POST['reply__content'];
-            $idpro = $_POST['idpro'];
-            $iduser = $_SESSION['user_info']['id_user'];
-            $id_replay=$_POST['parent_comment_id'];
-            $dateComment = date('Y-m-d H:i:s');
-            $status_userReplay=2;
-            insert_replay($content, $iduser, $idpro, $dateComment, $id_replay,$status_userReplay);
-            header("location: ".$_SERVER['HTTP_REFERER']);
-            exit();
-        }
+        // if (isset($_POST['sendReply']) && ($_POST['sendReply'])) {
+        //     $content = $_POST['reply__content'];
+        //     $idpro = $_POST['idpro'];
+        //     $iduser = $_SESSION['user_info']['id_user'];
+        //     $id_replay=$_POST['parent_comment_id'];
+        //     $dateComment = date('Y-m-d H:i:s');
+        //     $status_userReplay=2;
+        //     insert_replay($content, $iduser, $idpro, $dateComment, $id_replay,$status_userReplay);
+        //     header("location: ".$_SERVER['HTTP_REFERER']);
+        //     exit();
+        // }
     
     ?>
 </body>

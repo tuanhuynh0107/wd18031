@@ -55,7 +55,7 @@
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
                                 <h4>Sản phẩm</h4>
-                                <button class="btn btn-ml"><a href="add_sanpham_admin.html">Thêm </a></button>
+                                <button class="btn btn-ml"><a href="index.php?page=addProduct">Thêm </a></button>
                             </div>
                             
                             <select class="revenue__top--hendel">
@@ -69,9 +69,8 @@
                                 <tr>
                                     <td>Mã sản phẩm</td>
                                     <td>Tên</td>
-                                    <td>Phân loại</td>
                                     <td>Giá</td>
-                                    <td>Sale</td>
+                                    <td>Thuộc loại</td>
                                     <td>Còn lại</td>
                                     <td>Thao tác</td>
                                 </tr>
@@ -89,6 +88,8 @@
                             <a href="index.php?page=product&offset=16">3</a>
                             <a href="index.php?page=product&offset=32">4</a>
                             <a href="index.php?page=product&offset=40">5</a>
+                            <a href="index.php?page=product&offset=48">6</a>
+                            <a href="index.php?page=product&offset=56">7</a>
                             <a href=""><pre>></pre></a>
                         </div>
                     </article>

@@ -912,7 +912,15 @@ function forgotPassUser($phone) {
     
         return get_All($sql);
     }
-    
+    // thêm admin detailProduct 
+    function getAdminSelectProduct(){
+        $sql="SELECT * FROM product ORDER BY id ASC";
+        return get_All($sql);
+    }
+    function getAdminSelectAlbum(){
+        $sql="SELECT * FROM album ORDER BY id ASC";
+        return get_All($sql);
+    }
     function getAdminProductID($idPro){
         $sql="SELECT
         p.id AS product_id,
@@ -1096,10 +1104,18 @@ function forgotPassUser($phone) {
         // Insert product
         $sql = "INSERT INTO product (name, price, id_catalog, qty) VALUES ('$addNamePro', '$addPricePro', '$addCatalogPro', '$addQtyPro')";
         inset($sql);;
-    
-     
     }
-    
+    function insert_Admin_DetailProduct($name_product, $sale, $production,  $type, $text, $net_weight, $id_prd, $id_album){
+        $sql="INSERT INTO detail_product (name_prd, sale, production, type, text, net_weight, id_prd, id_album)
+        VALUES ('$name_product', $sale, '$production', '$type', '$text', $net_weight, $id_prd, $id_album);
+        ";
+        inset($sql);
+    }
+    function insert_Admin_Album($imgMain, $img1, $img2, $img3, $img4, $img5, $id_prd){
+        $sql = "  INSERT INTO album ( img_main, img1, img2, img3, img4, img5, id_prd)
+                VALUES ('$imgMain', '$img1', '$img2', '$img3', '$img4',' $img5', '$id_prd')";
+        inset($sql);
+    }
     
     function showAdminProduct($listProduct){
         foreach($listProduct as $item){

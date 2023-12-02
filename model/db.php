@@ -63,6 +63,16 @@
         $conn -> exec($sql);
         $conn = null;
     }   
+    function insert($sql, $data) {
+        try {
+            $conn = db();
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($data);
+            $conn = null;
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
     function insert_ID($sql) {
         $conn = db();
         $conn->exec($sql); // Execute the INSERT statement

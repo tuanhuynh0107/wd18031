@@ -68,9 +68,64 @@
                 $inventoryProduct=getAdmin_inventoryProduct();
                 require_once "view/product.php";
                 break;
+
             case 'addDetailProduct':
+                if(isset($_POST['btnAddDetailPro'])){
+                    $name_product=$_POST['nameProduct'];
+                    $sale=$_POST['saleProduct'];
+                    $production=$_POST['productionProduct'];
+                    $type=$_POST['typeProduct'];
+                    $text=$_POST['textProduct'];
+                    $net_weight=$_POST['weightProduct'];
+                    $id_prd=$_POST['selectProduct'];
+                    $id_album=$_POST['selectAlbum'];
+
+                insert_Admin_DetailProduct($name_product, $sale, $production,  $type, $text, $net_weight, $id_prd, $id_album);
+                    $thongbao="bạn đã thêm chi tiết sản phẩm thành công";
+                }
+
+
+                // load thống kê
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+                // load sản phẩm
+                $loadSelectProduct=getAdminSelectProduct();
+                // laod album
+                $loadSelectAlbum=getAdminSelectAlbum();
                 require_once 'view/addDetailProduct.php';
-                break;    
+                break;
+            case 'addAdminAlbum':
+                if(isset($_POST['btnAddImg'])){
+                    $target_dir = "C:/xampp/htdocs/ky 4/change fisman/wd18031/assets/uploads/";
+
+                    $images = array('mainImg', 'imgone', 'imgtwo', 'imgthree', 'imgfour', 'imgfive');
+                    $imgMain = $_FILES[$images[0]]['name'];
+                    $id_prd = $_POST['selectProduct'];
+                    
+                    for ($i = 1; $i <= 5; $i++) {
+                        $currentImage = $images[$i];
+                        ${"img" . $i} = $_FILES[$currentImage]['name'];
+                    
+                        if (!empty($_FILES[$currentImage]['name'])) {
+                            $target_file = $target_dir . basename($_FILES[$currentImage]["name"]);
+                            move_uploaded_file($_FILES[$currentImage]["tmp_name"], $target_file);
+                        }
+                    }
+                    
+                    insert_Admin_Album($imgMain, $img1, $img2, $img3, $img4, $img5, $id_prd);
+                    
+                }
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+                // load sản phẩm
+                $loadSelectProduct=getAdminSelectProduct();
+                // laod album
+                $loadSelectAlbum=getAdminSelectAlbum();
+                require_once 'view/addDetailProduct.php';
+                break;   
+                    
             case 'detailProduct':
                 if(isset($_GET['idPro'])&&($_GET['idPro']>0)){
                     $listProductID=getAdminProductID($_GET['idPro']);

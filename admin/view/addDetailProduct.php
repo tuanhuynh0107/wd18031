@@ -68,7 +68,50 @@
                             </select>
                         </div>
                         <!-- form  -->
-                      
+                        <form action="index.php?page=addAdminAlbum" method="post" enctype="multipart/form-data">
+                            <div class="form_group__box-input">
+                                <div class="">
+                                    hình chính <br>
+                                    <input type="file" name="mainImg" id=""><br>
+                                    hình 1 <br>
+                                    <input type="file" name="imgone" id=""><br>
+                                    hình 2 <br>
+                                    <input type="file" name="imgtwo" id=""><br>
+                                    hình 3 <br>
+                                    <input type="file" name="imgthree" id=""><br>
+                                    hình 4 <br>
+                                    <input type="file" name="imgfour" id=""><br>
+                                    hình 5 <br>
+                                    <input type="file" name="imgfive" id=""><br>
+                                    
+                                    <div class="form_group__add_product--item_select">
+                                        <label for="add_product--select" class="form_group__item_input--text">Sản phẩm</label> <br>
+
+                                       <select name="selectProduct" id="add_product--select" class="form_group__item_select--option">
+                                        <?php
+                                            if(isset( $loadSelectProduct)){
+                                                foreach ( $loadSelectProduct as $item) {
+                                                        extract($item);
+                                                    echo '<option value="'.$id.'">'.$name.'_'.$id.'</option>';
+                                                }
+                                            }
+                                        ?>
+                                      
+                                       </select>
+                                    </div>
+                                </div>
+                            <div class="form_group__add_product--item_submit">
+                                <input type="submit" class="form_group__item_input--them" name="btnAddImg" id="" value="Thêm ảnh">
+                            </div>
+                            </div>
+
+                        </form>
+                        <?php
+                            if(isset($thongbaoImg)&&($thongbaoImg!="")){
+                                echo $thongbaoImg;
+                            }
+                        
+                        ?>
                         <form action="index.php?page=addDetailProduct" method="post" enctype="multipart/form-data">
                             <div class="form_group ">
                                 <div class="form_group__box--add_product">
@@ -148,50 +191,7 @@
                                 </span>
                             </div>
                         </form>
-                        <form action="index.php?page=addAdminAlbum" method="post" enctype="multipart/form-data">
-                            <div class="form_group__box-input">
-                                <div class="">
-                                    hình chính <br>
-                                    <input type="file" name="mainImg" id=""><br>
-                                    hình 1 <br>
-                                    <input type="file" name="imgone" id=""><br>
-                                    hình 2 <br>
-                                    <input type="file" name="imgtwo" id=""><br>
-                                    hình 3 <br>
-                                    <input type="file" name="imgthree" id=""><br>
-                                    hình 4 <br>
-                                    <input type="file" name="imgfour" id=""><br>
-                                    hình 5 <br>
-                                    <input type="file" name="imgfive" id=""><br>
-                                    
-                                    <div class="form_group__add_product--item_select">
-                                        <label for="add_product--select" class="form_group__item_input--text">Sản phẩm</label> <br>
-
-                                       <select name="selectProduct" id="add_product--select" class="form_group__item_select--option">
-                                        <?php
-                                            if(isset( $loadSelectProduct)){
-                                                foreach ( $loadSelectProduct as $item) {
-                                                        extract($item);
-                                                    echo '<option value="'.$id.'">'.$name.'_'.$id.'</option>';
-                                                }
-                                            }
-                                        ?>
-                                      
-                                       </select>
-                                    </div>
-                                </div>
-                            <div class="form_group__add_product--item_submit">
-                                <input type="submit" class="form_group__item_input--them" name="btnAddImg" id="" value="Thêm ảnh">
-                            </div>
-                            </div>
-
-                        </form>
-                        <?php
-                            if(isset($thongbaoImg)&&($thongbaoImg!="")){
-                                echo $thongbaoImg;
-                            }
                         
-                        ?>
                     </article>
                 </div>
              

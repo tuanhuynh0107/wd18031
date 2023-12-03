@@ -1,8 +1,6 @@
 <?php
-    print_r($listProductID);
-    if(is_array($listProductID)){
-        extract($listProductID);
-    }
+    print_r($listDetailProductID);
+   
 
 ?>
 <main class="main row">
@@ -61,7 +59,7 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Thêm sản phẩm</h4>
+                                <h4>Thêm chi tiết sản phẩm</h4>
                             </div>
     
                             <select class="revenue__top--hendel">
@@ -71,80 +69,92 @@
                             </select>
                         </div>
                         <!-- form  -->
-                        <form action="index.php?page=updatePro" method="post" enctype="multipart/form-data">
+                        <form action="index.php?page=updateAlbum_DetailProduct" method="post" enctype="multipart/form-data">
+                            <div class="">
+                                <div class="">
+                                    hình chính <br>
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img_main']?>.png"  alt="" width="20%"><br>
+                                    <input type="file" name="mainImg" id=""><br>
+                                    <!-- hình 1 -->
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img1']?>.png"  alt="" width="20%"><br>
+                                    hình 1 <br>
+                                    <input type="file" name="imgone" id=""><br>
+                                    <!-- hình 2 -->
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img2']?>.png"  alt="" width="20%"><br>
+
+                                    hình 2 <br>
+                                    <input type="file" name="imgtwo" id=""><br>
+                                    <!-- hình 3 -->
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img3']?>.png"  alt="" width="20%"><br>
+
+                                    hình 3 <br>
+                                    <input type="file" name="imgthree" id=""><br>
+                                    <!-- hình 4 -->
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img4']?>.png"  alt="" width="20%"><br>
+
+                                    hình 4 <br>
+                                    <input type="file" name="imgfour" id=""><br>
+                                    <!-- hình 5 -->
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img5']?>.png"  alt="" width="20%"><br>
+
+                                    hình 5 <br>
+                                    <input type="file" name="imgfive" id=""><br>
+                                    
+                                </div>
+                            </div>
+
+                       
+        
                             <div class="form_group ">
-                               
-                                
                                 <div class="form_group__box--add_product">
                                     <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">Tên sản phẩm</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="nameProduct" id="add_product--input" value="<?=$name?>">
+                                        <!-- check lỗi -->
+                                        <label for="add_product--input" class="form_group__item_input--text">Tên chi tiết sản phẩm</label> <br>
+                                        <input type="text" class="form_group__item_input--input" name="nameProduct" id="add_product--input"  value="<?=$listDetailProductID[0]['name_prd']?>">
                                     </div>
                                     <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">Giá sản phẩm</label> <br>
-                                        <input type="number" class="form_group__item_input--input" name="priceProduct" id="add_product--input" min="0" value="<?=$price?>">
+                                        <label for="add_product--input" class="form_group__item_input--text">sale</label> <br>
+                                        <input type="number" class="form_group__item_input--input" name="saleProduct" id="add_product--input" min="0" value="<?=$listDetailProductID[0]['sale']?>">
                                     </div>
-                                
-                                    <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">Số lượng sản phâm</label> <br>
-                                        <input type="number" class="form_group__item_input--input" name="qtyProduct" id="add_product--input" min="0" value="<?=$qty?>">
-                                    </div>
+                                    
                                     <div class="form_group__add_product--item_select">
-                                        <label for="add_product--select" class="form_group__item_input--text">Thuộc loại</label> <br>
+                                        <label for="add_product--select" class="form_group__item_input--text">Nơi sản xuất</label> <br>
 
-                                       <select name="selectCatalog" id="add_product--select" class="form_group__item_select--option">
-                                        <?php
-                                            if(isset($listCatalog)){
-                                                    $kqDM = "";
-                                                        foreach ($listCatalog as $item) {
-                                                            extract($item);
-                                                            if($idCatalog == $id_catalog) {
-                                                                $kqDM.= '
-                                                                <option value="'. $idCatalog.'" selected>'.$name_catalog.'</option>
-                                                                ';
-                                                            }else {
-                                                                $kqDM.= '
-                                                                <option value="'.$id_catalog.'">'.$name_catalog.'</option>
-                                                                ';
-                                                        }
-                                                        
-                                                    };
-                                                    echo  $kqDM;
-                                                }
-                                        //  if(isset($listCatalog)){
-                                        //     foreach ($listCatalog as $item) {
-                                        //             extract($item);
-                                        //         echo '<option value="'.$id_catalog.'">'.$name_catalog.'</option>';
-                                        //     }
-                                        // }
-                                        ?>
-                                      
-                                       </select>
+                                       
+                                        <input type="text" class="form_group__item_input--input" name="productionProduct" id="add_product--input"  value="<?=$listDetailProductID[0]['production']?>">
                                     </div>
+                                    <div class="form_group__add_product--item_input">
+                                        <label for="add_product--input" class="form_group__item_input--text">Kiểu</label> <br>
+                                        <input type="text" class="form_group__item_input--input" name="typeProduct" id="add_product--input"  value="<?=$listDetailProductID[0]['type']?>">
+                                    </div>
+                                    <div class="form_group__add_product--item_input">
+                                        <label for="add_product--input" class="form_group__item_input--text">Mô tả</label> <br>
+                                        <textarea name="" id="add_product--input" cols="51" rows="7"><?=$listDetailProductID[0]['text']?></textarea>
+                                    </div>
+                                    <div class="form_group__add_product--item_input">
+                                        <label for="add_product--input" class="form_group__item_input--text">cân nặng</label> <br>
+                                        <input type="number" class="form_group__item_input--input" name="weightProduct" id="add_product--input" min="0" value="<?=$listDetailProductID[0]['net_weight']?>">
+                                    </div>
+                                  
                                     <div class="form_group__add_product--item_submit">
-                                        <input type="hidden" name="idProduct" value="<?=$id?>">
+                                        <input type="hidden" name="id_product" value="<?=$listDetailProductID[0]['id_prd']?>">
                                         <input type="submit" class="form_group__item_input--cancle" name="" id="" value="Canle">
-                                        <input type="submit" class="form_group__item_input--them" name="btnUpdatePro" id="" value="Lưu">
-                                        <!-- Thêm chi tiết sản phẩm -->
-                                        <a href="index.php?page=updateDetailProduct&id_Prd=<?=$id?>">
-                                            <input type="button" class="form_group__item_input--them" name="btnAddDetailPro" id="" value="Sửa chi tiết">
-                                        </a>
-                                        <?php
+                                        <input type="submit" class="form_group__item_input--them" name="btnUpdateAlbum_DetailPro" id="" value="Lưu chi tiết" value="<?=$listDetailProductID[0]['sale']?>">
+                                    </div>
+                                    <?php
                                             if(isset($thongbao)&&($thongbao!="")){
                                                 echo $thongbao;
                                             }
                                         
                                         ?>
-
-                                    </div>
-                                    
+ 
                                 </div>
                                 <span class="form-mes">
                                     
                                 </span>
                             </div>
                         </form>
-                       
+                        
                     </article>
                 </div>
              

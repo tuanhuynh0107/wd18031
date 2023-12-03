@@ -7,7 +7,7 @@
             updateCatalogStatus($idPackage, $indStatus);
             $listCart= getYourCart($_GET['id_user']);
         }
-        $loadUser=loadAllUser($id_user);
+        $loadUser=loadAllUser($_GET['id_user']);
         require_once "view/proFile/yourCard.php";
     }
 

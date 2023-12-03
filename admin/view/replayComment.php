@@ -1,5 +1,6 @@
 <?php
-    print_r($newUsersBlackList);
+    print_r($loadNoResponded);
+
 ?>
 <main class="main row">
                 <div class="main-content row">
@@ -15,9 +16,9 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Số lượng Khách hàng</p>
-                                <div class="total_product__content--qty"><?=$totalAllUser[0]['total_user']?></div>
-                                <p class="total_product__content--desc">Tất cả khách hàng bao gồm cả admin</p>
+                                <p class="total_product__content--title">Tổng bình luận</p>
+                                <div class="total_product__content--qty"><?=$AllComment[0]['total_comments']?></div>
+                                <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                             </div>
                         </section>
                         <section class="total_product row">
@@ -30,13 +31,11 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <a href="index.php?page=userBlack">
-                                <div class="total_product__content row">
-                                    <p class="total_product__content--title"> Danh sách đen</p>
-                                    <div class="total_product__content--qty"><?=$newUsersBlackList[0]['total_customers']?></div>
-                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
-                                </div>
-                            </a>
+                            <div class="total_product__content row">
+                                <p class="total_product__content--title">Chưa trả lời</p>
+                                <div class="total_product__content--qty"><?=$loadNoResponded[0]['No_replay']?></div>
+                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                            </div>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -48,55 +47,81 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <a href="index.php?page=userVip">
-                                <div class="total_product__content row">
-                                    <p class="total_product__content--title">Khách hàng Ưu tiên</p>
-                                    <div class="total_product__content--qty"><?=$vipUser[0]['total_customers']?></div>
-                                    <p class="total_product__content--desc">Tăng 15% trong tháng</p>
-                                </div>
-                            </a>
+                            <div class="total_product__content row">
+                                <p class="total_product__content--title">Đã trả lời</p>
+                                <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
+                                <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                            </div>
                         </section>
                     </article>
-                    <!-- code table don hang o day -->
+                    <!-- code table loai hang o day -->
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Khách hàng</h4>
+                                <h4><?php echo getPageName(); ?></h4>
+                                <button class="btn btn-ml"><a href="index.php?page=addCatalog">Thêm </a></button>
                             </div>
-                            
+    
                             <select class="revenue__top--hendel">
-                                <option value="1">Cá hồi</option>
-                                <option value="2">Cua</option>
-                                <option value="3">Ghẹ</option>
+                                <option value="1">Sắp xếp</option>
+                                <option value="2">Tăng dần</option>
+                                <option value="3">Giảm dần</option>
                             </select>
                         </div>
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <th>Mã khách hàng</th>
-                                    <th>Tên</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Email</th>
-                                    <th>Giới tính</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Vai trò</th>
-                                    <th>Thao tác</th>
+                                    <td>Sản phẩm</td>
+                                    <td>Ngày bình luận mới nhất</td>
+                                    <td>Tên người dùng</td>
+                                    <td>Nội dung</td>
+                                    <td>Trả lời</td>
                                 </tr>
                             </thead>
+                            
                             <tbody>
-                                <?=showAdminUser($listUser)?>
+                                <?php
+                                $index=0;
+                                    foreach( $loadReplayComment as $itemComment){
+                                        extract($itemComment);
+                                        $linkReplay="index.php?page=replatComment";
+                                        $showComment="";
+                                        if($comment_replay == 0){
+                                            $showComment.=$comment_text;
+                                        }
+                                        $showUserComment="";
+                                        if($showComment=="" || $comment_status == 0 ||$reply_text=="" ){
+                                            $showUserComment.='';
+                                        }else{
+                                            $showUserComment.='
+                                            <td>'.$index.'</td>
+                                            <td>'.$product_name.'</td>
+                                            <td>'.$comment_time.'</td>
+                                            <td>'.$user_username.'</td>
+                                            <td>'.$showComment.'</td>                                 
+                                            <td>'.$reply_text.'</td>
+                                                            ';
+                                        }                                 
+                                        
+                                        echo 
+                                        '
+                                        <tr>
+                                            <form action="" method="post">
+                                                <input type="hidden" name="idProReplay" value="'.$product_id.'">
+                                                <input type="hidden" name="idCmtReplay" value="'.$comment_id.'">
+                                                    '.$showUserComment.'
+                                            </form>
+                                        </tr>
+                                        
+                                        ';
+                                        $index++;
+                                    }
+                                
+                                ?>
+                                
                             </tbody>
                         </table>
-                        <div class="seclect__offset row">
-                            <a href=""><pre><</pre></a>
-                            <a href="index.php?page=showUser&offset=0">1</a>
-                            <a href="index.php?page=showUser&offset=8">2</a>
-                            <a href="index.php?page=showUser&offset=16">3</a>
-                            <a href="index.php?page=showUser&offset=32">4</a>
-                            <a href="index.php?page=showUser&offset=40">5</a>
-                            <a href=""><pre>></pre></a>
-                        </div>
+                        </table>
                     </article>
                 </div>
-
-            
+      

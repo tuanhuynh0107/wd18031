@@ -1,5 +1,5 @@
 <?php
-    print_r($_SESSION['user_info']);
+    // print_r($_SESSION['user_info']);
 
 ?>
 <main class="main row">
@@ -86,10 +86,19 @@
                                         extract($itemComment);
                                         $linkReplay="index.php?page=replatComment";
                                         $showReplay="";
-                                        if($comment_replay==0){
-                                            $showReplay.='<input type="text" name="contentReplay">';
-                                        }else if($comment_replay>0){
-                                            $showReplay.='<input type="text" name="contentReplay" value="'.$comment_text.'">';
+                                        if($comment_replay==0 && $comment_text!=""){
+                                            $showReplay.='
+                                            <input type="hidden" name="idProReplay" value="'.$product_id.'">
+                                            <input type="hidden" name="idCmtReplay" value="'.$comment_id.'">
+
+                                            <td>'.$product_name.'</td>
+                                            <td>'.$comment_time.'</td>
+                                            <td>'.$user_username.'</td>
+                                            <td>'.$comment_text.'</td>                                 
+                                            <td><input type="text" name="contentReplay"></td>
+                                            <td><input type="submit" name="btnReplay"></td>';
+                                        }else if($comment_replay>0 || $comment_text==""){
+                                            $showReplay.='';
                                         }
                                             
                                        
@@ -98,15 +107,7 @@
                                         '
                                         <tr>
                                             <form action="'.$linkReplay.'" method="post">
-                                                <input type="hidden" name="idProReplay" value="'.$product_id.'">
-                                                <input type="hidden" name="idCmtReplay" value="'.$comment_id.'">
-
-                                                <td>'.$product_name.'</td>
-                                                <td>'.$comment_time.'</td>
-                                                <td>'.$user_username.'</td>
-                                                <td>'.$comment_text.'</td>                                 
-                                                <td>'. $showReplay.'</td>
-                                                <td><input type="submit" name="btnReplay"></td>
+                                                '.$showReplay.'
                                                
                                             </form>
                                         </tr>

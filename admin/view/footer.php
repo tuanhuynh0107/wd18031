@@ -5,10 +5,10 @@
 ?>
 <section class="notify row">
                     <!-- POST -->
-                    <div class="notify__post ">
+                    <!-- <div class="notify__post ">
                         <div class="notify__post--heading row ">
                             <div class="notify--heading__title">
-                                Tin mới đăng
+                                Bình luận mới nhất
                             </div>
                             <div class="notify--heading__time">
                                 5 phút trước
@@ -27,7 +27,7 @@
                         <div class="notify__btn">
                             <input type="button" value="Sửa tin" class="notify__btn--update">
                         </div>
-                    </div>
+                    </div> -->
                     <!-- COMMENT -->
                     
                     <div class="notify__comment">
@@ -38,7 +38,7 @@
                                 '<div class="notify__post--heading row ">
                            
                                 <div class="notify--heading__title">
-                                    Cá chỉ vàng
+                                    Bình luận mới nhất
                                 </div>
                                 <div class="notify--heading__time">
                                     '.$time.'
@@ -55,24 +55,11 @@
                             }
                         
                         ?>
-                        <!-- <div class="notify__post--heading row ">
-                           
-                            <div class="notify--heading__title">
-                                Cá chỉ vàng
-                            </div>
-                            <div class="notify--heading__time">
-                                2 phút trước
-                            </div>
-                        </div>
-
-                        <div class="notify__post--content row">
-                            <div class="notify--content__title">
-                                Tôi muốn mua 100kg có được mua với giá sỉ không vậy
-                            </div>
-                        </div> -->
                         
                         <div class="notify__btn">
-                            <input type="button" value="Trả lời ngay" class="notify__btn--update">
+                            <a href="index.php?page=noComment">
+                                <input type="button" value="Trả lời ngay" class="notify__btn--update">
+                            </a>
                         </div>
                     </div>
 

@@ -1,5 +1,5 @@
 <?php
-    print_r($LoadAllVipUser);
+    // print_r($newUsersBlackList);
 ?>
 <main class="main row">
                 <div class="main-content row">
@@ -10,7 +10,7 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Sản phẩm</h4>
+                                <h4>Sản phẩm đã bán</h4>
                                 <button class="btn btn-ml"><a href="add_sanpham_admin.html">Thêm </a></button>
                             </div>
                             
@@ -23,33 +23,30 @@
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <td>Mã khách hàng</td>
-                                    <td>Tên khách hàng</td>
-                                    <td>Số điện thoại</td>
-                                    <td>Gmail</td>
-                                    <td>Số lượng đơn hàng</td>
-                                    <td>Giá đơn hàng</td>
+                                    <td>Mã sản phẩm</td>
+                                    <td>Tên sản phẩm</td>
+                                    <td>Số lượng bán ra</td>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach($LoadAllVipUser as $itemUser){
-                                        extract($itemUser);
+                                    foreach( $showSoldPro as $item){
+                                        extract($item);
                                         echo 
-                                        '
-                                        <tr>
-                                            <td>'.$id_user.'</td>
-                                            <td>'.$customer_name.'</td>
-                                            <td>'.$phone.'</td>
-                                            <td>'.$email.'</td>
-                                            <td>'.$total_orders.' đơn hàng</td>
-                                            <td>'.number_format($total_order_amount,0,",",".").'đ</td>
-                                        </tr>
+                                        '  <tr>
+                                                <td>'.$idProduct.'</td>
+                                                <td>'.$nameProduct.'</td>
+                                                <td>'.$qtysold.'</td>
+                                            </tr>
+                                        
                                         ';
                                     }
-
                                 ?>
-                               
+                                <a href="index.php?page=statisticalProduct&id=5">
+                                    <input type="submit" class="form_group__submit--them input-submit__loaihang" name="addCatalog" value="Xem biểu đồ">
+                                </a>
+                             
                             </tbody>
                         </table>
                     </article>

@@ -30,11 +30,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Khách hàng mới trong tháng</p>
-                                <div class="total_product__content--qty">12</div>
-                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=userBlack">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title"> Danh sách đen</p>
+                                    <div class="total_product__content--qty"><?=$newUsersBlackList[0]['total_customers']?></div>
+                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">

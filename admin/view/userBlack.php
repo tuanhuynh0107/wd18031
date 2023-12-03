@@ -1,5 +1,5 @@
 <?php
-    print_r($LoadAllVipUser);
+    print_r( $LoadAllBlackUser);
 ?>
 <main class="main row">
                 <div class="main-content row">
@@ -33,7 +33,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach($LoadAllVipUser as $itemUser){
+                                    foreach($LoadAllBlackUser as $itemUser){
                                         extract($itemUser);
                                         echo 
                                         '

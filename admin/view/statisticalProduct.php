@@ -6,15 +6,7 @@
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
-                        <section class="total_product row">
-                            
-                        </section>
-                        <section class="total_product row">
-                            
-                        </section>
-                        <section class="total_product row">
-                            
-                        </section>
+                        
                     </article>
                     <!-- code table don hang o day -->
                     <article class="revenue">

@@ -1,5 +1,5 @@
 <?php
-    print_r($loadResponded );
+    print_r(  $loadNoResponded );
 
 ?>
 <main class="main row">
@@ -49,11 +49,14 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
+                            <a href="index.php?page=replayComment">
                             <div class="total_product__content row">
                                 <p class="total_product__content--title">Đã trả lời</p>
                                 <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
                                 <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                           
                             </div>
+                        </a>
                         </section>
                     </article>
                     <!-- code table loai hang o day -->

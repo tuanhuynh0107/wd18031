@@ -867,6 +867,32 @@ function forgotPassUser($phone) {
     ";
     return get_All($sql);
     }
+    function getAllAdminBlackUser(){
+        $sql="SELECT
+        u.id_user,
+        u.username AS customer_name,
+        u.phone,
+        u.email,
+        COUNT(p.id_package) AS total_orders,
+        SUM(p.total) AS total_order_amount
+    FROM
+        user u
+    JOIN
+        package p ON u.id_user = p.id_user
+    WHERE
+        u.id_user   IN (
+            SELECT id_user
+            FROM package
+            WHERE status = 5
+            GROUP BY id_user
+            HAVING COUNT(id_package) >= 1
+        )
+        AND p.status = 5    
+    GROUP BY
+       p.id_User, u.id_user, u.username, u.phone, u.email
+    ;";
+    return get_All($sql);
+    }
     function getAdminLoadKhachHangVip(){
         $sql="SELECT u.id_user as id_user, u.username as name, SUM(p.total) as total_all, u.phone as phone, u.address as address, u.email as email 
         FROM user u
@@ -1073,10 +1099,16 @@ function forgotPassUser($phone) {
         return get_All($sql);
     }
 
-    function getNewUsersInMonth() {
-        $sql = "SELECT COUNT(id_user) AS new_users
-                FROM user
-                WHERE DATE_FORMAT(registered_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m');";
+    function getNewUsersBlackList() {
+        $sql = "SELECT COUNT( u.id_user) as total_customers
+        FROM user u
+        WHERE u.id_user IN (
+            SELECT p.id_user
+            FROM package p
+            WHERE status = 5
+            GROUP BY p.id_User
+            HAVING Count(p.id_package) = 1
+        );";
     
         return get_All($sql);
     }
@@ -1329,7 +1361,7 @@ function forgotPassUser($phone) {
         return get_All($sql);
     }
     function getAdminNoResponded(){
-        $sql="SELECT COUNT(replay_comment) as No_replay FROM comment WHERE replay_comment = 0";
+        $sql="SELECT COUNT(replay_comment) as No_replay FROM comment WHERE replay_comment = 0 AND status_comment=0";
         return get_All($sql);
     }
     function getAdminNoCommet(){
@@ -1353,17 +1385,51 @@ function forgotPassUser($phone) {
     ORDER BY c.id_cmt DESC";
         return get_All($sql);
     }
+    function getAdminReplayComment(){
+        $sql="SELECT
+        p.name AS product_name,
+        p.qty AS product_qty,
+        p.id AS product_id,
+        c.time AS comment_time,
+        c.text AS comment_text,
+        c.id_cmt as comment_id,
+        c.replay_comment AS comment_replay,
+        c.status_comment AS comment_status,
+        u.username AS user_username,
+        r.text AS reply_text,
+        r.status_comment AS reply_status
+    FROM
+        comment c
+    JOIN
+        user u ON c.id_user = u.id_user
+    JOIN
+        product p ON c.id_prd = p.id
+    LEFT JOIN
+        comment r ON c.id_cmt = r.replay_comment
+    ORDER BY
+        c.id_cmt DESC;
+    ";
+        return get_All($sql);
+    }
     function getAdminCommetNew(){
         $sql="SELECT *
         FROM comment
         WHERE status_comment = 0
         ORDER BY id_cmt DESC
-        LIMIT 5";
+        LIMIT 1";
         return get_All($sql);
     }
     function getAdmiResponded(){
-        $sql="SELECT COUNT(replay_comment) as replay FROM comment WHERE replay_comment > 0";
+        $sql="SELECT COUNT(id_cmt) as replay FROM comment WHERE replay_comment > 0 AND status_comment =1";
         return get_All($sql);
     }
+    //show chi tiết Nút trắng Vuống bự
+    function getAdminSoldPro(){
+        $sql="SELECT id_prd as idProduct, name_prd as nameProduct, SUM(qty) as qtysold 
+            FROM  detail_package
+            GROUP BY
+            name_prd";
+            return get_All($sql);
+    } 
     
 ?>

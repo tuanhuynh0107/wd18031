@@ -38,7 +38,7 @@
                     $listUser=getAdminUser(0);
                 } 
                 $totalAllUser=getAdminAll_TotalUser();
-                // $newUsersInMonth=getNewUsersInMonth(); Chưa có ngày đăng ký của khách hàng
+                $newUsersBlackList=getNewUsersBlackList(); 
                 $vipUser=getAdminVipUser();
                 require_once "view/showUser.php";
                 break;
@@ -46,13 +46,17 @@
                 $LoadAllVipUser=getAllAdminVipUser();
                 require_once "view/userVip.php";
                 break;    
+            case 'userBlack':
+                $LoadAllBlackUser=getAllAdminBlackUser();
+                require_once "view/userBlack.php";
+                break;    
             case 'customerOrder':
                 if(isset($_GET['id_user'])&&($_GET['id_user']>0)){
                     $loadUserCartAdmin=getAdminDetailUser($_GET['id_user']);
                 }
                 $listUser=getAdminUser();
                 $totalAllUser=getAdminAll_TotalUser();
-                // $newUsersInMonth=getNewUsersInMonth(); Chưa có ngày đăng ký của khách hàng
+                $newUsersBlackList=getNewUsersBlackList(); 
                 $vipUser=getAdminVipUser();
                 require_once "view/customerOrder.php";
                 break;
@@ -414,6 +418,13 @@
                 $loadNoComment =  getAdminNoCommet();
                 require_once "view/noComment.php";
                 break;
+            case 'replayComment':
+                $loadNoResponded = getAdminNoResponded();
+                $loadResponded = getAdmiResponded();
+                $AllComment=getAdminAllComment();
+                $loadReplayComment =  getAdminReplayComment();
+                require_once "view/replayComment.php";
+                break;    
             case 'replatComment':
                 if (isset($_POST['btnReplay']) && ($_POST['btnReplay'])) {
                     $content = $_POST['contentReplay'];
@@ -432,7 +443,11 @@
                 $AllComment=getAdminAllComment();
                 $loadNoComment = getAdminNoCommet();
                 require_once "view/noComment.php";
-                break;        
+                break;  
+            case 'showProductSold':
+                $showSoldPro=getAdminSoldPro();
+                require_once "view/showSoldProductTable.php";
+                break;          
             default:
             // khách hàng ưu tiên thì tôi cho mua 10 đơn hàng trở lên thành khách hàng vip
             // niếu muôn thay đổi khách hàng đó mua bao nhiêu đơn thi ngay dòng 751 model/product.php

@@ -21,11 +21,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Khách hàng</p>
-                                <div class="total_product__content--qty"><?=$loadAllUser[0]['allUser']?></div>
-                                <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
-                            </div>
+                            <a href="index.php?page=showUser">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Khách hàng</p>
+                                    <div class="total_product__content--qty"><?=$loadAllUser[0]['allUser']?></div>
+                                    <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -37,11 +39,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Sản phẩm đã bán</p>
-                                <div class="total_product__content--qty"><?=$soldProduct[0]['sold_product']?></div>
-                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=showProductSold">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Sản phẩm đã bán</p>
+                                    <div class="total_product__content--qty"><?=$soldProduct[0]['sold_product']?></div>
+                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">

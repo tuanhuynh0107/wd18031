@@ -33,10 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+
+
 function hendelPlusQtyProdct(x) {
     var parentQty = x.parentElement;
     var chidrenValus = parentQty.children[1];
+    var inputElement = document.getElementById('inputMax'); 
+    var maxValue = inputElement.max;    
     var chidrenValusNew = +chidrenValus.value + 1;
+    if (chidrenValusNew > maxValue) {
+        console.log("Số lượng sản phẩm vượt quá hàng đang có");
+        return;
+    }
     chidrenValus.value =  chidrenValusNew;
     var index = parentQty.children[2].value;
     console.log(index);
@@ -71,6 +81,9 @@ function hendelReduxQtyProdct(x) {
     var parentQty = x.parentElement;
     var chidrenValus = parentQty.children[1];
     var chidrenValusNew = +chidrenValus.value - 1;
+    if (chidrenValusNew < 1) {
+        return;
+    }
     chidrenValus.value =  chidrenValusNew;
     var index = parentQty.children[2].value;
     var xhr = new XMLHttpRequest();

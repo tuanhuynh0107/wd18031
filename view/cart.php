@@ -107,7 +107,7 @@
                                                 </svg>
                                             </a>
                                             
-                                            <input type="number" value="'.$qtyPro.'" name="qty" min="1" max="'.$qty.'">
+                                            <input type="number" value="'.$qtyPro.'" name="qty" min="1" max="'.$qty.'" id="inputMax" >
                                             <input type="hidden" value="'.$idCart.'" name="index" >
                                             <a onclick="hendelPlusQtyProdct(this)">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"

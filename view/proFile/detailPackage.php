@@ -3,7 +3,8 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
-//   print_r( $idPackageDel);
+//   print_r( $listDetailCart);
+//   print_r( $itemPackage);
 ?>
 <main>
         <article class="heading-cart">
@@ -71,7 +72,6 @@
                 <div class="proFile__change">
                     <div class="row change__header">
                         <h4 class="header__title">Thông tin khách hàng</h4>
-                        |
                         <h4 class="header__title">Đơn hàng của bạn</h4>
                     </div>
 
@@ -79,87 +79,84 @@
                        
                         <thead class="yourCard__header">
                             <tr >
-                                <td>Mã đơn hàng</td>
-                                <td>Thời gian đặt hàng</td>
-                                <td>Số tiền</td>
-                                <td>Phương thức thanh toán</td>
-                                <td>Trạng thái</td>
+                                <td>Tên sản phẩm</td>
+                                <td>Gía sản phẩm</td>
+                                <td>Số lượng</td>
+                                <td>Thành tiền</td>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                                 
-                                foreach($listCart as $yourCart){
+                                foreach($listDetailCart as $yourCart){
                                     extract($yourCart);
-                                    $linkCartDetail = "index.php?page=chitietdonhang&idPackage=".$id_package;
-                                    $statusShow="";
-                                    $pay="";
-                                    if($pay_ms==1){
-                                        $pay.= "Thanh toán tiền mặt";
-                                    }else{
-                                        if($pay_ms==2){
-                                            $pay.= "Chuyển khoản";
-                                        }else{
-                                            if($pay_ms==3){
-                                                $pay.= "Thanh toán online";
-                                            }
-                                        }
-                                        
-                                    }
-
-                                    if($status==1) {
-                                        $statusShow .= '
-                                           <span class="yourCard__status"> Chờ xác nhận </span> | <a href="index.php?page=delpackage&idPackage='.$id_package.'&id_user='.$id_user.'&status=5 " class="">Hủy</a>
-                                        ';
-                                    }elseif($status==2) {
-                                        $statusShow .= '
-                                        <span class="yourCard__status">Đang vận chuyển</span>
-                                        ';
-                                    }elseif($status==3) {
-                                        if($status_feadback==1){
-                                            $statusShow .= '
-                                            <span class="yourCard__status"> Giao hàng thành công </span>
-                                            <span class="yourCard__status"> cảm ơn bạn đã feadback </span>
-                                            ';
-                                        }else if($status_feadback==0){
-                                            $statusShow .= '
-                                            <form action="index.php?page=userFeadBack" method="post">
-                                                <span class="yourCard__status"> Giao hàng thành công </span>
-                                                <input type="hidden" name="idPackage" value="'.$id_package.'">
-                                                <input type="hidden" name="idUser" value="'.$id_User.'"> 
-    
-                                                <textarea name="comment"  id="" cols="30" rows="10"></textarea>
-                                                <input type="hidden" name="statusfb" value="1" >
-                                                <input type="submit" name="btnComment" value="Gửi">
-                                             </form>
-
-                                                ';                                        }
-                                       
-                                    }
-                                    elseif($status==4) {
-                                        $statusShow .= '
-                                        <span class="yourCard__status">Thất bại </span>
-                                            ';
-                                    } elseif($status==5) {
-                                        $statusShow .= '
-                                        <span class="yourCard__status">Đã hủy </span>
-                                            ';
-                                    }
+                                    $linkProduct = 'index.php?page=product&idProduct='.$id_prd;
+                                   
                                     echo 
                                     '
                                         <tr class="yourCard__header--content">
-                                            <td><a href="'.$linkCartDetail.'">#DH'.$id_package.' </a></td>
-                                            <td>'.$time.'</td>
-                                            <td>'.number_format($total,0,",",".").' đ</td>
-                                            <td>'.$pay.'</td>
-                                            <td class="status">
-                                            '.$statusShow.'
-                                            </td>
+                                            <td>  <a href="'.$linkProduct.'">'.$name_prd.'</a></td>
+                                            <td>'.number_format($price,0,",",".").' đ</td>
+                                            <td>'.$qty.'</td>
+                                            <td>'.$total.'</td>
                                         </tr>
+                                        
                                     ';
                                      
                                 }
-                              
+
+                                extract($itemPackage);
+                                $statusShow="";
+                                if($status==1) {
+                                    $statusShow .= '
+                                       <span class="yourCard__status"> Chờ xác nhận </span> | <a href="index.php?page=delpackage&idPackage='.$id_package.'&id_user='.$id_user.'&status=5 " class="">Hủy</a>
+                                    ';
+                                }elseif($status==2) {
+                                    $statusShow .= '
+                                    <span class="yourCard__status">Đang vận chuyển</span>
+                                    ';
+                                }elseif($status==3) {
+                                    if($status_feadback==1){
+                                        $statusShow .= '
+                                        <span class="yourCard__status"> Giao hàng thành công </span>
+                                        <span class="yourCard__status"> cảm ơn bạn đã feadback </span>
+                                        ';
+                                    }else if($status_feadback==0){
+                                        $statusShow .= '
+                                        <form action="index.php?page=userFeadBack" method="post">
+                                            <span class="yourCard__status"> Giao hàng thành công </span>
+                                            <input type="hidden" name="idPackage" value="'.$id_package.'">
+                                            <input type="hidden" name="idUser" value="'.$id_User.'"> 
+
+                                            <textarea name="comment"  id="" cols="30" rows="10"></textarea>
+                                            <input type="hidden" name="statusfb" value="1" >
+                                            <input type="submit" name="btnComment" value="Gửi">
+                                         </form>
+
+                                            ';                                        }
+                                   
+                                }
+                                elseif($status==4) {
+                                    $statusShow .= '
+                                    <span class="yourCard__status">Thất bại </span>
+                                        ';
+                                } elseif($status==5) {
+                                    $statusShow .= '
+                                    <span class="yourCard__status">Đã hủy </span>
+                                        ';
+                                }
+
+                                echo '
+                                <tr class="yourCard__header--content" style="text-align: left;">
+                                    <td colspan="2">Địa chỉ giao hàng '.$address.'  </td>
+                                    <td colspan="2">Tổng đơn hàng: '.number_format($total,0,",",".").' đ</td>
+                                </tr>
+                                <tr class="yourCard__header--content" style="text-align: left;">
+                                    <td colspan="2">Trạng thái đơn hàng: '.$statusShow.'  </td>
+                                    <td colspan="2">Ghi chú: '.$note.'</td>
+                                </tr>
+                                ';
                             ?>
                         </tbody>
 
@@ -167,22 +164,7 @@
                          
                   </table>
                   <div class="tfoot row">
-                            <div class="note__yourCard">Ghi chú: Nhấp vào mã đơn để xem chi tiết đơn hàng</div>
-                        
-                            <div class="rounds" rowspan="4">
-                                <div class="round">
-                                    <div class="status-round"></div>
-                                    <span class="desc-round">Thành Công</span>
-                                </div>
-                                <div class="round">
-                                    <div class="status-round"></div>
-                                    <span class="desc-round">Đang vận chuyện</span>
-                                </div>
-                                <div class="round">
-                                    <div class="status-round"></div>
-                                    <span class="desc-round">Thất bại</span>
-                                </div>
-                            </div>
+                            <div class="note__yourCard">Ghi chú: Nhấp vào tên sản phẩm để xem chi tiết sản phẩm</div>
                         </div>
                 </div>
 

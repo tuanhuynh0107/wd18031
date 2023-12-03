@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +20,7 @@
 </head>
 
 <body>
+  
     <div class="root row ">
         <nav class="sidebar_menu ">
             <div class="infor__user row">
@@ -296,3 +296,4 @@
                     </div>
                 </div>
             </header>
+           

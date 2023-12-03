@@ -58,6 +58,7 @@
                 
                 if ($role_user == 1) {
                     $_SESSION['user_id'] = $userId;
+                    $_SESSION['user_info']= $getUser;
                     header("location: admin/index.php");
                     exit();
                 } else if ($role_user == 0) {
@@ -73,14 +74,18 @@
                 $thongbao = "Tài khoản mật khẩu không đúng";
             }
         }
-        
-        if (isset($thongbao)) {
+
+          if (isset($thongbao)) {
             $_SESSION['thongbao'] = $thongbao;
            require_once "view/login.php";
             exit();
         }
+      
+}
+
+      
        
-    }
+    
    
 
     function handleUserAddCart() {

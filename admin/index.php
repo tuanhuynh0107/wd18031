@@ -1,6 +1,11 @@
 <?php 
     session_start();
     ob_start()  ;
+    if (!isset($_SESSION['user_info']) ||$_SESSION['user_info']['role_user'] != 1) {
+        // Nếu không đăng nhập, chuyển hướng đến trang đăng nhập hoặc trang lỗi
+        header('Location: index.php?page=login'); // Thay thế bằng trang đăng nhập của bạn
+        exit;
+    }
     require_once "../model/db.php";
     require_once "../model/product.php";
     require_once "../model/handleContainer.php";
@@ -71,6 +76,7 @@
                 $soldProduct=getAdminAll_SoldProduct();
                 $inventoryProduct=getAdmin_inventoryProduct();
                 require_once "view/product.php";
+                // require_once ""
                 break;
 
             case 'addDetailProduct':

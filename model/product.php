@@ -950,6 +950,13 @@ function forgotPassUser($phone) {
         return get_All($sql);
     }
     // thêm admin detailProduct 
+    function showUpdateProuct($idpro){
+        $sql="SELECT p.*, c.id_catalog as idCatalog, c.name_catalog as nameCatalog FROM product p
+        JOIN
+            catalog c ON p.id_catalog = c.id_catalog 
+        WHERE id=".$idpro;
+        return get_One($sql);
+    }
     function getAdminSelectProduct(){
         $sql="SELECT * FROM product ORDER BY id ASC";
         return get_All($sql);
@@ -1143,6 +1150,18 @@ function forgotPassUser($phone) {
             dp.id_prd = ".$idProduct;
         pdo_execute($sql);;
     }
+    function update_admin_product($addNamePro, $addPricePro, $addQtyPro, $addCatalogPro,$idProduct){
+        $sql="UPDATE product
+            SET
+            name = '$addNamePro',
+            price = $addPricePro,
+            qty = $addQtyPro,
+            id_catalog = $addCatalogPro
+        WHERE
+            id = $idProduct;
+         ";
+        update($sql);
+    }
     function addAdminProduct( $addNamePro, $addPricePro, $addQtyPro, $addCatalogPro) {
         // Insert product
         $sql = "INSERT INTO product (name, price, id_catalog, qty) VALUES ('$addNamePro', '$addPricePro', '$addCatalogPro', '$addQtyPro')";
@@ -1164,7 +1183,7 @@ function forgotPassUser($phone) {
         foreach($listProduct as $item){
             extract($item);
             $linkDeleteProduct="index.php?page=delProduct&status=1&id_Prd=".$product_id;
-            $linkUpdateProduct="index.php?page=updateProduct&id_Prd=".$product_id;
+            $linkUpdateProduct="index.php?page=showUpdatePro&id_Prd=".$product_id;
             $showHidden="";
             if($product_status == 0){
                 $showHidden='<a href="index.php?page=delProduct&status=1&id_Prd='.$product_id .'"class="hendel-delete-act">Hiện</a>';

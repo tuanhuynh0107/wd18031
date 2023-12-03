@@ -186,6 +186,42 @@
                 $inventoryProduct=getAdmin_inventoryProduct();
                 require_once "view/addProduct.php";
                 break;
+            case 'showUpdatePro':
+                if(isset($_GET['id_Prd'])&&($_GET['id_Prd']>0)){
+                    $listProductID=showUpdateProuct($_GET['id_Prd']);
+                }
+               
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+
+                $listCatalog=getAdminCatalog();
+                require_once "view/updatePro.php";
+                break;    
+            case 'updatePro':
+                if(isset($_POST['btnUpdatePro'])&&($_POST['btnUpdatePro'])){
+                    $addNamePro=$_POST['nameProduct'];
+                    $addPricePro=$_POST['priceProduct'];
+                    $addQtyPro=$_POST['qtyProduct'];
+                    $addCatalogPro=$_POST['selectCatalog'];
+                    $idProduct=$_POST['idProduct'];
+
+                    update_admin_product($addNamePro, $addPricePro, $addQtyPro, $addCatalogPro,$idProduct);
+                    $thongbao="Bạn update thành công";
+                }
+                $totalAllProducts=getAdminAll_TotalProduct();
+                $soldProduct=getAdminAll_SoldProduct();
+                $inventoryProduct=getAdmin_inventoryProduct();
+
+                $listCatalog=getAdminCatalog();
+                if(isset($_GET['offset'])) {
+                    $offset = $_GET['offset'];
+                    $listProduct=getAdminProduct($offset);
+                }else {
+                    $listProduct=getAdminProduct(0);
+                }   
+                require_once "view/product.php";
+                break;    
             case 'updateProduct':
                 if(isset($_GET['id_Prd'])&&($_GET['id_Prd']>0)){
                     $listProductID=getAdminProductID($_GET['id_Prd']);

@@ -1,5 +1,8 @@
 <?php
-    // print_r($listProductID);
+    print_r($listProductID);
+    if(is_array($listProductID)){
+        extract($listProductID);
+    }
 
 ?>
 <main class="main row">
@@ -58,7 +61,7 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Thêm chi tiết sản phẩm</h4>
+                                <h4>Thêm sản phẩm</h4>
                             </div>
     
                             <select class="revenue__top--hendel">
@@ -68,130 +71,80 @@
                             </select>
                         </div>
                         <!-- form  -->
-                        <form action="index.php?page=addAdminAlbum" method="post" enctype="multipart/form-data">
-                            <div class="form_group__box-input">
-                                <div class="">
-                                    hình chính <br>
-                                    <input type="file" name="mainImg" id=""><br>
-                                    hình 1 <br>
-                                    <input type="file" name="imgone" id=""><br>
-                                    hình 2 <br>
-                                    <input type="file" name="imgtwo" id=""><br>
-                                    hình 3 <br>
-                                    <input type="file" name="imgthree" id=""><br>
-                                    hình 4 <br>
-                                    <input type="file" name="imgfour" id=""><br>
-                                    hình 5 <br>
-                                    <input type="file" name="imgfive" id=""><br>
-                                    
-                                    <div class="form_group__add_product--item_select">
-                                        <label for="add_product--select" class="form_group__item_input--text">Sản phẩm</label> <br>
-
-                                       <select name="selectProduct" id="add_product--select" class="form_group__item_select--option">
-                                        <?php
-                                            if(isset( $loadSelectProduct)){
-                                                foreach ( $loadSelectProduct as $item) {
-                                                        extract($item);
-                                                    echo '<option value="'.$id.'">'.$name.'_'.$id.'</option>';
-                                                }
-                                            }
-                                        ?>
-                                      
-                                       </select>
-                                    </div>
-                                </div>
-                            <div class="form_group__add_product--item_submit">
-                                <input type="submit" class="form_group__item_input--them" name="btnAddImg" id="" value="Thêm ảnh">
-                            </div>
-                            </div>
-
-                        </form>
-                        <?php
-                            if(isset($thongbaoImg)&&($thongbaoImg!="")){
-                                echo $thongbaoImg;
-                            }
-                        
-                        ?>
-                        <form action="index.php?page=addDetailProduct" method="post" enctype="multipart/form-data">
+                        <form action="index.php?page=updatePro" method="post" enctype="multipart/form-data">
                             <div class="form_group ">
+                               
+                                
                                 <div class="form_group__box--add_product">
                                     <div class="form_group__add_product--item_input">
-                                        <!-- check lỗi -->
-                                        <label for="add_product--input" class="form_group__item_input--text">Tên chi tiết sản phẩm</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="nameProduct" id="add_product--input"  >
+                                        <label for="add_product--input" class="form_group__item_input--text">Tên sản phẩm</label> <br>
+                                        <input type="text" class="form_group__item_input--input" name="nameProduct" id="add_product--input" value="<?=$name?>">
                                     </div>
                                     <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">sale</label> <br>
-                                        <input type="number" class="form_group__item_input--input" name="saleProduct" id="add_product--input" min="0">
+                                        <label for="add_product--input" class="form_group__item_input--text">Giá sản phẩm</label> <br>
+                                        <input type="number" class="form_group__item_input--input" name="priceProduct" id="add_product--input" min="0" value="<?=$price?>">
                                     </div>
-                                    
+                                
+                                    <div class="form_group__add_product--item_input">
+                                        <label for="add_product--input" class="form_group__item_input--text">Số lượng sản phâm</label> <br>
+                                        <input type="number" class="form_group__item_input--input" name="qtyProduct" id="add_product--input" min="0" value="<?=$qty?>">
+                                    </div>
                                     <div class="form_group__add_product--item_select">
-                                        <label for="add_product--select" class="form_group__item_input--text">Nơi sản xuất</label> <br>
+                                        <label for="add_product--select" class="form_group__item_input--text">Thuộc loại</label> <br>
 
-                                       
-                                        <input type="text" class="form_group__item_input--input" name="productionProduct" id="add_product--input"  >
-                                    </div>
-                                    <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">Kiểu</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="typeProduct" id="add_product--input"  >
-                                    </div>
-                                    <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">Mô tả</label> <br>
-                                        <input type="text" class="form_group__item_input--input" name="textProduct" id="add_product--input"  >
-                                    </div>
-                                    <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">cân nặng</label> <br>
-                                        <input type="number" class="form_group__item_input--input" name="weightProduct" id="add_product--input" min="0" >
-                                    </div>
-                                    <!-- sản phẩm -->
-                                    <div class="form_group__add_product--item_select">
-                                        <label for="add_product--select" class="form_group__item_input--text">Sản phẩm</label> <br>
-
-                                       <select name="selectProduct" id="add_product--select" class="form_group__item_select--option">
+                                       <select name="selectCatalog" id="add_product--select" class="form_group__item_select--option">
                                         <?php
-                                            if(isset( $loadSelectProduct)){
-                                                foreach ( $loadSelectProduct as $item) {
-                                                        extract($item);
-                                                    echo '<option value="'.$id.'">'.$name.'_'.$id.'</option>';
+                                            if(isset($listCatalog)){
+                                                    $kqDM = "";
+                                                        foreach ($listCatalog as $item) {
+                                                            extract($item);
+                                                            if($idCatalog == $id_catalog) {
+                                                                $kqDM.= '
+                                                                <option value="'. $idCatalog.'" selected>'.$name_catalog.'</option>
+                                                                ';
+                                                            }else {
+                                                                $kqDM.= '
+                                                                <option value="'.$id_catalog.'">'.$name_catalog.'</option>
+                                                                ';
+                                                        }
+                                                        
+                                                    };
+                                                    echo  $kqDM;
                                                 }
-                                            }
-                                        ?>
-                                      
-                                       </select>
-                                    </div>
-                                    <div class="form_group__add_product--item_select">
-                                        <label for="add_product--select" class="form_group__item_input--text">Album</label> <br>
-
-                                       <select name="selectAlbum" id="add_product--select" class="form_group__item_select--option">
-                                        <?php
-                                            if(isset($loadSelectAlbum)){
-                                                foreach ( $loadSelectAlbum as $item) {
-                                                        extract($item);
-                                                    echo '<option value="'.$id.'">'.$img1.'-'.$id.'</option>';
-                                                }
-                                            }
+                                        //  if(isset($listCatalog)){
+                                        //     foreach ($listCatalog as $item) {
+                                        //             extract($item);
+                                        //         echo '<option value="'.$id_catalog.'">'.$name_catalog.'</option>';
+                                        //     }
+                                        // }
                                         ?>
                                       
                                        </select>
                                     </div>
                                     <div class="form_group__add_product--item_submit">
+                                        <input type="hidden" name="idProduct" value="<?=$id?>">
                                         <input type="submit" class="form_group__item_input--cancle" name="" id="" value="Canle">
-                                        <input type="submit" class="form_group__item_input--them" name="btnAddDetailPro" id="" value="Thêm">
-                                    </div>
-                                    <?php
+                                        <input type="submit" class="form_group__item_input--them" name="btnUpdatePro" id="" value="Lưu">
+                                        <!-- Thêm chi tiết sản phẩm -->
+                                        <a href="index.php?page=addDetailProduct">
+                                            <input type="button" class="form_group__item_input--them" name="btnAddDetailPro" id="" value="Sửa chi tiết">
+                                        </a>
+                                        <?php
                                             if(isset($thongbao)&&($thongbao!="")){
                                                 echo $thongbao;
                                             }
                                         
                                         ?>
- 
+
+                                    </div>
+                                    
                                 </div>
                                 <span class="form-mes">
                                     
                                 </span>
                             </div>
                         </form>
-                        
+                       
                     </article>
                 </div>
              

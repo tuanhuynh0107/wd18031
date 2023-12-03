@@ -1292,6 +1292,11 @@ function forgotPassUser($phone) {
         $sql = "SELECT * from detail_package where id_package=".$id_package;
         return get_All($sql);
     }
+    function getPackage($id_package) {
+        $sql = "SELECT * from package where id_package=".$id_package;
+        return get_One($sql);
+    }
+
     // tăng giảm số lượng product
     function setQtyProductReduce($id_prd,$qty){
         $sql="UPDATE product SET qty=qty-'$qty' where id=".$id_prd;

@@ -174,6 +174,9 @@
             case 'showCatalog';
                 handleShowCatalog();
                 break;
+            case 'searchProduct';
+                handleSearchProduct();
+                break;
             default:
                 handleDefault();
                 break;

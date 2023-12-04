@@ -321,14 +321,15 @@
 
                 <!-- search -->
 
-                <form action="" method="post" class="input-text">
-                    <input type="text" name="username" id="username" placeholder=" " />
+                <form action="index.php?page=searchProduct" method="post" class="input-text">
+                    <input type="text" name="content" id="username" placeholder=" " />
                     <label for="username" class="row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
                             viewBox="0 0 20 21" fill="none" class="icon_search">
                             <path
                                 d="M18.33 19.8659C18.8283 20.3643 19.5975 19.5951 19.0992 19.1076L15.0367 15.0343C16.4617 13.4575 17.2494 11.4071 17.2467 9.28178C17.2467 4.52595 13.3792 0.658447 8.62333 0.658447C3.8675 0.658447 0 4.52595 0 9.28178C0 14.0376 3.8675 17.9051 8.62333 17.9051C10.7683 17.9051 12.7508 17.1143 14.2675 15.8034L18.33 19.8659ZM1.08225 9.28178C1.08225 5.12178 4.47308 1.74178 8.62225 1.74178C12.7823 1.74178 16.1623 5.12178 16.1623 9.28178C16.1623 13.4418 12.7823 16.8218 8.62225 16.8218C4.47308 16.8218 1.08225 13.4418 1.08225 9.28178Z"
                                 fill="#ABABAB" />
                         </svg>Tim kím hải sản</label>
+                    <button type="submit" name="searchProduct" style="display:none;">Tìm</button>
                 </form>
 
                 <div class="ship row">

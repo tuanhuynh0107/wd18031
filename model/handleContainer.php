@@ -246,4 +246,22 @@
         $listProduct = getDetailProduct();
         require_once "view/home.php";
     };
+
+    // Chức năng tìm kiếm sản phẩm
+
+    function handleSearchProduct() {
+        if(isset($_POST['searchProduct'])&& ($_POST['searchProduct'] || " ")){
+
+            $contentSearch = $_POST['content'];
+            
+            $lissItemSearch = getItemSearch($contentSearch);
+            
+        }
+        $listItemLimitSpecialty = getDetailSpecialtyProductLimit();
+        $listItemLimitRanDom = getDetailProductLimitRanDom();
+        $listItemLimitSale = getDetailSaleProductLimit();
+        $listItemLimit = getDetailProductLimit();
+        $listProduct = getDetailProduct();
+        require_once "view/timkiemsanpham.php";
+    }
 ?>

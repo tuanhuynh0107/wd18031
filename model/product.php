@@ -1519,5 +1519,30 @@ function forgotPassUser($phone) {
             name_prd";
             return get_All($sql);
     } 
+    // tìm kiếm sản phảm 
+
     
+
+    function  getItemSearch($contentSearch) {
+        $sql = "SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        p.qty AS product_qty,
+        c.name_catalog AS category_name,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        a.img1 AS album_image
+      FROM
+        product p
+      JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+      JOIN
+        detail_product dp ON p.id = dp.id_prd
+      LEFT JOIN
+        album a ON p.id = a.id_prd
+    WHERE p.status_prd = 1 and name LIKE '%$contentSearch%'" ;
+        return get_All($sql);
+    }
 ?>

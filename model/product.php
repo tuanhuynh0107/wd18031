@@ -785,7 +785,20 @@ function forgotPassUser($phone) {
         inset($sql);
     }
     function updateCatalog($nameCatalog, $qtyCatalog,$satus, $bannerCatalog, $iconsCatalog, $id){
-        $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog, status_catalog='$satus', banner_catalog='$bannerCatalog', img_catalog='$iconsCatalog' WHERE id_catalog=$id";
+        if($bannerCatalog !== "" && $iconsCatalog !== ""){
+            $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus', banner_catalog='$bannerCatalog', img_catalog='$iconsCatalog' WHERE id_catalog=$id";
+        }else{
+            if($bannerCatalog !== "" && $iconsCatalog == ""){
+                $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus', banner_catalog='$bannerCatalog' WHERE id_catalog=$id";
+            }else{
+                if($bannerCatalog == "" && $iconsCatalog !== ""){
+                    $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus', img_catalog='$iconsCatalog'  WHERE id_catalog=$id";
+                }else{
+                    $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus'  WHERE id_catalog=$id";
+                }
+            }
+        }
+      
         update($sql);
     }
     function updateCatalogStatus($id_package, $indStatus) {
@@ -965,18 +978,37 @@ function forgotPassUser($phone) {
             id_prd = '$idProduct';";
         update($sql);
 
-        // update album
-        $sql="UPDATE album
-        SET
-            img_main = '$imgMain',
-            img1 = '$img1',
-            img2 = '$img2',
-            img3 = '$img3',
-            img4 = '$img4',
-            img5 = '$img5'
-        WHERE
-            id_prd = '$idProduct'";
-        update($sql);
+        if ($imgMain !== "" || $img1 !== "" || $img2 !== "" || $img3 !== "" || $img4 !== "" || $img5 !== "") {
+            $sql = "UPDATE album SET";
+        
+            // Kiểm tra và thêm các trường cần cập nhật vào câu lệnh SQL nếu chúng không rỗng
+            if ($imgMain !== "") {
+                $sql .= " img_main = '$imgMain',";
+            }
+            if ($img1 !== "") {
+                $sql .= " img1 = '$img1',";
+            }
+            if ($img2 !== "") {
+                $sql .= " img2 = '$img2',";
+            }
+            if ($img3 !== "") {
+                $sql .= " img3 = '$img3',";
+            }
+            if ($img4 !== "") {
+                $sql .= " img4 = '$img4',";
+            }
+            if ($img5 !== "") {
+                $sql .= " img5 = '$img5',";
+            }
+        
+            // Loại bỏ dấu ',' ở cuối câu lệnh SQL
+            $sql = rtrim($sql, ',');
+        
+            $sql .= " WHERE id_prd = '$idProduct'";
+        
+            update($sql);
+        }
+
 
     }
     function showUpdateProuct($idpro){

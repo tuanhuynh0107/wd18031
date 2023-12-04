@@ -2,9 +2,10 @@
     session_start();
 
     // Nhúng file functions.php
-    function upDataQty($index, $qty) {
+    function upDataQty($index, $qty,$total) {
         if (isset($_SESSION['cart'][$index]) && isset($_SESSION['cart'][$index]["qtyPro"])) {
             $_SESSION['cart'][$index]["qtyPro"] = $qty;
+            $_SESSION['cart'][$index]["total"] = $total;
             // Trả về dữ liệu nếu cần
             echo "Cập nhật thành công";
         } else {
@@ -17,12 +18,14 @@
         if (isset($_POST["index"]) && isset($_POST["qtyPro"])) {
             $index = $_POST["index"];
             $qty = $_POST["qtyPro"];
+            $total = $_POST["total"];
     
             // Gọi hàm upDataQty từ functions.php
-            upDataQty($index, $qty);
+            upDataQty($index, $qty,$total);
         } else {
             echo "Lỗi: Thiếu thông tin gửi từ phía client-side";
         }
     }
+
     
  ?>

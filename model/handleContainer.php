@@ -93,25 +93,26 @@
             $idProduct=$_POST['idPro'];
             $imgPro=$_POST['imgPro'];
             $namePro=$_POST['namePro'];
-            $pricePro=$_POST['pricePro'];
+            $pricePro=intval($_POST['pricePro']);
             $nameCata=$_POST['nameCata'];
             $typePro=$_POST['typePro'];
             $index=$_POST['index'];
             $qty=$_POST['qty'];
            
             if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
-                $qtyPro=$_POST['qtyPro'];
+                $qtyPro=intval($_POST['qtyPro']);
             }else{
                 $qtyPro = 1;
             }
             
+            $total= $pricePro *  $qtyPro;
            
             // check_trung_sanpham
             if(checkDuplicates( $idProduct)>=0){
                 $vitritrung = checkDuplicates( $idProduct);
                 upDataQty($vitritrung);
             }else{
-                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata,"index"=>$index,"qty"=>$qty];
+                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata,"index"=>$index,"qty"=>$qty,"total"=>$total];
                 $_SESSION['cart'][] = $item;
             }    
         }

@@ -27,11 +27,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Hoạt động</p>
-                                <div class="total_product__content--qty"><?=$workCatalog[0]['total_catalogs']?></div>
-                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=showCatalogWork">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Hoạt động</p>
+                                    <div class="total_product__content--qty"><?=$workCatalog[0]['total_catalogs']?></div>
+                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">

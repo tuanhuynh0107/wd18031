@@ -156,8 +156,16 @@
            $_SESSION['cart']=[];
       }
       header('location: index.php?page=cart');
+              // Kiểm tra xem $_SESSION['cart'] có rỗng không
+    if (empty($_SESSION['cart'])) {
+        // Nếu rỗng, chuyển hướng về trang index
+        header('location: index.php');
+    } else {
+        // Nếu không rỗng, chuyển hướng về trang cart
+        header('location: index.php?page=cart');
     }
-    
+    }
+
     function handleProduct() {
         if(isset($_GET['idProduct']) &&($_GET['idProduct']>0)){
             $idDetailProduct=$_GET['idProduct'];

@@ -110,7 +110,7 @@
                                     <div class="form_group__add_product--item_submit">
                                         <input type="hidden" name="id_catalog" value="<?=$id_catalog?>">
                                         <input type="submit" class="form_group__submit--Cancle input-submit__loaihang" value="Cancel">
-                                        <input type="submit" class="form_group__submit--them input-submit__loaihang" name="btnUpdateCatalog" value="Thêm">
+                                        <input type="submit" class="form_group__submit--them input-submit__loaihang" name="btnUpdateCatalog" value="Lưu">
                                         <?php
                                         if(isset($thongbao)){
                                             echo  $thongbao;

@@ -144,16 +144,18 @@
                     
             case 'detailProduct':
                 if(isset($_GET['idPro'])&&($_GET['idPro']>0)){
-                    $listProductID=getAdminProductID($_GET['idPro']);
+                    $listDetailProductID=showUpdateDetailProuct($_GET['idPro']);
                 }
-               
+
+
                 $totalAllProducts=getAdminAll_TotalProduct();
                 $soldProduct=getAdminAll_SoldProduct();
                 $inventoryProduct=getAdmin_inventoryProduct();
 
                 $listCatalog=getAdminCatalog();
                 require_once "view/detailProduct.php";
-                break;    
+                break;   
+            
              case "delProduct" :
                 if (isset($_GET['id_Prd'])&&( $_GET['id_Prd']) >0 && isset($_GET['status'])){
 
@@ -271,7 +273,12 @@
                     
                         if (!empty($_FILES[$currentImage]['name'])) {
                             $target_file = $target_dir . basename($_FILES[$currentImage]["name"]);
-                            move_uploaded_file($_FILES[$currentImage]["tmp_name"], $target_file);
+                            
+                            if (move_uploaded_file($_FILES[$currentImage]["tmp_name"], $target_file)) {
+                                // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                              } else {
+                                // echo "Sorry, there was an error uploading your file.";
+                              }
                         }
                         $thongbaoImg="Bạn đã nhập ảnh thành công";
                     }

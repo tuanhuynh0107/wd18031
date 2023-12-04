@@ -73,29 +73,30 @@
                             <div class="">
                                 <div class="">
                                     hình chính <br>
-                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img_main']?>.png"  alt="" width="20%"><br>
-                                    <input type="file" name="mainImg" id=""><br>
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img_main']?>"  alt="" width="20%"><br>
+                                   
+                                    <input type="file" name="mainImg" id="" ><br>
                                     <!-- hình 1 -->
-                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img1']?>.png"  alt="" width="20%"><br>
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img1']?>"  alt="" width="20%"><br>
                                     hình 1 <br>
                                     <input type="file" name="imgone" id=""><br>
                                     <!-- hình 2 -->
-                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img2']?>.png"  alt="" width="20%"><br>
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img2']?>"  alt="" width="20%"><br>
 
                                     hình 2 <br>
                                     <input type="file" name="imgtwo" id=""><br>
                                     <!-- hình 3 -->
-                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img3']?>.png"  alt="" width="20%"><br>
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img3']?>"  alt="" width="20%"><br>
 
                                     hình 3 <br>
                                     <input type="file" name="imgthree" id=""><br>
                                     <!-- hình 4 -->
-                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img4']?>.png"  alt="" width="20%"><br>
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img4']?>"  alt="" width="20%"><br>
 
                                     hình 4 <br>
                                     <input type="file" name="imgfour" id=""><br>
                                     <!-- hình 5 -->
-                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img5']?>.png"  alt="" width="20%"><br>
+                                    <img src="../assets/img/img_main/<?=$listDetailProductID[0]['img5']?>"  alt="" width="20%"><br>
 
                                     hình 5 <br>
                                     <input type="file" name="imgfive" id=""><br>
@@ -129,7 +130,7 @@
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Mô tả</label> <br>
-                                        <textarea name="" id="add_product--input" cols="51" rows="7"><?=$listDetailProductID[0]['text']?></textarea>
+                                        <textarea name="textProduct" id="add_product--input" cols="51" rows="7"><?=$listDetailProductID[0]['text']?></textarea>
                                     </div>
                                     <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">cân nặng</label> <br>

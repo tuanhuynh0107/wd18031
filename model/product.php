@@ -339,12 +339,15 @@ function loadAllUser($id_user){
     return get_One($sql);
 }
  function updateImgUser($id_user,$hinh){
-    $sql="UPDATE `user`
+    if($hinh!==""){
+         $sql="UPDATE `user`
     SET 
       `img` = '$hinh'
     WHERE 
       `id_user` =".$id_user;
       update($sql);
+    }
+   
  }
  function updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user) {
            $sql = "UPDATE `user` 

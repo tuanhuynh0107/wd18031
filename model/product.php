@@ -772,7 +772,30 @@ function forgotPassUser($phone) {
         $sql="SELECT * FROM catalog";
         return get_All($sql);
     }
-    
+    function getAdminCatalogWork(){
+        $sql="SELECT c.id_catalog, c.name_catalog
+         FROM catalog c
+         JOIN product p ON p.id_catalog = c.id_catalog
+          GROUP BY c.id_catalog, c.name_catalog
+        ";
+        return get_All($sql);
+    }
+    function getAdminDetailCatalog($id){
+        $sql="SELECT 
+            p.id AS product_id,
+            p.name AS product_name,
+            -- p.price AS product_price,
+            -- p.qty AS product_qty,
+            -- p.status_prd AS product_status,
+            c.name_catalog AS catalog_name
+        FROM 
+            product p
+        JOIN 
+            catalog c ON p.id_catalog = c.id_catalog 
+        WHERE p.id_catalog = ".$id;
+            
+       return get_All($sql);
+    }
     // Xoa catalog
     function deleteCatalog($id){
         $sql= "DELETE FROM catalog where id_catalog=".$id;
@@ -1338,14 +1361,11 @@ function forgotPassUser($phone) {
         return get_All($sql);
     }
 
-    function getAdminCart($findidCart){
+    function getAdminCart(){
         // $sql="SELECT * FROM package ORDER BY time DESC ";
         // $sql = "SELECT * FROM package WHERE DATE(time) = CURDATE() ORDER BY time DESC";
-        $sql = "SELECT * FROM package WHERE YEARWEEK(time) = YEARWEEK(CURDATE())";
-        if($findidCart!=""){
-            $sql.=" AND id_package LIKE '%".$findidCart."%'";
-        }
-        $sql.=" ORDER BY time DESC";
+        $sql = "SELECT * FROM package ";
+        $sql.=" ORDER BY id_package DESC";
         return get_All($sql);
     }
     function getAllAdminCart($indStatus){

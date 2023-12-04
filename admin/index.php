@@ -347,6 +347,24 @@
             case '  Product':
                   
                 break;
+            case 'showCatalogWork':
+              
+                $showCatalogWork=getAdminCatalogWork();
+                $listCatalog=getAdminCatalog();
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
+                require_once "view/showCatalogWork.php";
+                break;    
+            case 'showDetailCatalogWork':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                      $listDetailCatalog=getAdminDetailCatalog($_GET['id']);
+                }
+              
+                $listCatalog=getAdminCatalog();
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
+                require_once "view/showDetailCatalogWork.php";
+                break;    
             case 'catalog':
                 $listCatalog=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
@@ -453,15 +471,15 @@
 
             
            case 'loadCart':
-            if(isset($_POST['findCart'])&&$_POST['findCart']!=""){
-               $findidCart= $_POST['findCart'];                
-            }else{
-                $findidCart="";
-            }
+            // if(isset($_POST['findCart'])&&$_POST['findCart']!=""){
+            //    $findidCart= $_POST['findCart'];                
+            // }else{
+            //     $findidCart="";
+            // }
             $countAllCart=getAdmin_AllCart();
             $shipCart=getAdmin_ShippCart();
             $newOrder=getAdmin_NewCart();
-            $listCart= getAdminCart($findidCart);
+            $listCart= getAdminCart();
             require_once "view/cartAdmin.php";
             break;
             case 'loadCartStatus':

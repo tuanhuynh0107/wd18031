@@ -2,8 +2,7 @@
     <div class="main-content">
         <div class="main-hero">
             <img src="./assets/icons/main-banner.png" alt="" class="main-banner">
-
-            <figure class="banner-rigth">
+            <figure class="banner-rigth row">
                 <img src="./assets/icons/banner-right1.png" alt="">
                 <img src="./assets/icons/banner-right2.png" alt="">
             </figure>
@@ -13,12 +12,7 @@
 
     <section class="banner__bottom">
         <figure class="main-content">
-            <a href="">
-                <img src="./assets/icons/banner-bottom1.png" alt="">
-            </a>
-            <a href="">
-                <img src="./assets/icons/banner-bottom2.png" alt="">
-            </a>
+            <a href=""><img src="./assets/icons/baorebaongon.png" alt=""></a>
         </figure>
     </section>
     
@@ -193,6 +187,10 @@
                 </div>
             </div>
         </div>
+
+        <figure class="banner__ngaoso main-content row">
+            <img src="./assets/icons/banner-ngaosoochen.png" alt="">
+        </figure>
 
         <!-- popular / đang giảm -->
         <div class="popular">

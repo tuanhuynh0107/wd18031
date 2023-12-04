@@ -162,7 +162,7 @@ function getProduct($id_pro){
             $kq .= '<div class="course-item">
             <a href="'.$linkProduct.'" class="course__images">
                 <img src="./assets/img/img_main/'.$album_image.'.png" alt="Basic web design" class="thumb" />
-                <img src="./assets/icons/roll_song.png" alt="" class="course_sale">
+                
             </a>
             <div class="info row">
                 <div class="body row">
@@ -180,7 +180,7 @@ function getProduct($id_pro){
                             <input type="hidden" name="typePro" value="'.$product_type.'">
                             <input type="hidden" name="qtyPro" value="'.$proQty.'">
                             <input type="hidden" name="nameCata" value="'.$category_name.'">
-                            <input type="hidden" name="qty" value="'.$product_qty.'">
+                            <input type="hidden" name="qty" value="">
                             <input type="submit" name="addCart" class="none" value="Thêm" id="addCart'.$id_lable.'">
                             <label for="addCart'.$id_lable.'" class="icon__addCart">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
@@ -193,15 +193,7 @@ function getProduct($id_pro){
                 <div class="foot row">
                     <span class="price">'.number_format($product_price,0,",",".").' VND / '.$product_type.'</span>'.$saleShow.'
                    
-                    <div class="rating">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="51" height="58" viewBox="0 0 51 58"
-                            fill="none" class="star">
-                            <path
-                                d="M0.35632 40.4668L17.8046 22.1564L36.1653 0.162407L32.5 14.5L51.0002 4.06794L43.2676 13.3237L34.9549 22.7713L14.3835 45.7439L3.61541 57.9998L12.5 37.5L0.35632 40.4668Z"
-                                fill="#FCE75F" />
-                        </svg>
-                        <span class="value">Hot</span>
-                    </div>
+                    
                 </div>
             </div>
             

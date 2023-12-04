@@ -43,6 +43,7 @@ function hendelPlusQtyProdct(x) {
     var inputElement = document.getElementById('inputMax'); 
     var maxValue = inputElement.max;    
     var chidrenValusNew = +chidrenValus.value + 1;
+    var totalNew = price * chidrenValusNew;
     if (chidrenValusNew > maxValue) {
         console.log("Số lượng sản phẩm vượt quá hàng đang có");
         return;
@@ -66,7 +67,7 @@ function hendelPlusQtyProdct(x) {
     };
 
     // Chuẩn bị dữ liệu để gửi đi
-    var data = "index=" + index + "&qtyPro=" + chidrenValusNew;
+    var data = "index=" + index + "&qtyPro=" + chidrenValusNew +  "&total=" + totalNew;
 
     // Gửi yêu cầu
     xhr.send(data);
@@ -77,10 +78,15 @@ function hendelPlusQtyProdct(x) {
     chidrenValus.value = chidrenValusNew;
     // console.log(chidrenValus.value);
 }
+    var total = document.getElementById('total').value;
+    var price = document.getElementById('price').value;
+    console.log("Tổng tiền là",total, "giá là", price);
 function hendelReduxQtyProdct(x) {
     var parentQty = x.parentElement;
     var chidrenValus = parentQty.children[1];
     var chidrenValusNew = +chidrenValus.value - 1;
+    var totalNew = price * chidrenValusNew;
+    console.log(totalNew);
     if (chidrenValusNew < 1) {
         return;
     }
@@ -102,7 +108,7 @@ function hendelReduxQtyProdct(x) {
     };
 
     // Chuẩn bị dữ liệu để gửi đi
-    var data = "index=" + index + "&qtyPro=" + chidrenValusNew;
+    var data = "index=" + index + "&qtyPro=" + chidrenValusNew +  "&total=" + totalNew;
 
     // Gửi yêu cầu
     xhr.send(data);

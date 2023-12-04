@@ -1,5 +1,5 @@
 <?php
-    // print_r($_SESSION['cart']);
+    print_r($_SESSION['cart']);
 ?>
 <main>
         <!-- heading-cart -->
@@ -117,7 +117,9 @@
                                                 </svg>
                                             </a>
                                         </div>
-                                        <div class="cart-total">'.number_format($total,0,",",".").'đ</div>
+                                        <div class="cart-total">'.number_format($total,0,",",".").'</div>
+                                        <input type="hidden" value="'.$total.'" name="index" id="total">
+                                        <input type="hidden" value="'.$pricePro.'" name="index" id="price">
                                         <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div>
                                     </div>
                                 </div>

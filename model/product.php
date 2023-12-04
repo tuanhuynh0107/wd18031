@@ -122,6 +122,7 @@ function getProduct($id_pro){
         $sql = "SELECT
         p.id AS product_id,
         p.name AS product_name,
+        p.qty AS product_qty,
         c.name_catalog AS category_name,
         p.price AS product_price,
         dp.type AS product_type,
@@ -236,6 +237,7 @@ function getProduct($id_pro){
         $sql = "SELECT
         p.id AS product_id,
         p.name AS product_name,
+        p.qty AS product_qty,
         c.name_catalog AS category_name,
         p.price AS product_price,
         dp.type AS product_type,

@@ -1,5 +1,5 @@
 <?php
- echo print_r($loadUser);
+//  echo print_r($loadUser);
  if(isset($loadUser)){
     extract($loadUser);
  }

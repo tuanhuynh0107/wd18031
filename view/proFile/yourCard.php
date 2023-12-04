@@ -166,7 +166,7 @@
                          
                   </table>
                   <div class="tfoot row">
-                            <div class="note__yourCard">Ghi chú: Nhấp vào mã đơn để xem chi tiết đơn hàng</div>
+                            <div class="note__yourCard"></div>
                         
                             <div class="rounds" rowspan="4">
                                 <div class="round">

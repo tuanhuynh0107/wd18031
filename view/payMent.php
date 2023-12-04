@@ -3,7 +3,7 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
-    print_r($_SESSION['cart']);
+    // print_r($_SESSION['cart']);
 ?>
 
 

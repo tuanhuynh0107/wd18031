@@ -1,5 +1,5 @@
 <?php
-    print_r($newUsersBlackList);
+    // print_r($newUsersBlackList);
 ?>
 <main class="main row">
                 <div class="main-content row">

@@ -8,7 +8,7 @@
     $linkByNow='index.php?page=byNow&idProduct='.$id;
     $sameType=sameTypeProducts($id);
     // $loadComment=getUserComment(0);
-    print_r($itemProduct);
+    // print_r($itemProduct);
 ?>  
 <main>
       
@@ -174,16 +174,7 @@
 
             <div class="description__content main-content comment__product row" id="comment">
                 <h4 class="comment__product__title">Hỏi đáp từ khách hàng về <?=$name_prd?></h4>
-                <!-- <form action="" method="post">
-                    <label for="content__comment" >Nhập nội dung</label>
-                    <textarea name="content__comment" id="content__comment" class="content__comment" cols="100%" rows="5" placeholder="Nội dung..."></textarea>
-                    <input type="submit" value="Gửi" name="sendComment" class="comment__send" id="comment__send">
-                    <label for="comment__send" class="comment__send--icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                            <path d="M27.1875 2.8125L2.8125 14.0625L14.0625 16.4062M27.1875 2.8125L17.8125 27.1875L14.0625 16.4062M27.1875 2.8125L14.0625 16.4062" stroke="black" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </label>
-                </form> -->
+               
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <script>
                     $(document).ready(function(){

@@ -1,7 +1,6 @@
 <?php
     // print_r($loadstatistics);
 ?>
-<input type="submit" value="">
 <form action="" method="post"></form>
 <main class="main row">
                 <div class="main-content row">

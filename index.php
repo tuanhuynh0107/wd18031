@@ -13,6 +13,15 @@
         $page = $_GET['page'];
 
         switch ($page) {
+            case 'chitietdonhang':
+                if (isset($_GET['idPackage'])&&($_GET['idPackage']>0)) {
+                    $listDetailCart=  getDetailPackage($_GET['idPackage']);
+                    $itemPackage=  getPackage(($_GET['idPackage']));
+
+                }
+                $loadUser=loadAllUser($id_user);
+                require_once "view/proFile/detailPackage.php";
+                break;
             case 'changeImgUser':
                 $id_user=$_POST['idImgUser'];
                 // lấy file hình ảnh

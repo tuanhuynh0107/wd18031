@@ -258,6 +258,7 @@ function getProduct($id_pro){
         $sql = "SELECT
             p.id AS product_id,
             p.name AS product_name,
+            p.qty AS product_qty ,
             c.name_catalog AS category_name,
             p.price AS product_price,
             dp.type AS product_type,
@@ -451,10 +452,10 @@ function forgotPassUser($phone) {
                 $existingidUser = pdo_query_one($sql, $id_user,$oldPass);
 
                 if (!$existingidUser) {
-                    $notify_passWord= "Id người dùng không đúng và mất khẩu cũ không đúng";
+                    $notify_passWord= " Mật khẩu cũ không đúng";
                 }else{
                     if($newPass != $comfrimNewPass){
-                        $notify_passWord= "Mật khẩu không trùng nhau";
+                        $notify_passWord= "Mật khẩu mới không trùng nhau";
                     }else{
                         $sql = "UPDATE user SET pass = '$newPass' WHERE id_user = ".$id_user;
                         update($sql);
@@ -950,6 +951,47 @@ function forgotPassUser($phone) {
         return get_All($sql);
     }
     // thêm admin detailProduct 
+    function showUpdateDetailProuct($idPro){
+        $sql="SELECT dp.*, a.*
+        FROM detail_product dp
+        JOIN album a ON dp.id_album = a.id
+        WHERE dp.id_prd = ".$idPro;
+        return get_All($sql);
+    }
+    function update_Admin_DetailProduct_album($imgMain, $img1, $img2, $img3, $img4, $img5,$name_product, $sale, $production,  $type, $text, $net_weight, $idProduct){
+        $sql="UPDATE detail_product
+        SET
+            name_prd = '$name_product',
+            sale = '$sale',
+            production = '$production',
+            type = '$type',
+            text = '$text',
+            net_weight = '$net_weight'
+        WHERE
+            id_prd = '$idProduct';";
+        update($sql);
+
+        // update album
+        $sql="UPDATE album
+        SET
+            img_main = '$imgMain',
+            img1 = '$img1',
+            img2 = '$img2',
+            img3 = '$img3',
+            img4 = '$img4',
+            img5 = '$img5'
+        WHERE
+            id_prd = '$idProduct'";
+        update($sql);
+
+    }
+    function showUpdateProuct($idpro){
+        $sql="SELECT p.*, c.id_catalog as idCatalog, c.name_catalog as nameCatalog FROM product p
+        JOIN
+            catalog c ON p.id_catalog = c.id_catalog 
+        WHERE id=".$idpro;
+        return get_One($sql);
+    }
     function getAdminSelectProduct(){
         $sql="SELECT * FROM product ORDER BY id ASC";
         return get_All($sql);
@@ -1143,6 +1185,18 @@ function forgotPassUser($phone) {
             dp.id_prd = ".$idProduct;
         pdo_execute($sql);;
     }
+    function update_admin_product($addNamePro, $addPricePro, $addQtyPro, $addCatalogPro,$idProduct){
+        $sql="UPDATE product
+            SET
+            name = '$addNamePro',
+            price = $addPricePro,
+            qty = $addQtyPro,
+            id_catalog = $addCatalogPro
+        WHERE
+            id = $idProduct;
+         ";
+        update($sql);
+    }
     function addAdminProduct( $addNamePro, $addPricePro, $addQtyPro, $addCatalogPro) {
         // Insert product
         $sql = "INSERT INTO product (name, price, id_catalog, qty) VALUES ('$addNamePro', '$addPricePro', '$addCatalogPro', '$addQtyPro')";
@@ -1164,7 +1218,7 @@ function forgotPassUser($phone) {
         foreach($listProduct as $item){
             extract($item);
             $linkDeleteProduct="index.php?page=delProduct&status=1&id_Prd=".$product_id;
-            $linkUpdateProduct="index.php?page=updateProduct&id_Prd=".$product_id;
+            $linkUpdateProduct="index.php?page=showUpdatePro&id_Prd=".$product_id;
             $showHidden="";
             if($product_status == 0){
                 $showHidden='<a href="index.php?page=delProduct&status=1&id_Prd='.$product_id .'"class="hendel-delete-act">Hiện</a>';
@@ -1292,6 +1346,11 @@ function forgotPassUser($phone) {
         $sql = "SELECT * from detail_package where id_package=".$id_package;
         return get_All($sql);
     }
+    function getPackage($id_package) {
+        $sql = "SELECT * from package where id_package=".$id_package;
+        return get_One($sql);
+    }
+
     // tăng giảm số lượng product
     function setQtyProductReduce($id_prd,$qty){
         $sql="UPDATE product SET qty=qty-'$qty' where id=".$id_prd;

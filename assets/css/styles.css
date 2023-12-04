@@ -1786,6 +1786,11 @@ p {
     line-height: 18px;
 }
 
+.cart--desc__pice::after {
+    display: inline-block;
+    content: "đ";
+}
+
 .cart--hendel {
     gap: 14px;
 }
@@ -1795,10 +1800,14 @@ p {
 }
 
 .cart-total {
+    border: none;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 14px;
+    overflow: visible;
 }
+
+
 
 .cart-operation>a {
     color: #F00;

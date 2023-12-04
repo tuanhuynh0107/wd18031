@@ -180,7 +180,7 @@ function getProduct($id_pro){
                             <input type="hidden" name="typePro" value="'.$product_type.'">
                             <input type="hidden" name="qtyPro" value="'.$proQty.'">
                             <input type="hidden" name="nameCata" value="'.$category_name.'">
-                            <input type="hidden" name="qty" value="">
+                            <input type="hidden" name="qty" value="'.$product_qty.'">
                             <input type="submit" name="addCart" class="none" value="Thêm" id="addCart'.$id_lable.'">
                             <label for="addCart'.$id_lable.'" class="icon__addCart">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">

@@ -41,7 +41,7 @@
                             </div>
                             <div class="cart--heading__desc row">
                                 <p class="cart__desc--handel">Số lượng</p>
-                                <p class="cart__desc--pice">Số tiền</p>
+                                <p class="cart__desc--pice">Đơn giá</p>
                                 <p class="cart__desc--operation">Thao tác</p>
                             </div>
                         </div>
@@ -56,8 +56,7 @@
                                 $index = 0;
                                 foreach ($_SESSION['cart'] as $item) {
                                     extract($item);
-                                    $total = $pricePro * $qtyPro;
-                                    $linkDeleCart = "index.php?page=delCart&id=".$idCart;
+                                    $linkProduct = 'index.php?page=product&idProduct='.$idProduct;
                                     $index++;
                                     echo '
                                     <div class="cart__content--item">
@@ -73,13 +72,14 @@
                                     </div>
                                     <div class="cart--item__box row">
                                         <input type="checkbox" name="check-all" id="" class="checkbox1">
-                                        <img src="./assets/img/img_main/'.$imgPro.'.png" alt="" class="cart--item__box--img">
+                                        
+                                        <a href="'.$linkProduct.'"><img src="./assets/img/img_main/'.$imgPro.'.png" alt="" class="cart--item__box--img"></a>
                                         <div class="cart--item__desc">
                                             <div class="cart--desc__title">'.$namePro.'</div>
                                             <div class="cart--desc__classly">
                                                 Phân loại: '.$typePro.'
                                             </div>
-                                            <div class="cart--desc__pice">Giá: '.number_format($pricePro,0,",",".").' VNĐ</div>
+                                            <div class="cart--desc__pice">Giá: '.number_format($pricePro,0,",",".").'</div> 
                                             <div class="cart--desc-trash">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
                                                     viewBox="0 0 31 31" fill="none">
@@ -107,19 +107,24 @@
                                                 </svg>
                                             </a>
                                             
-                                            <input type="number" value="'.$qtyPro.'" name="qty" min="1" max="'.$qty.'" id="inputMax" >
+                                            <input type="number" value="'.$qtyPro.'" name="qty" min="1" max="'.$qty.'" id="inputMax" readonly>
                                             <input type="hidden" value="'.$idCart.'" name="index" >
+                                            <input type="hidden" value="'.$pricePro.'" name="index" id="price">
                                             <a onclick="hendelPlusQtyProdct(this)">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
-                                                fill="none">
-                                                    <path d="M4.04648 9.75L7.96606 3.59066L11.8856 9.75H4.04648Z" fill="#C0C0C0"
-                                                    stroke="black" stroke-width="0.5" />            
-                                                </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                            fill="none">
+                                            <path d="M4.04648 9.75L7.96606 3.59066L11.8856 9.75H4.04648Z" fill="#C0C0C0"
+                                            stroke="black" stroke-width="0.5" />            
+                                            </svg>
+                                            
                                             </a>
+                                            <input type="hidden" value="'.$total.'" name="index" id="price">
+
                                         </div>
-                                        <div class="cart-total">'.number_format($total,0,",",".").'</div>
-                                        <input type="hidden" value="'.$total.'" name="index" id="total">
-                                        <input type="hidden" value="'.$pricePro.'" name="index" id="price">
+                                       
+                                        <div  class="cart-total">'.number_format($total,0,",",".").'đ</div>
+                                       
+                                       
                                         <div class="cart-operation"><a href="'.$linkDeleCart.'">xóa</a></div>
                                     </div>
                                 </div>
@@ -129,6 +134,7 @@
                                     $total_qty += $total;
                                     $quantyty += $qtyPro;
                                 }
+                               
                             }
 
                         ?>

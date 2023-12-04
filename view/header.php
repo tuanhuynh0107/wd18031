@@ -7,6 +7,46 @@
          extract($_SESSION['user_info']);
     }
 ?>
+<?php
+                        function getPageName() {
+                            // Kiểm tra xem có tham số 'page' được truyền không
+                            $currentPage = isset($_GET['page']) ? $_GET['page'] : 'home';
+
+                            switch ($currentPage) {
+                                case 'home':
+                                    return 'Trang chủ';
+                                case 'product':
+                                    return 'Sản phẩm';
+                                case 'chitietdonhang':
+                                    return 'Sản phẩm';
+                                case 'proFile':
+                                    return 'Thông tin khách hàng';
+                                case 'login':
+                                    return 'Đăng nhập';
+                                case 'register':
+                                    return 'Đăng ký';
+                                case 'cart':
+                                    return 'Giỏ hàng';
+                                case 'payMent':
+                                    return 'Thanh toán';
+                                case 'resetPassWord':
+                                    return 'Đặt lại mật khẩu';
+                                case 'reserPass':
+                                    return 'Đặt lại mật khẩu';
+                                case 'yourCard':
+                                    return 'Đơn hàng của bạn';
+                                case 'yourProduct':
+                                    return 'Sản phẩm đã mua';
+                                case 'showCatalog':
+                                    return 'Danh mục sản phẩm';
+                                case 'payMent':
+                                    return 'Thanh toán';
+                                // Thêm các trang khác nếu cần
+                                default:
+                                    return 'Trang không xác định';
+                            }
+                        }
+                    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +55,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Du An 1</title>
+    <title> <?php
+    
+                        echo getPageName();
+    ?></title>
     <!-- Reset CSS -->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <!-- Embed fonts -->

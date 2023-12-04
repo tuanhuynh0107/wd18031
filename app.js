@@ -32,8 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 
-
+function handleDataChange() {
+    setTimeout(function() {
+        location.reload();
+    }, 1500);
+}
 
 
 
@@ -43,14 +50,18 @@ function hendelPlusQtyProdct(x) {
     var inputElement = document.getElementById('inputMax'); 
     var maxValue = inputElement.max;    
     var chidrenValusNew = +chidrenValus.value + 1;
-    var totalNew = price * chidrenValusNew;
+    var price = parentQty.children[3];
+    var total = parentQty.children[5];
+    console.log("tong tien trc la",total);;
+    var totalNew = price.value * chidrenValusNew;
+    console.log(totalNew);
     if (chidrenValusNew > maxValue) {
         console.log("Số lượng sản phẩm vượt quá hàng đang có");
         return;
     }
-    chidrenValus.value =  chidrenValusNew;
+    // chidrenValus.value =  chidrenValusNew;
+    // document.getElementById('total').value = totalNew;
     var index = parentQty.children[2].value;
-    console.log(index);
     var xhr = new XMLHttpRequest();
 
     // Xác định phương thức và URL
@@ -60,12 +71,20 @@ function hendelPlusQtyProdct(x) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     // Xử lý sự kiện khi yêu cầu được gửi đi và nhận được phản hồi
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState == 4 && xhr.status == 200) {
+    //         console.log(xhr.responseText);
+    //     }
+    // };
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                console.log(xhr.responseText);
+            } else {
+                console.error("Lỗi: " + xhr.status);
+            }
         }
     };
-
     // Chuẩn bị dữ liệu để gửi đi
     var data = "index=" + index + "&qtyPro=" + chidrenValusNew +  "&total=" + totalNew;
 
@@ -76,21 +95,26 @@ function hendelPlusQtyProdct(x) {
 
     // Cập nhật giá trị trong trình duyệt mà không cần đợi phản hồi từ server
     chidrenValus.value = chidrenValusNew;
+    total.value = totalNew;
+    console.log(total);
+    handleDataChange();
     // console.log(chidrenValus.value);
 }
-    var total = document.getElementById('total').value;
-    var price = document.getElementById('price').value;
-    console.log("Tổng tiền là",total, "giá là", price);
+    
 function hendelReduxQtyProdct(x) {
     var parentQty = x.parentElement;
     var chidrenValus = parentQty.children[1];
     var chidrenValusNew = +chidrenValus.value - 1;
-    var totalNew = price * chidrenValusNew;
-    console.log(totalNew);
+    var price = parentQty.children[3];
+    var total = parentQty.children[5];
+    console.log("tong tien trc la",total);
+    var totalNew = price.value * chidrenValusNew;
+    
     if (chidrenValusNew < 1) {
         return;
     }
-    chidrenValus.value =  chidrenValusNew;
+    // chidrenValus.value =  chidrenValusNew;
+    // document.getElementById('total').value = totalNew;
     var index = parentQty.children[2].value;
     var xhr = new XMLHttpRequest();
 
@@ -102,8 +126,12 @@ function hendelReduxQtyProdct(x) {
 
     // Xử lý sự kiện khi yêu cầu được gửi đi và nhận được phản hồi
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                console.log(xhr.responseText);
+            } else {
+                console.error("Lỗi: " + xhr.status);
+            }
         }
     };
 
@@ -117,8 +145,12 @@ function hendelReduxQtyProdct(x) {
 
     // Cập nhật giá trị trong trình duyệt mà không cần đợi phản hồi từ server
     chidrenValus.value = chidrenValusNew;
-    console.log(chidrenValus.value);
+    total.value = totalNew;
+    console.log(total);
+    handleDataChange();
+
 }
+
 
 
 

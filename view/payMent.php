@@ -88,15 +88,18 @@
                                     // echo print_r($_SESSION['cart']);    
                                     foreach ($_SESSION['cart'] as $item) {
                                         extract($item);
-                                        
+                                        $linkProduct = 'index.php?page=product&idProduct='.$idProduct;
                                         $total = $pricePro * $qtyPro;
                                         $total_Pro+=$total;
                                         
                                         echo 
                                         '
                                         <tr>
-                                            <td colspan="2" class="pay-ment__bod--img"><img style="width: 130px;height: 130px;"
-                                                src="./assets/img/img_main/'.$imgPro.'.png" >
+                                            <td colspan="2" class="pay-ment__bod--img">
+                                                <a href="'.$linkProduct.'">
+                                                    <img style="width: 130px;height: 130px;"
+                                                    src="./assets/img/img_main/'.$imgPro.'.png" >
+                                                </a<
                                             </td>
                                             <td class="pay-ment__bod--title">'.$namePro.'</td>
                                             <td class="pay-ment__bod--title">Loại: '.$typePro.'</td>

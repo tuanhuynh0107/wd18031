@@ -235,6 +235,11 @@
             $listCatalog = getItemCatalog($id_Cata);
             $banner = getBannerCatalog($id_Cata);
         }         
+        $listItemLimitSpecialty = getDetailSpecialtyProductLimit();
+        $listItemLimitRanDom = getDetailProductLimitRanDom();
+        $listItemLimitSale = getDetailSaleProductLimit();
+        $listItemLimit = getDetailProductLimit();
+        $listProduct = getDetailProduct();
         require_once('view/catalog/itemcatalog.php');
     }
 
@@ -251,17 +256,20 @@
 
     function handleSearchProduct() {
         if(isset($_POST['searchProduct'])&& ($_POST['searchProduct'] || " ")){
-
             $contentSearch = $_POST['content'];
-            
-            $lissItemSearch = getItemSearch($contentSearch);
-            
+            $lissItemSearch = getItemSearch($contentSearch); 
         }
-        $listItemLimitSpecialty = getDetailSpecialtyProductLimit();
-        $listItemLimitRanDom = getDetailProductLimitRanDom();
-        $listItemLimitSale = getDetailSaleProductLimit();
-        $listItemLimit = getDetailProductLimit();
-        $listProduct = getDetailProduct();
-        require_once "view/timkiemsanpham.php";
+        if($lissItemSearch == []) {
+            require_once "view/home.php";
+        }else{
+            $listItemLimitSpecialty = getDetailSpecialtyProductLimit();
+            $listItemLimitRanDom = getDetailProductLimitRanDom();
+            $listItemLimitSale = getDetailSaleProductLimit();
+            $listItemLimit = getDetailProductLimit();
+            $listProduct = getDetailProduct();
+            require_once "view/timkiemsanpham.php";
+        }
+
+       
     }
 ?>

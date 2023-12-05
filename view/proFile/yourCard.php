@@ -80,7 +80,7 @@
                         <thead class="yourCard__header">
                             <tr >
                                 <td>Mã đơn hàng</td>
-                                <td>Thời gian đặt hàng</td>
+                                <td>thời gian đặt hàng</td>
                                 <td>Số tiền</td>
                                 <td>Phương thức thanh toán</td>
                                 <td>Trạng thái</td>
@@ -119,21 +119,41 @@
                                         if($status_feadback==1){
                                             $statusShow .= '
                                             <span class="yourCard__status"> Giao hàng thành công </span>
-                                            <span class="yourCard__status"> cảm ơn bạn đã feadback </span>
+                                            <span class="yourCard__status"> Đã phản hồi </span>
                                             ';
                                         }else if($status_feadback==0){
                                             $statusShow .= '
-                                            <form action="index.php?page=userFeadBack" method="post">
-                                                <span class="yourCard__status"> Giao hàng thành công </span>
-                                                <input type="hidden" name="idPackage" value="'.$id_package.'">
-                                                <input type="hidden" name="idUser" value="'.$id_User.'"> 
-    
-                                                <textarea name="comment"  id="" cols="30" rows="10"></textarea>
-                                                <input type="hidden" name="statusfb" value="1" >
-                                                <input type="submit" name="btnComment" value="Gửi">
-                                             </form>
-
-                                                ';                                        }
+                                            <span class="yourCard__status"> Giao hàng thành công </span>
+                                            <span class="boxFeadBack row">
+                                                <button type="submit" onclick="toggleForm(this)" class="toggleForm">Phản hồi </button>
+                                                <form action="index.php?page=userFeadBack" method="post" id="feedbackForm">
+                                                    <input type="hidden" name="idPackage" value="'.$id_package.'">
+                                                    <input type="hidden" name="idUser" value="'.$id_User.'"> 
+        
+                                                    <textarea name="comment"  id="" cols="40" rows="10"></textarea>
+                                                    <input type="hidden" name="statusfb" value="1" >
+                        
+                                                    <button type="submit"name="btnComment" class="toggleFormSend">
+                                                        <div class="svg-wrapper-1">
+                                                            <div class="svg-wrapper">
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 24 24"
+                                                                width="15"
+                                                                height="15"
+                                                            >
+                                                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                                                <path
+                                                                fill="currentColor"
+                                                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                                                ></path>
+                                                            </svg>
+                                                            </div>
+                                                        </div>
+                                                        <span>Gửi</span>
+                                                    </button>
+                                                </form>
+                                            </span>';                                        }
                                        
                                     }
                                     elseif($status==4) {
@@ -169,7 +189,7 @@
                   <div class="tfoot row">
                             <div class="note__yourCard"></div>
                         
-                            <div class="rounds" rowspan="4">
+                            <!-- <div class="rounds" rowspan="4">
                                 <div class="round">
                                     <div class="status-round"></div>
                                     <span class="desc-round">Thành Công</span>
@@ -182,7 +202,7 @@
                                     <div class="status-round"></div>
                                     <span class="desc-round">Thất bại</span>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                 </div>
 

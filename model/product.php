@@ -105,7 +105,9 @@ function getProduct($id_pro){
         dp.type AS product_type,
         dp.production AS product_image,
         dp.sale AS product_sale,
-        a.img1 AS album_image
+        a.img1 AS album_image,
+        p.qty AS product_qty 
+
       FROM
         product p
       JOIN

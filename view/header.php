@@ -39,8 +39,12 @@
                                     return 'Sản phẩm đã mua';
                                 case 'showCatalog':
                                     return 'Danh mục sản phẩm';
+                                case 'userFeadBack':
+                                    return 'Phản hồi của khách hàng';
                                 case 'payMent':
                                     return 'Thanh toán';
+                                case 'searchProduct':
+                                    return 'Tìm kiếm';
                                 // Thêm các trang khác nếu cần
                                 default:
                                     return 'Trang không xác định';

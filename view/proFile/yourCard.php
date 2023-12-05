@@ -129,7 +129,7 @@
                                                 <form action="index.php?page=userFeadBack" method="post" id="feedbackForm">
                                                     <input type="hidden" name="idPackage" value="'.$id_package.'">
                                                     <input type="hidden" name="idUser" value="'.$id_User.'"> 
-        
+                                                    
                                                     <textarea name="comment"  id="" cols="40" rows="10"></textarea>
                                                     <input type="hidden" name="statusfb" value="1" >
                         

@@ -1,5 +1,5 @@
 <?php
-    print_r($listDetailProductID);
+    // print_r($listDetailProductID);
    
 
 ?>
@@ -32,11 +32,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Sản phẩm đã bán</p>
-                                <div class="total_product__content--qty"><?=$soldProduct[0]['sold_product']?></div>
-                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=showProductSold">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Sản phẩm đã bán</p>
+                                    <div class="total_product__content--qty"><?=$soldProduct[0]['sold_product']?></div>
+                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -59,14 +61,10 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Thêm chi tiết sản phẩm</h4>
+                                <h4>Sửa chi tiết sản phẩm</h4>
                             </div>
     
-                            <select class="revenue__top--hendel">
-                                <option value="1">Sắp xếp</option>
-                                <option value="2">Tăng dần</option>
-                                <option value="3">Giảm dần</option>
-                            </select>
+                            
                         </div>
                         <!-- form  -->
                         <form action="index.php?page=updateAlbum_DetailProduct" method="post" enctype="multipart/form-data">

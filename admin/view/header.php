@@ -192,20 +192,63 @@
                             switch ($currentPage) {
                                 case 'home':
                                     return 'Trang chủ';
-                                case 'product':
-                                    return 'Sản phẩm';
-                                case 'showUser':
-                                    return 'Khách hàng';
+                                // đơn hàng 2 trang
                                 case 'loadCart':
                                     return 'Đơn hàng';
+                                case 'loadCartStatus':
+                                    return 'Đơn hàng';
+                                // loại hàng 5 trang
                                 case 'catalog':
                                     return 'Loại hàng';
-                                case 'showUser':
-                                    return 'Khách hàng';
+                                case 'addCatalog':
+                                    return 'Loại hàng';
+                                case 'showCatalogWork':
+                                    return 'Loại hàng';
+                                case 'showDetailCatalogWork':
+                                    return 'Loại hàng';
+                                case 'updateCatalog':
+                                    return 'Loại hàng';
+                                // bình luận 4 trang
                                 case 'comment':
                                     return 'Bình luận';
+                                case 'noComment':
+                                    return 'Bình luận';
+                                case 'replayComment':
+                                    return 'Bình luận';
+                                // thống kê
                                 case 'statistical':
                                     return 'Thống kê';
+                                case 'statisticalCatalog':
+                                    return 'Thống kê';
+                                case 'statisticalProduct':
+                                    return 'Thống kê';
+                                   
+                                // khách hàng 4 trang
+                                case 'showUser':
+                                    return 'Khách hàng';
+                                case 'userVip':
+                                    return 'khách hàng';
+                                case 'userBlack':
+                                    return 'khách hàng';
+                                case 'customerOrder':
+                                    return 'khách hàng';
+
+                                 // sản phẩm  7 trang  
+                                case 'addProduct':
+                                    return 'Sản phẩm';
+                                case 'addDetailProduct': 
+                                case 'product':
+                                    return 'Sản phẩm';
+                                case 'showProductSold':
+                                    return 'Sản phẩm';
+                                case 'showUpdatePro':
+                                    return 'Sản phẩm';              
+                                case 'detailProduct':
+                                    return 'Sản phẩm';              
+                                case 'updateDetailProduct':
+                                    return 'Sản phẩm';              
+                                case 'updateAlbum_DetailProduct':
+                                    return 'Sản phẩm';              
                                 // Thêm các trang khác nếu cần
                                 default:
                                     return 'Trang không xác định';

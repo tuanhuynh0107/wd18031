@@ -48,10 +48,16 @@
                 require_once "view/showUser.php";
                 break;
             case 'userVip':
+                $totalAllUser=getAdminAll_TotalUser();
+                $newUsersBlackList=getNewUsersBlackList(); 
+                $vipUser=getAdminVipUser();
                 $LoadAllVipUser=getAllAdminVipUser();
                 require_once "view/userVip.php";
                 break;    
             case 'userBlack':
+                $totalAllUser=getAdminAll_TotalUser();
+                $newUsersBlackList=getNewUsersBlackList(); 
+                $vipUser=getAdminVipUser();
                 $LoadAllBlackUser=getAllAdminBlackUser();
                 require_once "view/userBlack.php";
                 break;    

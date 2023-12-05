@@ -346,8 +346,11 @@ function loadAllUser($id_user){
     WHERE 
       `id_user` =".$id_user;
       update($sql);
+        return $hinh;
+    }else{
+        return null;
     }
-    return $hinh;
+ 
    
  }
  function updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user) {

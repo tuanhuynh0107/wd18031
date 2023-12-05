@@ -34,9 +34,16 @@
                   } else {
                     // echo "Sorry, there was an error uploading your file.";
                   }
-                
-                $updateImg= updateImgUser($id_user,$hinh);
-                $_SESSION['user_info']['img']=$updateImg;
+
+                   $updateImg= updateImgUser($id_user,$hinh);
+                  if ($updateImg !== null) {
+                    $_SESSION['user_info']['img']=$updateImg;
+                   $thongbao= "<script>alert('bạn cập nhật ảnh thành công')</script> " ;
+                } else {    
+                   $thongbao= "<script>alert('bạn chưa nhập chọn ')</script>";
+                }
+               
+               
                 $loadUser=loadAllUser($id_user);
                 header('location: index.php?page=proFile');
                 break;

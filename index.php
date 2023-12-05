@@ -35,7 +35,8 @@
                     // echo "Sorry, there was an error uploading your file.";
                   }
                 
-                updateImgUser($id_user,$hinh);
+                $updateImg= updateImgUser($id_user,$hinh);
+                $_SESSION['user_info']['img']=$updateImg;
                 $loadUser=loadAllUser($id_user);
                 header('location: index.php?page=proFile');
                 break;

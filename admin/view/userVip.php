@@ -10,15 +10,9 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Sản phẩm</h4>
-                                <button class="btn btn-ml"><a href="add_sanpham_admin.html">Thêm </a></button>
+                                <h4>khách hàng ưu tiên</h4>
                             </div>
                             
-                            <select class="revenue__top--hendel">
-                                <option value="1">Cá hồi</option>
-                                <option value="2">Cua</option>
-                                <option value="3">Ghẹ</option>
-                            </select>
                         </div>
                         <table class="table__packgeNew">
                             <thead>

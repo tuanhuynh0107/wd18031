@@ -283,7 +283,7 @@ function showImgUser(){
         if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img']!=""){
                $name_user=$_SESSION['user_info']['username'];
             echo '<a href="index.php?page=proFile">
-                    <img src="./assets/user/'.$_SESSION['user_info']['img'].'.png" alt="">
+                    <img src="./assets/user/'.$_SESSION['user_info']['img'].'" alt="">
                       <div class="action__name-user">'.$name_user.' </div>
                 </a>
               
@@ -347,6 +347,7 @@ function loadAllUser($id_user){
       `id_user` =".$id_user;
       update($sql);
     }
+    return $hinh;
    
  }
  function updateProfile($name_user, $email_user, $gender_user, $dob_user, $phone_user, $adress_user, $id_user) {

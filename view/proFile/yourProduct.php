@@ -24,7 +24,7 @@
                 <div class="proFile__sidebar">
                     <div class="sidebar--top row">
                         <figure class="sidebar--top__left row ">
-                            <img src="./assets/user/<?=$img?>.png"
+                            <img src="./assets/uploads/<?=$img?>"
                                 alt="user" class="sidebar--top__left--img">
                             <figcaption class="sidebar--top__left--id">ID:<?=$id_user?></figcaption>
                             <div class="sidebar--edit__proFile">

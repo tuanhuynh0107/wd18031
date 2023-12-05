@@ -22,7 +22,10 @@ function getAlbum() {
     return get_All($sql);
 }
 function getProduct($id_pro){
-    $sql= "SELECT * FROM product WHERE id=".$id_pro;
+    $sql= "SELECT p.*,  c.name_catalog AS category_name  FROM product p
+    JOIN
+        catalog c ON p.id_catalog = c.id_catalog 
+    WHERE id=".$id_pro;
     return get_One($sql);
 }
     function getDetailProduct() {
@@ -152,10 +155,23 @@ function getProduct($id_pro){
             extract($Item);
             $saleShow = "";
             if($product_sale > 0){
-                $priceSale = $product_price - ($product_sale / 100 );
-                $saleShow .='<del class="price-del">'.number_format($priceSale,0,",",".").' đ</del>';
+                $priceSale = $product_price * ($product_sale / 100 );
+                $afterPriceReduction = $product_price - $priceSale;
+                $saleShow .='                    
+                    <span class="price">'.number_format( $afterPriceReduction,0,",",".").' VND / '.$product_type.'</span> <del class="price-del">'.number_format($product_price,0,",",".").' đ</del>
+                ';
             }else{
-                $saleShow .='';
+                $saleShow .='
+
+                <span class="price">'.number_format($product_price,0,",",".").' VND / '.$product_type.'</span> 
+
+                ';
+            }
+
+            if($product_sale > 0){
+               $showInputHidden= '<input type="hidden" name="pricePro" value="'. $afterPriceReduction.'">';
+            }else{
+                $showInputHidden='<input type="hidden" name="pricePro" value="'.$product_price.'">';
             }
             $linkAddCart='index.php?page=addCart&idProduct='.$product_id;
             $linkByNow='index.php?page=byNow&idProduct='.$product_id;
@@ -178,7 +194,7 @@ function getProduct($id_pro){
                             <input type="hidden" name="idPro" value="'.$product_id.'">
                             <input type="hidden" name="imgPro" value="'.$album_image.'">
                             <input type="hidden" name="namePro" value="'.$product_name.'">
-                            <input type="hidden" name="pricePro" value="'.$product_price.'">
+                            '.$showInputHidden.'
                             <input type="hidden" name="typePro" value="'.$product_type.'">
                             <input type="hidden" name="qtyPro" value="'.$proQty.'">
                             <input type="hidden" name="nameCata" value="'.$category_name.'">
@@ -193,9 +209,7 @@ function getProduct($id_pro){
                     </div>
                 </div>
                 <div class="foot row">
-                    <span class="price">'.number_format($product_price,0,",",".").' VND / '.$product_type.'</span>'.$saleShow.'
-                   
-                    
+                    '.$saleShow.'
                 </div>
             </div>
             
@@ -203,7 +217,7 @@ function getProduct($id_pro){
                 <input type="hidden" name="idPro" value="'.$product_id.'">
                 <input type="hidden" name="imgPro" value="'.$album_image.'">
                 <input type="hidden" name="namePro" value="'.$product_name.'">
-                <input type="hidden" name="pricePro" value="'.$product_price.'">
+                '. $showInputHidden.'
                 <input type="hidden" name="typePro" value="'.$product_type.'">
                 <input type="hidden" name="qtyPro" value="'.$proQty.'">
                 <input type="hidden" name="nameCata" value="'.$category_name.'">

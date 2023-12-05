@@ -32,6 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function toggleForm(x) {
+    var parentform = x.parentElement;
+    var chidrenform = parentform.children[1];
+    console.log(chidrenform);
+    if (chidrenform.style.display === "none") {
+        chidrenform.style.display = "block";
+    } else {
+        chidrenform.style.display = "none";
+        // alert("Phản hồi thành công!"); // Hiển thị thông báo phản hồi thành công
+    }
+}
 function formatNumber(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }

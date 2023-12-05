@@ -9,7 +9,7 @@
     --primary-color-btn: #FFE736;
     --primary-color-bgc: #50C5F7;
     --primary-boder: 12px;
-    --primary-color--font: #15101d;
+    --primary-color--font: #000;
 
 }
 
@@ -1220,9 +1220,9 @@ p {
     padding: 12px 6px;
     /* border: 1px solid #555; */
     color: var(--primary-color--font);
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    /* line-height: 12px; */
     cursor: pointer;
 }
 
@@ -1359,13 +1359,14 @@ p {
 }
 
 .description__btn--btn {
-    border: 1px solid #000;
+    border: 1px solid var(--primary-color-font);
     border-radius: 6px;
     background-color: #fff;
 }
 
 
 .description__btn--act {
+    border: #0F94F5;
     color: #000;
 }
 
@@ -1394,7 +1395,7 @@ p {
 .description__content--desc {
     width: 374px;
     text-align: right;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 
     font-weight: 400;
     line-height: 20px;
@@ -2634,6 +2635,13 @@ p {
     font-size: 1.4rem;
 }
 
+.yourCard__header--content th {
+    padding: 20px 0px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-align: center;
+}
+
 
 .tfoot {
     margin-top: 20px;
@@ -2696,3 +2704,141 @@ p {
 }
 
 /* forgot pass */
+
+/* feadback */
+
+#feedbackForm {
+    position: absolute;
+    display: none;
+    top: 50%;
+    transform: translateY(10%);
+}
+
+.toggleForm {
+    /* height: 3em;
+    width: 8em; */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10em;
+    background: var(--primary-color-font);
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.toggleForm:hover {
+    animation: shake3856 0.3s linear infinite both;
+}
+
+@keyframes shake3856 {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+
+    20% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+}
+
+
+
+.boxFeadBack {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+}
+
+textarea {
+    font-family: monospace;
+    /* max-width: 190px; */
+    outline: none;
+    border: 1px solid #dadada;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f3f7fe;
+    transition: .3s;
+    color: #3b82f6;
+}
+
+textarea:focus {
+    border: 1px solid #3b82f6;
+    box-shadow: 0 0 0 4px #3b83f65f
+}
+
+.toggleFormSend {
+    float: right;
+    font-size: 1.6rem;
+    background: var(--primary-color-font);
+    color: white;
+    padding: 8px 10px;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.toggleFormSend span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+
+.toggleFormSend svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggleFormSend:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.toggleFormSend:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.toggleFormSend:hover span {
+    transform: translateX(5em);
+}
+
+.toggleFormSend:active {
+    transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+    from {
+        transform: translateY(0.1em);
+    }
+
+    to {
+        transform: translateY(-0.1em);
+    }
+}

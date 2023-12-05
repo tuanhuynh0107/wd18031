@@ -6,7 +6,7 @@
             <div class="main-content">
                 <div class="popular-top">
                     <div class="info">
-                        <h2 class="heading lv2">Sản phẩm bạn đang tìm <?=$contentSearch?></h2>
+                        <h2 class="heading lv2">Sản phẩm bạn đang tìm: <?=$contentSearch?></h2>
                         <p class="desc">
                             Cùng mua Hải sản với giá sốc nào.
                         </p>

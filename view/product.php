@@ -9,6 +9,23 @@
     $sameType=sameTypeProducts($id);
     // $loadComment=getUserComment(0);
     // print_r($itemProduct);
+    // print_r($itemDetailProduct);
+    $newType = strtolower($type); 
+    // echo $newType;
+    $kq = "";
+    if (($newType === "con" || $newType === "kg") && ($id_catalog === 6 || $id_catalog === 4 || $id_catalog === 5)) {
+        $kq .= "Giao sống Oxi hoặc Đóng thùng kèm đá";
+    } elseif ((($newType === "hủ") || ($newType === "hủ 350g") || ($newType === "hộp 300g")) && $id_catalog === 2) {
+        $kq .= "Giao theo hũ 1kg";
+    } elseif ($newType === "1 gói 250g" && $id_catalog === 7) {
+        $kq .= "Giao theo gói(Túi)";
+    } else {
+        $kq .= "Đọc hướng dẫn sử dụng";
+    }
+    
+    
+    // echo $kq;
+    
 ?>  
 <main>
       
@@ -55,7 +72,7 @@
                   <div class="main-product__content">
                       <div class="main-product__content--type row">
                         <strong class="content__strong">Đóng gói:</strong>
-                          <div class="content--type"><?= $type?></div>
+                          <div class="content--type"><?=$type?></div>
                       </div>
                       <div class="main-product__content--desc  row">
                           <strong class="content__strong">Xuất xứ:</strong>
@@ -63,7 +80,7 @@
                       </div>
                       <div class="main-product__content--desc row ">
                           <strong class="content__strong">Tình trạng:</strong>
-                          <p class="content__desc line-clamp">Giao sống oxi hoặc đóng thùng kèm đá</p>
+                          <p class="content__desc line-clamp"><?=$kq?></p>
                       </div>
                       <div class="main-product__content--desc row ">
                           <strongc class="content__strong"> Cam kết:</strongc>
@@ -82,7 +99,7 @@
 
                       </div>
 
-                      <div class="main-product__content--title row"><?=$name_prd?></div>
+                      <div class="main-product__content--title row"><?=$name_prd?> <?=$production?></div>
                       <div class="main-product__content--btn row ">
                         <form action="<?=$linkByNow?>" method="post">
                                 <input type="hidden" name="idPro" value="<?=$id?>">
@@ -132,9 +149,9 @@
             </div>
         <div class="description__content main-content" id="mota">
                 <figure class="description__content--item row">
-                    <img src="./assets/img/combo1.png" alt="" class="description__content-img">
+                    <img src="./assets/img/img_main/<?=$img2?>.png" alt="" class="description__content-img">
                     <figcaption class="description__content--desc">
-                        <h4 class="description__content--hd">Combo Hải Sản 1.5 tr</h4>
+                        <h4 class="description__content--hd"><?=$name_prd?> <?=$production?></h4>
                         Được nhiều khách hàng lựa chọn vì sự tiện lợi, tiết kiệm được lên đến 25% so với giá
                         gốc. Thành phần của combo kết hợp đa dạng giữa hải sản nhập khẩu: 2 con tôm Alaska size
                         nhỏ ~500g/con, các loại hải sản nội địa hấp dẫn như: 500g ốc hương, 1 con cua thịt
@@ -144,7 +161,7 @@
                     </figcaption>
                 </figure>
                 <figure class="description__content--item row">
-                    <img src="./assets/img/combo1.png" alt="" class="description__content-img">
+                    <img src="./assets/img/img_main/<?=$img3?>.png" alt="" class="description__content-img">
                     <figcaption class="description__content--desc">
 
                         <ul class="description__content--desc__list">
@@ -153,13 +170,13 @@
                             <li>Xuất xứ : Nhập khẩu từ Mỹ/Canada</li>
                             <li> Món ngon : Hấp, nướng, nấu cháo, sashimi, ....</li>
                         </ul>
-                        Đặc biệt, trong Combo Hải Sản 1,5 Triệu còn có sự xuất hiện 02 sản phẩm đặc sản vùng Cà Mau
+                        Đặc biệt, trong <?=$name_prd?> <?=$production?> còn có sự xuất hiện 02 sản phẩm đặc sản vùng Cà Mau
                         đất mũi và Cam Ranh, nơi nổi tiếng với các loại hải sản nội địa: 01 con cua Cà Mau ~350g +
                         500g Ốc Hương
                     </figcaption>
                 </figure>
                 <figure class="description__content--item row">
-                    <img src="./assets/img/combo1.png" alt="" class="description__content-img" s>
+                    <img src="./assets/img/img_main/<?=$img4?>.png" alt="" class="description__content-img" s>
                     <figcaption class="description__content--desc">
                         Tình trạng : Giao sống
                         Xuất xứ : Cua thịt - Cà Mau; Ốc hương - Cam Ranh

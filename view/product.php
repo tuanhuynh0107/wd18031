@@ -8,7 +8,7 @@
     $linkByNow='index.php?page=byNow&idProduct='.$id;
     $sameType=sameTypeProducts($id);
     // $loadComment=getUserComment(0);
-    print_r($itemProduct);
+    // print_r($itemProduct);
     // print_r($itemDetailProduct);
     $newType = strtolower($type); 
     // echo $newType;
@@ -168,7 +168,7 @@
             </div>
         <div class="description__content main-content" id="mota">
                 <figure class="description__content--item row">
-                    <img src="./assets/img/img_main/<?=$img2?>.png" alt="" class="description__content-img">
+                    <img src="./assets/img/img_main/<?=$img2?>" alt="" class="description__content-img">
                     <figcaption class="description__content--desc">
                         <h4 class="description__content--hd"><?=$name_prd?> <?=$production?></h4>
                         Được nhiều khách hàng lựa chọn vì sự tiện lợi, tiết kiệm được lên đến 25% so với giá
@@ -180,7 +180,7 @@
                     </figcaption>
                 </figure>
                 <figure class="description__content--item row">
-                    <img src="./assets/img/img_main/<?=$img3?>.png" alt="" class="description__content-img">
+                    <img src="./assets/img/img_main/<?=$img3?>" alt="" class="description__content-img">
                     <figcaption class="description__content--desc">
 
                         <ul class="description__content--desc__list">
@@ -195,7 +195,7 @@
                     </figcaption>
                 </figure>
                 <figure class="description__content--item row">
-                    <img src="./assets/img/img_main/<?=$img4?>.png" alt="" class="description__content-img" s>
+                    <img src="./assets/img/img_main/<?=$img4?>" alt="" class="description__content-img" s>
                     <figcaption class="description__content--desc">
                         Tình trạng : Giao sống
                         Xuất xứ : Cua thịt - Cà Mau; Ốc hương - Cam Ranh

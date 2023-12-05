@@ -73,7 +73,7 @@
                                     <td>icon</td>
                                     <td>Banner</td>
                                     <td>Tên loại</td>
-                                    <td>Số lượng</td>
+                                    <td>Số lượng có trong sản phẩm</td>
                                     <td>Thao tác</td>
                                 </tr>
                             </thead>

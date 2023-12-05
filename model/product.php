@@ -283,7 +283,7 @@ function showImgUser(){
         if(isset($_SESSION['user_info'])&& $_SESSION['user_info']['img']!=""){
                $name_user=$_SESSION['user_info']['username'];
             echo '<a href="index.php?page=proFile">
-                    <img src="./assets/user/'.$_SESSION['user_info']['img'].'" alt="">
+                    <img src="./assets/uploads/'.$_SESSION['user_info']['img'].'" alt=""  class="sidebar--top__left--img">
                       <div class="action__name-user">'.$name_user.' </div>
                 </a>
               
@@ -773,7 +773,16 @@ function forgotPassUser($phone) {
     // funtion admin viết ở đây
 
     function getAdminCatalog(){
-        $sql="SELECT * FROM catalog";
+        // $sql="SELECT * FROM catalog";
+        $sql="SELECT catalog.id_catalog,
+                catalog.name_catalog,
+                catalog.banner_catalog,
+                catalog.img_catalog,
+                COUNT(product.id) AS product_count
+        FROM catalog
+        LEFT JOIN product ON catalog.id_catalog = product.id_catalog
+        GROUP BY catalog.id_catalog, catalog.name_catalog,  catalog.banner_catalog, catalog.img_catalog;
+ ";
         return get_All($sql);
     }
     function getAdminCatalogWork(){
@@ -847,7 +856,7 @@ function forgotPassUser($phone) {
                 <td><img src="../assets/icons/'.$img_catalog.'.png" alt="" style=" width:30px; height:30px"></td>
                 <td><img src="../assets/img/banner_product/'.$banner_catalog.'.png" alt="" style=" width:100px; height:50px"></td>
                 <td>'.$name_catalog.'</td>
-                <td>'.$qty_catalog.'</td>
+                <td>'.$product_count.'</td>
                 <td>
                     <a href="'.$linkUpdateCatalog.'" class="hendel-update-act">Sửa</a>|
                     <a href="'.$linkDeleteCatalog.'" class="hendel-delete-act">Xóa</a>

@@ -25,7 +25,7 @@
         <nav class="sidebar_menu ">
             <div class="infor__user row">
                 <div class="infor__user--img">
-                    <img src="../assets/user/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>" alt="">
+                    <img src="../assets/uploads/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>" alt="" class="sidebar--top__left--img">
                 </div>
                 <div class="infor__user--title">
                     <h2 class="infor--title__name">
@@ -331,7 +331,7 @@
 
                     <div class="user__admin row">
                        
-                    <img src="../assets/user/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>" alt="">
+                    <img src="../assets/uploads/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>" alt=""  class="sidebar--top__left--img">
 
                         <p class="user__title">
                             <?php if(isset($_SESSION['user_info'])){echo $_SESSION['user_info']['username'];}?>

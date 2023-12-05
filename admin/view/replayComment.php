@@ -5,7 +5,7 @@
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
-                        <section class="total_product row">
+                    <section class="total_product row">
                             <div class="total_product__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                     fill="none">
@@ -15,11 +15,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Tổng bình luận</p>
-                                <div class="total_product__content--qty"><?=$AllComment[0]['total_comments']?></div>
-                                <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
-                            </div>
+                            <a href="index.php?page=comment">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Tổng bình luận</p>
+                                    <div class="total_product__content--qty"><?=$AllComment[0]['total_comments']?></div>
+                                    <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -32,9 +34,11 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Chưa trả lời</p>
-                                <div class="total_product__content--qty"><?=$loadNoResponded[0]['No_replay']?></div>
-                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                <a href="index.php?page=noComment">
+                                    <p class="total_product__content--title">Chưa trả lời</p>
+                                    <div class="total_product__content--qty"><?=$loadNoResponded[0]['No_replay']?></div>
+                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                </a>
                             </div>
                         </section>
                         <section class="total_product row">
@@ -47,26 +51,28 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Đã trả lời</p>
-                                <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
-                                <p class="total_product__content--desc">Tăng 15% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=replayComment">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Đã trả lời</p>
+                                    <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
+                                    <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                            
+                                </div>
+                            </a>
                         </section>
                     </article>
                     <!-- code table loai hang o day -->
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4><?php echo getPageName(); ?></h4>
-                                <button class="btn btn-ml"><a href="index.php?page=addCatalog">Thêm </a></button>
+                                <h4>Đã trả lời bình luận</h4>
                             </div>
     
-                            <select class="revenue__top--hendel">
+                            <!-- <select class="revenue__top--hendel">
                                 <option value="1">Sắp xếp</option>
                                 <option value="2">Tăng dần</option>
                                 <option value="3">Giảm dần</option>
-                            </select>
+                            </select> -->
                         </div>
                         <table class="table__packgeNew">
                             <thead>
@@ -94,7 +100,6 @@
                                             $showUserComment.='';
                                         }else{
                                             $showUserComment.='
-                                            <td>'.$index.'</td>
                                             <td>'.$product_name.'</td>
                                             <td>'.$comment_time.'</td>
                                             <td>'.$user_username.'</td>

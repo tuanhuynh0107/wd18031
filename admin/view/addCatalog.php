@@ -54,14 +54,14 @@
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Loại hàng mới</h4>
+                                <h4> Thêm loại hàng</h4>
                             </div>
     
-                            <select class="revenue__top--hendel">
+                            <!-- <select class="revenue__top--hendel">
                                 <option value="1">Sắp xếp</option>
                                 <option value="2">Tăng dần</option>
                                 <option value="3">Giảm dần</option>
-                            </select>
+                            </select> -->
                         </div>
                         <!-- form  -->
                         <form action="index.php?page=addCatalog" method="post">

@@ -15,11 +15,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Tổng bình luận</p>
-                                <div class="total_product__content--qty"><?=$AllComment[0]['total_comments']?></div>
-                                <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
-                            </div>
+                            <a href="index.php?page=comment">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Tổng bình luận</p>
+                                    <div class="total_product__content--qty"><?=$AllComment[0]['total_comments']?></div>
+                                    <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -50,13 +52,13 @@
                                 </svg>
                             </div>
                             <a href="index.php?page=replayComment">
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Đã trả lời</p>
-                                <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
-                                <p class="total_product__content--desc">Tăng 15% trong tháng</p>
-                           
-                            </div>
-                        </a>
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Đã trả lời</p>
+                                    <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
+                                    <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                            
+                                </div>
+                            </a>
                         </section>
                     </article>
                     <!-- code table loai hang o day -->
@@ -64,7 +66,6 @@
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
                                 <h4><?php echo getPageName(); ?></h4>
-                                <button class="btn btn-ml"><a href="index.php?page=addCatalog">Thêm </a></button>
                             </div>
     
                             <select class="revenue__top--hendel">

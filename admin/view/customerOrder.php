@@ -1,5 +1,5 @@
 <?php
-    print_r($loadUserCartAdmin);
+    // print_r($loadUserCartAdmin);
 ?>
 <main class="main row">
                 <div class="main-content row">
@@ -14,11 +14,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Số lượng Khách hàng</p>
-                                <div class="total_product__content--qty"><?=$totalAllUser[0]['total_user']?></div>
-                                <p class="total_product__content--desc">Tất cả khách hàng bao gồm cả admin</p>
-                            </div>
+                            <a href="index.php?page=showUser">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Số lượng Khách hàng</p>
+                                    <div class="total_product__content--qty"><?=$totalAllUser[0]['total_user']?></div>
+                                    <p class="total_product__content--desc">Tất cả khách hàng bao gồm cả admin</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -48,25 +50,27 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Khách hàng Ưu tiên</p>
-                                <div class="total_product__content--qty"><?=$vipUser[0]['total_customers']?></div>
-                                <p class="total_product__content--desc">Tăng 15% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=userVip">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Khách hàng Ưu tiên</p>
+                                    <div class="total_product__content--qty"><?=$vipUser[0]['total_customers']?></div>
+                                    <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                                </div>
+                            </a>
                         </section>
                     </article>
                     <!-- code table don hang o day -->
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
-                                <h4>Khách hàng</h4>
+                                <h4>Đơn hàng của khách hàng</h4>
                             </div>
                             
-                            <select class="revenue__top--hendel">
+                            <!-- <select class="revenue__top--hendel">
                                 <option value="1">Cá hồi</option>
                                 <option value="2">Cua</option>
                                 <option value="3">Ghẹ</option>
-                            </select>
+                            </select> -->
                         </div>
                         <table class="table__packgeNew">
                             <thead>

@@ -6,7 +6,7 @@
  if(isset($_SESSION['user_info'])){
     extract($_SESSION['user_info']);
 }
-print_r($_SESSION['user_info']);
+// print_r($_SESSION['user_info']);
  
 ?>
 <main>

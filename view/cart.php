@@ -71,7 +71,7 @@
                                     <div class="cart--item__box row">
                                         <input type="checkbox" name="check-all" id="" class="checkbox1">
                                         
-                                        <a href="'.$linkProduct.'"><img src="./assets/img/img_main/'.$imgPro.'.png" alt="" class="cart--item__box--img"></a>
+                                        <a href="'.$linkProduct.'"><img src="./assets/img/img_main/'.$imgPro.'" alt="" class="cart--item__box--img"></a>
                                         <div class="cart--item__desc">
                                             <div class="cart--desc__title">'.$namePro.'</div>
                                             <div class="cart--desc__classly">

@@ -68,7 +68,7 @@
                             </svg>
                         </a>
                           <figure>
-                              <img src="./assets/img/img_main/<?=$img_main?>.png"
+                              <img src="./assets/img/img_main/<?=$img_main?>"
                                   alt="haisanmientay" class="main-product__img--top-img">
                           </figure>
                         <a href="#!" class="main-product__icon--right">
@@ -81,15 +81,15 @@
                       </div>
                       <div class="main-product__img--bottom">
                           <figure>
-                              <img src="./assets/img/img_main/<?=$img1?>.png"
+                              <img src="./assets/img/img_main/<?=$img1?>"
                                   alt="haisanmientay">
-                              <img src="./assets/img/img_main/<?=$img2?>.png"
+                              <img src="./assets/img/img_main/<?=$img2?>"
                                   alt="haisanmientay">
-                              <img src="./assets/img/img_main/<?=$img3?>.png"
+                              <img src="./assets/img/img_main/<?=$img3?>"
                                   alt="haisanmientay">
-                              <img src="./assets/img/img_main/<?=$img4?>.png"
+                              <img src="./assets/img/img_main/<?=$img4?>"
                                   alt="haisanmientay">
-                            <img src="./assets/img/img_main/<?=$img_main?>.png"
+                            <img src="./assets/img/img_main/<?=$img_main?>"
                             alt="haisanmientay" class="main-product__img--top-img">
                           </figure>
                       </div>

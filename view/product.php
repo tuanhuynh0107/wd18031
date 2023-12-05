@@ -8,7 +8,7 @@
     $linkByNow='index.php?page=byNow&idProduct='.$id;
     $sameType=sameTypeProducts($id);
     // $loadComment=getUserComment(0);
-    // print_r($itemProduct);
+    print_r($itemProduct);
     // print_r($itemDetailProduct);
     $newType = strtolower($type); 
     // echo $newType;
@@ -25,7 +25,32 @@
     
     
     // echo $kq;
-    
+    $saleShow = "";
+    if($sale > 0){
+        $priceSale = $price * ($sale / 100 );
+        $afterPriceReduction = $price - $priceSale;
+        $saleShow .='                    
+            <div class="main-product__content--pice row">
+                <div class="main-product__content--pice__cost">'.number_format($afterPriceReduction,0,",",".").'đ</div>
+                <div class="main-product__content--pice__del-cost">'.number_format($price,0,",",".").'</div>
+                <div class="main-product__content--pice__sale">'.$sale.'%</div>
+            </div>
+        ';
+    }else{
+        $saleShow .='
+
+            <div class="main-product__content--pice row">
+                <div class="main-product__content--pice__cost">'.number_format($price,0,",",".").'đ</div>
+                <div class="main-product__content--pice__sale">'.$sale.'%</div>
+            </div>
+
+        ';
+    }
+    if($sale > 0){
+        $showInputHidden= '<input type="hidden" name="pricePro" value="'.$afterPriceReduction.'">';
+     }else{
+         $showInputHidden='<input type="hidden" name="pricePro" value="'.$price.'">';
+     }
 ?>  
 <main>
       
@@ -92,20 +117,14 @@
                           </p>
                       </div>
 
-                      <div class="main-product__content--pice row">
-                          <div class="main-product__content--pice__cost"><?=number_format($price,0,",",".")?>đ</div>
-                          <div class="main-product__content--pice__del-cost">255,000đ</div>
-                          <div class="main-product__content--pice__sale"><?=$sale?>%</div>
-
-                      </div>
-
+                      <?=$saleShow?>
                       <div class="main-product__content--title row"><?=$name_prd?> <?=$production?></div>
                       <div class="main-product__content--btn row ">
                         <form action="<?=$linkByNow?>" method="post">
                                 <input type="hidden" name="idPro" value="<?=$id?>">
                                 <input type="hidden" name="imgPro" value="<?=$img1?>">
                                 <input type="hidden" name="namePro" value="<?=$name?>">
-                                <input type="hidden" name="pricePro" value="<?=$price?>">
+                                <?=$showInputHidden?>
                                 <input type="hidden" name="typePro" value="'<?=$type?>">
                                 <input type="hidden" name="qtyPro" value="1">
                                 <!-- <input type="hidden" name="nameCata" value="<?=$category_name?>"> -->
@@ -117,11 +136,11 @@
                             <input type="hidden" name="idPro" value="'<?=$id_DP?>">
                             <input type="hidden" name="imgPro" value="<?=$img1?>">
                             <input type="hidden" name="namePro" value="<?=$name_prd?>">
-                            <input type="hidden" name="pricePro" value="<?=$price?>">
-                            <input type="hidden" name="typePro" value="<?=$price?>">
+                            <?=$showInputHidden?>
+                            <input type="hidden" name="typePro" value="<?=$type?>">
                             <input type="hidden" name="qtyPro" value="1">
                             <input type="hidden" name="qty" value="<?=$qty?>">
-                            <input type="hidden" name="nameCata" value="'.$category_name.'">
+                            <input type="hidden" name="nameCata" value="<?=$category_name?>">
 
                             <input type="submit" name="addCart"  class="btn btn__add--Cart"  value="Thêm vào giỏ hàng ">
                             <!-- <a href="#!" name="addCart"></a> -->

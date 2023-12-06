@@ -306,6 +306,7 @@ html {
 }
 
 .revenue__status {
+    justify-content: right;
     position: relative;
     gap: 10px;
 }

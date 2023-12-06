@@ -167,7 +167,17 @@
                                 
                             </tbody>
                         </table>
-                        
+                        <div class="seclect__offset row">
+                            <a href=""><pre><</pre></a>
+                            <a href="index.php?page=cartAdmin&offset=0">1</a>
+                            <a href="index.php?page=cartAdmin&offset=8">2</a>
+                            <a href="index.php?page=cartAdmin&offset=16">3</a>
+                            <a href="index.php?page=cartAdmin&offset=32">4</a>
+                            <a href="index.php?page=cartAdmin&offset=40">5</a>
+                            <a href="index.php?page=cartAdmin&offset=48">6</a>
+                            <a href="index.php?page=cartAdmin&offset=56">7</a>
+                            <a href=""><pre>></pre></a>
+                        </div>
                     </article>
                 </div>
                

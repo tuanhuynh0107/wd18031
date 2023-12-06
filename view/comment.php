@@ -108,7 +108,7 @@
             </div>
 
     <?php
-          if(isset($_POST['sendComment'])&&($_POST['sendComment'])){
+          if(isset($_POST['sendComment'])&& empty($_POST['content__comment'])){
             if(isset($_SESSION['user_info'])){
                 $content = $_POST['content__comment'];
                 $idpro = $_POST['idpro'];

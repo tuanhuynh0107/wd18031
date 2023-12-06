@@ -137,6 +137,11 @@ a {
     --line-clamp: 2;
 }
 
+.line-clamp.line-1 {
+    width: 100px;
+    --line-clamp: 1;
+}
+
 .none {
     display: none;
 }
@@ -1464,6 +1469,10 @@ p {
     margin-top: 10px;
 }
 
+.content__comment {
+    margin-top: 10px;
+}
+
 .history__comment {
     padding: 20px 14px;
     margin-top: 45px;
@@ -2355,8 +2364,8 @@ p {
 }
 
 .sidebar--top__left--img {
-    width: 63px;
-    height: 67px;
+    width: 49px;
+    height: 49px;
     object-fit: cover;
     border-radius: 50%;
 }

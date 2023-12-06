@@ -264,6 +264,37 @@ function getProduct($id_pro){
      p.status_prd = 1 AND c.id_catalog=".$id_Cata ;
         return get_All($sql); 
     }
+    function getItemBestSellingCatalog() {
+        $sql = "SELECT
+        p.id AS product_id,
+        p.name AS product_name,
+        p.qty AS product_qty,
+        c.name_catalog AS category_name,
+        p.price AS product_price,
+        dp.type AS product_type,
+        dp.production AS product_image,
+        dp.sale AS product_sale,
+        a.img1 AS album_image,
+        SUM(dtp.qty) AS total_quantity
+    FROM
+        product p
+    JOIN
+        catalog c ON p.id_catalog = c.id_catalog
+    JOIN
+        detail_product dp ON p.id = dp.id_prd
+    JOIN 
+        detail_package dtp ON dtp.id_prd = p.id  
+    LEFT JOIN
+        album a ON p.id = a.id_prd
+    WHERE 
+        p.status_prd = 1 
+        GROUP BY
+        p.id
+    ORDER BY
+        total_quantity DESC
+    LIMIT 10";
+        return get_All($sql); 
+    }
     function getItemCatalogLimit($id_Cata, $limit) {
         $sql = "SELECT
             p.id AS product_id,

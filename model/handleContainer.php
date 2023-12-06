@@ -252,7 +252,12 @@
     function handleShowCatalog() {
         if(isset($_GET['id_Cata'])&& ($_GET['id_Cata']>0)){
             $id_Cata=$_GET['id_Cata'];
-            $listCatalog = getItemCatalog($id_Cata);
+            if($id_Cata==1){
+                $listCatalog = getItemBestSellingCatalog();
+            }else{
+                $listCatalog = getItemCatalog($id_Cata);
+            }
+            
             $banner = getBannerCatalog($id_Cata);
         }         
         $listItemLimitSpecialty = getDetailSpecialtyProductLimit();

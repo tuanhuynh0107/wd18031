@@ -10,11 +10,17 @@
             position: relative;
             max-width: 600px;
             margin: auto;
+            overflow: hidden;
+        }
+
+        .slideshow-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
 
         .slideshow-image {
-            display: none;
             width: 100%;
+            flex: 0 0 auto;
         }
 
         #main-image {
@@ -35,16 +41,11 @@
             text-decoration: none;
         }
 
-
+        #prev,
         #next {
-            left: 0;
             top: 0;
             bottom: 0;
             margin: auto;
-        }
-
-        #prev {
-            right: 0;
         }
 
         #bottom-buttons {
@@ -66,19 +67,21 @@
 <body>
 
     <div id="slideshow-container">
-        <img id="main-image" class="slideshow-image"
-            src="https://images.unsplash.com/photo-1682687220067-dced9a881b56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
-            alt="Main Image">
-        <img class="slideshow-image"
-            src="https://plus.unsplash.com/premium_photo-1680667682187-52fd5e203efb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
-            alt="Image 2">
-        <img class="slideshow-image"
-            src="https://images.unsplash.com/photo-1695653421411-4c26bd1d02f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8"
-            alt="Image 3">
-        <img class="slideshow-image"
-            src="https://plus.unsplash.com/premium_photo-1701194079056-732f389e27ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8"
-            alt="Image 4">
-        <!-- Add more images as needed -->
+        <div class="slideshow-images">
+            <img id="main-image" class="slideshow-image"
+                src="https://images.unsplash.com/photo-1682687220067-dced9a881b56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                alt="Main Image">
+            <img class="slideshow-image"
+                src="https://plus.unsplash.com/premium_photo-1680667682187-52fd5e203efb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+                alt="Image 2">
+            <img class="slideshow-image"
+                src="https://images.unsplash.com/photo-1695653421411-4c26bd1d02f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8"
+                alt="Image 3">
+            <img class="slideshow-image"
+                src="https://plus.unsplash.com/premium_photo-1701194079056-732f389e27ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8"
+                alt="Image 4">
+            <!-- Add more images as needed -->
+        </div>
 
         <button id="prev" class="button" onclick="changeImage(-1)">❮</button>
         <button id="next" class="button" onclick="changeImage(1)">❯</button>
@@ -94,13 +97,11 @@
 
     <script>
         let currentImageIndex = 0;
+        const imagesContainer = document.querySelector('.slideshow-images');
 
         function showImage(index) {
-            const images = document.getElementsByClassName("slideshow-image");
-            for (let i = 0; i < images.length; i++) {
-                images[i].style.display = "none";
-            }
-            images[index].style.display = "block";
+            const offset = -index * 100 + '%';
+            imagesContainer.style.transform = 'translateX(' + offset + ')';
         }
 
         function changeImage(offset) {

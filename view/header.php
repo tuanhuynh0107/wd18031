@@ -79,35 +79,10 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <div class="header__head">
-        <div class="main-content">
-            <div class="row head__content">
-                <div class="head__discover">
-                    Khám phá thêm về hải sản miền tây
-                </div>
-                <nav class="head__nav">
-                    <ul class="nav__menu row">
-                        <li class="nav__li">
-                            <a href="#!">Trang chủ</a>
-                        </li>
-                        <li class="nav__li">
-                            <a href="#!">Sản phẩm</a>
-                        </li>
-                        <li class="nav__li">
-                            <a href="#!">Giới thiệu</a>
-                        </li>
-                        <li class="nav__li">
-                            <a href="#!">Liên hệ</a>
-                        </li>
-                        <li class="nav__li">
-                            <a href="#!">Kiến thức</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
+   
+    <a href="">
+        <img src="./assets/icons/banner-top.png" alt="" style="width: 100%;margin-bottom: -5px;">
+    </a>
     <header class="header fixed">
         <div class="main-content">
             <div class="header__body">

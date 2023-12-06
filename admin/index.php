@@ -11,6 +11,7 @@
     require_once "../model/handleContainer.php";
     $pageName ="ahahha";
     require_once 'view/header.php';
+    $thongbao="";
    
      if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
@@ -75,17 +76,17 @@
             case 'blockUser':
                 if(isset($_GET['role']) && isset($_GET['idUser']) &&($_GET['idUser']>0)){
                     udpateRoleUser($_GET['role'], $_GET['idUser']);
+                    $thongbao="Bạn đã chặn thành công";
                 }
-                if(isset($_GET['offset'])) {
-                    $offset = $_GET['offset'];
-                    $listUser=getAdminUser($offset);
-                }else {
-                    $listUser=getAdminUser(0);
-                } 
+                if(isset($_GET['idUser'])&&($_GET['idUser']>0)){
+                    $loadUserCartAdmin=getAdminDetailUser($_GET['idUser']);
+                    $listUserID=getAdminUserID($_GET['idUser']);
+                }
+                $listUser=getAdminUser();
                 $totalAllUser=getAdminAll_TotalUser();
                 $newUsersBlackList=getNewUsersBlackList(); 
                 $vipUser=getAdminVipUser();
-                require_once "view/showUser.php";
+                require_once "view/customerOrder.php";
                 break;    
             case 'product':
                 if(isset($_GET['offset'])) {

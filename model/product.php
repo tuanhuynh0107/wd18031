@@ -895,7 +895,7 @@ function forgotPassUser($phone) {
     function getAdminVipUser(){
         $sql="SELECT COUNT( u.id_user) as total_customers
         FROM user u
-        WHERE u.id_user IN (
+        WHERE  u.role_user <> 1 AND u.id_user IN (
             SELECT p.id_user
             FROM package p
             WHERE status = 3
@@ -904,6 +904,10 @@ function forgotPassUser($phone) {
         );
         ";
          return get_All($sql);
+    }
+    function udpateRoleUser($role, $id){
+        $sql="UPDATE user SET role_user='$role' WHERE id_user=".$id;
+        update($sql);
     }
     function getAllAdminVipUser(){
         $sql="SELECT
@@ -943,7 +947,7 @@ function forgotPassUser($phone) {
     JOIN
         package p ON u.id_user = p.id_user
     WHERE
-        u.id_user   IN (
+       u.role_user <> 1 AND u.id_user   IN (
             SELECT id_user
             FROM package
             WHERE status = 5
@@ -1218,19 +1222,20 @@ function forgotPassUser($phone) {
     }
     // thống kê user
     function getAdminAll_TotalUser(){
-        $sql="SELECT COUNT(DISTINCT id_user) AS total_user FROM user;";
+        $sql="SELECT COUNT(DISTINCT id_user) AS total_user FROM user WHERE role_user <> 1";
         return get_All($sql);
     }
 
     function getNewUsersBlackList() {
-        $sql = "SELECT COUNT( u.id_user) as total_customers
+        $sql = "SELECT COUNT(u.id_user) as total_customers, u.role_user as roleUser
         FROM user u
-        WHERE u.id_user IN (
+        WHERE
+         u.role_user <> 1 AND u.id_user IN (
             SELECT p.id_user
             FROM package p
             WHERE status = 5
-            GROUP BY p.id_User
-            HAVING Count(p.id_package) = 1
+            GROUP BY p.id_user
+            HAVING COUNT(p.id_package) >= 1
         );";
     
         return get_All($sql);
@@ -1376,11 +1381,15 @@ function forgotPassUser($phone) {
 
     // get user admin
     function getAdminUser($offset= 0){
-        $sql="SELECT * FROM user LIMIT 8 OFFSET $offset ";
+        $sql="SELECT * FROM user WHERE role_user <> 1  LIMIT 8 OFFSET $offset ";
         return get_All($sql);
     }
     function getAdminDetailUser($id_user){
         $sql= "SELECT * FROM package WHERE id_User=".$id_user;
+        return get_All($sql);
+    }
+    function getAdminUserID($id_user){
+        $sql= "SELECT * FROM user WHERE id_user=".$id_user;
         return get_All($sql);
     }
 

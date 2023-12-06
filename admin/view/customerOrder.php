@@ -1,5 +1,6 @@
 <?php
-    // print_r($loadUserCartAdmin);
+    print_r($listUserID);
+ 
 ?>
 <main class="main row">
                 <div class="main-content row">
@@ -65,7 +66,22 @@
                             <div class="revenue__top--title row">
                                 <h4>Đơn hàng của khách hàng</h4>
                             </div>
-                            
+                            <div class="revenue__top--hendel"> 
+                            <a href="" class="hendel-delete-act"></a>
+                                <?php
+                                    foreach($listUserID as $item){
+                                        extract($item);
+                                        $showBlockUser="";
+                                        if($role_user == 3){
+                                            $showBlockUser=' <a href="index.php?page=blockUser&role=0&idUser='.$id_user.'" class="hendel-delete-act">Hiện</a>';
+                                        }else{
+                                            $showBlockUser=' <a href="index.php?page=blockUser&role=3&idUser='.$id_user.'" class="hendel-delete-act">Chặn</a>';
+
+                                        }
+                                        echo  $showBlockUser;
+                                    }
+                                ?>
+                            </div>
                             <!-- <select class="revenue__top--hendel">
                                 <option value="1">Cá hồi</option>
                                 <option value="2">Cua</option>
@@ -98,6 +114,8 @@
                                         }else if($status==5){
                                             $statusShow="Đã hủy";
                                         }
+
+                                        
                                         echo 
                                         '
                                         <tr>

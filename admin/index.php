@@ -64,6 +64,7 @@
             case 'customerOrder':
                 if(isset($_GET['id_user'])&&($_GET['id_user']>0)){
                     $loadUserCartAdmin=getAdminDetailUser($_GET['id_user']);
+                    $listUserID=getAdminUserID($_GET['id_user']);
                 }
                 $listUser=getAdminUser();
                 $totalAllUser=getAdminAll_TotalUser();
@@ -71,6 +72,21 @@
                 $vipUser=getAdminVipUser();
                 require_once "view/customerOrder.php";
                 break;
+            case 'blockUser':
+                if(isset($_GET['role']) && isset($_GET['idUser']) &&($_GET['idUser']>0)){
+                    udpateRoleUser($_GET['role'], $_GET['idUser']);
+                }
+                if(isset($_GET['offset'])) {
+                    $offset = $_GET['offset'];
+                    $listUser=getAdminUser($offset);
+                }else {
+                    $listUser=getAdminUser(0);
+                } 
+                $totalAllUser=getAdminAll_TotalUser();
+                $newUsersBlackList=getNewUsersBlackList(); 
+                $vipUser=getAdminVipUser();
+                require_once "view/showUser.php";
+                break;    
             case 'product':
                 if(isset($_GET['offset'])) {
                     $offset = $_GET['offset'];

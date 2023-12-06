@@ -66,6 +66,10 @@
                     $_SESSION['user_info']= $getUser;
                     header('location: index.php');
                     exit();
+                }else if($role_user == 3){
+                    header('location: index.php?page=login');
+                    $thongbao = "Tài khoản này không tồn tại";
+                    exit();
                 } else {
                     $thongbao = "Tài khoản mật khẩu không đúng";
                     exit();

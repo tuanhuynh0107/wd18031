@@ -13,7 +13,7 @@
                                 <h4>Sản phẩm đã bán</h4>
                             </div>
                             
-                            <a href="index.php?page=statisticalProduct&id=5">
+                            <a href="index.php?page=statistical&id=1">
                                     <input type="submit" class="form_group__submit--them input-submit__loaihang" name="addCatalog" value="Xem biểu đồ">
                             </a>
                         </div>

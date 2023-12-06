@@ -1181,19 +1181,20 @@ function forgotPassUser($phone) {
         }
         return get_All($sql);
     }
-    function getAminstatisticsCatalog($id){
-        if($id==4){
-            $sql="SELECT qty_catalog as qty, name_catalog as namePro FROM catalog";
-        }
+    function getAminstatisticsCatalog(){
+            $sql="SELECT c.id_catalog, c.name_catalog, COUNT(p.id_catalog) as total_qty
+            FROM catalog c
+            JOIN product p ON p.id_catalog = c.id_catalog
+             GROUP BY c.id_catalog, c.name_catalog";
         return get_All($sql);
     }
-    function getAminstatisticsProduct($id){
-        if($id==5){
+    function getAminstatisticsProduct(){
+       
             $sql="SELECT name_prd as nameProduct, SUM(qty) as qtysold 
             FROM  detail_package
             GROUP BY
             name_prd";
-        }
+
         return get_All($sql);
     }   
     // thống kê home

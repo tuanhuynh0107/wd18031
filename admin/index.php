@@ -21,21 +21,22 @@
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     $loadstatistics= getAminstatistics($_GET['id']);
                 }
-              
+                $loadstatisticsCatalog=getAminstatisticsCatalog();
+                $loadstatisticsProduct=getAminstatisticsProduct();
                 require_once "view/statistical.php";
                 break;
-            case 'statisticalCatalog':
-                if(isset($_GET['id'])&&($_GET['id']>0)){
-                    $loadstatisticsCatalog=getAminstatisticsCatalog($_GET['id']);
-                }
-                require_once "view/statisticalCatalog.php";
-                break;
-            case 'statisticalProduct':
-                if(isset($_GET['id'])&&($_GET['id']>0)){
-                    $loadstatisticsProduct=getAminstatisticsProduct($_GET['id']);
-                }
-                require_once "view/statisticalProduct.php";
-                break;     
+            // case 'statisticalCatalog':
+            //     if(isset($_GET['id'])&&($_GET['id']>0)){
+            //         $loadstatisticsCatalog=getAminstatisticsCatalog($_GET['id']);
+            //     }
+            //     require_once "view/statisticalCatalog.php";
+            //     break;
+            // case 'statisticalProduct':
+            //     if(isset($_GET['id'])&&($_GET['id']>0)){
+            //         $loadstatisticsProduct=getAminstatisticsProduct($_GET['id']);
+            //     }
+            //     require_once "view/statisticalProduct.php";
+            //     break;     
             case 'showUser':
                 if(isset($_GET['offset'])) {
                     $offset = $_GET['offset'];

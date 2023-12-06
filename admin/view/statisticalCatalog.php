@@ -1,7 +1,3 @@
-<?php
-    // print_r($loadstatistics);
-?>
-<form action="" method="post"></form>
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
@@ -26,8 +22,8 @@
                     $dataPoints = [];
                     foreach ($loadstatisticsCatalog as $data) {
                         $dataPoints[] = [
-                            'namePro' => $data['namePro'],
-                            'qty' => $data['qty'],
+                            'name_catalog' => $data['name_catalog'],
+                            'total_qty' => $data['total_qty'],
                             
                         ];
                     }
@@ -48,9 +44,9 @@
                     var productChart = new Chart(ctx, {
                         type: 'pie',
                         data: {
-                            labels: productData.map(item => item.namePro),
+                            labels: productData.map(item => item.name_catalog),
                             datasets: [{
-                                data: productData.map(item => item.qty),
+                                data: productData.map(item => item.total_qty),
                                 backgroundColor: [
                                     'rgba(75, 192, 192, 0.7)', // Màu cho Type A
                                     'rgba(255, 99, 132, 0.7)', // Màu cho Type B
@@ -71,6 +67,7 @@
                         }
                     });
                     </script>
+                    
                     </article>
                 </div>
                

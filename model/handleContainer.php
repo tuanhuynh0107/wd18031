@@ -16,32 +16,41 @@
             $phone = $_POST['phone'];
             $pass = $_POST['pass'];
             $interPass = $_POST['interPass'];
-        
-            if (empty($phone) || empty($pass) || empty($interPass)) {
-                $thongbao = "Vui lòng điền đầy đủ thông tin.";
-            } else {
-                $sql = "SELECT * FROM user WHERE phone = ? ";
-                $existingidUser = pdo_query_one($sql, $phone);
-                if($existingidUser){
-                    $thongbao="Trùng số điện thoại";
-                }else{
-                    if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
-                        $thongbao = "Số điện thoại của bạn không hợp lệ.";
-                    } else {
-                        if (!preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $pass) && !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $interPass)) {
-                            $thongbao = "Mật khẩu phải có ít nhất 6 ký tự (chữ và số) nhiều nhất là 12 kí tự.";
+
+            $sql = "SELECT * FROM user WHERE phone = ? AND role_user = 3";
+            $roloUser = pdo_query_one($sql, $phone);
+
+            if( $roloUser){
+                $thongbao="Tài khoản bị chặn";
+            }else{
+
+                if (empty($phone) || empty($pass) || empty($interPass)) {
+                    $thongbao = "Vui lòng điền đầy đủ thông tin.";
+                } else {
+                    $sql = "SELECT * FROM user WHERE phone = ? ";
+                    $existingidUser = pdo_query_one($sql, $phone);
+                    if($existingidUser){
+                        $thongbao="Trùng số điện thoại";
+                    }else{
+                        if (!preg_match("/^(0[3|5|7|8|9])+([0-9]{8})$/", $phone)) {
+                            $thongbao = "Số điện thoại của bạn không hợp lệ.";
                         } else {
-                            if ($pass == $interPass) {
-                                insetUser($phone,$pass);
-                                $thongbao = "Đăng ký thành công";
+                            if (!preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $pass) && !preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/", $interPass)) {
+                                $thongbao = "Mật khẩu phải có ít nhất 6 ký tự (chữ và số) nhiều nhất là 12 kí tự.";
                             } else {
-                                $thongbao = "Mật khẩu không trùng nhau";
+                                if ($pass == $interPass) {
+                                    insetUser($phone,$pass);
+                                    $thongbao = "Đăng ký thành công";
+                                } else {
+                                    $thongbao = "Mật khẩu không trùng nhau";
+                                }
                             }
                         }
                     }
+                   
                 }
-               
             }
+
         }
         require_once "view/register.php";
 
@@ -51,7 +60,9 @@
             $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
             $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
             $getUser = getUser($phone, $pass);
-        
+
+            $redirect = false; //
+
             if (is_array($getUser)) {
                 $userId = $getUser['user_id'];
                 $role_user = $getUser['role_user'];
@@ -66,17 +77,22 @@
                     $_SESSION['user_info']= $getUser;
                     header('location: index.php');
                     exit();
-                }else if($role_user == 3){
-                    header('location: index.php?page=login');
+                }
+                else if($role_user == 3){
+                    
                     $thongbao = "Tài khoản này không tồn tại";
+                    header('location: index.php?page=login');
+                    
                     exit();
-                } else {
+                } 
+                else {
                     $thongbao = "Tài khoản mật khẩu không đúng";
                     exit();
                 }
             } else {
                 $thongbao = "Tài khoản mật khẩu không đúng";
             }
+            
         }
 
           if (isset($thongbao)) {

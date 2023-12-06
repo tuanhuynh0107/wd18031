@@ -179,7 +179,7 @@ function getProduct($id_pro){
             $proQty=1;
             $kq .= '<div class="course-item">
             <a href="'.$linkProduct.'" class="course__images">
-                <img src="./assets/img/img_main/'.$album_image.'.png" alt="Basic web design" class="thumb" />
+                <img src="./assets/img/img_main/'.$album_image.'" alt="Basic web design" class="thumb" />
                 
             </a>
             <div class="info row">
@@ -237,7 +237,7 @@ function getProduct($id_pro){
         foreach($banner_catalog as $itemBaner){
             extract($itemBaner);
             echo '<a href="">
-                    <img src="./assets/img/banner_product/'.$banner_catalog.'.png" alt="">
+                    <img src="./assets/img/banner_product/'.$banner_catalog.'" alt="">
                 </a>';
         }
     }
@@ -634,7 +634,7 @@ function forgotPassUser($phone) {
             $linkItems = "index.php?page=showCatalog&id_Cata=".$id_catalog;
             $show .= '<li class="menu__catalog">
                         <a href="'.$linkItems.'" class="menu__catalog--act row">
-                            <img src="./assets/icons/'.$img_catalog.'.png" alt="" class="catalog__act--icon">
+                            <img src="./assets/icons/'.$img_catalog.'" alt="" class="catalog__act--icon">
                             <span class="catalog__act--title">'.$name_catalog.'</span>
                         </a>
                     </li>';
@@ -869,8 +869,8 @@ function forgotPassUser($phone) {
             '
             <tr>
                 <td><a href="">#'.$id_catalog.'</a></td>
-                <td><img src="../assets/icons/'.$img_catalog.'.png" alt="" style=" width:30px; height:30px"></td>
-                <td><img src="../assets/img/banner_product/'.$banner_catalog.'.png" alt="" style=" width:100px; height:50px"></td>
+                <td><img src="../assets/icons/'.$img_catalog.'" alt="" style=" width:30px; height:30px"></td>
+                <td><img src="../assets/img/banner_product/'.$banner_catalog.'" alt="" style=" width:100px; height:50px"></td>
                 <td>'.$name_catalog.'</td>
                 <td>'.$product_count.'</td>
                 <td>

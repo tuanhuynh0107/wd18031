@@ -96,7 +96,7 @@
                                             <td colspan="2" class="pay-ment__bod--img">
                                                 <a href="'.$linkProduct.'">
                                                     <img style="width: 130px;height: 130px;"
-                                                    src="./assets/img/img_main/'.$imgPro.'.png" >
+                                                    src="./assets/img/img_main/'.$imgPro.'" >
                                                 </a<
                                             </td>
                                             <td class="pay-ment__bod--title">'.$namePro.'</td>

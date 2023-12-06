@@ -63,6 +63,7 @@
                             </div>
                             <div class="revenue__status row">
                                 <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
+                                <a href="index.php?page=loadCartStatus&status=6" class="revenue__top--satus">Đã xác nhận</a>
                                 <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang vận chuyển</a>
                                 <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Giao hàng thành công</a>
                                 <a href="index.php?page=loadCartStatus&status=4" class="revenue__top--satus">Thất bại</a>
@@ -93,7 +94,7 @@
                                                     <option value="4">Giao hàng thất bại</option>
                                                 </select>
                                             ';
-                                        }elseif($status==2) {
+                                        }else if($status==2) {
                                             $statusShow .= '
                                                 <select name="indStatus" class="revenue__top--hendel yourCard__status">
                                                     <option value="2">Đang vận chuyển</option>
@@ -101,14 +102,14 @@
                                                     <option value="4">Giao hàng thất bại</option>
                                                 </select>
                                             ';
-                                        }elseif($status==3) {
+                                        }else if($status==3) {
                                             $statusShow .= '
                                                 <select name="indStatus" class="revenue__top--hendel yourCard__status">
                                                     <option value="3">Giao hàng thành công</option>
                                                 </select>
                                                 ';
                                         }
-                                        elseif($status==4) {
+                                        else if($status==4) {
                                             $statusShow .= '
                                                 <select name="indStatus" class="revenue__top--hendel yourCard__status">
                                                     <option value="4">Giao hàng thất bại</option>
@@ -117,7 +118,7 @@
                                                 </select>
                                                 ';
                                         }
-                                        elseif($status==5) {
+                                        else if($status==5) {
                                             $statusShow .= '
                                                 <select name="indStatus" class="revenue__top--hendel yourCard__status">
                                                     <option value="5">Đã hủy</option>
@@ -128,6 +129,18 @@
                                                 </select>
                                                 ';
                                         }
+                                        else if($status==6) {
+                                            $statusShow .= '
+                                                <select name="indStatus" class="revenue__top--hendel yourCard__status">
+                                                    <option value="5">Đã hủy</option>
+                                                    <option value="2">Đang vận chuyển</option>
+                                                    <option value="3">Giao hàng thành công</option>
+                                                    <option value="4">Giao hàng thất bại</option>
+                                                    <option value="1">Chờ xác nhận</option>
+                                                </select>
+                                                ';
+                                        }
+                                        
                                         echo 
                                         '
                                         <form action="index.php?page=updateStatus&idPackage='.$id_package.'" method="post">

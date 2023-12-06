@@ -292,7 +292,8 @@ html {
 } */
 
 .revenue__top {
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    flex-direction: row;
 }
 
 .revenue__top--satus {
@@ -301,6 +302,7 @@ html {
     color: #fff;
     border-radius: 6px;
     font-size: 1.4rem;
+    white-space: nowrap;
 }
 
 .revenue__status {
@@ -312,6 +314,10 @@ html {
     color: var(--primary-color--font);
     font-size: 2.4rem;
     font-weight: 500;
+}
+.revenue__top--title{
+    display: block;
+    
 }
 
 .revenue__top--hendel {

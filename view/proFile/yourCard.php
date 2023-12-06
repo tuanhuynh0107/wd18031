@@ -175,6 +175,10 @@
                                         $statusShow .= '
                                         <span class="yourCard__status">Đã hủy </span>
                                             ';
+                                    }else if($status==6){
+                                        $statusShow .= '
+                                        <span class="yourCard__status">Đã xác nhận </span>
+                                            ';
                                     }
                                     echo 
                                     '

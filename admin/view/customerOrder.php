@@ -65,6 +65,7 @@
                         <div class="revenue__top row">
                             <div class="revenue__top--title row">
                                 <h4>Đơn hàng của khách hàng</h4>
+                                <?=$thongbao?>
                             </div>
                             <div class="revenue__top--hendel"> 
                             <a href="" class="hendel-delete-act"></a>
@@ -73,7 +74,7 @@
                                         extract($item);
                                         $showBlockUser="";
                                         if($role_user == 3){
-                                            $showBlockUser=' <a href="index.php?page=blockUser&role=0&idUser='.$id_user.'" class="hendel-delete-act">Hiện</a>';
+                                            $showBlockUser=' <a href="index.php?page=blockUser&role=0&idUser='.$id_user.'" class="hendel-delete-act">Bỏ chặn</a>';
                                         }else{
                                             $showBlockUser=' <a href="index.php?page=blockUser&role=3&idUser='.$id_user.'" class="hendel-delete-act">Chặn</a>';
 

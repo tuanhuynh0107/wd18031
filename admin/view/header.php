@@ -201,7 +201,7 @@
                                     return 'Đơn hàng';
                                 case 'loadCartStatus':
                                     return 'Đơn hàng';
-                                // loại hàng 5 trang
+                                // loại hàng 6 trang
                                 case 'catalog':
                                     return 'Loại hàng';
                                 case 'addCatalog':
@@ -211,6 +211,8 @@
                                 case 'showDetailCatalogWork':
                                     return 'Loại hàng';
                                 case 'updateCatalog':
+                                    return 'Loại hàng';
+                                case 'stopWork':
                                     return 'Loại hàng';
                                 // bình luận 4 trang
                                 case 'comment':
@@ -252,7 +254,8 @@
                                 case 'updateDetailProduct':
                                     return 'Sản phẩm';              
                                 case 'updateAlbum_DetailProduct':
-                                    return 'Sản phẩm';              
+                                    return 'Sản phẩm'; 
+                                                 
                                 // Thêm các trang khác nếu cần
                                 default:
                                     return 'Trang không xác định';

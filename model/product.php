@@ -805,6 +805,16 @@ function forgotPassUser($phone) {
         $sql="SELECT c.id_catalog, c.name_catalog
          FROM catalog c
          JOIN product p ON p.id_catalog = c.id_catalog
+         WHERE p.qty > 0
+          GROUP BY c.id_catalog, c.name_catalog
+        ";
+        return get_All($sql);
+    }
+    function getAdminCatalogStopWork(){
+        $sql="SELECT c.id_catalog, c.name_catalog
+         FROM catalog c
+         JOIN product p ON p.id_catalog = c.id_catalog
+         WHERE p.qty = 0
           GROUP BY c.id_catalog, c.name_catalog
         ";
         return get_All($sql);
@@ -976,7 +986,14 @@ function forgotPassUser($phone) {
     }
     function getAdminWorkCatalog(){
         $sql="SELECT COUNT(DISTINCT id_catalog) AS total_catalogs
-        FROM product;";
+        FROM product
+        WHERE qty > 0;;";
+        return get_All($sql);
+    }
+    function getAdminstopWorkingCatalog(){
+        $sql="SELECT COUNT(DISTINCT id_catalog) AS total_catalogs_with_qty_zero
+        FROM product
+        WHERE qty = 0;";
         return get_All($sql);
     }
 

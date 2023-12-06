@@ -377,7 +377,16 @@
                 $listCatalog=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
+                $stopWorkingCatalog=getAdminstopWorkingCatalog();
                 require_once "view/showCatalogWork.php";
+                break;    
+            case 'stopWork':
+                $showCatalogStopWork=getAdminCatalogStopWork();
+                $listCatalog=getAdminCatalog();
+                $countAllCatalog= getAdminCountCatalog();
+                $workCatalog=getAdminWorkCatalog();
+                $stopWorkingCatalog=getAdminstopWorkingCatalog();
+                require_once "view/showCatalogStopWork.php";
                 break;    
             case 'showDetailCatalogWork':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
@@ -387,12 +396,14 @@
                 $listCatalog=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
+                $stopWorkingCatalog=getAdminstopWorkingCatalog();
                 require_once "view/showDetailCatalogWork.php";
                 break;    
             case 'catalog':
                 $listCatalog=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
+                $stopWorkingCatalog=getAdminstopWorkingCatalog();
                 require_once "view/catalog.php";
                 break; 
             case 'DeleteCatalog':
@@ -402,6 +413,7 @@
                 }
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
+                $stopWorkingCatalog=getAdminstopWorkingCatalog();
                 $listCatalog=getAdminCatalog();
                 require_once "view/catalog.php";
                 break;
@@ -444,6 +456,7 @@
                 $listItem=getAdminCatalog();
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
+                $stopWorkingCatalog=getAdminstopWorkingCatalog();
                 require_once "view/formAddCatalog.php";
                 break;      
             case 'updateCatalog':
@@ -454,6 +467,7 @@
                 }
                 $countAllCatalog= getAdminCountCatalog();
                 $workCatalog=getAdminWorkCatalog();
+                $stopWorkingCatalog=getAdminstopWorkingCatalog();
                 require_once "view/formUpdateCatalog.php";
                 break; 
             case 'updateCata':
@@ -489,6 +503,7 @@
               }
               $countAllCatalog= getAdminCountCatalog();
               $workCatalog=getAdminWorkCatalog();
+              $stopWorkingCatalog=getAdminstopWorkingCatalog();
               $listCatalog=getAdminCatalog();
               require_once "view/catalog.php";
                 break;

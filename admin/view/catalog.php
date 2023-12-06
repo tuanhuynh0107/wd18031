@@ -45,11 +45,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Cần xuất nhanh</p>
-                                <div class="total_product__content--qty">3</div>
-                                <p class="total_product__content--desc">Tăng 15% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=stopWork">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Ngưng hoạt động</p>
+                                    <div class="total_product__content--qty"><?=$stopWorkingCatalog[0]['total_catalogs_with_qty_zero']?></div>
+                                    <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                                </div>
+                            </a>
                         </section>
                     </article>
                     <!-- code table loai hang o day -->

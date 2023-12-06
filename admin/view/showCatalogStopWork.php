@@ -78,7 +78,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach(  $showCatalogWork as $item){
+                                    foreach( $showCatalogStopWork as $item){
                                         extract($item);
                                         $linkDetailCatalog="index.php?page=showDetailCatalogWork&id=".$id_catalog;
                                         echo 

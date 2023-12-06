@@ -31,11 +31,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
+                            
+                            <a href="index.php?page=loadCartStatus&status=2" class="total_product__content row">
                                 <p class="total_product__content--title">Đơn hàng đang vận chuyển</p>
                                 <div class="total_product__content--qty"><?=$shipCart[0]['shipCart']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>
-                            </div>
+                            </a>
+                            
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -56,7 +58,7 @@
                     </article>
                     <!-- code table don hang o day -->
                     <article class="revenue">
-                        <div class="revenue__top row">
+                        <div class="revenue__top ">
                             <div class="revenue__top--title">
                                 <h4>Đơn hàng mới</h4>
                             </div>
@@ -90,7 +92,7 @@
                                             $statusShow .= '
                                                 <select name="indStatus" class="revenue__top--hendel yourCard__status">
                                                     <option value="1">Chờ xác nhận</option>
-                                                    <option value="6">xác nhận</option>
+                                                    <option value="6">Xác nhận</option>
                                                     <option value="2">Đang vận chuyển</option>
                                                     <option value="3">Giao hàng thành công</option>
                                                     <option value="4">Giao hàng thất bại</option>

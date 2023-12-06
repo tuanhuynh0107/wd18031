@@ -306,6 +306,7 @@ html {
 }
 
 .revenue__status {
+    justify-content: right;
     position: relative;
     gap: 10px;
 }
@@ -315,9 +316,10 @@ html {
     font-size: 2.4rem;
     font-weight: 500;
 }
-.revenue__top--title{
+
+.revenue__top--title {
     display: block;
-    
+    margin: 0px 0px 10px 0px;
 }
 
 .revenue__top--hendel {

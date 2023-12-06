@@ -283,15 +283,20 @@ html {
     padding: 35px;
 }
 
-
 .revenue__top {
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+.revenue__top--title {
+    display: block;
+    margin: 20px 0px;
 }
 
 .revenue__top--title>h4 {
     color: var(--primary-color--font);
     font-size: 2.4rem;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .revenue__top--hendel {

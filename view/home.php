@@ -1,13 +1,86 @@
     
     <div class="main-content">
         <div class="main-hero">
-            <img src="./assets/icons/main-banner.png" alt="" class="main-banner">
+            <div id="slideshow-container">
+                <div class="slideshow-images">
+                    <img id="main-image" class="slideshow-image"
+                        src="./assets/icons/main-banner.png"
+                        alt="Main Image">
+                    <img class="slideshow-image"
+                        src="./assets/icons/main-banner1.png"
+                        alt="Image 2">
+                    <img class="slideshow-image"
+                        src="./assets/icons/main-banner2.png"
+                        alt="Image 3">
+                    <!-- <img class="slideshow-image"
+                        src=""
+                        alt="Image 4"> -->
+                    <!-- Add more images as needed -->
+                </div>
+
+                <button id="prev" class="button" onclick="changeImage(-1)">❮</button>
+                <button id="next" class="button" onclick="changeImage(1)">❯</button>
+
+                <div id="bottom-buttons">
+                    <button class="thumbnail-button" onclick="currentImage(1)"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="4" viewBox="0 0 12 4" fill="none">
+                        <path d="M10.25 2L2 2" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                                            <button class="thumbnail-button" onclick="currentImage(2)"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="4" viewBox="0 0 12 4" fill="none">
+                        <path d="M10.25 2L2 2" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                                            <button class="thumbnail-button" onclick="currentImage(3)"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="4" viewBox="0 0 12 4" fill="none">
+                        <path d="M10.25 2L2 2" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <!-- <button class="thumbnail-button" onclick="currentImage(4)">&#9679;</button> -->
+                    <!-- Add more thumbnail buttons as needed -->
+                </div>
+            </div>
             <figure class="banner-rigth row">
                 <img src="./assets/icons/banner-right1.png" alt="">
                 <img src="./assets/icons/banner-right2.png" alt="">
             </figure>
         </div>
     </div>
+    
+    <script>
+        let currentImageIndex = 0;
+        const imagesContainer = document.querySelector('.slideshow-images');
+
+        function showImage(index) {
+            const offset = -index * 100 + '%';
+            imagesContainer.style.transform = 'translateX(' + offset + ')';
+        }
+
+        function changeImage(offset) {
+            currentImageIndex += offset;
+            const images = document.getElementsByClassName("slideshow-image");
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            showImage(currentImageIndex);
+        }
+
+        function currentImage(index) {
+            currentImageIndex = index - 1;
+            showImage(currentImageIndex);
+        }
+        function startAutoSlide() {
+        setInterval(function() {
+            changeImage(1);
+        }, 4000); // Chuyển ảnh sau 4 giây
+    }
+
+    // Initial display and start auto slideshow
+   
+    startAutoSlide();
+        // Initial display
+        showImage(currentImageIndex);
+    </script>
 
 
     <section class="banner__bottom">

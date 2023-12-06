@@ -141,13 +141,20 @@
                                                 </select>
                                                 ';
                                         }
+                                        $dateString = $time;
+
+                                        // Tạo một đối tượng DateTime từ chuỗi ngày tháng năm
+                                        $date = new DateTime($dateString);
+
+                                        // Định dạng ngày tháng năm mới
+                                        $newDateFormat = $date->format('d-m-Y H:i:s');
                                         echo 
                                         '
                                         <form action="index.php?page=updateStatus&idPackage='.$id_package.'" method="post">
                                             <tr>
                                                 <td><a href="index.php?page=detailPackage&idPackage='.$id_package.'" class="id__cart">'.$id_package.'</a></td>
                                                 <td>'.$name.'</td>
-                                                <td>'.$time.'</td>
+                                                <td>'.$newDateFormat.'</td>
                                                 <td>'.$note.'</td>
                                                 <td> 
                                                     '. $statusShow.'

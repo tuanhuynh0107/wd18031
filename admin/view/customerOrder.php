@@ -115,7 +115,13 @@
                                         }else if($status==5){
                                             $statusShow="Đã hủy";
                                         }
+                                        $dateString = $time;
 
+                                        // Tạo một đối tượng DateTime từ chuỗi ngày tháng năm
+                                        $date = new DateTime($dateString);
+
+                                        // Định dạng ngày tháng năm mới
+                                        $newDateFormat = $date->format('d-m-Y H:i:s');
                                         
                                         echo 
                                         '
@@ -123,7 +129,7 @@
                                             <td>#ĐH'.$id_package.'</td>
                                             <td>'.number_format($total,0,",",".").'đ</td>
                                             <td>'.$statusShow.'</td>
-                                            <td>'.$time.'</td>
+                                            <td>'.$newDateFormat.'</td>
                                             <td>'.$note.'</td>
                                         </tr>
                                         ';

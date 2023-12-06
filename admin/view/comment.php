@@ -88,12 +88,19 @@
                                 <?php
                                     foreach($loadComment as $item){
                                         extract($item);
+                                        $dateString = $comment_time;
+
+                                        // Tạo một đối tượng DateTime từ chuỗi ngày tháng năm
+                                        $date = new DateTime($dateString);
+
+                                        // Định dạng ngày tháng năm mới
+                                        $newDateFormat = $date->format('d-m-Y H:i:s');
                                         echo 
                                         '
                                         <tr>
                                             <td>'.$product_name.'</td>
                                             <td>'.$product_qty.'</td>
-                                            <td>'.$comment_time.'</td>
+                                            <td>'.$newDateFormat.'</td>
                                             <td>'.$user_username.'</td>
                                             <td>'.$comment_text.'</td>
                                         </tr>

@@ -420,7 +420,6 @@ input {
 .hero {
     background: #50C5F7;
     height: auto;
-    padding: 9px 0px;
 }
 
 /* catalog hero */
@@ -428,6 +427,11 @@ input {
 .catalog {
     gap: 40px;
     justify-content: space-between;
+}
+
+.catalog__log:first-child {
+    background-color: #277699;
+    padding: 8px 34px 8px 0px;
 }
 
 
@@ -520,7 +524,9 @@ input {
 }
 
 .banner-rigth img {
-    border-radius: 12px;
+    width: 358px;
+    height: 222px;
+    /* border-radius: 12px; */
 }
 
 .banner__ngaoso {
@@ -942,7 +948,6 @@ input {
 .blog .item {
     flex-shrink: 0;
     width: calc(33.33% - 20px);
-    background: #ffffff;
     border-radius: 16px;
 }
 

@@ -1452,8 +1452,14 @@ function forgotPassUser($phone) {
     }
 
     // cart 
-    function getAdminCartStatus($status){
+    function getAdminCartStatus($status,$offset){
         $sql="SELECT * FROM package where status=".$status;
+        $sql.=" LIMIT 8 OFFSET $offset";
+        return get_All($sql);
+    }
+    function getAdminOffsetCart($status, $offset){
+        $sql="SELECT package.*, count(id_package) as id_package FROM package where status=".$status;
+        $sql.=" LIMIT 8 OFFSET $offset";
         return get_All($sql);
     }
 

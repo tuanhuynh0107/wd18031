@@ -522,28 +522,31 @@
             require_once "view/cartAdmin.php";
             break;
             case 'loadCartStatus':
-                if(isset($_GET['status'])&&($_GET['status'])){
+                if(isset($_GET['status'])&&($_GET['status'])&&isset($_GET['offset'])){
+                    $offset=$_GET['offset'];
                     $status = $_GET['status'];
-                    $listCart=getAdminCartStatus($status);
+                    $listCart=getAdminCartStatus($status, $offset);
+                    $listOffset=getAdminOffsetCart($status, $offset);
                 }
                 $countAllCart=getAdmin_AllCart();
                 $shipCart=getAdmin_ShippCart();
                 $newOrder=getAdmin_NewCart();
+           
                 require_once "view/cartAdmin.php";
                 break;
-            case 'cartAdmin':
-                if(isset($_GET['offset'])) {
-                    $offset = $_GET['offset'];
-                    $listCart= getAdminCart($offset);
-                }else {
-                    $listCart= getAdminCart(0);
-                }      
+            // case 'cartAdmin':
+            //     if(isset($_GET['offset'])) {
+            //         $offset = $_GET['offset'];
+            //         $listCart= getAdminCart($offset);
+            //     }else {
+            //         $listCart= getAdminCart(0);
+            //     }      
 
-                $countAllCart=getAdmin_AllCart();
-                $shipCart=getAdmin_ShippCart();
-                $newOrder=getAdmin_NewCart();
-                require_once "view/cartAdmin.php";
-                break;  
+            //     $countAllCart=getAdmin_AllCart();
+            //     $shipCart=getAdmin_ShippCart();
+            //     $newOrder=getAdmin_NewCart();
+            //     require_once "view/cartAdmin.php";
+            //     break;  
             case 'updateStatus':
                 if(isset($_POST['updateStatus']) && isset($_POST['indStatus']) && isset($_POST['id_package']) && $_POST['updateStatus']){
                     $indStatus = $_POST['indStatus'];

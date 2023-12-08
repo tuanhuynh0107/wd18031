@@ -319,10 +319,25 @@
                         <button type="submit" name="searchProduct" style="display:none;">Tìm</button>
                         <div class="products">
                             <div>
-                            <h3>Loading...</h3>
+                                <h3>Loading...</h3>
                             </div>
                         </div>
                     </form>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var filterInput = document.getElementById('filter');
+                            var productsDiv = document.querySelector('.products');
+
+                            filterInput.addEventListener('input', function () {
+                                // Show or hide the products div based on input value
+                                if (filterInput.value.trim() !== '') {
+                                    productsDiv.style.display = 'block';
+                                } else {
+                                    productsDiv.style.display = 'none';
+                                }
+                            });
+                        });
+                    </script>
                 </div>
                 <div class="ship row">
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none"
@@ -454,8 +469,11 @@
                         
                     </div>
                 </div>
+                
             </div>
+           
         </div>
+        
     </header>
 
     <section class="hero">
@@ -578,9 +596,11 @@
         $dataPoints = [];
         foreach ($listProduct as $data) {
             $dataPoints[] = [
+
                 'product_name' => $data['product_name'],
                 'album_image' => $data['album_image'],
                 'product_price' => $data['product_price'],
+                'product_id' => $data['product_id'] 
             ];
         }
 
@@ -610,11 +630,13 @@
                     listItems.push(div);
 
                     div.innerHTML = `
+                    <a href="index.php?page=product&idProduct=${product.product_id}" class="item_Product">
                         <img src="./assets/img/img_main/${product.album_image}" alt="">
-                        <div class="product-detail">
+                       
                             <h4>${product.product_name.slice(0, 30)}</h4>
-                            <p>$${product.product_price}</p>
-                        </div>
+                            <p>${product.product_price}VNĐ</p>
+                       
+                    </a>
                     `;
 
                     products.appendChild(div);

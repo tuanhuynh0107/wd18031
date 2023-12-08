@@ -1,4 +1,8 @@
+    <?php 
     
+        print_r($listItemLimit[0]);
+    
+    ?>
     <div class="main-content">
         <div class="main-hero">
             <div id="slideshow-container">

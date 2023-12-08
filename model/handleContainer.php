@@ -283,6 +283,7 @@
         if(isset($_POST['searchProduct'])&& ($_POST['searchProduct'] || " ")){
             $contentSearch = $_POST['content'];
             $lissItemSearch = getItemSearch($contentSearch); 
+            
         }
         if($lissItemSearch == []) {
             require_once "view/home.php";
@@ -295,6 +296,5 @@
             require_once "view/timkiemsanpham.php";
         }
 
-       
     }
 ?>

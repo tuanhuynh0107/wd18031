@@ -161,6 +161,10 @@ input {
     position: relative;
 }
 
+.input-text__search {
+    padding-left: 12px;
+}
+
 .input-text input,
 .input-text label {
     font-size: 1.4rem;
@@ -168,24 +172,30 @@ input {
 
 .input-text input {
     width: 361px;
-    padding: 6px;
+    padding: 8px;
+    padding-left: 22px;
     border: 2px solid #ccc;
-    border-radius: 2px;
+    border-radius: 6px;
     transition: border-color 0.2s;
 }
 
 .input-text input:focus {
-    border-color: var(--primary-color);
+    border-color: var(--primary-color-bgc);
+}
+
+.input-text input:focus .icon_search {
+    opacity: 0;
 }
 
 .input-text input:focus+label,
 .input-text input:not(:placeholder-shown)+label {
-    translate: 0 -28px;
+    translate: 0 -38px;
     text-shadow: -0.1px -0.1px currentColor, 0.1px 0.1px currentColor;
+
 }
 
 .input-text input:focus+label {
-    color: var(--primary-color);
+    color: var(--primary-color-bgc);
 }
 
 .input-text label {
@@ -198,10 +208,12 @@ input {
     transition: translate, color, text-shadow;
     transition-duration: 0.2s;
     pointer-events: none;
+    font-style: italic;
 }
 
 .icon_search {
     margin-right: 10px;
+
 }
 
 /* Header */
@@ -516,9 +528,9 @@ input {
 }
 
 .banner-rigth {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     margin-left: 10px;
-    /* justify-content: space-between; */
+    gap: 12px;
     flex: 1;
     flex-direction: column;
 }
@@ -526,7 +538,12 @@ input {
 .banner-rigth img {
     width: 358px;
     height: 222px;
-    /* border-radius: 12px; */
+    border-radius: 12px;
+}
+
+.banner-catalog {
+    width: 100%;
+    object-fit: cover;
 }
 
 .banner__ngaoso {
@@ -617,6 +634,17 @@ input {
     right: -10px;
 }
 
+.course-item__sale {
+    position: absolute;
+    background-color: #f23611;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    color: #fff;
+    right: 0px;
+
+    /* width: 12px; */
+}
+
 
 
 .course_sale--title {
@@ -629,10 +657,10 @@ input {
 
 .popular .course-item .thumb {
     width: 100%;
-    height: 212px;
+    height: 250px;
     object-fit: cover;
     padding: 20px;
-    background-color: #fff;
+    /* background-color: #fff; */
     box-shadow: 0px 0px 2px 0px #ccc;
 
 }
@@ -722,7 +750,7 @@ input {
 }
 
 .icon__addCart {
-    opacity: 0;
+    opacity: 1;
     cursor: pointer;
     transition: opacity 500ms ease-in-out;
 }

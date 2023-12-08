@@ -61,22 +61,22 @@
                     <div class="main-product__img">
                         <div class="main-product__img--top">
                             <a href="#!" class="main-product__icon--left">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 60 60" fill="none">
-                                    <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" fill="white"/>
-                                    <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" stroke="black"/>
-                                    <path d="M26.6354 30L40 43.2228L36.1823 47L19 30L36.1823 13L40 16.7799L26.6354 30.0027V30Z" fill="#ABABAB"/>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <circle cx="16" cy="16" r="16" fill="white" fill-opacity="0.3"/>
+  <path d="M19 6L8 16L19 26" fill="white" fill-opacity="0.3"/>
+  <path d="M19 6L8 16L19 26" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                             </a>
                             <figure>
                                 <img src="./assets/img/img_main/<?=$img_main?>"
                                     alt="haisanmientay" class="main-product__img--top-img">
                             </figure>
                             <a href="#!" class="main-product__icon--right">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 60 60" fill="none">
-                                    <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" fill="white"/>
-                                    <rect x="59.5" y="0.5" width="59" height="59" rx="29.5" transform="rotate(90 59.5 0.5)" stroke="black"/>
-                                    <path d="M32.3646 30L19 16.7772L22.8177 13L40 30L22.8177 47L19 43.2201L32.3646 29.9973V30Z" fill="#ABABAB"/>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <circle cx="16" cy="16" r="16" transform="rotate(-180 16 16)" fill="white" fill-opacity="0.3"/>
+  <path d="M13 26L24 16L13 6" fill="white" fill-opacity="0.3"/>
+  <path d="M13 26L24 16L13 6" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                             </a>
                       </div>
                       <div class="main-product__img--bottom">

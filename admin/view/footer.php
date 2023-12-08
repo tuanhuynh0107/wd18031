@@ -3,7 +3,7 @@
         // print_r( $loadCommentNew );
         // echo '</pre>';
 ?>
-<section class="notify row">
+                <section class="notify row">
                     <!-- POST -->
                     <!-- <div class="notify__post ">
                         <div class="notify__post--heading row ">
@@ -117,7 +117,7 @@
 
 
 
-                </script>
+                        </script>
                                 
                             </div>
                         </div>

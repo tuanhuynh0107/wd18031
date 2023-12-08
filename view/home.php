@@ -1,6 +1,6 @@
     <?php 
     
-        print_r($listItemLimit[0]);
+        // print_r($listItemLimit[0]);
     
     ?>
     <div class="main-content">
@@ -87,11 +87,9 @@
     </script>
 
 
-    <section class="banner__bottom">
-        <figure class="main-content">
-            <a href=""><img src="./assets/icons/baorebaongon.png" alt=""></a>
-        </figure>
-    </section>
+    <!-- <section class="banner__bottom">
+            <a href=""><img src="./assets/icons/baorebaongon.png" alt="" class="banner-baore"></a>
+    </section> -->
     
   
     <main>

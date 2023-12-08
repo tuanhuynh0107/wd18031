@@ -159,12 +159,12 @@ function getProduct($id_pro){
                 $priceSale = $product_price * ($product_sale / 100 );
                 $afterPriceReduction = $product_price - $priceSale;
                 $saleShow .='                    
-                    <span class="price">'.number_format( $afterPriceReduction,0,",",".").' VND / '.$product_type.'</span> <del class="price-del">'.number_format($product_price,0,",",".").' đ</del>
+                    <span class="price">'.number_format( $afterPriceReduction,0,",",".").' VNĐ / '.$product_type.'</span> <del class="price-del">'.number_format($product_price,0,",",".").' đ</del>
                 ';
             }else{
                 $saleShow .='
 
-                <span class="price">'.number_format($product_price,0,",",".").' VND / '.$product_type.'</span> 
+                <span class="price">'.number_format($product_price,0,",",".").' VNĐ / '.$product_type.'</span> 
 
                 ';
             }

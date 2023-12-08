@@ -18,7 +18,6 @@
                 if (isset($_GET['idPackage'])&&($_GET['idPackage']>0)) {
                     $listDetailCart=  getDetailPackage($_GET['idPackage']);
                     $itemPackage=  getPackage(($_GET['idPackage']));
-
                 }
                 $loadUser=loadAllUser($id_user);
                 require_once "view/proFile/detailPackage.php";
@@ -105,6 +104,7 @@
             case 'yourProduct':
                 if (isset($_GET['id_user'])&&($_GET['id_user']>0)) {
                     $listCartProduct= getYourProduct($_GET['id_user']);
+
                 }
                 require_once "view/proFile/yourProduct.php";
                 break;    

@@ -562,8 +562,8 @@
                                 </linearGradient>
                             </defs>
                         </svg>
-                        <span class="log__atc--title">
-                            kiêm tra ưu đãi
+                        <span class="log__atc--title" style="white-space: wrap; width: 179px;">
+                           Chương trình khách hàng thân thiết
                         </span>
                     </a>
                 </li>

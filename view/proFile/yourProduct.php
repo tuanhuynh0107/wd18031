@@ -3,9 +3,9 @@
     if(isset($loadUser)){
         extract($loadUser);
     }
-    // echo '<pre>';
-    //     print_r($listCartProduct);
-    // echo '</pre>';
+
+        print_r($listCartProduct[0]);
+
 ?>
 <main>
         <article class="heading-cart">

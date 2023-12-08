@@ -313,7 +313,6 @@ input {
     display: flex;
     align-items: center;
     max-width: 80%;
-    height: 100%;
     margin: 0 auto;
 }
 
@@ -344,7 +343,8 @@ input {
 
     min-width: 250px;
     min-height: 120px;
-    padding: 10px;
+    padding: 10px 0px 10px;
+    padding-top: 18px;
     border-radius: 3px;
     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
     background: rgba(255, 255, 255, 0.90);
@@ -354,6 +354,13 @@ input {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s, visibility 0.2s, scale 0.2s;
+
+}
+
+.cart__scroll {
+    height: 350px;
+    overflow-y: auto;
+    margin-left: 0px;
 }
 
 /* Cart arrow top */
@@ -476,6 +483,7 @@ input {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    height: 456px;
 }
 
 /* navbar */
@@ -541,11 +549,12 @@ input {
     flex: 1;
     flex-direction: column;
     padding: 10px 0px;
+    margin-bottom: 10px;
 }
 
 .banner-rigth img {
     width: 358px;
-    height: 222px;
+    height: 50%;
     border-radius: 12px;
 }
 
@@ -698,7 +707,7 @@ input {
     font-weight: 600;
     line-height: 16px;
     word-wrap: break-all;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
 }
 
 .popular .course-item .foot .rating {
@@ -2746,11 +2755,11 @@ p {
     display: block;
     white-space: nowrap;
     position: absolute;
-    bottom: -8px;
+    bottom: 0px;
     border: none;
     border-radius: 0px;
     background-color: var(--primary-color-bgc);
-
+    position: fixed;
 }
 
 .imgCartView {

@@ -6,9 +6,8 @@
     if(isset($_SESSION['user_info'])){
          extract($_SESSION['user_info']);
     }
-    // if(isset($listProduct)){
-    //     extract($listProduct);
-    // }
+
+    // print_r($_SESSION['cart']);
 ?>
 <?php
                         function getPageName() {
@@ -409,36 +408,39 @@
 
                                     <!-- Cart preview -->
                                         <div class="cart-preview">
-                                                <table class="table__hover-cart">
-                                                    <thead>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th></th>
-                                                    
-                                                    </thead>
-                                                    <tbody> ';
-                                                        $idCart= 0;
-                                                        foreach($_SESSION['cart'] as $tiem){
-                                                            extract($tiem);
-                                                            $linkDeleCart = "index.php?page=delCart&id=".$idCart;
+                                            <div class="cart__scroll">
+                                                    <table class="table__hover-cart">
+                                                        <thead>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                        
+                                                        </thead>
+                                                        <tbody> ';
+                                                            $idCart= 0;
+                                                            foreach($_SESSION['cart'] as $tiem){
+                                                                extract($tiem);
+                                                                $linkDeleCart = "index.php?page=delCart&id=".$idCart;
+                                                                $linkProduct = 'index.php?page=product&idProduct='.$idProduct;
+                                                                $showHoverCart.= '
+                                                                
+                                                                                <tr>
+                                                                                    <td><a href="'.$linkProduct.'"> <img src="./assets/img/img_main/'.$imgPro.'" alt="" class="imgCartView"></a></td>
+                                                                                    <td>'.$namePro.'</div></td>
+                                                                                    <td> '.number_format($pricePro,0,",",".").' VNĐ</td>
+                                                                                    <td> <a href="'.$linkDeleCart.'">xóa</a></td>
+                                                                                </tr>
+                                                                        
+                                                                        <';
+                                                                $idCart++;
+                                                            }
                                                             $showHoverCart.= '
-                                                            
-                                                                            <tr>
-                                                                                <td> <img src="./assets/img/img_main/'.$imgPro.'" alt="" class="imgCartView"></td>
-                                                                                <td>'.$namePro.'</div></td>
-                                                                                <td> '.number_format($pricePro,0,",",".").' VNĐ</td>
-                                                                                <td> <a href="'.$linkDeleCart.'">xóa</a></td>
-                                                                            </tr>
-                                                                    
-                                                                    <';
-                                                            $idCart++;
-                                                        }
-                                                        $showHoverCart.= '
-                                                            
-                                                    </tbody>
-                                                </table>
+                                                                
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                                 <a href="index.php?page=cart" class="btn viewCart">Xem giỏ hàng</a>
                                         </div>
                                                                 

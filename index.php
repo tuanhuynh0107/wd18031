@@ -6,6 +6,7 @@
     require_once "model/product.php";
     require_once "model/handleContainer.php";
     $listCatalog= getCatalog();
+    $listProduct = getDetailProduct();
     require_once "view/header.php";
     $thongbao = "";
     

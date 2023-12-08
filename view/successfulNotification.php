@@ -1,5 +1,5 @@
 <?php
-    print_r($loadUser);
+    // print_r($loadUser);
     if(isset($loadUser) && is_array($loadUser)){
         extract($loadUser);
     }

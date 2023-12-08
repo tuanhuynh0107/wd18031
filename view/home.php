@@ -1,6 +1,6 @@
     <?php 
     
-        // print_r($listItemLimit[0]);
+        // print_r($listProduct);
     
     ?>
     <div class="main-content">

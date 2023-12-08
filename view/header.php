@@ -6,6 +6,9 @@
     if(isset($_SESSION['user_info'])){
          extract($_SESSION['user_info']);
     }
+    // if(isset($listProduct)){
+    //     extract($listProduct);
+    // }
 ?>
 <?php
                         function getPageName() {
@@ -301,21 +304,27 @@
                             fill="white" />
                     </svg>
                 </a>
-
+               
                 <!-- search -->
-
-                <form action="index.php?page=searchProduct" method="post" class="input-text">
-                    <input type="text" name="content" id="username" placeholder=" "  class="input-text__search"/>
-                    <label for="username" class="row">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
-                            viewBox="0 0 20 21" fill="none" class="icon_search">
-                            <path
-                                d="M18.33 19.8659C18.8283 20.3643 19.5975 19.5951 19.0992 19.1076L15.0367 15.0343C16.4617 13.4575 17.2494 11.4071 17.2467 9.28178C17.2467 4.52595 13.3792 0.658447 8.62333 0.658447C3.8675 0.658447 0 4.52595 0 9.28178C0 14.0376 3.8675 17.9051 8.62333 17.9051C10.7683 17.9051 12.7508 17.1143 14.2675 15.8034L18.33 19.8659ZM1.08225 9.28178C1.08225 5.12178 4.47308 1.74178 8.62225 1.74178C12.7823 1.74178 16.1623 5.12178 16.1623 9.28178C16.1623 13.4418 12.7823 16.8218 8.62225 16.8218C4.47308 16.8218 1.08225 13.4418 1.08225 9.28178Z"
-                                fill="#000" />
-                        </svg>TÌM KIẾM TRÊN HẢI SẢN MIỀN TÂY</label>
-                    <button type="submit" name="searchProduct" style="display:none;">Tìm</button>
-                </form>
-
+             
+                 <div class="search_container">
+                    <form action="index.php?page=searchProduct" method="post" class="input-text">
+                        <input type="text" name="content"  id="filter" placeholder=" "  class="input-text__search"/>
+                        <label for="username" class="row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                viewBox="0 0 20 21" fill="none" class="icon_search">
+                                <path
+                                    d="M18.33 19.8659C18.8283 20.3643 19.5975 19.5951 19.0992 19.1076L15.0367 15.0343C16.4617 13.4575 17.2494 11.4071 17.2467 9.28178C17.2467 4.52595 13.3792 0.658447 8.62333 0.658447C3.8675 0.658447 0 4.52595 0 9.28178C0 14.0376 3.8675 17.9051 8.62333 17.9051C10.7683 17.9051 12.7508 17.1143 14.2675 15.8034L18.33 19.8659ZM1.08225 9.28178C1.08225 5.12178 4.47308 1.74178 8.62225 1.74178C12.7823 1.74178 16.1623 5.12178 16.1623 9.28178C16.1623 13.4418 12.7823 16.8218 8.62225 16.8218C4.47308 16.8218 1.08225 13.4418 1.08225 9.28178Z"
+                                    fill="#000" />
+                            </svg>TÌM KIẾM TRÊN HẢI SẢN MIỀN TÂY</label>
+                        <button type="submit" name="searchProduct" style="display:none;">Tìm</button>
+                        <div class="products">
+                            <div>
+                            <h3>Loading...</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="ship row">
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none"
                         class="ship__icon">
@@ -562,3 +571,62 @@
             });
             });
     </script>
+        <?php
+        // Dữ liệu mẫu về doanh số bán hàng theo tháng
+        $dataPoints = [];
+        foreach ($listProduct as $data) {
+            $dataPoints[] = [
+                'product_name' => $data['product_name'],
+                'album_image' => $data['album_image'],
+                'product_price' => $data['product_price'],
+            ];
+        }
+
+        // Chuyển định dạng dữ liệu sang JSON để truyền vào JavaScript
+        $salesDataJSON = json_encode($dataPoints);
+        ?>
+
+        <script>
+            const products = document.querySelector('.products');
+            const filter = document.getElementById('filter');
+            const listItems = [];
+
+            getData();
+
+            filter.addEventListener('input', (e) => filterData(e.target.value));
+
+            async function getData() {
+                // Sử dụng dữ liệu JSON đã được chuyển định dạng từ PHP
+                const dataPoints = <?php echo $salesDataJSON; ?>;
+
+                // Clear products
+                products.innerHTML = '';
+
+                dataPoints.forEach((product) => {
+                    const div = document.createElement('div');
+                    div.setAttribute('class', 'product');
+                    listItems.push(div);
+
+                    div.innerHTML = `
+                        <img src="./assets/img/img_main/${product.album_image}" alt="">
+                        <div class="product-detail">
+                            <h4>${product.product_name.slice(0, 30)}</h4>
+                            <p>$${product.product_price}</p>
+                        </div>
+                    `;
+
+                    products.appendChild(div);
+                });
+            }
+
+            function filterData(search) {
+                listItems.forEach((item) => {
+                    if (item.innerText.toLowerCase().includes(search.toLowerCase())) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            }
+        </script>
+

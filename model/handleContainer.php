@@ -246,7 +246,7 @@
             extract($_SESSION['user_info']);
             $loadUser=loadAllUser($id_user);
         }
-         require_once "view/payMent.php";
+         require_once "view/successfulNotification.php";
     }
 
     function handleShowCatalog() {

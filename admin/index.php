@@ -518,7 +518,7 @@
             $countAllCart=getAdmin_AllCart();
             $shipCart=getAdmin_ShippCart();
             $newOrder=getAdmin_NewCart();
-            $listCart= getAdminCart();
+            $listCart= getAdminCart(0);
             require_once "view/cartAdmin.php";
             break;
             case 'loadCartStatus':
@@ -531,6 +531,19 @@
                 $newOrder=getAdmin_NewCart();
                 require_once "view/cartAdmin.php";
                 break;
+            case 'cartAdmin':
+                if(isset($_GET['offset'])) {
+                    $offset = $_GET['offset'];
+                    $listCart= getAdminCart($offset);
+                }else {
+                    $listCart= getAdminCart(0);
+                }      
+
+                $countAllCart=getAdmin_AllCart();
+                $shipCart=getAdmin_ShippCart();
+                $newOrder=getAdmin_NewCart();
+                require_once "view/cartAdmin.php";
+                break;  
             case 'updateStatus':
                 if(isset($_POST['updateStatus']) && isset($_POST['indStatus']) && isset($_POST['id_package']) && $_POST['updateStatus']){
                     $indStatus = $_POST['indStatus'];
@@ -558,6 +571,7 @@
                 
                 require_once "view/cartStatus.php";
                 break;
+             
             case 'detailPackage':
                 if(isset($_GET['idPackage'])&&($_GET['idPackage']) > 0) {
                     $id_package= $_GET['idPackage'];

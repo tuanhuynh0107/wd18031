@@ -1457,11 +1457,12 @@ function forgotPassUser($phone) {
         return get_All($sql);
     }
 
-    function getAdminCart(){
+    function getAdminCart($offset){
         // $sql="SELECT * FROM package ORDER BY time DESC ";
         // $sql = "SELECT * FROM package WHERE DATE(time) = CURDATE() ORDER BY time DESC";
         $sql = "SELECT * FROM package ";
         $sql.=" ORDER BY id_package DESC";
+        $sql.=" LIMIT 8 OFFSET $offset";
         return get_All($sql);
     }
     function getAllAdminCart($indStatus){

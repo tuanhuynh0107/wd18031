@@ -246,6 +246,7 @@
             extract($_SESSION['user_info']);
             $loadUser=loadAllUser($id_user);
         }
+        $listItemLimitRanDom = getDetailProductLimitRanDom();
          require_once "view/successfulNotification.php";
     }
 

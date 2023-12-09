@@ -1,7 +1,7 @@
 <?php
     // print_r($listDetail);
 ?>
-<input type="submit" value="">
+<!-- <input type="submit" value=""> -->
 <form action="" method="post"></form>
 <main class="main row">
                 <div class="main-content row">

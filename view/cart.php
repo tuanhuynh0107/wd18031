@@ -53,8 +53,10 @@
                                 $quantyty = 0;
                                 $index = 0;
                                 foreach ($_SESSION['cart'] as $item) {
+                                    $indexDel=0;
                                     extract($item);
                                     $linkProduct = 'index.php?page=product&idProduct='.$idProduct;
+                                    $linkDeleCart = 'index.php?page=delCart&id='.$indexDel;
                                     $index++;
                                     echo '
                                     <div class="cart__content--item">
@@ -118,6 +120,7 @@
                                     $idCart++;
                                     $total_qty += $total;
                                     $quantyty += $qtyPro;
+                                    $indexDel++;
                                 }
                                
                             }

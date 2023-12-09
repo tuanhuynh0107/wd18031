@@ -630,7 +630,12 @@
             case 'showProductSold':
                 $showSoldPro=getAdminSoldPro();
                 require_once "view/showSoldProductTable.php";
-                break;          
+                break;
+            case 'logOut':
+                session_unset();
+                header('Location: ../index.php');
+                exit;
+                break;                  
             default:
             // khách hàng ưu tiên thì tôi cho mua 10 đơn hàng trở lên thành khách hàng vip
             // niếu muôn thay đổi khách hàng đó mua bao nhiêu đơn thi ngay dòng 751 model/product.php

@@ -49,6 +49,13 @@
                 $vipUser=getAdminVipUser();
                 require_once "view/showUser.php";
                 break;
+            case 'listAdmin':
+                $totalAllUser=getAdminAll_TotalUser();
+                $newUsersBlackList=getNewUsersBlackList(); 
+                $vipUser=getAdminVipUser();
+                $loadListAdmin=getAdminListAdmin();
+                require_once "view/showListAdmin.php";
+                break;        
             case 'userVip':
                 $totalAllUser=getAdminAll_TotalUser();
                 $newUsersBlackList=getNewUsersBlackList(); 
@@ -633,7 +640,8 @@
                 session_unset();
                 header('Location: ../index.php');
                 exit;
-                break;                  
+                break;
+                              
             default:
             // khách hàng ưu tiên thì tôi cho mua 10 đơn hàng trở lên thành khách hàng vip
             // niếu muôn thay đổi khách hàng đó mua bao nhiêu đơn thi ngay dòng 751 model/product.php

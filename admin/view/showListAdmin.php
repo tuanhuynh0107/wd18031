@@ -61,7 +61,7 @@
                     <article class="revenue">
                         <div class="revenue__top">
                             <div class="revenue__top--title row">
-                                <h4 class="revenue__title--heading">Khách hàng</h4>
+                                <h4 class="revenue__title--heading"><a href="index.php?page=showUser"> Khách hàng</a></h4>
                                 <h4 class="revenue__title--heading"><a href="index.php?page=listAdmin">Quản trị viên</a></h4>
                                 <!-- Thêm show admin -->
                             </div>
@@ -75,14 +75,44 @@
                                     <th>Email</th>
                                     <th>Giới tính</th>
                                     <th>Địa chỉ</th>
-                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?=showAdminUser($listUser)?>
+                                <?php
+                                    foreach($loadListAdmin as $itemAdmin){
+                                        extract ($itemAdmin);
+                                        $genderShơw="";
+                                        if($gender==1) {
+                                            $genderShơw.= '
+                                                Nam
+                                            ';
+                                        }elseif($gender == 2) {
+                                            $genderShơw.= '
+                                                Nữ
+                                            ';
+                                        }elseif($gender == 3) {
+                                            $genderShơw.= '
+                                                Khác
+                                            ';
+                                        }
+                                        echo 
+                                        '
+                                            <tr>
+                                                <td>'.$id_user.'</td>
+                                                <td>'.$username.'</td>
+                                                <td>'.$phone.'</td>
+                                                <td>'.$email.'</td>
+                                                <td>'.$genderShơw.'</td>
+                                                <td class="line-clamp">'.$address.'</td>
+                                            </tr>
+                                        ';
+                                    }
+                                
+                                ?>
+                              
                             </tbody>
                         </table>
-                        <div class="seclect__offset row">
+                        <!-- <div class="seclect__offset row">
                             <a href=""><pre><</pre></a>
                             <a href="index.php?page=showUser&offset=0">1</a>
                             <a href="index.php?page=showUser&offset=8">2</a>
@@ -90,7 +120,7 @@
                             <a href="index.php?page=showUser&offset=32">4</a>
                             <a href="index.php?page=showUser&offset=40">5</a>
                             <a href=""><pre>></pre></a>
-                        </div>
+                        </div> -->
                     </article>
                 </div>
 

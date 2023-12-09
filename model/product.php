@@ -953,6 +953,10 @@ function forgotPassUser($phone) {
         ";
          return get_All($sql);
     }
+    function getAdminListAdmin(){
+        $sql="SELECT * FROM user WHERE role_user = 1 ";
+        return get_All($sql);
+    }
     function udpateRoleUser($role, $id){
         $sql="UPDATE user SET role_user='$role' WHERE id_user=".$id;
         update($sql);

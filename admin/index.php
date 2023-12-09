@@ -12,6 +12,7 @@
     $pageName ="ahahha";
     require_once 'view/header.php';
     $thongbao="";
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
    
      if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
@@ -594,10 +595,21 @@
                 }else {
                     $loadComment=getAdminCommet(0);
                 }
+                $loadFeedBack=getAdminFeedBack();
                 $loadNoResponded = getAdminNoResponded();
                 $loadResponded = getAdmiResponded();
                 $AllComment=getAdminAllComment();
                 require_once 'view/comment.php';
+                break;   
+            case 'feedBack':
+                if(isset($_GET['idfeedback'])&&($_GET['idfeedback']>0)){
+                    $loadDetailFeedBack=getAdminDetaiFeedBack($_GET['idfeedback']);    
+                }
+                
+                $loadNoResponded = getAdminNoResponded();
+                $loadResponded = getAdmiResponded();
+                $AllComment=getAdminAllComment();
+                require_once 'view/feedBack.php';
                 break;   
             case 'noComment':
                 $loadNoResponded = getAdminNoResponded();

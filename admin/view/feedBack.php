@@ -1,5 +1,5 @@
 <?php
-    // print_r($itemDetailPackage);
+    // print_r($loadDetailFeedBack);
 
 ?>
 <!-- <input type="submit" value=""> -->
@@ -7,7 +7,7 @@
 <main class="main row">
                 <div class="main-content row">
                     <article class="box-total row">
-                        <section class="total_product row">
+                    <section class="total_product row">
                             <div class="total_product__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
                                     fill="none">
@@ -17,11 +17,13 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Tổng đơn hàng</p>
-                                <div class="total_product__content--qty"></div>
-                                <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
-                            </div>
+                            <a href="index.php?page=comment">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Tổng bình luận</p>
+                                    <div class="total_product__content--qty"><?=$AllComment[0]['total_comments']?></div>
+                                    <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
+                                </div>
+                            </a>
                         </section>
                         <section class="total_product row">
                             <div class="total_product__icon">
@@ -34,9 +36,11 @@
                                 </svg>
                             </div>
                             <div class="total_product__content row">
-                                <p class="total_product__content--title">Đơn hàng đang vận chuyển</p>
-                                <div class="total_product__content--qty"></div>
-                                <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                <a href="index.php?page=noComment">
+                                    <p class="total_product__content--title">Chưa trả lời</p>
+                                    <div class="total_product__content--qty"><?=$loadNoResponded[0]['No_replay']?></div>
+                                    <p class="total_product__content--desc">Tăng 40% trong tháng</p>
+                                </a>
                             </div>
                         </section>
                         <section class="total_product row">
@@ -49,18 +53,21 @@
                                         fill="#FEFEFD" />
                                 </svg>
                             </div>
-                            <div class="total_product__content row">
-                                <p class="total_product__content--title">Đơn hàng mới</p>
-                                <div class="total_product__content--qty"></div>
-                                <p class="total_product__content--desc">Tăng 15% trong tháng</p>
-                            </div>
+                            <a href="index.php?page=replayComment">
+                                <div class="total_product__content row">
+                                    <p class="total_product__content--title">Đã trả lời</p>
+                                    <div class="total_product__content--qty"><?=$loadResponded[0]['replay']?></div>
+                                    <p class="total_product__content--desc">Tăng 15% trong tháng</p>
+                            
+                                </div>
+                            </a>
                         </section>
                     </article>
                     <!-- code table don hang o day -->
                     <article class="revenue">
                         <div class="revenue__top row">
                             <div class="revenue__top--title">
-                                <h4>Chi tiết đơn hàng <?=$id_package?></h4>
+                                <h4>Chi tiết đơn hàng <?=$loadDetailFeedBack[0]['id_cart']?></h4>
                             </div>
                             <div class="revenue__status row">
                                 <!-- <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
@@ -73,63 +80,25 @@
                         <table class="table__packgeNew">
                             <thead>
                                 <tr>
-                                    <td>Mã chi tiết</td>
-                                    <td>Tên sản phẩm</td>
-                                    <td>Số lượng</td>
-                                    <td>Giá</td>
-                                    <td>Tổng tiền</td>
-                                    <td>Đơn vị vận chuyển</td>
-                                    <td>Thuộc đơn hàng</td>
+                                    <td>Mã phản hồi</td>
+                                    <td>Nội dụng</td>
+                                    <td>Thời gian</td>
+                                    <td>Sản phẩm</td>
                                 </tr>
                             </thead>
                             <tbody>
                                <?php
-                                    foreach($itemDetailPackage as $cart){
-                                        extract($cart);
-                                        $transShow="";
-
-                                        if($id_trans==1) {
-                                            $transShow.= "
-                                                Grab
-                                            ";
-                                        }elseif($id_trans==2) {
-                                            $transShow.= "
-                                                Bee
-                                            ";
-                                        }
-                                        elseif($id_trans==3) {
-                                            $transShow.= "
-                                                Ahamovw
-                                            ";
-                                        }
-                                        elseif($id_trans==4) {
-                                            $transShow.= "
-                                                Sv xanh
-                                            ";
-                                        }
-                                        echo 
-                                        '
-                                        <form action="" method="post">
+                                    foreach ($loadDetailFeedBack as $item) {
+                                        if ($item !== null) {
+                                            extract($item);
+                                            echo '
                                             <tr>
-                                                <td><a href="" class="id__cart">'.$id_Detail_Package.'</a></td>
-                                                <td>'.$name_prd.'</td>
-                                                <td>'.$qty.'</td>
-                                                <td> 
-                                                    '. $price.'
-                                                </td>
-                                                <td> 
-                                                    '. $total.'
-                                                </td>
-                                                <td> 
-                                                    '. $transShow.'
-                                                </td>
-                                                <td> 
-                                                    '. $id_package.'
-                                                </td>
-                                                
-                                            </tr>
-                                        </form>
-                                        ';
+                                                <td>' . $id . '</td>
+                                                <td>' . $content_feedback . '</td>
+                                                <td>' . $time . '</td>
+                                                <td>' . $name_prd . '</td>
+                                            </tr>';
+                                        }
                                     }
                                 ?> 
                                 

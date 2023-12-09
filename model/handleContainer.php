@@ -203,6 +203,7 @@
     //     require_once('view/catalog/'.$name_catalog.'.php');
     // }
     function handleBill() {
+        
           // check người dùng không đăng nhập thì không cho đặt hàng
           if(!isset($_POST['name']) || empty($_POST['name']) && !isset($_POST['phone']) || empty($_POST['phone']) && !isset($_POST['address']) || empty($_POST['address'])){
             $thongbao='Bạn chưa điền thông tin.';
@@ -210,6 +211,7 @@
              $note="";
              if(isset($_POST['order'])&&($_POST['order'])){ 
                  // insert bill
+                 date_default_timezone_set('Asia/Ho_Chi_Minh');
                  $name=$_POST['name'];              
                  $phone=$_POST['phone'];
                  $address=$_POST['address'];

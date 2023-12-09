@@ -1180,8 +1180,7 @@ function forgotPassUser($phone) {
     }
     // trang thống kê
     function getAminstatistics($id){
-
-        if($id==1 || $id == null){
+        if($id==1 ){
             // thống kê tổng đơn hàng trong ngày
             $sql="SELECT
                 u.phone as phone,
@@ -1455,7 +1454,7 @@ function forgotPassUser($phone) {
     // cart 
     function getAdminCartStatus($status,$offset=0){
         $sql="SELECT * FROM package where status=".$status;
-        $sql.=" LIMIT 8 OFFSET $offset";
+        $sql.=" ORDER BY id_package DESC LIMIT 8 OFFSET $offset";
         return get_All($sql);
     }
     function getAdminOffsetCart($status, $offset){
@@ -1467,7 +1466,7 @@ function forgotPassUser($phone) {
     function getAdminCart($offset){
         // $sql="SELECT * FROM package ORDER BY time DESC ";
         // $sql = "SELECT * FROM package WHERE DATE(time) = CURDATE() ORDER BY time DESC";
-        $sql = "SELECT * FROM package ";
+        $sql = "SELECT * FROM package WHERE status =1";
         $sql.=" ORDER BY id_package DESC";
         $sql.=" LIMIT 8 OFFSET $offset";
         return get_All($sql);
@@ -1570,6 +1569,23 @@ function forgotPassUser($phone) {
     }
     function getAdminAllComment(){
         $sql= "SELECT COUNT(*) AS total_comments FROM comment;";
+        return get_All($sql);
+    }
+    function getAdminFeedBack(){
+        $sql= "SELECT DISTINCT p.*, f.id_package
+        FROM package p
+        JOIN fead_back f ON p.id_package = f.id_package
+        ORDER BY f.id_package DESC
+        ";
+        return get_All($sql);
+    }
+    function getAdminDetaiFeedBack($idfeedback) {
+        $sql = "SELECT DISTINCT  fb.content_feedback, fb.time,fb.id, p.id_package as id_cart, fb.id_package, dp.name_prd
+                FROM fead_back fb
+                JOIN package p ON fb.id_package = p.id_package
+                JOIN detail_package dp ON p.id_package = dp.id_package
+                WHERE fb.id_package = " . $idfeedback;
+        $sql.=" GROUP BY fb.content_feedback, fb.time, fb.id_package, dp.name_prd";        
         return get_All($sql);
     }
     function getAdminNoResponded(){

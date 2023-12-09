@@ -1,5 +1,5 @@
 <?php
-    // print_r(  $loadNoResponded );
+    // print_r( $loadFeedBack);
 
 ?>
 <main class="main row">
@@ -103,6 +103,64 @@
                                             <td>'.$newDateFormat.'</td>
                                             <td>'.$user_username.'</td>
                                             <td>'.$comment_text.'</td>
+                                        </tr>
+                                        
+                                        ';
+                                    }
+                                
+                                ?>
+                                
+                            </tbody>
+                        </table>
+                        <div class="seclect__offset row">
+                            <a href=""><pre><</pre></a>
+                            <a href="index.php?page=comment&offset=0">1</a>
+                            <a href="index.php?page=comment&offset=8">2</a>
+                            <a href="index.php?page=comment&offset=16">3</a>
+                            <a href="index.php?page=comment&offset=32">4</a>
+                            <a href="index.php?page=comment&offset=40">5</a>
+                            <a href=""><pre>></pre></a>
+                        </div>
+                    </article>
+                    <article class="revenue">
+                        <div class="revenue__top row">
+                            <div class="revenue__top--title row">
+                                <h4>FeedBack từ khách hàng</h4>
+                            </div>
+    
+                            <select class="revenue__top--hendel">
+                                <option value="1">Sắp xếp</option>
+                                <option value="2">Tăng dần</option>
+                                <option value="3">Giảm dần</option>
+                            </select>
+                        </div>
+                        <table class="table__packgeNew">
+                            <thead>
+                                <tr>
+                                    <td>Mã đơn hàng</td>
+                                    <td>Tên khách hàng</td>
+                                    <td>Địa chỉ</td>
+                                    <td>Số điện thoại</td>
+                                    <td>Giá đơn hàng</td>
+                                    <td>Thao tác</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    foreach( $loadFeedBack as $item){
+                                        extract($item);
+                                        $linkFeedBack ='index.php?page=feedBack&idfeedback='.$id_package;
+                                        echo 
+                                        '
+                                        <tr>
+                                            <td>'.$id_package.'</td>
+                                            <td>'.$name.'</td>
+                                            <td>'.$address.'</td>
+                                            <td>'.$phone.'</td>
+                                            <td>'.$total.'</td>
+                                            <td>
+                                                <a href="'.$linkFeedBack.'" class="hendel-delete-act">Xem chi tiết</a>
+                                            </td>
                                         </tr>
                                         
                                         ';

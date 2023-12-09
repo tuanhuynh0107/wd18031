@@ -163,9 +163,7 @@ function getProduct($id_pro){
                 ';
             }else{
                 $saleShow .='
-
                 <span class="price">'.number_format($product_price,0,",",".").' VNĐ / '.$product_type.'</span> 
-
                 ';
             }
 

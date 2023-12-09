@@ -600,6 +600,7 @@
                 'product_name' => $data['product_name'],
                 'album_image' => $data['album_image'],
                 'product_price' => $data['product_price'],
+                'product_sale' => $data['product_sale'],
                 'product_id' => $data['product_id'] 
             ];
         }
@@ -628,13 +629,21 @@
                     const div = document.createElement('div');
                     div.setAttribute('class', 'product');
                     listItems.push(div);
+                    var saleShow = "";
+                    if(product.product_sale > 0){
+                        var priceSale = product.product_price * (product.product_sale / 100 );
+                        var afterPriceReduction =  product.product_price - priceSale ;
+                        saleShow = `<p>${afterPriceReduction}VNĐ</p>`;
+                    }else{
+                        saleShow = `<p>${ product.product_price}VNĐ</p>`;
+                    }
 
                     div.innerHTML = `
                     <a href="index.php?page=product&idProduct=${product.product_id}" class="item_Product">
                         <img src="./assets/img/img_main/${product.album_image}" alt="">
                        
                             <h4>${product.product_name.slice(0, 30)}</h4>
-                            <p>${product.product_price}VNĐ</p>
+                            <p>${saleShow}</p>
                        
                     </a>
                     `;

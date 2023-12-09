@@ -5,23 +5,25 @@
     }
 
 ?>
-<div class="main-content">
-    <div class="notifi--container">
-            <h1>Cảm ơn bạn đã mua hàng</h1>
-            <div class="buttons">
-                <a href="index.php">
-                    <button id="continue-shopping-btn" class="buttons__Cart">Tiếp tục mua hàng</button>
-                </a>
-                <a href="index.php?page=yourCard&id_user=<?=$id_user?>">
-                    <button id="order-history-btn" class="buttons__Cart">Xem lịch sử đơn hàng</button>
-                </a>
+    <div class="main-content">
+        <div class="succesFul row">
+            <div class="notifi--container row">
+                <h1 class="notifi--container__heading">Cảm ơn bạn đã mua hàng tại Hải Sản Miền Tây</h1>
+                <div class="buttons row">
+                    <a href="index.php">
+                        <button id="continue-shopping-btn" class="buttons__Cart">Tiếp tục mua hàng</button>
+                    </a>
+                    <a href="index.php?page=yourCard&id_user=<?=$id_user?>">
+                        <button id="order-history-btn" class="buttons__Carts">Xem lịch sử đơn hàng</button>
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div id="notification-modal" class="modal">
+            
             <div class="modal-content">
-                <p class="notification-message">Bạn đã mua hàng thành công!</p>
+                <p class="notifi--container__heading">Bạn đã mua hàng thành công!</p>
             </div>
+           
         </div>
         <div class=" popular">
             <div class="main-content">
@@ -56,4 +58,4 @@
                     
                 </div>
             </div>
-        </div>
+    </div>

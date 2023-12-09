@@ -122,8 +122,6 @@
                     }
                    
                 }
-
-
                 // load thống kê
                 $totalAllProducts=getAdminAll_TotalProduct();
                 $soldProduct=getAdminAll_SoldProduct();
@@ -526,7 +524,7 @@
                     $offset=$_GET['offset'];
                     $status = $_GET['status'];
                     $listCart=getAdminCartStatus($status, $offset);
-                    $listOffset=getAdminOffsetCart($status, $offset);
+                    // $listOffset=getAdminOffsetCart($status, $offset);
                 }
                 $countAllCart=getAdmin_AllCart();
                 $shipCart=getAdmin_ShippCart();

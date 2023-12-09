@@ -1451,8 +1451,7 @@ function forgotPassUser($phone) {
 
     // cart 
     function getAdminCartStatus($status,$offset){
-        $sql="SELECT * FROM package where status=".$status;
-        $sql.=" LIMIT 8 OFFSET $offset";
+        $sql = "SELECT * FROM package WHERE status = $status ORDER BY id_package DESC LIMIT 8 OFFSET $offset";
         return get_All($sql);
     }
     function getAdminOffsetCart($status, $offset){

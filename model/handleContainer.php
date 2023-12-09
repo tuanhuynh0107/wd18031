@@ -203,7 +203,6 @@
     //     require_once('view/catalog/'.$name_catalog.'.php');
     // }
     function handleBill() {
-        
           // check người dùng không đăng nhập thì không cho đặt hàng
           if(!isset($_POST['name']) || empty($_POST['name']) && !isset($_POST['phone']) || empty($_POST['phone']) && !isset($_POST['address']) || empty($_POST['address'])){
             $thongbao='Bạn chưa điền thông tin.';
@@ -236,7 +235,8 @@
                                  insert_Detail_Package($cart['namePro'],$cart['qtyPro'],$cart['pricePro'], $total,$id_package,$id_trans,$cart['idProduct']);
                              }
                              $_SESSION['cart']=[];
-                             $thongbao="Bạn đã đặt hàng thành công";
+                             $listItemLimitRanDom = getDetailProductLimitRanDom();  
+                             require_once "view/successfulNotification.php";
                          }
                      }
                  
@@ -246,8 +246,10 @@
             extract($_SESSION['user_info']);
             $loadUser=loadAllUser($id_user);
         }
-        $listItemLimitRanDom = getDetailProductLimitRanDom();
-         require_once "view/successfulNotification.php";
+        if( $_SESSION['cart']!==[]){
+            require_once "view/payMent.php";
+        }
+        
     }
 
     function handleShowCatalog() {

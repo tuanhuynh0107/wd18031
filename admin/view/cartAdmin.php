@@ -63,12 +63,12 @@
                                 <h4>Đơn hàng mới</h4>
                             </div>
                             <div class="revenue__status row">
-                                <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
-                                <a href="index.php?page=loadCartStatus&status=6" class="revenue__top--satus">Đã xác nhận</a>
-                                <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang vận chuyển</a>
-                                <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Giao hàng thành công</a>
-                                <a href="index.php?page=loadCartStatus&status=4" class="revenue__top--satus">Thất bại</a>
-                                <a href="index.php?page=loadCartStatus&status=5" class="revenue__top--satus">Đã hủy</a>
+                                <a href="index.php?page=loadCartStatus&status=1&offset=0" class="revenue__top--satus">Chờ xác nhận</a>
+                                <a href="index.php?page=loadCartStatus&status=6&offset=0" class="revenue__top--satus">Đã xác nhận</a>
+                                <a href="index.php?page=loadCartStatus&status=2&offset=0" class="revenue__top--satus">Đang vận chuyển</a>
+                                <a href="index.php?page=loadCartStatus&status=3&offset=0" class="revenue__top--satus">Giao hàng thành công</a>
+                                <a href="index.php?page=loadCartStatus&status=4&offset=0" class="revenue__top--satus">Thất bại</a>
+                                <a href="index.php?page=loadCartStatus&status=5&offset=0" class="revenue__top--satus">Đã hủy</a>
                                 
                             </div>
                         </div>
@@ -175,15 +175,100 @@
                             </tbody>
                         </table>
                         <div class="seclect__offset row">
-                            <a href=""><pre><</pre></a>
-                            <a href="index.php?page=cartAdmin&offset=0">1</a>
-                            <a href="index.php?page=cartAdmin&offset=8">2</a>
-                            <a href="index.php?page=cartAdmin&offset=16">3</a>
-                            <a href="index.php?page=cartAdmin&offset=32">4</a>
-                            <a href="index.php?page=cartAdmin&offset=40">5</a>
-                            <a href="index.php?page=cartAdmin&offset=48">6</a>
-                            <a href="index.php?page=cartAdmin&offset=56">7</a>
-                            <a href=""><pre>></pre></a>
+                            <?php
+                             $showlistCart="";
+                                foreach ($listCart as $cart){
+                                    extract($cart);
+                                   
+                                    if($status == 1 ){
+                                        $showlistCart.= 
+                                        '
+                                            <a href=""><pre><</pre></a>
+                                            <a href="index.php?page=loadCartStatus&status=1&offset=0">1</a>
+                                            <a href="index.php?page=loadCartStatus&status=1&offset=8">2</a>
+                                            <a href="index.php?page=loadCartStatus&status=1&offset=16">3</a>
+                                            <a href="index.php?page=loadCartStatus&status=1&offset=32">4</a>
+                                            <a href="index.php?page=loadCartStatus&status=1&offset=40">5</a>
+                                            <a href="index.php?page=loadCartStatus&status=1&offset=48">6</a>
+                                            <a href="index.php?page=loadCartStatus&status=1&offset=56">7</a>
+                                            <a href=""><pre>></pre></a>
+                                        ';
+                                    }else if($status == 2){
+                                        $showlistCart.= 
+                                        '
+                                            <a href=""><pre><</pre></a>
+                                            <a href="index.php?page=loadCartStatus&status=2&offset=0">1</a>
+                                            <a href="index.php?page=loadCartStatus&status=2&offset=8">2</a>
+                                            <a href="index.php?page=loadCartStatus&status=2&offset=16">3</a>
+                                            <a href="index.php?page=loadCartStatus&status=2&offset=32">4</a>
+                                            <a href="index.php?page=loadCartStatus&status=2&offset=40">5</a>
+                                            <a href="index.php?page=loadCartStatus&status=2&offset=48">6</a>
+                                            <a href="index.php?page=loadCartStatus&status=2&offset=56">7</a>
+                                            <a href=""><pre>></pre></a>
+                                        ';
+                                    }else if($status == 3){
+                                        $showlistCart.= 
+                                        '
+                                            <a href=""><pre><</pre></a>
+                                            <a href="index.php?page=loadCartStatus&status=3&offset=0">1</a>
+                                            <a href="index.php?page=loadCartStatus&status=3&offset=8">2</a>
+                                            <a href="index.php?page=loadCartStatus&status=3&offset=16">3</a>
+                                            <a href="index.php?page=loadCartStatus&status=3&offset=32">4</a>
+                                            <a href="index.php?page=loadCartStatus&status=3&offset=40">5</a>
+                                            <a href="index.php?page=loadCartStatus&status=3&offset=48">6</a>
+                                            <a href="index.php?page=loadCartStatus&status=3&offset=56">7</a>
+                                            <a href=""><pre>></pre></a>
+                                        ';
+                                    }else if($status == 4){
+                                        $showlistCart.= 
+                                        '
+                                            <a href=""><pre><</pre></a>
+                                            <a href="index.php?page=loadCartStatus&status=4&offset=0">1</a>
+                                            <a href="index.php?page=loadCartStatus&status=4&offset=8">2</a>
+                                            <a href="index.php?page=loadCartStatus&status=4&offset=16">3</a>
+                                            <a href="index.php?page=loadCartStatus&status=4&offset=32">4</a>
+                                            <a href="index.php?page=loadCartStatus&status=4&offset=40">5</a>
+                                            <a href="index.php?page=loadCartStatus&status=4&offset=48">6</a>
+                                            <a href="index.php?page=loadCartStatus&status=4&offset=56">7</a>
+                                            <a href=""><pre>></pre></a>
+                                        ';
+                                    }else if($status == 5){
+                                        $showlistCart.= 
+                                        '
+                                            <a href=""><pre><</pre></a>
+                                            <a href="index.php?page=loadCartStatus&status=5&offset=0">1</a>
+                                            <a href="index.php?page=loadCartStatus&status=5&offset=8">2</a>
+                                            <a href="index.php?page=loadCartStatus&status=5&offset=16">3</a>
+                                            <a href="index.php?page=loadCartStatus&status=5&offset=32">4</a>
+                                            <a href="index.php?page=loadCartStatus&status=5&offset=40">5</a>
+                                            <a href="index.php?page=loadCartStatus&status=5&offset=48">6</a>
+                                            <a href="index.php?page=loadCartStatus&status=5&offset=56">7</a>
+                                            <a href=""><pre>></pre></a>
+                                        ';
+                                    }else if($status == 6){
+                                        $showlistCart.= 
+                                        '
+                                            <a href=""><pre><</pre></a>
+                                            <a href="index.php?page=loadCartStatus&status=6&offset=0">1</a>
+                                            <a href="index.php?page=loadCartStatus&status=6&offset=8">2</a>
+                                            <a href="index.php?page=loadCartStatus&status=6&offset=16">3</a>
+                                            <a href="index.php?page=loadCartStatus&status=6&offset=32">4</a>
+                                            <a href="index.php?page=loadCartStatus&status=6&offset=40">5</a>
+                                            <a href=""><pre>></pre></a>
+                                        ';
+                                    }
+                                    break;
+                                    
+                                }
+                                if($showlistCart!=""){
+                                    echo $showlistCart;
+                                }else{
+                                    echo "";
+                                }
+                               
+                            
+                            ?>
+                            
                         </div>
                     </article>
                 </div>

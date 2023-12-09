@@ -47,7 +47,7 @@
                         <?php
                             // $listCarts=$_SESSION['cart'];  
                             if(isset($_SESSION['cart'])&&is_array($_SESSION['cart']))  {
-                                $ship=25000;
+                                $ship=35000;
                                 $idCart= 0;
                                 $total_qty=0;
                                 $quantyty = 0;
@@ -132,7 +132,7 @@
                             </div>
                             <div class="temporary-content  row">
                                 <span>Phí vận chuyển tạm tính</span>
-                                <strong><?php if($total_qty==0){ echo $ship=0;}else{echo $ship;}?></strong>
+                                <strong><?php if($total_qty>=500000){ echo $ship=0;}else{echo $ship;}?></strong>
                             </div>
                             <!-- <div class="temporary-content  row">
                                 <span>Voucher</span>

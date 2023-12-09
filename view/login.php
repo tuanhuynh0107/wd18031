@@ -45,11 +45,11 @@
                             </div>
                             <div class="line" style="width: 80%; margin-left: auto; margin-right: auto; border-bottom: 1px solid;
                             height: 1px; margin-top: 22px;margin-bottom: 28px;"></div>
-                            <div class="form__group--desc">Hoặc đăng nhập bằng</div>
+                            <!-- <div class="form__group--desc">Hoặc đăng nhập bằng</div>
 
-                            <div class="with__login row">
-                                <a href="#!" class="icon__with">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41"
+                                <div class="with__login row">
+                                    <a href="#!" class="icon__with">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41"
                                         fill="none">
                                         <g clip-path="url(#clip0_1261_12367)">
                                             <path
@@ -74,7 +74,7 @@
                                                     transform="translate(0 0.956055)" />
                                             </clipPath>
                                         </defs>
-                                    </svg>
+                                        </svg>
                                 </a>
                                 <a href="#!" class="icon__with">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41"
@@ -114,7 +114,7 @@
                                         </defs>
                                     </svg>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
 
                     </form>

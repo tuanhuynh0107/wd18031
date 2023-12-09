@@ -24,7 +24,8 @@ body {
     /* background: linear-gradient(180deg, #00BAFF 0%, rgba(0, 186, 255, 0.00) 100%); */
     /* background: linear-gradient(180deg, rgba(0, 186, 255, 0.47) 0%, rgba(0, 186, 255, 0.00) 100%); */
     /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 27.72%, rgba(0, 186, 255, 0.00) 100%); */
-    background: linear-gradient(180deg, rgba(208, 244, 255, 0.66) 12.49%, rgba(0, 186, 255, 0.64) 100%);
+    /* background: linear-gradient(180deg, rgba(208, 244, 255, 0.66) 12.49%, rgba(0, 186, 255, 0.64) 100%); */
+    background: linear-gradient(180deg, rgba(208, 244, 255, 0.66) 12.49%, rgba(0, 186, 255, 0.28) 100%);
 }
 
 /* Common */
@@ -813,21 +814,24 @@ input {
     justify-content: center;
     align-items: end;
     position: absolute;
-    top: 173px;
+    bottom: 0;
     left: 0;
     width: 100%;
     border-radius: 0px;
-    background: var(--primary-color-bgc);
+    background: #50C5F7;
+    box-shadow: 0px 7px 8px 0px #2E677B;
     line-height: 2.5;
     border: none;
     color: #fff;
     opacity: 0;
-    transition: opacity 500ms ease-in-out;
+    transition: all 400ms ease-in-out;
 }
 
 
 .popular .course-item:hover .book-btn {
-    opacity: 0.85;
+    opacity: 1;
+    bottom: 25%;
+    box-shadow: 0px 4px 20px 0px #CFE6EE;
 }
 
 /* Feedback */

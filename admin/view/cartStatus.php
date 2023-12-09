@@ -1,7 +1,7 @@
 <?php
     // print_r($listDetail);
 ?>
-<input type="submit" value="">
+<!-- <input type="submit" value=""> -->
 <form action="" method="post"></form>
 <main class="main row">
                 <div class="main-content row">
@@ -62,12 +62,12 @@
                                 <h4>Đơn hàng mới</h4>
                             </div>
                             <div class="revenue__status row">
-                                <a href="index.php?page=loadCartStatus&status=1" class="revenue__top--satus">Chờ xác nhận</a>
-                                <a href="index.php?page=loadCartStatus&status=6" class="revenue__top--satus">Đã xác nhận</a>
-                                <a href="index.php?page=loadCartStatus&status=2" class="revenue__top--satus">Đang vận chuyển</a>
-                                <a href="index.php?page=loadCartStatus&status=3" class="revenue__top--satus">Giao hàng thành công</a>
-                                <a href="index.php?page=loadCartStatus&status=4" class="revenue__top--satus">Thất bại</a>
-                                <a href="index.php?page=loadCartStatus&status=5" class="revenue__top--satus">Đã hủy</a>
+                                <a href="index.php?page=loadCartStatus&status=1&offset=0" class="revenue__top--satus">Chờ xác nhận</a>
+                                <a href="index.php?page=loadCartStatus&status=6&offset=0" class="revenue__top--satus">Đã xác nhận</a>
+                                <a href="index.php?page=loadCartStatus&status=2&offset=0" class="revenue__top--satus">Đang vận chuyển</a>
+                                <a href="index.php?page=loadCartStatus&status=3&offset=0" class="revenue__top--satus">Giao hàng thành công</a>
+                                <a href="index.php?page=loadCartStatus&status=4&offset=0" class="revenue__top--satus">Thất bại</a>
+                                <a href="index.php?page=loadCartStatus&status=5&offset=0" class="revenue__top--satus">Đã hủy</a>
                             </div>
                         </div>
                         <table class="table__packgeNew">

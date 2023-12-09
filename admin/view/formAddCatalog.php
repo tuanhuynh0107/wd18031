@@ -95,10 +95,6 @@
                                         <input type="text" class="form_group__item_input--input" name="nameCatalog" id="add_product--input" placeholder="Nhập tên sản phẩm">
                                     </div>  
                                     <div class="form_group__add_product--item_input">
-                                        <label for="add_product--input" class="form_group__item_input--text">Số lương sản phảm</label> <br>
-                                        <input type="number" class="form_group__item_input--input" name="quantityCatalog" id="add_product--input"  placeholder="ví dụ 100" min="0">
-                                    </div>
-                                    <div class="form_group__add_product--item_input">
                                         <label for="add_product--input" class="form_group__item_input--text">Trạng thái</label> <br>
                                         <input type="number" class="form_group__item_input--input"  name="satus" id="add_product--input"  placeholder=" ví dụ #CUA00235" min="0">
                                     </div>

@@ -2,7 +2,7 @@
  if(isset($_SESSION['user_info'])){
     extract($_SESSION['user_info']);
 }
- echo print_r($loadUser);
+//  echo print_r($loadUser);
  if(isset($loadUser)){
     // extract($loadUser);
  }

@@ -47,6 +47,8 @@
                                     return 'Thanh toán';
                                 case 'searchProduct':
                                     return 'Kết quả tìm kiếm';
+                                case 'bill':
+                                    return 'Đặt hàng thành công';
                                 // Thêm các trang khác nếu cần
                                 default:
                                     return 'Trang không xác định';

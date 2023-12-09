@@ -1424,7 +1424,6 @@ function forgotPassUser($phone) {
                 <td>'.$email.'</td>
                 <td>'.$genderShơw.'</td>
                 <td class="line-clamp">'.$address.'</td>
-                <td>'.$role_userShow.'</td>
                 <td>
                     <a href="'.$linkBlockProduct.'" class="hendel-delete-act">Xem chi tiết</a>
                 </td>
@@ -1450,7 +1449,7 @@ function forgotPassUser($phone) {
     }
 
     // cart 
-    function getAdminCartStatus($status,$offset){
+    function getAdminCartStatus($status,$offset=0){
         $sql="SELECT * FROM package where status=".$status;
         $sql.=" LIMIT 8 OFFSET $offset";
         return get_All($sql);

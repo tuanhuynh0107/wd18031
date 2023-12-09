@@ -60,11 +60,6 @@
                                 <button class="btn btn-ml"><a href="index.php?page=addProduct">Thêm </a></button>
                             </div>
                             
-                            <select class="revenue__top--hendel">
-                                <option value="1">Cá hồi</option>
-                                <option value="2">Cua</option>
-                                <option value="3">Ghẹ</option>
-                            </select>
                         </div>
                         <table class="table__packgeNew">
                             <thead>

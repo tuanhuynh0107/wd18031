@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin</title>
+    <title><?php 
+        echo getPageName();
+    ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,20 +156,7 @@
                            Giao diện
                         </a>
                     </li>
-                    <li class="main__menu--li row">
-                        <a href="#!" class="row main__menu--li__action">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
-                                fill="none">
-                                <path
-                                    d="M17.2918 8.33341C19.1328 8.33341 20.6252 6.84103 20.6252 5.00008C20.6252 3.15913 19.1328 1.66675 17.2918 1.66675C15.4509 1.66675 13.9585 3.15913 13.9585 5.00008C13.9585 6.84103 15.4509 8.33341 17.2918 8.33341Z"
-                                    fill="black" />
-                                <path
-                                    d="M20.7001 21.8584C20.608 21.7965 20.5045 21.7536 20.3956 21.7322C20.2867 21.7108 20.1746 21.7114 20.0659 21.7339C19.9573 21.7564 19.8542 21.8004 19.7627 21.8633C19.6713 21.9261 19.5933 22.0067 19.5334 22.1001C18.7278 23.2931 17.741 24.3531 16.6084 25.2418C16.3334 25.4501 15.3084 26.2418 14.8751 26.0751C14.5751 25.9834 14.7501 25.3918 14.8084 25.1418L15.2501 23.8334C15.4334 23.3001 18.6251 13.8334 18.9751 12.7501C19.4918 11.1668 19.2668 9.60843 16.9084 9.98343C16.2668 10.0501 9.75843 10.8918 9.64176 10.9001C9.53233 10.9072 9.42537 10.9358 9.32699 10.9843C9.2286 11.0327 9.14073 11.1001 9.06837 11.1825C8.99602 11.2649 8.94061 11.3607 8.9053 11.4646C8.87 11.5684 8.85549 11.6782 8.8626 11.7876C8.86971 11.897 8.89831 12.004 8.94676 12.1024C8.99521 12.2008 9.06257 12.2886 9.14498 12.361C9.22739 12.4333 9.32325 12.4888 9.42707 12.5241C9.5309 12.5594 9.64066 12.5739 9.7501 12.5668C9.7501 12.5668 12.2501 12.2418 12.5251 12.2168C12.666 12.203 12.8078 12.2303 12.9335 12.2954C13.0592 12.3604 13.1633 12.4605 13.2334 12.5834C13.3844 13.0502 13.3637 13.5556 13.1751 14.0084C12.9584 14.8418 9.53343 24.4918 9.4251 25.0501C9.3089 25.5173 9.34116 26.0091 9.5174 26.4572C9.69363 26.9052 10.0051 27.2872 10.4084 27.5501C11.1655 28.0547 12.067 28.2976 12.9751 28.2418C13.8581 28.231 14.7313 28.0558 15.5501 27.7251C17.6251 26.8918 19.7918 24.6751 20.9334 22.9334C21.0317 22.7565 21.0623 22.5498 21.0193 22.352C20.9764 22.1541 20.8629 21.9787 20.7001 21.8584Z"
-                                    fill="black" />
-                            </svg>
-                            Hỗ trợ
-                        </a>
-                    </li>
+                   
                     <li class="main__menu--li row" style="margin-top: 60px;">
                         <a href="#!" class="row main__menu--li__action">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
@@ -338,11 +327,11 @@
 
                     <div class="user__admin row">
                        
-                    <img src="../assets/uploads/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>" alt=""  class="sidebar--top__left--img">
+                        <img src="../assets/uploads/<?php if(isset($_SESSION['user_info'])){echo  $_SESSION['user_info']['img'];}?>" alt=""  class="sidebar--top__left--img">
 
-                        <p class="user__title">
-                            <?php if(isset($_SESSION['user_info'])){echo $_SESSION['user_info']['username'];}?>
-                        </p>
+                            <p class="user__title">
+                                <?php if(isset($_SESSION['user_info'])){echo $_SESSION['user_info']['username'];}?>
+                            </p>
                     </div>
                 </div>
             </header>

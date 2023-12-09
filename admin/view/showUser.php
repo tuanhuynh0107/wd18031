@@ -59,12 +59,12 @@
                     </article>
                     <!-- code table don hang o day -->
                     <article class="revenue">
-                        <div class="revenue__top row">
+                        <div class="revenue__top">
                             <div class="revenue__top--title row">
-                                <h4>Khách hàng</h4>
+                                <h4 class="revenue__title--heading">Khách hàng</h4>
+                                <h4 class="revenue__title--heading"><a href="#!">Quản trị viên</a></h4>
+                                <!-- Thêm show admin -->
                             </div>
-                            
-                           
                         </div>
                         <table class="table__packgeNew">
                             <thead>
@@ -75,7 +75,6 @@
                                     <th>Email</th>
                                     <th>Giới tính</th>
                                     <th>Địa chỉ</th>
-                                    <th>Vai trò</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>

@@ -78,9 +78,9 @@
                                     <td>Mã khách hàng</td>
                                     <td>Tên khách hàng</td>
                                     <td>Số điện thoại</td>
-                                    <td>Gmail</td>
-                                    <td>Số lượng đơn hàng</td>
-                                    <td>Giá đơn hàng</td>
+                                    <td>Email</td>
+                                    <td>Số lượng đơn hàng(Không nhận)</td>
+                                    <td>Giá trị đơn hàng</td>
                                 </tr>
                             </thead>
                             <tbody>

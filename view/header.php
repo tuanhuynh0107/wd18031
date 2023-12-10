@@ -444,7 +444,7 @@
                                                                 $showHoverCart.= '
                                                                 
                                                                                 <tr>
-                                                                                    <td><a href="'.$linkProduct.'"> <img src="./assets/img/img_main/'.$imgPro.'" alt="" class="imgCartView"></a></td>
+                                                                                    <td><a href="'.$linkProduct.'"> <img src="./assets/uploads/'.$imgPro.'" alt="" class="imgCartView"></a></td>
                                                                                     <td>'.$namePro.'</div></td>
                                                                                     <td> '.number_format($pricePro,0,",",".").' VNĐ</td>
                                                                                     <td> <a href="'.$linkDeleCart.'">xóa</a></td>
@@ -642,7 +642,7 @@
 
                     div.innerHTML = `
                     <a href="index.php?page=product&idProduct=${product.product_id}" class="item_Product">
-                        <img src="./assets/img/img_main/${product.album_image}" alt="">
+                        <img src="./assets/uploads/${product.album_image}" alt="">
                        
                             <h4>${product.product_name.slice(0, 30)}</h4>
                             <p>${saleShow}</p>

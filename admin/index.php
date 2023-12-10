@@ -429,7 +429,6 @@
                         $thongbao="Bạn không được để trống";
                     }else{
                         $nameCatalog=$_POST['nameCatalog'];
-                    $qtyCatalog=$_POST['quantityCatalog'];
                     $satus=$_POST['satus'];
 
                     // hình banner catalog
@@ -453,7 +452,7 @@
                         // echo "Sorry, there was an error uploading your file.";
                       }
 
-                    insertCatalog($nameCatalog, $qtyCatalog,$satus,  $bannerCatalog, $iconsCatalog);
+                    insertCatalog($nameCatalog,$satus,  $bannerCatalog, $iconsCatalog);
                     $thongbao="bạn đã thêm thành công";
                     }
                     
@@ -479,7 +478,6 @@
             case 'updateCata':
               if(isset($_POST['btnUpdateCatalog'])&&($_POST['btnUpdateCatalog'])){
                 $nameCatalog=$_POST['nameCatalog'];
-                    $qtyCatalog=$_POST['quantityCatalog'];
                     $satus=$_POST['satus'];
 
                     // hình banner catalog
@@ -504,7 +502,7 @@
                       }
 
                 $id=$_POST['id_catalog'];
-                updateCatalog($nameCatalog, $qtyCatalog,$satus, $bannerCatalog, $iconsCatalog, $id);
+                updateCatalog($nameCatalog, $satus, $bannerCatalog, $iconsCatalog, $id);
                 $thongbao="bạn đã cập nhật thành công";
               }
               $countAllCatalog= getAdminCountCatalog();
@@ -663,6 +661,7 @@
                 $soldProduct=getAdminAll_SoldProduct();
                 $loadAllUser=getAdmin_LoadAllUser();
                 $loadNewCart=getAdmin_LoadNewCart();
+                $totalAllUser=getAdminAll_TotalUser();
                 // bản thống kê theo tuần
                 $loadstatistical=getAdminstatistical();
                 require_once "view/home.php";
@@ -674,6 +673,7 @@
         $soldProduct=getAdminAll_SoldProduct();
         $loadAllUser=getAdmin_LoadAllUser();
         $loadNewCart=getAdmin_LoadNewCart();
+        $totalAllUser=getAdminAll_TotalUser();
         // bản thống kê theo tuần
         $loadstatistical=getAdminstatistical();
         $pageName .="Trang chủ";

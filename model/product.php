@@ -184,7 +184,7 @@ function getProduct($id_pro){
             $proQty=1;
             $kq .= '<div class="course-item">
             <a href="'.$linkProduct.'" class="course__images">
-                <img src="./assets/img/img_main/'.$album_image.'" alt="Basic web design" class="thumb" />
+                <img src="./assets/uploads/'.$album_image.'" alt="Basic web design" class="thumb" />
                '.$salePercent.'
             </a>
             <div class="info row">
@@ -245,7 +245,7 @@ function getProduct($id_pro){
         foreach($banner_catalog as $itemBaner){
             extract($itemBaner);
             echo '<a href="">
-                    <img src="./assets/img/banner_product/'.$banner_catalog.'" alt="" class="banner-catalog">
+                    <img src="./assets/uploads/'.$banner_catalog.'" alt="" class="banner-catalog">
                 </a>';
         }
     }
@@ -883,22 +883,22 @@ function forgotPassUser($phone) {
         $sql = "SELECT * FROM catalog WHERE id_catalog=".$id;
         return get_One($sql);
     }
-    function insertCatalog($nameCatalog, $qtyCatalog,$satus,  $bannerCatalog, $iconsCatalog) {
-        $sql = "INSERT INTO catalog (name_catalog, qty_catalog, status_catalog, banner_catalog, img_catalog)
-         VALUES ('$nameCatalog', $qtyCatalog, '$satus', '$bannerCatalog', '$iconsCatalog')";
+    function insertCatalog($nameCatalog,$satus,  $bannerCatalog, $iconsCatalog) {
+        $sql = "INSERT INTO catalog (name_catalog, status_catalog, banner_catalog, img_catalog)
+         VALUES ('$nameCatalog', '$satus', '$bannerCatalog', '$iconsCatalog')";
         inset($sql);
     }
-    function updateCatalog($nameCatalog, $qtyCatalog,$satus, $bannerCatalog, $iconsCatalog, $id){
+    function updateCatalog($nameCatalog,$satus, $bannerCatalog, $iconsCatalog, $id){
         if($bannerCatalog !== "" && $iconsCatalog !== ""){
-            $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus', banner_catalog='$bannerCatalog', img_catalog='$iconsCatalog' WHERE id_catalog=$id";
+            $sql = "UPDATE catalog SET name_catalog='$nameCatalog',  status_catalog='$satus', banner_catalog='$bannerCatalog', img_catalog='$iconsCatalog' WHERE id_catalog=$id";
         }else{
             if($bannerCatalog !== "" && $iconsCatalog == ""){
-                $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus', banner_catalog='$bannerCatalog' WHERE id_catalog=$id";
+                $sql = "UPDATE catalog SET name_catalog='$nameCatalog',  status_catalog='$satus', banner_catalog='$bannerCatalog' WHERE id_catalog=$id";
             }else{
                 if($bannerCatalog == "" && $iconsCatalog !== ""){
-                    $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus', img_catalog='$iconsCatalog'  WHERE id_catalog=$id";
+                    $sql = "UPDATE catalog SET name_catalog='$nameCatalog',  status_catalog='$satus', img_catalog='$iconsCatalog'  WHERE id_catalog=$id";
                 }else{
-                    $sql = "UPDATE catalog SET name_catalog='$nameCatalog', qty_catalog=$qtyCatalog,  status_catalog='$satus'  WHERE id_catalog=$id";
+                    $sql = "UPDATE catalog SET name_catalog='$nameCatalog',  status_catalog='$satus'  WHERE id_catalog=$id";
                 }
             }
         }
@@ -975,7 +975,7 @@ function forgotPassUser($phone) {
     JOIN
         package p ON u.id_user = p.id_User
     WHERE
-        u.id_user IN (
+        u.role_user <> 1 AND p.status = 3  AND  u.id_user IN (
             SELECT id_User
             FROM package
             WHERE status = 3
@@ -1000,7 +1000,7 @@ function forgotPassUser($phone) {
     JOIN
         package p ON u.id_user = p.id_user
     WHERE
-       u.role_user <> 1 AND u.id_user   IN (
+        p.status = 5 AND u.role_user <> 1 AND u.id_user   IN (
             SELECT id_user
             FROM package
             WHERE status = 5
@@ -1264,7 +1264,7 @@ function forgotPassUser($phone) {
         FROM
             package
         WHERE
-            YEAR(time) = YEAR(CURRENT_DATE) -- Lấy dữ liệu cho cùng một năm
+            status = 3 AND YEAR(time) = YEAR(CURRENT_DATE) -- Lấy dữ liệu cho cùng một năm
         GROUP BY
             month
         ORDER BY

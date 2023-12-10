@@ -90,6 +90,7 @@
                             <a href="index.php?page=product&offset=56">8</a>
                             <a href="index.php?page=product&offset=64">9</a>
                             <a href="index.php?page=product&offset=72">10</a>
+                            <a href="index.php?page=product&offset=80">11</a>
                            
                             <a href=""><pre>></pre></a>
                         </div>

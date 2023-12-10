@@ -68,7 +68,7 @@
 </svg>
                             </a>
                             <figure>
-                                <img src="./assets/img/img_main/<?=$img_main?>"
+                                <img src="./assets/uploads/<?=$img_main?>"
                                     alt="haisanmientay" class="main-product__img--top-img">
                             </figure>
                             <a href="#!" class="main-product__icon--right">
@@ -81,15 +81,15 @@
                       </div>
                       <div class="main-product__img--bottom">
                           <figure>
-                              <img src="./assets/img/img_main/<?=$img1?>"
+                              <img src="./assets/uploads/<?=$img1?>"
                                   alt="haisanmientay">
-                              <img src="./assets/img/img_main/<?=$img2?>"
+                              <img src="./assets/uploads/<?=$img2?>"
                                   alt="haisanmientay">
-                              <img src="./assets/img/img_main/<?=$img3?>"
+                              <img src="./assets/uploads/<?=$img3?>"
                                   alt="haisanmientay">
-                              <img src="./assets/img/img_main/<?=$img4?>"
+                              <img src="./assets/uploads/<?=$img4?>"
                                   alt="haisanmientay">
-                            <img src="./assets/img/img_main/<?=$img_main?>"
+                            <img src="./assets/uploads/<?=$img_main?>"
                             alt="haisanmientay" class="main-product__img--top-img">
                           </figure>
                       </div>
@@ -169,7 +169,7 @@
             </div>
         <div class="description__content main-content" id="mota">
                 <figure class="description__content--item row">
-                    <img src="./assets/img/img_main/<?=$img2?>" alt="" class="description__content-img">
+                    <img src="./assets/uploads/<?=$img2?>" alt="" class="description__content-img">
                     <figcaption class="description__content--desc">
                         <h4 class="description__content--hd"><?=$name_prd?> <?=$production?></h4>
                         Được nhiều khách hàng lựa chọn vì sự tiện lợi, tiết kiệm được lên đến 25% so với giá
@@ -181,7 +181,7 @@
                     </figcaption>
                 </figure>
                 <figure class="description__content--item row">
-                    <img src="./assets/img/img_main/<?=$img3?>" alt="" class="description__content-img">
+                    <img src="./assets/uploads/<?=$img3?>" alt="" class="description__content-img">
                     <figcaption class="description__content--desc">
 
                         <ul class="description__content--desc__list">
@@ -196,7 +196,7 @@
                     </figcaption>
                 </figure>
                 <figure class="description__content--item row">
-                    <img src="./assets/img/img_main/<?=$img4?>" alt="" class="description__content-img" s>
+                    <img src="./assets/uploads/<?=$img4?>" alt="" class="description__content-img" s>
                     <figcaption class="description__content--desc">
                         Tình trạng : Giao sống
                         Xuất xứ : Cua thịt - Cà Mau; Ốc hương - Cam Ranh

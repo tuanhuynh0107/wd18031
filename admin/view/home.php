@@ -24,7 +24,7 @@
                             <a href="index.php?page=showUser">
                                 <div class="total_product__content row">
                                     <p class="total_product__content--title">Khách hàng</p>
-                                    <div class="total_product__content--qty"><?=$loadAllUser[0]['allUser']?></div>
+                                    <div class="total_product__content--qty"><?=$totalAllUser[0]['total_user']?></div>
                                     <p class="total_product__content--desc">Tất cả sản phẩm trong database</p>
                                 </div>
                             </a>

@@ -124,6 +124,7 @@
                                 <input type="hidden" name="idPro" value="<?=$id?>">
                                 <input type="hidden" name="imgPro" value="<?=$img1?>">
                                 <input type="hidden" name="namePro" value="<?=$name?>">
+                                <input type="hidden" name="qty" value="<?=$qty?>">
                                 <?=$showInputHidden?>
                                 <input type="hidden" name="typePro" value="'<?=$type?>">
                                 <input type="hidden" name="qtyPro" value="1">

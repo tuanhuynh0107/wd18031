@@ -147,22 +147,22 @@
             $pricePro=$_POST['pricePro'];
             $nameCata=$_POST['nameCata'];
             $typePro=$_POST['typePro'];
-           
+            $qty=$_POST['qty'];
             // echo var_dump($pricePro);
 
             if(isset($_POST['qtyPro'])&&($_POST['qtyPro'])){
-                $qtyPro=$_POST['qtyPro'];
+                $qtyPro=intval($_POST['qtyPro']);
             }else{
                 $qtyPro = 1;
             }
-            
+            $total= $pricePro *  $qtyPro;
            
             // check_trung_sanpham
             if(checkDuplicates( $idProduct)>=0){
                 $vitritrung = checkDuplicates( $idProduct);
                 upDataQty($vitritrung);
             }else{
-                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata];
+                $item = ["typePro"=>$typePro,"idProduct"=> $idProduct,"imgPro"=> $imgPro,"pricePro"=> $pricePro,"namePro"=> $namePro,"qtyPro"=> $qtyPro,"nameCata"=>$nameCata,"qty"=>$qty,"total"=>$total];
                 $_SESSION['cart'][] = $item;
             }    
         }

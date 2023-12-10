@@ -226,6 +226,7 @@ function getProduct($id_pro){
                 <input type="hidden" name="namePro" value="'.$product_name.'">
                 '. $showInputHidden.'
                 <input type="hidden" name="typePro" value="'.$product_type.'">
+                <input type="hidden" name="qty" value="'.$product_qty.'">
                 <input type="hidden" name="qtyPro" value="'.$proQty.'">
                 <input type="hidden" name="nameCata" value="'.$category_name.'">
                 <input type="submit" value="Mua ngay" class="btn book-btn" name="byNow">

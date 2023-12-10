@@ -83,10 +83,14 @@
                             <a href="index.php?page=product&offset=0">1</a>
                             <a href="index.php?page=product&offset=8">2</a>
                             <a href="index.php?page=product&offset=16">3</a>
-                            <a href="index.php?page=product&offset=32">4</a>
-                            <a href="index.php?page=product&offset=40">5</a>
-                            <a href="index.php?page=product&offset=48">6</a>
-                            <a href="index.php?page=product&offset=56">7</a>
+                            <a href="index.php?page=product&offset=24">4</a>
+                            <a href="index.php?page=product&offset=32">5</a>
+                            <a href="index.php?page=product&offset=40">6</a>
+                            <a href="index.php?page=product&offset=48">7</a>
+                            <a href="index.php?page=product&offset=56">8</a>
+                            <a href="index.php?page=product&offset=64">9</a>
+                            <a href="index.php?page=product&offset=72">10</a>
+                           
                             <a href=""><pre>></pre></a>
                         </div>
                     </article>

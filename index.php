@@ -193,6 +193,9 @@
             case 'khachhangthanthiet';
                 handleKhachhangthanthiet();
                 break;
+            case 'baiviet1';
+                handleBaiViet();
+                break;
             default:
                 handleDefault();
                 break;

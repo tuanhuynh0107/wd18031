@@ -125,25 +125,8 @@
             </div>
         </div>
         <!-- Features 1 -->
-        <div class="features">
-            <div class="main-content">
-                <div class="body">
-                    <div class="images">
-                        <img class="lower" src="./assets/img/combo1.png"
-                            alt="Learner outcomes through our awesome platform" />
-                        <img src="./assets/img/combo2.png" alt="Learner outcomes through our awesome platform" />
-                    </div>
-                    <div class="content">
-                        <h2 class="heading lv2">
-                            Combo hot nhất tháng 10 được nhiều khách hàng săn đón nhất. </h2>
-                        <p class="desc">
-                            Cùng săn các cb hot nhất tháng 10 trong hôm nay nhanh tay kẻo lỡ với các voucher giảm giá
-                            cực khủng </p>
-                        <p class="desc">Combo siêu hot (2023)</p>
-                        <a href="#!" class="btn cta-btn">Săn ngay</a>
-                    </div>
-                </div>
-            </div>
+        <div class="main-content">
+            <img src="./assets/icons/hotsale.png" alt="" style="width:100%; border-radius:12px ; ">
         </div>
 
         <!-- line -->
@@ -264,7 +247,7 @@
         </div>
 
         <figure class="banner__ngaoso main-content row">
-            <img src="./assets/icons/banner-ngaosoochen.png" alt="">
+            <img src="./assets/icons/banner-ngaosoochen.png" alt="" >
         </figure>
 
         <!-- popular / đang giảm -->
@@ -384,7 +367,7 @@
                                     Hội sao Việt mê nấu ăn. Cùng sao Việt vào bếp?
                                 </a>
                             </h3>
-                            <a href="#!" class="btn">Xem ngay</a>
+                            <a href="index.php?page=baiviet1" class="btn">Xem ngay</a>
                         </div>
                     </div>
 

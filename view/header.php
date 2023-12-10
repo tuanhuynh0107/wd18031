@@ -18,19 +18,19 @@
                                 case 'home':
                                     return 'HẢI SẢN MIỀN TÂY- Nhà bán lẻ số 2 tại Việt Nam';
                                 case 'product':
-                                    return 'Sản phẩm';
+                                    return 'Sản phẩm-Hải Sản Miền Tây';
                                 case 'chitietdonhang':
-                                    return 'Sản phẩm';
+                                    return 'Sản phẩm-Hải Sản Miền Tây';
                                 case 'proFile':
                                     return 'Thông tin khách hàng';
                                 case 'login':
-                                    return 'Đăng nhập';
+                                    return 'Đăng nhập-Hải Sản Miền Tây';
                                 case 'register':
-                                    return 'Đăng ký';
+                                    return 'Đăng ký-Hải Sản Miền Tây';
                                 case 'cart':
-                                    return 'Giỏ hàng';
+                                    return 'Giỏ hàng-Hải Sản Miền Tây';
                                 case 'payMent':
-                                    return 'Thanh toán';
+                                    return 'Thanh toán-Hải Sản Miền Tây';
                                 case 'resetPassWord':
                                     return 'Đặt lại mật khẩu';
                                 case 'reserPass':
@@ -44,11 +44,17 @@
                                 case 'userFeadBack':
                                     return 'Phản hồi của khách hàng';
                                 case 'payMent':
-                                    return 'Thanh toán';
+                                    return 'Thanh toán-Hải Sản Miền Tây';
                                 case 'searchProduct':
                                     return 'Kết quả tìm kiếm';
                                 case 'bill':
                                     return 'Đặt hàng thành công';
+                                case 'chinhsachdoitrahang':
+                                    return 'Chính sách đổi trả sản phẩm';
+                                case 'khachhangthanthiet':
+                                    return 'Chương trình khách hàng thân thiết';
+                                case 'baiviet1':
+                                    return 'Hội sao việt mê nấu ăn';
                                 // Thêm các trang khác nếu cần
                                 default:
                                     return 'Trang không xác định';

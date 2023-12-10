@@ -309,4 +309,7 @@
     function handleKhachhangthanthiet() {
         require_once ("view/newSession/khachhangthanthiet.php");
     }
+    function handleBaiViet() {
+        require_once ("view/newSession/baiviet1.php");
+    }
 ?>

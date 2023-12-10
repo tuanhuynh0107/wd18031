@@ -918,8 +918,8 @@ function forgotPassUser($phone) {
             '
             <tr>
                 <td><a href="">#'.$id_catalog.'</a></td>
-                <td><img src="../assets/icons/'.$img_catalog.'" alt="" style=" width:30px; height:30px"></td>
-                <td><img src="../assets/img/banner_product/'.$banner_catalog.'" alt="" style=" width:100px; height:50px"></td>
+                <td><img src="../assets/uploads/'.$img_catalog.'" alt="" style=" width:30px; height:30px"></td>
+                <td><img src="../assets/uploads/'.$banner_catalog.'" alt="" style=" width:100px; height:50px"></td>
                 <td>'.$name_catalog.'</td>
                 <td>'.$product_count.'</td>
                 <td>

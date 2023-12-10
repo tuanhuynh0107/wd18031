@@ -34,6 +34,13 @@
                         <?php
                             foreach($loadCommentNew as $itemNewComment){
                                 extract($itemNewComment);
+                                $dateString = $time;
+
+                                // Tạo một đối tượng DateTime từ chuỗi ngày tháng năm
+                                $date = new DateTime($dateString);
+
+                                // Định dạng ngày tháng năm mới
+                                $newDateFormat = $date->format('d-m-Y H:i:s');
                                 echo 
                                 '<div class="notify__post--heading row ">
                            
@@ -41,7 +48,7 @@
                                     Bình luận mới nhất
                                 </div>
                                 <div class="notify--heading__time">
-                                    '.$time.'
+                                    '. $newDateFormat.'
                                 </div>
                             </div>
     

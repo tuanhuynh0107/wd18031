@@ -32,7 +32,7 @@
                                 </svg>
                             </div>
                             
-                            <a href="index.php?page=loadCartStatus&status=2" class="total_product__content row">
+                            <a href="index.php?page=loadCartStatus&status=2&offset=0" class="total_product__content row">
                                 <p class="total_product__content--title">Đơn hàng đang vận chuyển</p>
                                 <div class="total_product__content--qty"><?=$shipCart[0]['shipCart']?></div>
                                 <p class="total_product__content--desc">Tăng 40% trong tháng</p>

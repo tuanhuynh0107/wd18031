@@ -110,6 +110,7 @@
     <?php
           if(isset($_POST['sendComment'])&&($_POST['sendComment'])){
             if(isset($_SESSION['user_info'])){
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $content = $_POST['content__comment'];
                 $idpro = $_POST['idpro'];
                 $iduser = $_SESSION['user_info']['id_user'];

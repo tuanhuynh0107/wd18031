@@ -13,6 +13,7 @@
     require_once 'view/header.php';
     $thongbao="";
     date_default_timezone_set('Asia/Ho_Chi_Minh');
+    
    
      if(isset($_GET['page'])&&($_GET['page'])!="") {
         $page = $_GET['page'];
@@ -625,6 +626,7 @@
                 break;    
             case 'replatComment':
                 if (isset($_POST['btnReplay']) && ($_POST['btnReplay'])) {
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $content = $_POST['contentReplay'];
                     $idpro = $_POST['idProReplay'];
                     $iduser = $_SESSION['user_info']['id_user'];

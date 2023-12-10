@@ -91,11 +91,18 @@
                                     foreach ($loadDetailFeedBack as $item) {
                                         if ($item !== null) {
                                             extract($item);
+                                            $dateString = $time;
+
+                                            // Tạo một đối tượng DateTime từ chuỗi ngày tháng năm
+                                            $date = new DateTime($dateString);
+
+                                            // Định dạng ngày tháng năm mới
+                                            $newDateFormat = $date->format('d-m-Y H:i:s');
                                             echo '
                                             <tr>
                                                 <td>' . $id . '</td>
                                                 <td>' . $content_feedback . '</td>
-                                                <td>' . $time . '</td>
+                                                <td>' . $newDateFormat . '</td>
                                                 <td>' . $name_prd . '</td>
                                             </tr>';
                                         }

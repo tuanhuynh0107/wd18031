@@ -90,6 +90,14 @@
                                 $index=0;
                                     foreach( $loadReplayComment as $itemComment){
                                         extract($itemComment);
+                                        $dateString = $comment_time;
+
+                                        // Tạo một đối tượng DateTime từ chuỗi ngày tháng năm
+                                        $date = new DateTime($dateString);
+
+                                        // Định dạng ngày tháng năm mới
+                                        $newDateFormat = $date->format('d-m-Y H:i:s');
+
                                         $linkReplay="index.php?page=replatComment";
                                         $showComment="";
                                         if($comment_replay == 0){
@@ -101,7 +109,7 @@
                                         }else{
                                             $showUserComment.='
                                             <td>'.$product_name.'</td>
-                                            <td>'.$comment_time.'</td>
+                                            <td>'.$newDateFormat.'</td>
                                             <td>'.$user_username.'</td>
                                             <td>'.$showComment.'</td>                                 
                                             <td>'.$reply_text.'</td>

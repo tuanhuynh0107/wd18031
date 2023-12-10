@@ -79,6 +79,7 @@
             case 'userFeadBack':
                
                 if(isset($_POST['btnComment'])){
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $idPackage=$_POST['idPackage'];
                     $idUser=$_POST['idUser'];
                     $textComment=$_POST['comment'];

@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <div class="course-list">
-                    <?= showProduct($listItemLimit)?>
+                    <?= showProduct($listItemLimitRanDom)?>
                 </div>
             </div>
         </div>
@@ -178,7 +178,7 @@
 
                 <div class="course-list">
                     <!-- Course item 1 -->
-                    <?= showProduct($listItemLimitRanDom)?>
+                    <?= showProduct2($listItemLimit)?>
                 </div>
             </div>
         </div>

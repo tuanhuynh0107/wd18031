@@ -236,6 +236,96 @@ function getProduct($id_pro){
         }
         return $kq;
     }
+    function showProduct2($list){
+        $kq = "";
+        $id_lable=1;
+       
+        foreach ($list as $item) {
+            
+            extract($item);
+            $saleShow = "";
+            $salePercent= "";
+            if($product_sale > 0){
+                $priceSale = $product_price * ($product_sale / 100 );
+                $afterPriceReduction = $product_price - $priceSale;
+                $saleShow .='                    
+                    <span class="price">'.number_format( $afterPriceReduction,0,",",".").' VNĐ / '.$product_type.'</span> <del class="price-del">'.number_format($product_price,0,",",".").' đ</del>
+                ';
+            }else{
+                $saleShow .='
+                <span class="price">'.number_format($product_price,0,",",".").' VNĐ / '.$product_type.'</span> 
+                ';
+            }
+
+            if($product_sale>0){
+                $salePercent .= '
+                <span class="course-item__sale">-'.$product_sale.'%</span>
+                ';
+            }
+
+            if($product_sale > 0){
+               $showInputHidden= '<input type="hidden" name="pricePro" value="'. $afterPriceReduction.'">';
+            }else{
+                $showInputHidden='<input type="hidden" name="pricePro" value="'.$product_price.'">';
+            }
+            $linkAddCart='index.php?page=addCart&idProduct='.$product_id;
+            $linkByNow='index.php?page=byNow&idProduct='.$product_id;
+            $linkProduct = 'index.php?page=product&idProduct='.$product_id;
+            $proQty=1;
+            $kq .= '<div class="course-item">
+            <a href="'.$linkProduct.'" class="course__images">
+                <img src="./assets/uploads/'.$album_image.'" alt="Basic web design" class="thumb" />
+               '.$salePercent.'
+            </a>
+            <div class="info row">
+                <div class="body row">
+                    <h3 class="title">
+                        <a href="'.$linkProduct.'" class="line-clamp break-all">
+                            '.$product_name.'
+                        </a>
+                    </h3>
+                    <div class="add__to-Cart">
+                        <form action="'.$linkAddCart.'" method="post">
+                            <input type="hidden" name="idPro" value="'.$product_id.'">
+                            <input type="hidden" name="imgPro" value="'.$album_image.'">
+                            <input type="hidden" name="namePro" value="'.$product_name.'">
+                            '.$showInputHidden.'
+                            <input type="hidden" name="typePro" value="'.$product_type.'">
+                            <input type="hidden" name="qtyPro" value="'.$proQty.'">
+                            <input type="hidden" name="nameCata" value="'.$category_name.'">
+                            <input type="hidden" name="qty" value="'.$product_qty.'">
+                            <input type="submit" name="addCart" class="none" value="Thêm" id="addCart'.$id_lable.'">
+                            <label for="addCart'.$id_lable.'" class="icon__addCart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30
+                                " viewBox="0 0 43 43" fill="none">
+                                    <circle cx="21.5" cy="21.5" r="21.5" fill="#F46404"/>
+                                    <path d="M14.5333 9.41379C14.5333 7.2069 16.1333 5 18.8 5H25.2C27.8667 5 29.4667 7.2069 29.4667 9.41379V14.931H35.8667C36.4325 14.931 36.9751 15.1635 37.3752 15.5774C37.7752 15.9913 38 16.5526 38 17.1379V20.4483C38.0001 21.0146 37.7898 21.5593 37.4126 21.9696C37.0354 22.38 36.5201 22.6247 35.9733 22.653L32.768 33.8397C32.5067 34.7523 31.9672 35.5531 31.23 36.1227C30.4928 36.6922 29.5974 36.9999 28.6773 37H15.2971C14.3846 36.9999 13.4962 36.6973 12.7622 36.1364C12.0283 35.5756 11.4875 34.7861 11.2192 33.8839L7.87413 22.6397C7.35694 22.5742 6.88079 22.3152 6.53554 21.9115C6.19028 21.5078 5.99979 20.9873 6 20.4483V17.1379C6 16.5526 6.22476 15.9913 6.62484 15.5774C7.02492 15.1635 7.56754 14.931 8.13333 14.931H14.5333V9.41379ZM16.6667 14.931H27.3333V9.41379C27.3333 6.65517 25.7333 6.10345 24.1333 6.10345H19.8667C18.2667 6.10345 16.6667 6.65517 16.6667 9.41379V14.931ZM27.3333 17.1379H8.13333V20.4483H35.8667V17.1379H29.4667V18.2414C29.4667 18.534 29.3543 18.8147 29.1542 19.0216C28.9542 19.2286 28.6829 19.3448 28.4 19.3448C28.1171 19.3448 27.8458 19.2286 27.6458 19.0216C27.4457 18.8147 27.3333 18.534 27.3333 18.2414V17.1379ZM31.9349 22.6552L32.9056 23.6593L33.6928 22.845L33.7461 22.6552H31.9349ZM28.3797 23.6593L29.3504 22.6552H27.4091L28.3797 23.6593ZM22.8853 22.6552L23.856 23.6593L24.8267 22.6552H22.8853ZM19.3301 23.6593L20.3008 22.6552H18.3595L19.3301 23.6593ZM14.8043 23.6593L15.7749 22.6552H13.8336L14.8043 23.6593ZM10.1109 22.6552L10.3776 23.5556L11.248 22.6552H10.1109ZM11.1381 26.1101L11.4432 27.1352L11.7867 26.7799L11.1381 26.1101ZM32.9877 25.3046L32.9056 25.2196L31.3973 26.7799L32.2987 27.7123L32.9877 25.3046ZM31.7867 29.4977L31.9531 28.9161L30.6421 27.56L29.1339 29.1214L30.6421 30.6817L31.7867 29.4977ZM30.9195 32.5277L30.6421 32.2419L29.1339 33.8022L29.7824 34.4731C30.2261 34.1961 30.5675 33.7537 30.7232 33.213L30.9195 32.5277ZM28.5835 34.7931L28.3808 34.5834L28.1771 34.7931H28.5835ZM26.6677 34.7931L27.6256 33.8022L26.1173 32.2419L24.6091 33.8022L25.5659 34.7931H26.6677ZM23.6512 34.7931H24.0576L23.8549 34.5834L23.6512 34.7931ZM22.1429 34.7931L23.0997 33.8022L21.5915 32.2419L20.0832 33.8022L21.0411 34.7931H22.1429ZM19.1253 34.7931H19.5317L19.3291 34.5834L19.1253 34.7931ZM17.6171 34.7931L18.5749 33.8022L17.0656 32.2419L15.5573 33.8022L16.5152 34.7931H17.6171ZM14.9835 34.7688L14.8032 34.5823L14.688 34.7015C14.784 34.7313 14.8832 34.7534 14.9835 34.7688ZM13.7525 34.109L14.0491 33.8022L13.1499 32.872L13.2576 33.2361C13.3579 33.5705 13.5296 33.8673 13.7525 34.109ZM12.4789 30.6188L12.5408 30.6817L14.0491 29.1214L12.5408 27.56L11.7984 28.328L12.4789 30.6188ZM12.5408 22.8792L11.0325 24.4394L12.5408 25.9997L14.0491 24.4394L12.5408 22.8792ZM14.8032 25.2196L13.296 26.7799L14.8043 28.3412L16.3125 26.7799L14.8032 25.2196ZM17.0656 27.56L15.5573 29.1214L17.0656 30.6817L18.5749 29.1214L17.0656 27.56ZM17.8208 26.7799L19.3291 28.3412L20.8373 26.7799L19.3291 25.2196L17.8208 26.7799ZM19.3291 29.9015L17.8208 31.4618L19.3291 33.0221L20.8373 31.4618L19.3291 29.9015ZM21.5915 30.6817L23.0997 29.1214L21.5915 27.56L20.0832 29.1214L21.5915 30.6817ZM17.0656 25.9997L18.5749 24.4394L17.0656 22.8792L15.5573 24.4394L17.0656 25.9997ZM26.8715 31.4618L28.3797 33.0221L29.888 31.4618L28.3797 29.9015L26.8715 31.4618ZM29.888 26.7799L28.3797 25.2196L26.8715 26.7799L28.3797 28.3412L29.888 26.7799ZM23.8539 33.0221L25.3632 31.4618L23.8539 29.9015L22.3456 31.4618L23.8539 33.0221ZM24.6091 24.4394L26.1173 25.9997L27.6256 24.4394L26.1173 22.8792L24.6091 24.4394ZM23.0997 24.4394L21.5915 22.8792L20.0832 24.4394L21.5915 25.9997L23.0997 24.4394ZM30.6432 25.9997L32.1515 24.4394L30.6421 22.8792L29.1339 24.4394L30.6432 25.9997ZM22.3456 26.7799L23.8539 28.3412L25.3632 26.7799L23.8539 25.2196L22.3456 26.7799ZM14.8043 33.0221L16.3115 31.4618L14.8032 29.9015L13.296 31.4607L14.8043 33.0221ZM24.6091 29.1214L26.1173 30.6817L27.6256 29.1214L26.1173 27.56L24.6091 29.1214Z" fill="white"/>
+                                </svg>
+                            </label>
+                        </form>
+                    </div>
+                </div>
+                <div class="foot row">
+                    '.$saleShow.'
+                </div>
+            </div>
+            
+            <form action="'.$linkByNow.'" method="post">
+                <input type="hidden" name="idPro" value="'.$product_id.'">
+                <input type="hidden" name="imgPro" value="'.$album_image.'">
+                <input type="hidden" name="namePro" value="'.$product_name.'">
+                '. $showInputHidden.'
+                <input type="hidden" name="typePro" value="'.$product_type.'">
+                <input type="hidden" name="qty" value="'.$product_qty.'">
+                <input type="hidden" name="qtyPro" value="'.$proQty.'">
+                <input type="hidden" name="nameCata" value="'.$category_name.'">
+                <input type="submit" value="Mua ngay" class="btn book-btn" name="byNow">
+            </form>
+        </div>';
+        $id_lable++;
+        }
+        return $kq;
+    }
     // Show sản phẩm theo catalog
     function getBannerCatalog($id_Cata){
         $sql = "SELECT * FROM catalog Where id_catalog=".$id_Cata;
@@ -673,7 +763,7 @@ function forgotPassUser($phone) {
             $linkItems = "index.php?page=showCatalog&id_Cata=".$id_catalog;
             $show .= '<li class="menu__catalog">
                         <a href="'.$linkItems.'" class="menu__catalog--act row">
-                            <img src="./assets/icons/'.$img_catalog.'" alt="" class="catalog__act--icon">
+                            <img src="./assets/uploads/'.$img_catalog.'" alt="" class="catalog__act--icon">
                             <span class="catalog__act--title">'.$name_catalog.'</span>
                         </a>
                     </li>';

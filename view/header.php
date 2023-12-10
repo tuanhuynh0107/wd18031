@@ -493,7 +493,7 @@
 
                 </li>
                 <li class="catalog__log">
-                    <a href="" class="log__atc row">
+                    <a href="index.php?page=chinhsachdoitrahang" class="log__atc row">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                             <g clip-path="url(#clip0_1707_47064)">
                                 <rect width="40" height="40" rx="20" fill="white"/>
@@ -552,7 +552,7 @@
                     </a>
                 </li>
                 <li class="catalog__log ">
-                    <a href="" class="log__atc row">
+                    <a href="index.php?page=khachhangthanthiet" class="log__atc row">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                             <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" fill="white"/>
                             <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#4BA0E2" stroke-width="2.5"/>

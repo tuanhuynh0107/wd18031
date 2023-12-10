@@ -302,4 +302,11 @@
         }
 
     }
+
+    function handleChinhsachDoiTraHang() {
+        require_once ("view/newSession/chinhsachdoitrahang.php");
+    }
+    function handleKhachhangthanthiet() {
+        require_once ("view/newSession/khachhangthanthiet.php");
+    }
 ?>

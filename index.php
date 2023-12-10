@@ -187,6 +187,12 @@
             case 'searchProduct';
                 handleSearchProduct();
                 break;
+            case 'chinhsachdoitrahang';
+                handleChinhsachDoiTraHang();
+                break;
+            case 'khachhangthanthiet';
+                handleKhachhangthanthiet();
+                break;
             default:
                 handleDefault();
                 break;

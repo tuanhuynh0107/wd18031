@@ -20,12 +20,12 @@ html {
 body {
     font-size: 1.6rem;
     font-family: 'DM Sans', sans-serif;
-    background-color: #00BAFF;
+    background-color: #fff;
     /* background: linear-gradient(180deg, #00BAFF 0%, rgba(0, 186, 255, 0.00) 100%); */
     /* background: linear-gradient(180deg, rgba(0, 186, 255, 0.47) 0%, rgba(0, 186, 255, 0.00) 100%); */
     /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 27.72%, rgba(0, 186, 255, 0.00) 100%); */
     /* background: linear-gradient(180deg, rgba(208, 244, 255, 0.66) 12.49%, rgba(0, 186, 255, 0.64) 100%); */
-    background: linear-gradient(180deg, rgba(208, 244, 255, 0.66) 12.49%, rgba(0, 186, 255, 0.28) 100%);
+    /* background: linear-gradient(180deg, rgba(208, 244, 255, 0.66) 12.49%, rgba(0, 186, 255, 0.28) 100%); */
 }
 
 /* Common */
@@ -679,7 +679,7 @@ input {
 }
 
 .popular .course-item .thumb {
-    width: 100%;
+    width: 236px;
     height: 250px;
     object-fit: cover;
     /* padding: 20px; */
@@ -3087,4 +3087,60 @@ textarea:focus {
 .buttons__Carts {
     background-color: var(--primary-color-btn);
     color: #000;
+}
+
+/* chinhsachdoitrahang */
+
+
+.header__post {
+    background: #DBDBDB;
+    padding: 5px 30px;
+}
+
+.header__post--heading {
+    color: rgba(58, 58, 58, 0.60);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.header__post--title {
+    color: var(--primary-color--font);
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.post__title {
+    padding-top: 17px;
+    flex-direction: row;
+    gap: 46px;
+    align-items: flex-start;
+    margin-bottom: 27px;
+}
+
+.post__img {
+    margin-top: 16px;
+}
+
+.header__post--title1 {
+    color: var(--primary-color-bgc);
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding-bottom: 27px;
+    margin-top: 40px;
+}
+
+.post--desc {
+    color: var(--primary-color--font);
+    font-size: 1.6rem;
+    font-weight: 400;
+    width: 90%;
+    line-height: 1.5;
+}
+
+.post--desc--strong {
+    color: var(--primary-color--font);
+    font-size: 1.6rem;
+    font-weight: 500;
+    width: 100%;
+
 }
